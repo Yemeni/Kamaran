@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Kamaran IMS',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Kamaran</b>IMS',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>K</b>IMS',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,35 +107,122 @@ return [
     |
     */
 
+    // if user is Manager
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Blog',
-            'url' => 'admin/blog',
+            'text' => 'Dashboard',
+            'icon' => 'file',
+            'submenu' => [
+                [
+                   'text' => 'Overview',
+                   'icon' => 'file',
+                   'url' => ''
+                ],
+                [
+                    'text' => 'Performance',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Inventory',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Orders',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Shipments',
+                    'icon' => 'file',
+                    'url' => ''
+                ]
+
+            ]
+
         ],
         [
-            'text' => 'Pages',
-            'url' => 'admin/pages',
-            'icon' => 'file'
+            'text' => 'Apps',
+            'icon' => 'file',
+            'submenu' => [
+                [
+                    'text' => 'Review Orders',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Track Shipments',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Manage Items',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Manage Suppliers',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Print Reports',
+                    'icon' => 'file',
+                    'url' => ''
+                ]
+
+            ]
+
         ],
         [
-            'text' => 'Show my website',
-            'url' => '/',
-            'target' => '_blank'
+            'text' => 'Staff Management',
+            'icon' => 'file',
+            'submenu' => [
+                [
+                    'text' => 'My Profile',
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Employees',
+                    'icon' => 'file',
+                    'url' => ''
+                ]
+
+            ]
+        ]
         ],
+
+//
+//        [
+//            'text' => 'Blog',
+//            'url' => 'admin/blog',
+//        ],
+//        [
+//            'text' => 'Pages',
+//            'url' => 'admin/pages',
+//            'icon' => 'file'
+//        ],
+//        [
+//            'text' => 'Show my website',
+//            'url' => '/',
+//            'target' => '_blank'
+//        ],
 //        'ACCOUNT SETTINGS',
 //        [
 //            'text' => 'Profile',
-//            'route' => 'admin.profile',
+////            'route' => 'admin.profile',
 //            'icon' => 'user'
 //        ],
 //        [
 //            'text' => 'Change Password',
-//            'route' => 'admin.password',
+////            'route' => 'admin.password',
 //            'icon' => 'lock'
 //        ],
-    ],
-//
+//    ],
+
 //    'menu' => [
 //        'MAIN NAVIGATION',
 //        [
