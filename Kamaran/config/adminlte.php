@@ -112,31 +112,31 @@ return [
         'MAIN NAVIGATION',
         [
             'text' => 'Dashboard',
-            'icon' => 'file',
+            'icon' => 'tachometer',
             'submenu' => [
                 [
                    'text' => 'Overview',
-                   'icon' => 'file',
+                   'icon' => 'eye',
                    'url' => ''
                 ],
                 [
                     'text' => 'Performance',
-                    'icon' => 'file',
+                    'icon' => 'chart-line',
                     'url' => ''
                 ],
                 [
                     'text' => 'Inventory',
-                    'icon' => 'file',
+                    'icon' => 'inventory',
                     'url' => ''
                 ],
                 [
                     'text' => 'Orders',
-                    'icon' => 'file',
+                    'icon' => 'shopping-cart',
                     'url' => ''
                 ],
                 [
                     'text' => 'Shipments',
-                    'icon' => 'file',
+                    'icon' => 'ship',
                     'url' => ''
                 ]
 
@@ -145,7 +145,7 @@ return [
         ],
         [
             'text' => 'Apps',
-            'icon' => 'file',
+            'icon' => 'lightbulb',
             'submenu' => [
                 [
                     'text' => 'Review Orders',
@@ -154,22 +154,22 @@ return [
                 ],
                 [
                     'text' => 'Track Shipments',
-                    'icon' => 'file',
+                    'icon' => 'ship',
                     'url' => ''
                 ],
                 [
                     'text' => 'Manage Items',
-                    'icon' => 'file',
+                    'icon' => 'box',
                     'url' => ''
                 ],
                 [
                     'text' => 'Manage Suppliers',
-                    'icon' => 'file',
+                    'icon' => 'users',
                     'url' => ''
                 ],
                 [
                     'text' => 'Print Reports',
-                    'icon' => 'file',
+                    'icon' => 'print',
                     'url' => ''
                 ]
 
@@ -178,16 +178,16 @@ return [
         ],
         [
             'text' => 'Staff Management',
-            'icon' => 'file',
+            'icon' => 'cog',
             'submenu' => [
                 [
                     'text' => 'My Profile',
-                    'icon' => 'file',
+                    'icon' => 'user',
                     'url' => ''
                 ],
                 [
                     'text' => 'Employees',
-                    'icon' => 'file',
+                    'icon' => 'users',
                     'url' => ''
                 ]
 
