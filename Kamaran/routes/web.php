@@ -11,6 +11,34 @@
 |
 */
 
+
+/*
+ * layouts plan
+/login
+/dashboard
+    - admin view
+    - manager view
+    - staff view
+    - inventory employee view
+/categories
+    - admin view
+/items
+    - manager + staff view
+/suppliers
+    - manager view
+    - staff view
+/staff
+    - manager view
+/orders
+    - manager view
+    - staff view
+/shipments
+    - manager+staff view
+/inventory
+    - manager+staff view
+    - inventory employee view
+
+ */
 //Route::get('/', function () {
 //    return view('welcome');
 //});
@@ -23,3 +51,7 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/dashboard', function (){
+//    return view('dashboard');
+//});
