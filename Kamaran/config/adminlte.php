@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'blue-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +145,7 @@ return [
         ],
         [
             'text' => 'Apps',
-            'icon' => 'lightbulb',
+            'icon' => 'wrench',
             'submenu' => [
                 [
                     'text' => 'Review Orders',
