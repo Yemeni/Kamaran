@@ -120,7 +120,7 @@
                                 var myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                        labels : ["January","February","March","April","May","June","July"],
+                                        labels : ["January","February","March","April","May","June","July",],
                                         datasets : [
                                             {
                                                 data : [65,8,90,81,56,55,40,],
@@ -128,15 +128,15 @@
                                                 borderColor : 'rgba(136,136,136,0.5)',
                                                 pointBackgroundColor:'#3498db',
                                                 pointBorderColor : '#fff',
-                                                label:"Total Orders"},
+                                                label:"Approved Orders"},
 
                                             {
-                                                data : [21,48,40,19,96,27,100,],
+                                                data : [77,48,99,88,96,66,100,],
                                                 backgroundColor :'#2ecccc',
                                                 borderColor : '#aaaaaa',
                                                 pointBackgroundColor:'#6d2ecc',
                                                 pointBorderColor : '#fff',
-                                                label:"Approved Orders"},
+                                                label:"Total Orders"},
 
                                         ]
                                     },
@@ -202,7 +202,7 @@
                                     }
                                 });
                             </script>
-                        @stop
+                        @append
                     </div>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
@@ -220,7 +220,97 @@
                     <p>Last month you consumed 305,995,999 tons</p>
                     <p>Last month you ordered 289,000,568 tons</p>
                     <div>
-                        TODO: Tobacco/Consumed Chart
+                        <canvas id="myChart2" width="700" height="400" class="bg-gray"></canvas>
+                        @section('js')
+
+                            <script>
+                                var ctx2 = document.getElementById("myChart2");
+                                var myChart2 = new Chart(ctx2, {
+                                    type: 'bar',
+                                    data: {
+                                        labels : ["January","February","March","April","May","June","July",],
+                                        datasets : [
+                                            {
+                                                data : [650545111,80545111,900545111,805451111,505451116,505451115,154511140,],
+                                                backgroundColor :'#3498db',
+                                                borderColor : 'rgba(136,136,136,0.5)',
+                                                pointBackgroundColor:'#3498db',
+                                                pointBorderColor : '#fff',
+                                                label:"Tobacco Consumed"},
+
+                                            {
+                                                data : [705451117,480545111,905451119,805451118,905451116,605451116,1005451110,],
+                                                backgroundColor :'#2ecccc',
+                                                borderColor : '#aaaaaa',
+                                                pointBackgroundColor:'#6d2ecc',
+                                                pointBorderColor : '#fff',
+                                                label:"Tobacco Ordered"},
+
+                                        ]
+                                    },
+                                    options: {
+                                        responsive:true,
+                                        layout:{padding:{top:12,left:12,bottom:12,},},
+                                        scales: {
+                                            xAxes:[{
+                                                stacked: true,gridLines:{borderDash:[],},
+                                            }],
+
+                                            yAxes:[{
+                                                stacked: true,gridLines:{borderDash:[],},
+                                            }],
+                                        },plugins:{
+                                            datalabels:{display:true,
+                                                font:{
+                                                    style:' bold',},},
+                                        },
+                                        legend:{
+                                            labels:{
+                                                generateLabels: function(chart){
+                                                    return  chart.data.datasets.map( function( dataset, i ){
+                                                        return{
+                                                            text:dataset.label,
+                                                            lineCap:dataset.borderCapStyle,
+                                                            lineDash:[],
+                                                            lineDashOffset: 0,
+                                                            lineJoin:dataset.borderJoinStyle,
+                                                            fillStyle:dataset.backgroundColor,
+                                                            strokeStyle:dataset.borderColor,
+                                                            lineWidth:dataset.pointBorderWidth,
+                                                            lineDash:dataset.borderDash,
+                                                        }
+                                                    })
+                                                },
+
+                                            },
+                                        },
+
+                                        title:{
+                                            display:true,
+                                            text:'Total Tobacco',
+                                            fontColor:'#3498db',
+                                            fontSize:32,
+                                            fontStyle:' bold',
+                                        },
+                                        elements: {
+                                            arc: {
+                                            },
+                                            point: {},
+                                            line: {tension:0.4,
+                                            },
+                                            rectangle: {
+                                            },
+                                        },
+                                        tooltips:{
+                                        },
+                                        hover:{
+                                            mode:'nearest',
+                                            animationDuration:400,
+                                        },
+                                    }
+                                });
+                            </script>
+                        @append
                     </div>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
