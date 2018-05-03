@@ -5,7 +5,6 @@
 @section('content_header')
     <h1>Dashboard</h1>
 
-
 @stop
 
 @section('content')
@@ -87,6 +86,18 @@
             </div>
         </div>
         <!-- .col -->
+        <div class="col-lg-2 col-xs-6">
+            <!-- small box -->
+            <div class="box">
+                <div class="inner">
+                    <p>Today is Tuesday,</p>
+                    <p>22 March 2019</p>
+                    <p>8:31 AM</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./col -->
     </div>
 
     <div class="row">
@@ -95,13 +106,103 @@
             <!-- small box -->
             <div class="small-box bg-blue">
                 <div class="inner">
-                    <h3>April Orders</h3>
+                    <h3>2/4 Quarter Orders</h3>
 
                     <h3>53 <sup style="font-size: 20px">Orders</sup> 41 <sup style="font-size: 20px">Approved</sup></h3>
 
                     <p>You have made 3 Orders today (2 Approved)</p>
                     <div>
-                        TODO: Orders/Approved Chart
+                        <canvas id="myChart" width="700" height="400" class="bg-gray"></canvas>
+                        @section('js')
+
+                            <script>
+                                var ctx = document.getElementById("myChart");
+                                var myChart = new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels : ["January","February","March","April","May","June","July"],
+                                        datasets : [
+                                            {
+                                                data : [65,8,90,81,56,55,40,],
+                                                backgroundColor :'#3498db',
+                                                borderColor : 'rgba(136,136,136,0.5)',
+                                                pointBackgroundColor:'#3498db',
+                                                pointBorderColor : '#fff',
+                                                label:"Total Orders"},
+
+                                            {
+                                                data : [21,48,40,19,96,27,100,],
+                                                backgroundColor :'#2ecccc',
+                                                borderColor : '#aaaaaa',
+                                                pointBackgroundColor:'#6d2ecc',
+                                                pointBorderColor : '#fff',
+                                                label:"Approved Orders"},
+
+                                        ]
+                                    },
+                                    options: {
+                                        responsive:true,
+                                        layout:{padding:{top:12,left:12,bottom:12,},},
+                                        scales: {
+                                            xAxes:[{
+                                                stacked: true,gridLines:{borderDash:[],},
+                                            }],
+
+                                            yAxes:[{
+                                                stacked: true,gridLines:{borderDash:[],},
+                                            }],
+                                        },plugins:{
+                                            datalabels:{display:true,
+                                                font:{
+                                                    style:' bold',},},
+                                        },
+                                        legend:{
+                                            labels:{
+                                                generateLabels: function(chart){
+                                                    return  chart.data.datasets.map( function( dataset, i ){
+                                                        return{
+                                                            text:dataset.label,
+                                                            lineCap:dataset.borderCapStyle,
+                                                            lineDash:[],
+                                                            lineDashOffset: 0,
+                                                            lineJoin:dataset.borderJoinStyle,
+                                                            fillStyle:dataset.backgroundColor,
+                                                            strokeStyle:dataset.borderColor,
+                                                            lineWidth:dataset.pointBorderWidth,
+                                                            lineDash:dataset.borderDash,
+                                                        }
+                                                    })
+                                                },
+
+                                            },
+                                        },
+
+                                        title:{
+                                            display:true,
+                                            text:'Total Orders',
+                                            fontColor:'#3498db',
+                                            fontSize:32,
+                                            fontStyle:' bold',
+                                        },
+                                        elements: {
+                                            arc: {
+                                            },
+                                            point: {},
+                                            line: {tension:0.4,
+                                            },
+                                            rectangle: {
+                                            },
+                                        },
+                                        tooltips:{
+                                        },
+                                        hover:{
+                                            mode:'nearest',
+                                            animationDuration:400,
+                                        },
+                                    }
+                                });
+                            </script>
+                        @stop
                     </div>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
@@ -171,39 +272,39 @@
                         </tr>
                         <tr>
                             <td>183</td>
-                            <td>John Doe</td>
+                            <td>Ahmed Ali</td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td><span class="label label-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
                             <td>219</td>
-                            <td>Alexander Pierce</td>
+                            <td>Alexander Mohammed</td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td><span class="label label-warning">Pending</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>657</td>
-                            <td>Bob Doe</td>
+                            <td>Ibtisam Doe</td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>FOB</td>
                             <td><span class="label label-success">Approved</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td>This is very necessary for the XVR machine</td>
                         </tr>
                         <tr>
                             <td>175</td>
-                            <td>Mike Doe</td>
+                            <td>Fatimah Salah</td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td><span class="label label-danger">Cancelled</span></td>
-                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td></td>
                         </tr>
                         </tbody></table>
                 </div>
