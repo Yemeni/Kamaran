@@ -52,6 +52,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-//Route::get('/dashboard', function (){
-//    return view('dashboard');
-//});
+Route::get('/profile', function (){
+    return view('profile');
+});

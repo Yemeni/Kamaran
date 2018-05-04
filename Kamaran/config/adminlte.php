@@ -111,31 +111,31 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Dashboard',
+            'text' => 'Dashboard', // manager
             'icon' => 'tachometer',
             'submenu' => [
                 [
-                   'text' => 'Overview',
+                   'text' => 'Overview', // manager
                    'icon' => 'eye',
                    'url' => ''
                 ],
                 [
-                    'text' => 'Performance',
+                    'text' => 'Performance', // manager
                     'icon' => 'chart-line',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Inventory',
+                    'text' => 'Inventory', // manager
                     'icon' => 'inventory',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Orders',
+                    'text' => 'Orders', // manager
                     'icon' => 'shopping-cart',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Shipments',
+                    'text' => 'Shipments', // manager
                     'icon' => 'ship',
                     'url' => ''
                 ]
@@ -144,31 +144,36 @@ return [
 
         ],
         [
-            'text' => 'Apps',
+            'text' => 'Apps', // manager + employee + employee_of_suppliers
             'icon' => 'wrench',
             'submenu' => [
                 [
-                    'text' => 'Review Orders',
+                    'text' => 'Review Orders', // manager
                     'icon' => 'file',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Track Shipments',
+                    'text' => 'Fill Order', // manager
+                    'icon' => 'file',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Track Shipments', // manager
                     'icon' => 'ship',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Manage Items',
+                    'text' => 'Manage Items', // manager + employee + employee_of_suppliers
                     'icon' => 'box',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Manage Suppliers',
+                    'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
                     'icon' => 'users',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Print Reports',
+                    'text' => 'Print Reports', // manager + employee
                     'icon' => 'print',
                     'url' => ''
                 ]
@@ -181,12 +186,17 @@ return [
             'icon' => 'cog',
             'submenu' => [
                 [
-                    'text' => 'My Profile',
+                    'text' => 'My Profile', // manager + employee + employee_of_suppliers
                     'icon' => 'user',
                     'url' => ''
                 ],
                 [
-                    'text' => 'Employees',
+                    'text' => 'Employees', // manager + employee_of_suppliers
+                    'icon' => 'users',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'My Manager', // employee
                     'icon' => 'users',
                     'url' => ''
                 ]
