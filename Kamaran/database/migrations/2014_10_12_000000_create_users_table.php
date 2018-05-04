@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('gender', ['male', 'female']);
             $table->string('phone')->unique();
-            $table->enum('level', ['admin','manager','employee','inventory_employee','head_of_supplier']);
+            $table->enum('level', ['admin','manager','employee','inventory_employee','head_of_suppliers']);
             $table->text('address');
             $table->enum('status', ['active','inactive']);
             $table->rememberToken();
