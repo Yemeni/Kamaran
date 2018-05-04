@@ -117,7 +117,7 @@ return [
                 [
                    'text' => 'Overview', // manager
                    'icon' => 'eye',
-                   'url' => ''
+                   'url' => '/'
                 ],
                 [
                     'text' => 'Performance', // manager
@@ -155,7 +155,7 @@ return [
                 [
                     'text' => 'Fill Order', // manager
                     'icon' => 'file',
-                    'url' => ''
+                    'url' => '/fill_order'
                 ],
                 [
                     'text' => 'Track Shipments', // manager
@@ -188,7 +188,7 @@ return [
                 [
                     'text' => 'My Profile', // manager + employee + employee_of_suppliers
                     'icon' => 'user',
-                    'url' => ''
+                    'url' => '/profile'
                 ],
                 [
                     'text' => 'Employees', // manager + employee_of_suppliers
