@@ -17,7 +17,6 @@ class CreateCatalogsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('item_id')->index();
             $table->unsignedInteger('supplier_id')->index();
-            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }
