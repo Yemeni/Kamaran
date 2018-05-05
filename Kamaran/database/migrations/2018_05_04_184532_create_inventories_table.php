@@ -16,6 +16,7 @@ class CreateInventoriesTable extends Migration
         Schema::create('inventories', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('category_id')->index();
             $table->unsignedInteger('shipment_id')->nullable()->index();
             $table->enum('transaction_type', ['voucher','consume','initial_balance','returns','surplus','shortage','normal_shortage']);
             $table->timestamp('date')->nullabe();

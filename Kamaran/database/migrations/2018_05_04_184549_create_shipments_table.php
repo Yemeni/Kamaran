@@ -17,6 +17,7 @@ class CreateShipmentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('orderitem_id')->index();
             $table->unsignedInteger('user_id')->index();
+            $table->unsignedInteger('category_id')->index();
             $table->tinyInteger('partial')->default(0);
             $table->timestamp('date')->nullable();
             $table->timestamp('expected_date')->nullable();

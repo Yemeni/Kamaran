@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'order_status', 'date', 'letter_of_credit', 'approval_date', 'user_id', 'supplier_id', 'comment'
+        'order_status', 'date', 'letter_of_credit', 'category_id', 'approval_date', 'user_id', 'supplier_id', 'comment'
     ];
     
     protected $dates = ['date', 'approval_date'];
@@ -25,5 +25,10 @@ class Order extends Model
     public function orderItem()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

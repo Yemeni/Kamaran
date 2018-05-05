@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     protected $fillable = [
-        'transaction_type', 'user_id', 'shipment_id', 'date', 'quantity', 'comment'
+        'transaction_type', 'user_id', 'category_id', 'shipment_id', 'date', 'quantity', 'comment'
     ];
     
     protected $dates = ['date'];
@@ -22,5 +22,9 @@ class Inventory extends Model
         return $this->belongsTo(Shipment::class);
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
 }
