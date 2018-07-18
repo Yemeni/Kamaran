@@ -71,7 +71,7 @@
                             <td>data</td>
                             <td>data</td>
                             <td><span class="label label-success">data</span></td>
-                            <td>data</td>   
+                            <td>data</td>
                         </tr>
                         </tbody></table>
                 </div>

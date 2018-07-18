@@ -97,6 +97,10 @@ Route::get('/manage_items', function (){
     return view('manage_items');
 });
 
+Route::get('/item', function (){
+    return view('item');
+});
+
 Route::get('/manage_suppliers', function (){
     return view('manage_suppliers');
 });
