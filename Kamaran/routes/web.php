@@ -105,6 +105,10 @@ Route::get('/manage_suppliers', function (){
     return view('manage_suppliers');
 });
 
+Route::get('/make_transaction', function (){
+    return view('make_transaction');
+});
+
 Route::get('/transactions', function (){
     return view('transactions');
 });
