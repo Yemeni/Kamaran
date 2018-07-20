@@ -121,12 +121,12 @@ return [
                 ],
                 [
                     'text' => 'Performance', // manager
-                    'icon' => 'chart-line',
+                    'icon' => 'spinner',
                     'url' => ''
                 ],
                 [
                     'text' => 'Inventory', // manager
-                    'icon' => 'fa-archive',
+                    'icon' => 'archive',
                     'url' => ''
                 ],
                 [
@@ -164,7 +164,7 @@ return [
                 ],
                 [
                     'text' => 'Manage Items', // manager + employee + employee_of_suppliers
-                    'icon' => 'box',
+                    'icon' => 'gears',
                     'url' => ''
                 ],
                 [
