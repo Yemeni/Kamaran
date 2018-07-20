@@ -101,6 +101,10 @@ Route::get('/item', function (){
     return view('item');
 });
 
+Route::get('/supplier', function (){
+    return view('supplier');
+});
+
 Route::get('/manage_suppliers', function (){
     return view('manage_suppliers');
 });
