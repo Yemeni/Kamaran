@@ -126,7 +126,7 @@ return [
                 ],
                 [
                     'text' => 'Inventory', // manager
-                    'icon' => 'inventory',
+                    'icon' => 'fa-archive',
                     'url' => ''
                 ],
                 [
