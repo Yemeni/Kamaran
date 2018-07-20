@@ -173,6 +173,16 @@ return [
                     'url' => ''
                 ],
                 [
+                    'text' => 'Make Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                    'icon' => '',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Transactions', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                    'icon' => '',
+                    'url' => ''
+                ],
+                [
                     'text' => 'Print Reports', // manager + employee
                     'icon' => 'print',
                     'url' => ''
