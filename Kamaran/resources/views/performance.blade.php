@@ -32,7 +32,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-green">
-                <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                <span class="info-box-icon"><i class="fa fa-shopping-cart"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Orders</span>
@@ -52,7 +52,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box bg-yellow">
-                <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
+                <span class="info-box-icon"><i class="fa fa-ship"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Shipments</span>
@@ -131,6 +131,18 @@
             <!-- /.info-box -->
         </div>
         <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Latest Backup</span>
+                    <span class="info-box-number">18 March 2019</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
     </div>
 
     <div class="row">
