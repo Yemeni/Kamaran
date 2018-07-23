@@ -318,15 +318,46 @@
         </div>
         <!-- ./col -->
         <div class="col-lg-4 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-blue">
-                <div class="inner">
-                    <h3>Overview</h3>
-                    <div>
-                        TODO: Orders/Approved Chart
-                    </div>
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Latest Transactions</h3>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding bg-blue text-black">
+                    <table class="table table-hover">
+                        <tbody><tr>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                        </tr>
+                        <tr>
+                            <td><a href="">183</a></td>
+                            <td>11-7-2018</td>
+                            <td>data</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td><a href="">188</a></td>
+                            <td>11-7-2018</td>
+                            <td>data</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td><a href="">199</a></td>
+                            <td>11-7-2018</td>
+                            <td>data</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td><a href="">200</a></td>
+                            <td>11-7-2018</td>
+                            <td>data</td>
+                            <td>50,000</td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <!-- /.box-body -->
             </div>
         </div>
         <!-- ./col -->
@@ -336,7 +367,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Responsive Hover Table</h3>
+                    <h3 class="box-title">Latest Orders</h3>
 
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -361,8 +392,8 @@
                             <th>Comment</th>
                         </tr>
                         <tr>
-                            <td>183</td>
-                            <td>Ahmed Ali</td>
+                            <td><a href="">183</a></td>
+                            <td><a href="">Ahmed Ali</a></td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
@@ -370,8 +401,8 @@
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
-                            <td>219</td>
-                            <td>Alexander Mohammed</td>
+                            <td><a href="">219</a></td>
+                            <td><a href="">Alexander Mohammed</a></td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
@@ -379,8 +410,8 @@
                             <td></td>
                         </tr>
                         <tr>
-                            <td>657</td>
-                            <td>Ibtisam Doe</td>
+                            <td><a href="">657</a></td>
+                            <td><a href="">Ibtisam Doe</a></td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>FOB</td>
@@ -388,8 +419,8 @@
                             <td>This is very necessary for the XVR machine</td>
                         </tr>
                         <tr>
-                            <td>175</td>
-                            <td>Fatimah Salah</td>
+                            <td><a href="">175</a></td>
+                            <td><a href="">Fatimah Salah</a></td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
