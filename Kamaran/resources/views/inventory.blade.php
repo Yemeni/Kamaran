@@ -43,23 +43,23 @@
                 </div>
         </div>
 
-        <div class="col-lg-10 col-xs-6">
+        <div class="col-lg-10 col-xs-6 bg-blue">
 
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
-                    <p>Item Name</p>
+                    <p class="text">Item Name</p>
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p>Current</p>
+                    <p class="bg-green">Current</p>
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p>Shipping</p>
+                    <p class="bg-yellow">Shipping</p>
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p>Ordered</p>
+                    <p class="bg-red">Ordered</p>
                 </div>
             </div>
 
@@ -170,7 +170,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Responsive Hover Table</h3>
+                    <h3 class="box-title">Detailed inventory</h3>
 
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -194,8 +194,8 @@
                             <th>Consumption Last Month</th>
                         </tr>
                         <tr>
-                            <td>153</td>
-                            <td>Tobbaco Type F</td>
+                            <td><a href="">153</a></td>
+                            <td><a href="">Tobbaco Type F</a></td>
                             <td>11,455 tones</td>
                             <td>2,000 tones</td>
                             <td>2,559 tones</td>
