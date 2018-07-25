@@ -11,9 +11,6 @@
 
     <p>You are logged in!</p>
 
-
-
-
     <div class="row">
         <div class="col-lg-2 col-xs-2">
                 <!-- small box -->

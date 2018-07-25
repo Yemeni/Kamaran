@@ -163,12 +163,27 @@ return [
                     'url' => ''
                 ],
                 [
+                    'text' => 'Fill Shipments', // manager + employee
+                    'icon' => 'ship',
+                    'url' => ''
+                ],
+                [
                     'text' => 'Manage Items', // manager + employee + employee_of_suppliers
                     'icon' => 'gears',
                     'url' => ''
                 ],
                 [
+                    'text' => 'Add/Edit Item', // manager + employee + employee_of_suppliers
+                    'icon' => 'gears',
+                    'url' => ''
+                ],
+                [
                     'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
+                    'icon' => 'users',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Add/Edit Supplier', // manager + employee + employee_of_suppliers
                     'icon' => 'users',
                     'url' => ''
                 ],
