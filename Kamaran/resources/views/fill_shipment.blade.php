@@ -38,16 +38,21 @@
                                     <button type="button" class="btn btn-info btn-flat">Browse</button>
                                 </span>
                                 </div>
-                                <div>
-                                    Quantity
+                                <div class="form-group">
+                                    <label for="">Quantity:</label>
+                                    <input type="text" class="form-control" id="">
                                 </div>
 
-                                <div>
-                                    Item Name:
+                                <div class="input-group input-group-sm">
+                                    <label for="">Item Name:</label>
+                                    <input type="text" disabled="" class="form-control">
+                                    <span class="input-group-btn">
+                                    <button type="button" class="btn btn-info btn-flat">Browse</button>
+                                </span>
                                 </div>
-
-                                <div>
-                                    Danger Level:
+                                <div class="form-group">
+                                    <label for="">Danger Level:</label>
+                                    <input type="text" disabled="" value="Flammable" class="form-control" id="">
                                 </div>
 
                             <!-- /.box-body -->
