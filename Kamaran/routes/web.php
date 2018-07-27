@@ -127,8 +127,12 @@ Route::get('/profile', function (){
     return view('profile');
 });
 
-Route::get('/employees', function (){
-    return view('employees');
+Route::get('/manage_employees', function (){
+    return view('manage_employees');
+});
+
+Route::get('/employee', function (){
+    return view('employee');
 });
 
 Route::get('/my_manager', function (){

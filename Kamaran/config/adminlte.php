@@ -216,7 +216,12 @@ return [
                     'url' => '/profile'
                 ],
                 [
-                    'text' => 'Employees', // manager + employee_of_suppliers
+                    'text' => 'Manage Employees', // manager + employee_of_suppliers
+                    'icon' => 'users',
+                    'url' => ''
+                ],
+                [
+                    'text' => 'Employee', // manager + employee_of_suppliers + employee
                     'icon' => 'users',
                     'url' => ''
                 ],
