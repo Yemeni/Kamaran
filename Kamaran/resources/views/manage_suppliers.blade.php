@@ -4,6 +4,9 @@
 
 @section('content_header')
     <h1>Manage Suppliers</h1>
+@stop
+
+@section('content')
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -65,10 +68,4 @@
             <!-- /.box -->
         </div>
     </div>
-
-
-@stop
-
-@section('content')
-
 @stop
