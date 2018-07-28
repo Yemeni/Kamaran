@@ -117,27 +117,27 @@ return [
                 [
                    'text' => 'Overview', // manager
                    'icon' => 'eye',
-                   'url' => '/'
+                   'url' => '/overview'
                 ],
                 [
                     'text' => 'Performance', // manager
                     'icon' => 'spinner',
-                    'url' => ''
+                    'url' => 'performance'
                 ],
                 [
                     'text' => 'Inventory', // manager
                     'icon' => 'archive',
-                    'url' => ''
+                    'url' => 'inventory'
                 ],
                 [
                     'text' => 'Orders', // manager
                     'icon' => 'shopping-cart',
-                    'url' => ''
+                    'url' => 'orders'
                 ],
                 [
                     'text' => 'Shipments', // manager
                     'icon' => 'ship',
-                    'url' => ''
+                    'url' => 'shipments'
                 ]
 
             ]
