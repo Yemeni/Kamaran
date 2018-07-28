@@ -122,22 +122,22 @@ return [
                 [
                     'text' => 'Performance', // manager
                     'icon' => 'spinner',
-                    'url' => 'performance'
+                    'url' => '/performance'
                 ],
                 [
                     'text' => 'Inventory', // manager
                     'icon' => 'archive',
-                    'url' => 'inventory'
+                    'url' => '/inventory'
                 ],
                 [
                     'text' => 'Orders', // manager
                     'icon' => 'shopping-cart',
-                    'url' => 'orders'
+                    'url' => '/orders'
                 ],
                 [
                     'text' => 'Shipments', // manager
                     'icon' => 'ship',
-                    'url' => 'shipments'
+                    'url' => '/shipments'
                 ]
 
             ]
@@ -150,7 +150,7 @@ return [
                 [
                     'text' => 'Review Orders', // manager
                     'icon' => 'file',
-                    'url' => 'review_orders'
+                    'url' => '/review_orders'
                 ],
                 [
                     'text' => 'Fill Order', // manager
@@ -160,47 +160,47 @@ return [
                 [
                     'text' => 'Track Shipments', // manager
                     'icon' => 'ship',
-                    'url' => 'track_shipments'
+                    'url' => '/track_shipments'
                 ],
                 [
                     'text' => 'Fill Shipments', // manager + employee
                     'icon' => 'ship',
-                    'url' => 'fill_shipment'
+                    'url' => '/fill_shipment'
                 ],
                 [
                     'text' => 'Manage Items', // manager + employee + employee_of_suppliers
                     'icon' => 'gears',
-                    'url' => 'manage_items'
+                    'url' => '/manage_items'
                 ],
                 [
                     'text' => 'Add/Edit Item', // manager + employee + employee_of_suppliers
                     'icon' => 'gears',
-                    'url' => 'item'
+                    'url' => '/item'
                 ],
                 [
                     'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
                     'icon' => 'users',
-                    'url' => 'manage_suppliers'
+                    'url' => '/manage_suppliers'
                 ],
                 [
                     'text' => 'Add/Edit Supplier', // manager + employee + employee_of_suppliers
                     'icon' => 'users',
-                    'url' => 'supplier'
+                    'url' => '/supplier'
                 ],
                 [
                     'text' => 'Make Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                     'icon' => '',
-                    'url' => 'make_transaction'
+                    'url' => '/make_transaction'
                 ],
                 [
                     'text' => 'Transactions', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                     'icon' => '',
-                    'url' => 'transactions'
+                    'url' => '/transactions'
                 ],
                 [
                     'text' => 'Print Reports', // manager + employee
                     'icon' => 'print',
-                    'url' => 'print_reports'
+                    'url' => '/print_reports'
                 ]
 
             ]
