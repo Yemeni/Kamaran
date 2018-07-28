@@ -218,17 +218,17 @@ return [
                 [
                     'text' => 'Manage Employees', // manager + employee_of_suppliers
                     'icon' => 'users',
-                    'url' => ''
+                    'url' => '/manage_employees'
                 ],
                 [
                     'text' => 'Employee', // manager + employee_of_suppliers + employee
                     'icon' => 'users',
-                    'url' => ''
+                    'url' => '/employee'
                 ],
                 [
                     'text' => 'My Manager', // employee
                     'icon' => 'users',
-                    'url' => ''
+                    'url' => '' // TODO: make page
                 ]
 
             ]
