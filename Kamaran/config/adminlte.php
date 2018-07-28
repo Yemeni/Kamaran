@@ -150,7 +150,7 @@ return [
                 [
                     'text' => 'Review Orders', // manager
                     'icon' => 'file',
-                    'url' => ''
+                    'url' => 'review_orders'
                 ],
                 [
                     'text' => 'Fill Order', // manager
@@ -160,47 +160,47 @@ return [
                 [
                     'text' => 'Track Shipments', // manager
                     'icon' => 'ship',
-                    'url' => ''
+                    'url' => 'track_shipments'
                 ],
                 [
                     'text' => 'Fill Shipments', // manager + employee
                     'icon' => 'ship',
-                    'url' => ''
+                    'url' => 'fill_shipment'
                 ],
                 [
                     'text' => 'Manage Items', // manager + employee + employee_of_suppliers
                     'icon' => 'gears',
-                    'url' => ''
+                    'url' => 'manage_items'
                 ],
                 [
                     'text' => 'Add/Edit Item', // manager + employee + employee_of_suppliers
                     'icon' => 'gears',
-                    'url' => ''
+                    'url' => 'item'
                 ],
                 [
                     'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
                     'icon' => 'users',
-                    'url' => ''
+                    'url' => 'manage_suppliers'
                 ],
                 [
                     'text' => 'Add/Edit Supplier', // manager + employee + employee_of_suppliers
                     'icon' => 'users',
-                    'url' => ''
+                    'url' => 'supplier'
                 ],
                 [
                     'text' => 'Make Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                     'icon' => '',
-                    'url' => ''
+                    'url' => 'make_transaction'
                 ],
                 [
                     'text' => 'Transactions', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                     'icon' => '',
-                    'url' => ''
+                    'url' => 'transactions'
                 ],
                 [
                     'text' => 'Print Reports', // manager + employee
                     'icon' => 'print',
-                    'url' => ''
+                    'url' => 'print_reports'
                 ]
 
             ]
