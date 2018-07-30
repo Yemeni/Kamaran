@@ -27,6 +27,14 @@
                                     <input type="text" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Category:</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label>Description</label>
                                     <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                 </div>
@@ -39,9 +47,6 @@
                                     <select class="form-control">
                                         <option>option 1</option>
                                         <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -70,7 +75,10 @@
                                         <div class="tab-pane active" id="tab_1">
                                             <div class="form-group">
                                                 <label for="">Supplier Name:</label>
-                                                <input type="text" disabled="" class="form-control" id="">
+                                                <select class="js-example-basic-single form-control">
+                                                    <option value="">Something .co</option>
+                                                    <option value="">Company XYZ .limted</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <!-- /.tab-pane -->
@@ -85,6 +93,12 @@
                                     </div>
                                     <!-- /.tab-content -->
                                 </div>
+                                @section('js')
+                                    <script>$(document).ready(function() {
+                                    $('.js-example-basic-single').select2();
+                                    });
+                                    </script>
+                                    @append
                                 <!-- nav-tabs-custom -->
 
                             </div>
@@ -104,3 +118,4 @@
 
 
 @stop
+
