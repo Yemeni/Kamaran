@@ -65,11 +65,9 @@
 
                                 <!-- Custom Tabs -->
                                 <div class="nav-tabs-custom">
-                                    <ul class="nav nav-tabs">
+                                    <ul class="nav nav-tabs" role="tablist">
                                         <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Supplier 1</a></li>
-                                        <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Supplier 2</a></li>
-                                        <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Supplier 3</a></li>
-                                        <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-plus"></i> Add Supplier</a></li>
+                                        <li class="pull-right add-tab"><a href="#" class="text-muted"><i class="fa fa-plus"></i> Add Supplier</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab_1">
@@ -81,24 +79,74 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <!-- /.tab-pane -->
-                                        <div class="tab-pane" id="tab_2">
-
-                                        </div>
-                                        <!-- /.tab-pane -->
-                                        <div class="tab-pane" id="tab_3">
-
-                                        </div>
-                                        <!-- /.tab-pane -->
                                     </div>
                                     <!-- /.tab-content -->
                                 </div>
                                 @section('js')
-                                    <script>$(document).ready(function() {
-                                    $('.js-example-basic-single').select2();
-                                    });
+                                    <script>
+                                        // select2 auto complete
+                                        $(document).ready(function() {
+                                            $('.js-example-basic-single').select2();
+                                        });
+
+                                        // add new tab
+                                        $(".nav-tabs").on("click", "a", function (e) {
+                                            e.preventDefault();
+                                            if (!$(this).hasClass('add-tab')) {
+                                                $(this).tab('show');
+                                            }
+                                        })
+                                            .on("click", "span", function () {
+                                                var anchor = $(this).siblings('a');
+                                                $(anchor.attr('href')).remove();
+                                                $(this).parent().remove();
+                                                $(".nav-tabs li").children('a').first().click();
+                                            });
+
+                                        $('.add-tab').click(function (e) {
+                                            e.preventDefault();
+                                            var id = $(".nav-tabs").children().length; //think about it ;)
+                                            var tabId = 'tab_' + id;
+                                            $(this).closest('li').before('<li><a href="#tab_' + id + '">Supplier ' + id +'</a> <span> x </span></li>');
+                                            $('.tab-content').append('<div class="tab-pane" id="' + tabId + '">' +
+                                                '<div class="form-group">' +
+                                                '<label for="">Supplier Name:</label>' +
+                                                '<select class="js-example-basic-single'+id +' form-control">' +
+                                                '<option value="">Something .co</option>' + // repopulate from database
+                                                '<option value="">Something2 .co</option>' +
+                                                '</select>' +
+                                                '</div>' +
+                                                '</div>');
+                                            $('.nav-tabs li:nth-child(' + id + ') a').click();
+
+                                            $(document).ready(function() {
+                                                $('.js-example-basic-single'+id).select2();
+                                            });
+                                        });
                                     </script>
                                     @append
+                                @section('css')
+                                    <style>
+                                        .nav-tabs > li {
+                                            position:relative;
+                                        }
+                                        .nav-tabs > li > a {
+                                            display:inline-block;
+                                        }
+                                        .nav-tabs > li > span {
+                                            display:none;
+                                            cursor:pointer;
+                                            position:absolute;
+                                            right: 6px;
+                                            top: 8px;
+                                            color: red;
+                                        }
+                                        .nav-tabs > li:hover > span {
+                                            display: inline-block;
+                                        }
+                                    </style>
+                                    @append
+
                                 <!-- nav-tabs-custom -->
 
                             </div>
