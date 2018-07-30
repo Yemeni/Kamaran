@@ -41,13 +41,21 @@
                                     <option>option 5</option>
                                 </select>
                             </div>
-                            <div class="input-group input-group-sm">
-                                <label for="">Supplier:</label>
-                                <input type="text" disabled="" class="form-control">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-info btn-flat">Browse</button>
-                                </span>
+                            <div class="form-group">
+                                <label for="">Supplier Name:</label>
+                                <select class="js-example-basic-single form-control">
+                                    <option value="">Something .co</option>
+                                    <option value="">Company XYZ .limted</option>
+                                </select>
                             </div>
+                            @section('js')
+                                <script>
+                                    // select2 auto complete
+                                    $(document).ready(function() {
+                                        $('.js-example-basic-single').select2();
+                                    });
+                                </script>
+                            @append
                             <div class="form-group">
                                 <label>Textarea</label>
                                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
