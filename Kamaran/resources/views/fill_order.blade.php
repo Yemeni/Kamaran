@@ -34,11 +34,11 @@
                             <div class="form-group">
                                 <label for="">Letter:</label>
                                 <select class="form-control">
-                                    <option>option 1</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
+                                    <option>cif</option>
+                                    <option>cf</option>
+                                    <option>fob</option>
+                                    <option>cfr</option>
+                                    <option>other</option>
                                 </select>
                             </div>
                             <div class="form-group">
