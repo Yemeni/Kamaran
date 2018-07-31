@@ -148,6 +148,16 @@ return [
             'icon' => 'wrench',
             'submenu' => [
                 [
+                    'text' => 'Category', // Admin
+                    'icon' => '',
+                    'url' => '/category'
+                ],
+                [
+                    'text' => 'Manage Categories', // Admin
+                    'icon' => '',
+                    'url' => '/manage_categories'
+                ],
+                [
                     'text' => 'Review Orders', // manager
                     'icon' => 'file',
                     'url' => '/review_orders'

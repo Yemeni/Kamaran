@@ -77,6 +77,14 @@ Route::get('/shipments', function (){
 
 // Apps
 
+Route::get('/category', function (){
+    return view('category');
+});
+
+Route::get('/manage_categories', function (){
+    return view('manage_categories');
+});
+
 Route::get('/review_orders', function (){
     return view('review_orders');
 });
