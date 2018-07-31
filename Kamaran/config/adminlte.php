@@ -238,7 +238,7 @@ return [
                 [
                     'text' => 'My Manager', // employee
                     'icon' => 'users',
-                    'url' => '' // TODO: make page
+                    'url' => '/my_manager'
                 ]
 
             ]
