@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Make a Shippment</h1>
+    <h1>Make a Shipment</h1>
 
 @stop
 
