@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-sm-12 col-md-6">
             <!-- small box -->
             <div class="small-box bg-blue">
                 <div class="inner">
