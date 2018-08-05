@@ -14,7 +14,7 @@
             <!-- small box -->
             <div class="small-box bg-purple">
                 <div class="inner">
-                    <h3>8</h3>
+                    <h3>{{ count($employees) }}</h3>
 
                     <p>Total Employees</p>
                 </div>
@@ -36,24 +36,28 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
+            @alert
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Employees</h3>
 
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                    {{--<div class="box-tools">--}}
+                    {{--<div class="input-group input-group-sm" style="width: 150px;">--}}
+                    {{--<input type="text" name="table_search" class="form-control pull-right" placeholder="Search">--}}
 
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
+                    {{--<div class="input-group-btn">--}}
+                    {{--<button type="submit" class="btn btn-default">--}}
+                    {{--<i class="fa fa-search"></i>--}}
+                    {{--</button>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody><tr>
+                <div class="box-body table-responsive">
+                    <table class="table table-hover datatables">
+                        <thead>
+                        <tr>
                             <th>Employee ID</th>
                             <th>Employee Name</th>
                             <th>Username</th>
@@ -64,56 +68,49 @@
                             <th>Level</th>
                             <th>Address</th>
                             <th>Status</th>
+                            <th>Actions</th>
                         </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Vladamir Saleh</td>
-                            <td>vladmirs</td>
-                            <td>Male</td>
-                            <td>11-7-2018</td>
-                            <td>+967 777 777 777</td>
-                            <td>Vladmir.Saleh@kamaran.ye</td>
-                            <td>Employee</td>
-                            <td>Haddah St., XYZ Road, Sana'a</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Vladamir Saleh</td>
-                            <td>vladmirs</td>
-                            <td>Male</td>
-                            <td>11-7-2018</td>
-                            <td>+967 777 777 777</td>
-                            <td>Vladmir.Saleh@kamaran.ye</td>
-                            <td>Employee</td>
-                            <td>Haddah St., XYZ Road, Sana'a</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Vladamir Saleh</td>
-                            <td>vladmirs</td>
-                            <td>Male</td>
-                            <td>11-7-2018</td>
-                            <td>+967 777 777 777</td>
-                            <td>Vladmir.Saleh@kamaran.ye</td>
-                            <td>Employee</td>
-                            <td>Haddah St., XYZ Road, Sana'a</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Vladamir Saleh</td>
-                            <td>vladmirs</td>
-                            <td>Male</td>
-                            <td>11-7-2018</td>
-                            <td>+967 777 777 777</td>
-                            <td>Vladmir.Saleh@kamaran.ye</td>
-                            <td>Employee</td>
-                            <td>Haddah St., XYZ Road, Sana'a</td>
-                            <td>Active</td>
-                        </tr>
-                        </tbody></table>
+                        </thead>
+                        <tbody>
+                        @foreach($employees as $employee)
+                            <tr>
+                                <td>
+                                    <a href="{{ url('/employee/'.$employee->id.'/edit') }}">{{ $employee->id }}</a>
+                                </td>
+                                <td>{{ $employee->name }}</td>
+                                <td>{{ $employee->username }}</td>
+                                <td>{{ $employee->gender }}</td>
+                                <td>{{ $employee->created_at->format('d-m-y') }}</td>
+                                <td>{{ $employee->phone }}</td>
+                                <td>{{ $employee->email }}</td>
+                                <td>
+                                    {{ ucwords($employee->level) }}
+                                    @if(! is_null($employee->category))
+                                        @ <strong>{{ $employee->category->name }}</strong>
+                                    @endif
+                                </td>
+                                <td>{{ $employee->address }}</td>
+                                <td>{{ $employee->status }}</td>
+                                <td>
+                                    <a href="{{ url('employee/'.$employee->id.'/edit') }}" class="btn btn-warning">
+                                        Edit
+                                    </a>
+                                    <button class="btn btn-danger"
+                                            onclick="if(confirm('Do you really want to delete {{ $employee->name }}?')){$('#deleteForm{{ $employee->id }}').submit();return false;}">
+                                        Delete
+                                    </button>
+                                    <form action="{{ url('/employee/'.$employee->id) }}"
+                                          method="post"
+                                          id="deleteForm{{ $employee->id }}"
+                                          style="display: none;">
+                                        @csrf
+                                        @method("DELETE")
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>

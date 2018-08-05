@@ -50,14 +50,10 @@
 
 Auth::routes();
 
-//Route::get('/', 'HomeController@index')->name('home');
-
 
 // Temporally views for debugging
 // Dashboard
-Route::get('/overview', function (){
-    return view('overview');
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('/performance', function (){
     return view('performance');
@@ -131,18 +127,18 @@ Route::get('/print_reports', function (){
 
 // Staff Management
 
-Route::get('/profile', function (){
-    return view('profile');
-});
+Route::get('/profile/{user?}', 'UserController@profile');
+Route::post('/profile/edit/{user?}', 'UserController@profileEdit');
+Route::post('/profile/changePassword/{user?}', 'UserController@profileChangePassword');
 
-Route::get('/manage_employees', function (){
-    return view('manage_employees');
-});
+Route::get('/manage_employees', 'UserController@employees');
 
-Route::get('/employee', function (){
-    return view('employee');
-});
+Route::get('/employee', 'UserController@create');
+Route::post('/employee', 'UserController@store');
 
-Route::get('/my_manager', function (){
-    return view('my_manager');
-});
+Route::get('/employee/{user}/edit', 'UserController@edit');
+Route::post('/employee/{user}/edit', 'UserController@update');
+
+Route::delete('/employee/{user}', 'UserController@destroy');
+
+Route::get('/my_manager', 'UserController@myManager');

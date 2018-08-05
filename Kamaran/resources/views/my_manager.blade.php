@@ -17,9 +17,9 @@
             <div class="box box-primary">
                 <div class="box-body box-profile">
 
-                    <h3 class="profile-username text-center">Fatima Ali Hamood</h3>
+                    <h3 class="profile-username text-center">{{ auth()->user()->categoryAdmin()->name }}</h3>
 
-                    <p class="text-muted text-center">Raw Resource Department</p>
+                    <p class="text-muted text-center">{{ auth()->user()->categoryAdmin()->category->name }} Department</p>
 
                 </div>
                 <!-- /.box-body -->
@@ -36,7 +36,7 @@
                     <strong><i class="fa fa-phone margin-r-5"></i> Phone</strong>
 
                     <p class="text-muted">
-                        +967 777 777 777
+                        {{ auth()->user()->categoryAdmin()->phone }}
                     </p>
 
                     <hr>
@@ -44,14 +44,14 @@
                     <strong><i class="fa fa-envelope margin-r-5"></i> Email</strong>
 
                     <p class="text-muted">
-                        nina@kamaran.ye
+                        {{ auth()->user()->categoryAdmin()->email }}
                     </p>
 
                     <hr>
 
                     <strong><i class="fa fa-map-marker margin-r-5"></i> Address</strong>
 
-                    <p class="text-muted">Malibu, California</p>
+                    <p class="text-muted">{{ auth()->user()->categoryAdmin()->address }}</p>
 
                     <hr>
 

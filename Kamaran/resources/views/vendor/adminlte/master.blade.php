@@ -63,5 +63,11 @@
 
 @yield('adminlte_js')
 
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('.datatables').DataTable();
+    } );
+</script>
+
 </body>
 </html>

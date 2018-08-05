@@ -16,16 +16,16 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('category_id')->index();
+            $table->unsignedInteger('category_id')->index()->nullable(); // exclude the employees level of users
             $table->string('username')->unique();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->default('$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm');
             $table->enum('gender', ['male', 'female']);
             $table->string('phone')->unique();
             $table->enum('level', ['admin','manager','employee','inventory_employee','head_of_suppliers']);
             $table->text('address');
-            $table->enum('status', ['active','inactive']);
+            $table->enum('status', ['active','inactive'])->default('inactive');
             $table->rememberToken();
             $table->timestamps();
         });
