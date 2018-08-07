@@ -19,7 +19,7 @@ class CategoryPolicy
      */
     public function view(User $user, Category $category)
     {
-        //
+        return $user->level === 'admin';
     }
 
     /**
@@ -30,7 +30,7 @@ class CategoryPolicy
      */
     public function create(User $user)
     {
-        return $user->level == 'admin';
+        return $user->level === 'admin';
     }
 
     /**

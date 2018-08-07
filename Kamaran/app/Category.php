@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $fillable = ['name','description'];
+    protected $fillable = ['name','comment'];
 
     public function users()
     {
@@ -21,6 +21,11 @@ class Category extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+	public function managerUser()
+	{
+		return $this->users()->where('level', 'manager')->first();
     }
 
     public function inventories()

@@ -73,13 +73,12 @@ Route::get('/shipments', function (){
 
 // Apps
 
-Route::get('/category', function (){
-    return view('category');
-});
-
-Route::get('/manage_categories', function (){
-    return view('manage_categories');
-});
+Route::get('/category/create', 'CategoryController@create');
+Route::post('/category', 'CategoryController@store');
+Route::get('/category', 'CategoryController@index');
+Route::get('/category/{category}/edit', 'CategoryController@edit');
+Route::put('/category/{category}', 'CategoryController@update');
+Route::delete('/category/{category}', 'CategoryController@destroy');
 
 Route::get('/review_orders', function (){
     return view('review_orders');

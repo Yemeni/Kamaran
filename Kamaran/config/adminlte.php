@@ -150,12 +150,12 @@ return [
 				[
 					'text' => 'Category', // Admin
 					'icon' => '',
-					'url'  => '/category'
+					'url'  => '/category/create'
 				],
 				[
 					'text' => 'Manage Categories', // Admin
 					'icon' => '',
-					'url'  => '/manage_categories'
+					'url'  => '/category'
 				],
 				[
 					'text' => 'Review Orders', // manager
