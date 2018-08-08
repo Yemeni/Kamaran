@@ -30,10 +30,14 @@
                     <table class="table table-hover">
                         <tbody><tr>
                             <th>Order ID</th>
-                            <th>Staff</th>
+                            <th>Employee</th>
                             <th>Date</th>
                             <th>Letter of Credit</th>
                             <th>Supplier</th>
+                            <th>Category</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
                             <th>Comment</th>
                             <th></th>
                         </tr>
@@ -43,6 +47,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                             <td><a href=""><i class="fa fa-fw fa-check "></i>Approve</a> <a href=""><i class="fa fa-fw fa-times "></i>Cancel</a> <a href=""><i class="fa fa-fw fa-sticky-note "></i>Other</a></td>
                         </tr>
@@ -52,6 +60,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                             <td><a href=""><i class="fa fa-fw fa-check "></i>Approve</a> <a href=""><i class="fa fa-fw fa-times "></i>Cancel</a> <a href=""><i class="fa fa-fw fa-sticky-note "></i>Other</a></td>
                         </tr>
@@ -61,6 +73,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                             <td><a href=""><i class="fa fa-fw fa-check "></i>Approve</a> <a href=""><i class="fa fa-fw fa-times "></i>Cancel</a> <a href=""><i class="fa fa-fw fa-sticky-note "></i>Other</a></td>
                         </tr>
@@ -70,6 +86,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                             <td><a href=""><i class="fa fa-fw fa-check "></i>Approve</a> <a href=""><i class="fa fa-fw fa-times "></i>Cancel</a> <a href=""><i class="fa fa-fw fa-sticky-note "></i>Other</a></td>
                         </tr>
@@ -102,10 +122,14 @@
                     <table class="table table-hover">
                         <tbody><tr>
                             <th>Order ID</th>
-                            <th>Staff</th>
+                            <th>Employee</th>
                             <th>Date</th>
                             <th>Letter of Credit</th>
                             <th>Supplier</th>
+                            <th>Category</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
                             <th>Comment</th>
                         </tr>
                         <tr>
@@ -114,6 +138,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -122,6 +150,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -130,6 +162,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -138,6 +174,10 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td>XYZ Limited</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         </tbody>
@@ -169,11 +209,15 @@
                     <table class="table table-hover">
                         <tbody><tr>
                             <th>Order ID</th>
-                            <th>Staff</th>
+                            <th>Employee</th>
                             <th>Date</th>
                             <th>Letter of Credit</th>
                             <th>Supplier</th>
                             <th>Approval Date</th>
+                            <th>Category</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
                             <th>Comment</th>
                         </tr>
                         <tr>
@@ -183,6 +227,10 @@
                             <td>CIF</td>
                             <td>XYZ Limited</td>
                             <td>11-7-2018</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -192,6 +240,10 @@
                             <td>CIF</td>
                             <td>XYZ Limited</td>
                             <td>11-7-2018</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -201,6 +253,10 @@
                             <td>CIF</td>
                             <td>XYZ Limited</td>
                             <td>11-7-2018</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -210,6 +266,10 @@
                             <td>CIF</td>
                             <td>XYZ Limited</td>
                             <td>11-7-2018</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         </tbody>

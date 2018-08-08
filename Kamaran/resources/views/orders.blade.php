@@ -199,13 +199,16 @@
                     <table class="table table-hover">
                         <tbody><tr>
                             <th>Order ID</th>
-                            <th>Status</th>
+                            <th>Employee</th>
                             <th>Date</th>
                             <th>Letter of Credit</th>
                             <th>Approval date</th>
-                            <th>Usesr</th>
+                            <th>Status</th>
                             <th>Suppliers</th>
                             <th>Category</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
                             <th>Comment</th>
                         </tr>
                         <tr>
@@ -216,7 +219,10 @@
                             <td>CIF</td>
                             <td><span class="label label-success">Approved</span></td>
                             <td>They will give 5% discount the next time we order</td>
-                            <td>hi</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
@@ -226,6 +232,11 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td><span class="label label-warning">Pending</span></td>
+                            <td>They will give 5% discount the next time we order</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -235,6 +246,11 @@
                             <td>11-7-2018</td>
                             <td>FOB</td>
                             <td><span class="label label-success">Approved</span></td>
+                            <td>They will give 5% discount the next time we order</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td>This is very necessary for the XVR machine</td>
                         </tr>
                         <tr>
@@ -244,6 +260,11 @@
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td><span class="label label-danger">Cancelled</span></td>
+                            <td>They will give 5% discount the next time we order</td>
+                            <td>Department of Raw Materials</td>
+                            <td>Tobacco type V</td>
+                            <td>100.0 KG</td>
+                            <td>50$</td>
                             <td></td>
                         </tr>
                         </tbody></table>
