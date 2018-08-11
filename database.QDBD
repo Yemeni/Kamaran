@@ -1,0 +1,95 @@
+# Modify the code to update the DB schema diagram.
+# https://app.quickdatabasediagrams.com/#/schema/Vs41eaRHnEmwnnEQx_1x7A
+
+
+Users
+---
+id PK int AUTOINCREMENT #Identifier, Store the ID 
+category_id FK >- Categories.id Integer
+username varchar(100) UNIQUE #Short name for login
+password varchar(255) #Hashed password for login
+name varchar(200) #User's real name
+gender enum('male','female') #Staff gender
+date_created dateTime default=CURRENT_TIMESTAMP #Date this Staff was created
+phone varchar(100) UNIQUE #Phone number of the Staff
+email varchar(200) UNIQUE #Company email for the staff
+level enum('admin','manager','employee','inventory_employee','head_of_suppliers') #Staff type
+address varchar(255) #Address of the staff
+status enum('active','inactive') DEFAULT='active'
+
+Categories
+---
+id PK int AUTOINCREMENT #Identifier, store the category ID
+name varchar(200) #Category's name
+description varchar(255) #Category's description
+
+Items
+---
+id PK int AUTOINCREMENT #Identifier, store the item ID
+category_id FK >- Categories.id int #Item falls under category
+name varchar(255) #Item's name
+description varchar(255) #Item's description
+specification varchar(255) #Item's specification
+unit enum('tons','liters','meter') #Measuring unit
+danger_level enum('low','flammable','toxic') #The degree of item's danger
+type varchar(200) #Item's type
+
+Suppliers
+---
+id PK int AUTOINCREMENT #Identifier, store the supplier ID
+name varchar(200) #Name of supplier
+address varchar(255) NULL #Address of supplier
+phone varchar(100) UNIQUE #Phone number of supplier
+email varchar(200) UNIQUE #Email of supplier
+
+Catalogs
+---
+item_id PK int FK >- Items.id #Composed identifier of item and supplier
+supplier_id PK int FK >- Suppliers.id #Composed identifier of item and supplier
+
+Orders
+---
+id PK int AUTOINCREMENT #Identifier, store the order ID
+order_status enum('pending','approved','cancelled','other') DEFAULT='pending' #The status of order
+date dateTime DEFAULT=CURRENT_TIMESTAMP #Date when the order was created
+letter_of_credit enum('cif','cf','fob','cfr','other') #Shipment terminology type
+approval_date dateTime NULL #Date the shipment was approved by Manager
+user_id FK >- Users.id int #Staff ID issued this order
+supplier_id FK >- Catalogs.supplier_id int #Supplier ID for this order
+category_id FK >- Categories.id int
+comment varchar(255) NULL #Coment
+
+OrderItems
+---
+id PK int AUTOINCREMENT 
+order_id FK >- Orders.id int #OrderItem's Order ID
+item_id FK >- Catalogs.item_id int #Ordered item ID
+quantitiy int #Quantity ordered
+cost int #Cost requested
+
+Shipments
+---
+id PK int AUTOINCREMENT #Identifier, store shipment ID
+orderitem_id FK >- OrderItems.id int #The order's ID the shipment falls under
+user_id FK >- Users.id int
+category_id FK >- Categories.id int
+partial boolean DEFAULT=false #Is shipment partial
+date dateTime DEFAULT=CURRENT_TIMESTAMP #Shipment created date
+excpected_arrival dateTime #Excepcted arrival of shipment
+arrival_date dateTime NULL #Actual arrival of shipment
+quantity int #Quantity carried by shipment
+shipment_status enum('on_hold','moving','cancelled','arrived','delayed') DEFAULT='moving' #Current status of shipment
+comment varchar(255) NULL #Comment
+
+Inventories
+---
+id PK int AUTOINCREMENT #Identifier, store transaction ID
+transaction_type enum('voucher','consume','initial_balance','returns','surplus','shortage','normal_shortage') #Type of transaction
+user_id FK >- Users.id int #ID of staff created transaction
+category_id FK >- Categories.id int
+shipment_id FK >- Shipments.id int NULL #ID of item involved in transaction
+date dateTime DEFAULT=CURRENT_TIMESTAMP #Date when the transaction was created
+quantity int #Quantitiy of item
+comment varchar(255) NULL #Comment
+
+# end of database creation for Kamaran <3 
