@@ -57,20 +57,15 @@ approval_date dateTime NULL #Date the shipment was approved by Manager
 user_id FK >- Users.id int #Staff ID issued this order
 supplier_id FK >- Catalogs.supplier_id int #Supplier ID for this order
 category_id FK >- Categories.id int
-comment varchar(255) NULL #Coment
-
-OrderItems
----
-id PK int AUTOINCREMENT 
-order_id FK >- Orders.id int #OrderItem's Order ID
 item_id FK >- Catalogs.item_id int #Ordered item ID
 quantitiy int #Quantity ordered
-cost int #Cost requested
+cost int #Cost requested 
+comment varchar(255) NULL #Coment
 
 Shipments
 ---
 id PK int AUTOINCREMENT #Identifier, store shipment ID
-orderitem_id FK >- OrderItems.id int #The order's ID the shipment falls under
+orderitem_id FK >- Orders.id int #The order's ID the shipment falls under
 user_id FK >- Users.id int
 category_id FK >- Categories.id int
 partial boolean DEFAULT=false #Is shipment partial
