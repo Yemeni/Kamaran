@@ -128,6 +128,13 @@
 
     </div>
     <!-- ./wrapper -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <strong><a href="/about">About</a></strong>
+        </div>
+        <strong>Copyright © 2018 <a href="https://kamaran.com">Kamaran Industry & Investment Co.</a></strong> All rights
+        reserved.
+    </footer>
 @stop
 
 @section('adminlte_js')
