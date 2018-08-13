@@ -30,7 +30,7 @@ category_id FK >- Categories.id int #Item falls under category
 name varchar(255) #Item's name
 description varchar(255) #Item's description
 specification varchar(255) #Item's specification
-unit enum('tons','liters','meter') #Measuring unit
+unit enum('KG','Gram','Tonne','Liter','Milliliter','Barrel','Gallon','Bottle','Meter','Centimeter','Kilometer','Cartons','Pack','Packet','Box') #Measuring unit
 danger_level enum('low','flammable','toxic') #The degree of item's danger
 type varchar(200) #Item's type
 
