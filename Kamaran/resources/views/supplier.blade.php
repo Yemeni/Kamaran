@@ -9,7 +9,8 @@
 
 @section('content')
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-2"></div>
+    <div class="col-xs-8">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -20,8 +21,7 @@
             <form role="form">
               <div class="box-body">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">ID</label>
-                    <input type="ID" class="form-control" id="exampleInputID" placeholder="Enter ID">
+
                       <label for="exampleInputEmail1">name</label>
                       <input type="name" class="form-control" id="exampleInputname" placeholder="Enter name">
                         <label for="exampleInputEmail1">address</label>
@@ -45,13 +45,15 @@
                 </div>
               <!-- /.box-body -->
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+                <div class="box-footer">
+                    <button type="clear" class="btn btn-default ">Cancel</button>
+                    <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                </div>
             </form>
           </div>
           <!-- /.box -->
     </div>
+    <div class="col-md-2"></div>
 
 
 </div>
