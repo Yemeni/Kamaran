@@ -80,16 +80,32 @@
 
                             <div class="form-group">
                                 <label for="">Quantity:</label>
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control calc" id="">
                             </div>
                             <div class="form-group">
                                 <label for="">Cost:</label>
-                                <input type="text" class="form-control" id="">
+                                <input type="text" class="form-control calc" id="">
                             </div>
                             <div class="form-group">
                                 <label for="">Total Cost:</label>
-                                <input type="text" disabled class="form-control" id="">
+                                <span id="total"></span>
                             </div>
+                            @section('js')
+                                <script>
+                                    $(document).ready(function(){
+                                        $('.calc').change(function(){
+                                            var total = 1;
+                                            $('.calc').each(function(){
+                                                if($(this).val() != '')
+                                                {
+                                                    total *= parseInt($(this).val());
+                                                }
+                                            });
+                                            $('#total').html(total);
+                                        });
+                                    });
+                                </script>
+                                @append
 
                         <!-- /.box-body -->
 
