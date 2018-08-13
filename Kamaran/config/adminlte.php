@@ -117,7 +117,7 @@ return [
 				[
 					'text' => 'Overview', // manager
 					'icon' => 'eye',
-					'url'  => '/overview'
+					'url'  => '/'
 				],
 				[
 					'text' => 'Performance', // manager
