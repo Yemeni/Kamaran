@@ -79,6 +79,7 @@
                                 <button type="clear" class="btn btn-default ">Cancel</button>
                                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                             </div>
+                            </div>
                         </form>
                     </div>
                     <div class="col-md-2"></div>
