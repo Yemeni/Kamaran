@@ -10,8 +10,10 @@
 
 @section('body')
     <div style="background-image: url({{ asset('resources/inventory.jpg') }}); background-size: cover; background-repeat: no-repeat; height:95%; width: 90%;background-position: center; padding: 10%; margin: auto; ">
-        <div class="login-box">
+        <div class="login-box" style="margin:auto;">
             <div class="login-logo" style="background-color: rgba(255, 255, 255, 0.5);">
+                <div><img src="{{ asset('resources/Kamaran_logo.png') }}" alt="" width="50%" height="50%"></div>
+
                 <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
             </div>
             <!-- /.login-logo -->

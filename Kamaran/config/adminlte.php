@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'title' => 'Kamaran IMS',
+	'title' => 'Kamaran SIMS',
 
 	'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
 	|
 	*/
 
-	'logo' => '<b>Kamaran</b>IMS',
+	'logo' => '<b>Kamaran</b>SIMS',
 
-	'logo_mini' => '<b>K</b>IMS',
+	'logo_mini' => '<b>K</b>SIMS',
 
 	/*
 	|--------------------------------------------------------------------------
