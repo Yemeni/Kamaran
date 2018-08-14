@@ -40,16 +40,16 @@ class DatabaseSeeder extends Seeder {
 			'address'     => 'Haddah St., XYZ Road, Sana\'a'
 		]);
 		\App\User::create([
-			'name'     => 'rashad',
-			'username' => 'rashad',
-			'email'    => 'rashad@kamaran.com',
-			'password' => bcrypt('secret'),
-			'phone'    => '77777773',
-			'status'   => 1,
-			'gender'   => 'male',
+			'name'        => 'rashad',
+			'username'    => 'rashad',
+			'email'       => 'rashad@kamaran.com',
+			'password'    => bcrypt('secret'),
+			'phone'       => '77777773',
+			'status'      => 1,
+			'gender'      => 'male',
 			'category_id' => 1,
-			'level'    => 'employee',
-			'address'  => 'Haddah St., XYZ Road, Sana\'a'
+			'level'       => 'employee',
+			'address'     => 'Haddah St., XYZ Road, Sana\'a'
 		]);
 		\App\User::create([
 			'name'     => 'anwar',
@@ -76,10 +76,19 @@ class DatabaseSeeder extends Seeder {
 
 		factory(\App\Order::class, 10)->create();
 
-		factory(\App\Supplier::class, 2)->create()->each(function ($s){
+		factory(\App\Supplier::class, 2)->create()->each(function ($s) {
 			$s->items()->saveMany(factory(\App\Item::class, 5)->make());
 		});
 
+		foreach (\App\Order::where('order_status', 'approved')->get() as $order)
+		{
+			\App\Shipment::create([
+				'order_id'    => $order->id,
+				'user_id'     => 2,
+				'category_id' => 1,
+				'date'        => \Carbon\Carbon::now()->timestamp
+			]);
+		}
 
 	}
 }

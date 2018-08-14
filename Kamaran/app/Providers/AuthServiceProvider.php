@@ -6,6 +6,8 @@ use App\Category;
 use App\Order;
 use App\Policies\CategoryPolicy;
 use App\Policies\OrderPolicy;
+use App\Policies\ShipmentPolicy;
+use App\Shipment;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -17,9 +19,10 @@ class AuthServiceProvider extends ServiceProvider {
 	 * @var array
 	 */
 	protected $policies = [
-		'App\User'     => 'App\Policies\UserPolicy',
+		'App\User'      => 'App\Policies\UserPolicy',
 		Category::class => CategoryPolicy::class,
-		Order::class => OrderPolicy::class,
+		Order::class    => OrderPolicy::class,
+		Shipment::class => ShipmentPolicy::class
 	];
 
 	/**
