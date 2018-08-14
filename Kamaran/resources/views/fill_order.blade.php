@@ -28,9 +28,17 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control pull-right" id="datepicker">
+                                    <input type="text" class="form-control pull-right input-append date form_datetime" id="">
                                 </div>
                             </div>
+                            @section('js')
+                                <script type="text/javascript">
+                                    $(".form_datetime").datetimepicker({
+                                        format: "dd MM yyyy - hh:ii"
+                                    });
+                                </script>
+                            @append
+
                             <div class="form-group">
                                 <label for="">Letter:</label>
                                 <select class="form-control">
