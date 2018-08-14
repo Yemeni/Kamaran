@@ -95,9 +95,9 @@
                                     <a href="{{ url('employee/'.$employee->id.'/edit') }}" class="btn btn-warning">
                                         Edit
                                     </a>
-                                    <button class="btn btn-danger"
+                                    <button class="btn btn-{{ $employee->status == 'active' ? 'danger' : 'success' }}"
                                             onclick="if(confirm('Do you really want to delete {{ $employee->name }}?')){$('#deleteForm{{ $employee->id }}').submit();return false;}">
-                                        Delete
+                                        {{ $employee->status == 'active' ? 'Deactivate' : 'Activate' }}
                                     </button>
                                     <form action="{{ url('/employee/'.$employee->id) }}"
                                           method="post"

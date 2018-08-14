@@ -249,7 +249,9 @@ class UserController extends Controller {
 	{
 		$this->authorize('delete', $user);
 		//check if there is no data related then delete
-		$user->delete();
+		$user->update([
+			'status' => 'inactive'
+		]);
 
 		Alert::flash('User deleted successfully', 'success');
 

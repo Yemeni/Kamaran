@@ -80,13 +80,9 @@ Route::get('/category/{category}/edit', 'CategoryController@edit');
 Route::put('/category/{category}', 'CategoryController@update');
 Route::delete('/category/{category}', 'CategoryController@destroy');
 
-Route::get('/review_orders', function (){
-    return view('review_orders');
-});
+Route::get('/review_orders', 'OrderController@index');
 
-Route::get('/fill_order', function (){
-    return view('fill_order');
-});
+Route::get('/fill_order', 'OrderController@create');
 
 Route::get('/track_shipments', function (){
     return view('track_shipments');

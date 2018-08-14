@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder {
 	{
 
 		\App\Category::create([
-			'name' => 'Tobacco'
+			'name' => 'Department of Raw Materials'
 		]);
 
 		\App\User::create([
@@ -74,6 +74,11 @@ class DatabaseSeeder extends Seeder {
 			'address'  => 'Haddah St., XYZ Road, Sana\'a'
 		]);
 
+		factory(\App\Order::class, 10)->create();
+
+		factory(\App\Supplier::class, 2)->create();
+
+		factory(\App\Item::class, 10)->create();
 
 	}
 }

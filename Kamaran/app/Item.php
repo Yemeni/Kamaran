@@ -18,8 +18,8 @@ class Item extends Model
         return $this->belongsToMany(Supplier::class, 'catalogs');
     }
 
-    public function orderItems()
+    public function order()
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->hasOne(Order::class);
     }
 }

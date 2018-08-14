@@ -15,7 +15,7 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('orderitem_id')->index();
+            $table->unsignedInteger('order_id')->index();
             $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('category_id')->index();
             $table->tinyInteger('partial')->default(0);
