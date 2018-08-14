@@ -71,10 +71,6 @@ Route::get('/shipments', function (){
     return view('shipments');
 });
 
-Route::get('/about', function (){
-    return view('about');
-});
-
 // Apps
 
 Route::get('/category/create', 'CategoryController@create');
