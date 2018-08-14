@@ -180,6 +180,8 @@
                                         <li><a href="#">Canceled</a></li>
                                         <li><a href="#">Delayed</a></li>
                                         <li><a href="#">Arraived</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -240,6 +242,8 @@
                                         <li><a href="#">Canceled</a></li>
                                         <li><a href="#">Delayed</a></li>
                                         <li><a href="#">Arraived</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -280,7 +284,6 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
-                            <th></th>
                         </tr>
                         <tr>
                             <td><a href="">555</a></td>
@@ -291,18 +294,6 @@
                             <td>22-8-2018</td>
                             <td>50,000 tons</td>
                             <td>They will give 5% discount the next time we order</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Moving</a></li>
-                                        <li><a href="#">on Hold</a></li>
-                                        <li><a href="#">Delayed</a></li>
-                                        <li><a href="#">Arraived</a></li>
-                                    </ul>
-                                </div>
-                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -360,6 +351,8 @@
                                         <li><a href="#">Canceled</a></li>
                                         <li><a href="#">on Hold</a></li>
                                         <li><a href="#">Arraived</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
