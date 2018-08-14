@@ -62,20 +62,17 @@
                                 {{--<td>50$</td>--}}
                                 {{--<td>They will give 5% discount the next time we order</td>--}}
                                 <td>
-                                    <a href="{{ url('/order/'.$order->id.'/approve') }}">
-                                        <i class="fa fa-fw fa-check "></i>
-                                        Approve
-                                    </a>
-                                    <br>
-                                    <a href="{{ url('/order/'.$order->id.'/cancel') }}">
-                                        <i class="fa fa-fw fa-times "></i>
-                                        Cancel
-                                    </a>
-                                    <br>
-                                    <a href="{{ url('/order/'.$order->id.'/edit') }}">
-                                        <i class="fa fa-fw fa-pencil"></i>
-                                        Edit
-                                    </a>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Dropdown button
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/approve') }}">Approve</a><i class="fa fa-fw fa-check "></i>
+                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/cancel') }}">Cancel</a><i class="fa fa-fw fa-times "></i>
+                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/edit') }}">Edit</a><i class="fa fa-fw fa-pencil"></i>
+                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/edit') }}">Delete</a><i class="fa fa-fw fa-delete"></i>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
