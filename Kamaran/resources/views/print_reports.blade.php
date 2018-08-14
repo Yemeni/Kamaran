@@ -38,14 +38,6 @@
                                     </select>
                                     </span>
                                 </div>
-                                @section('js')
-                                    <script>
-                                        // select2 auto complete
-                                        $(document).ready(function() {
-                                            $('.js-example-basic-single-item').select2();
-                                        });
-                                    </script>
-                                @append
 
                                 <div class="form-group">
                                     <label for="">Conditions:</label>
@@ -86,6 +78,7 @@
                                         <div class="col-md-2"></div>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                         <div class="form-group">
                                             <label for="">From Date:</label>
@@ -96,7 +89,7 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-calendar"></i>
                                                         </div>
-                                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                                        <input type="text" class="form-control pull-right input-append date form_datetime" id="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5"></div>
@@ -111,7 +104,7 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-calendar"></i>
                                                     </div>
-                                                    <input type="text" class="form-control pull-right" id="datepicker">
+                                                    <input type="text" class="form-control pull-right input-append date form_datetime" id="">
                                                 </div>
                                             </div>
                                             <div class="col-md-5"></div>
@@ -134,3 +127,17 @@
 
 
 @stop
+
+
+@section('adminlte_js')
+    <script>
+        // select2 auto complete
+        $(document).ready(function() {
+            $('.js-example-basic-single-item').select2();
+
+            $(".form_datetime").datetimepicker({
+                format: "dd MM yyyy - hh:ii"
+            });
+        });
+    </script>
+@endsection
