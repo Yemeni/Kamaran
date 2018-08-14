@@ -87,7 +87,10 @@ Route::delete('/category/{category}', 'CategoryController@destroy');
 Route::get('/review_orders', 'OrderController@index');
 Route::get('/order/{order}/approve', 'OrderController@approve');
 Route::get('/order/{order}/cancel', 'OrderController@cancel');
+Route::post('/order', 'OrderController@store');
+Route::put('/order/{order}', 'OrderController@update');
 Route::get('/order/{order}/edit', 'OrderController@edit');
+Route::get('/order/{order}/delete', 'OrderController@destroy');
 Route::get('/fill_order', 'OrderController@create');
 
 Route::get('/track_shipments', function (){
@@ -106,6 +109,17 @@ Route::get('/item', function (){
     return view('item');
 });
 
+Route::get('/supplier/{supplier}/items', function(\App\Supplier $supplier){
+//	return $supplier->items;
+	$items = '[';
+	foreach ($supplier->items as $key => $item){
+		$items .= '{"id":"'.$item->id.'","text":"'.$item->name.'"}';
+		if ($key < (count($supplier->items)-1)) $items .= ',';
+	}
+	$items .= ']';
+
+	return $items;
+});
 Route::get('/supplier', function (){
     return view('supplier');
 });

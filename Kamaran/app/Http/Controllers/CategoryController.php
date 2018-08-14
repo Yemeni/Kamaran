@@ -100,7 +100,7 @@ class CategoryController extends Controller {
 		$this->authorize('update', $category);
 
 		$request->validate([
-			'name'    => 'required|unique:categories,name,'.$category->id,
+			'name'    => 'required|unique:categories,name,' . $category->id,
 			'comment' => 'nullable|max:255'
 		]);
 
@@ -122,6 +122,13 @@ class CategoryController extends Controller {
 	public function destroy(Category $category)
 	{
 		Gate::authorize('admin');
+
+		if ($category->users()->count() > 0)
+		{
+			Alert::flash('You can not delete this category because of related records', 'danger');
+
+			return back();
+		}
 
 		$category->delete();
 
