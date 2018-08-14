@@ -36,42 +36,22 @@
                             <th>Unit</th>
                             <th>Danger Level</th>
                             <th>Type</th>
+                            <th>Actions</th>
                         </tr>
                         <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
+                            <td>123</td>
+                            <td>Blue Wire Xyz</td>
+                            <td>This is the description of the item</td>
+                            <td>Material: something, color: blue</td>
+                            <td>Centimeter</td>
+                            <td><span class="label label-success">Flammable</span></td>
+                            <td>Wire</td>
+                            <td>
+                                <a href="" class="btn btn-warning">Edit</a>
+                                <button onclick="" class="btn btn-danger">Delete</button> <!-- only if no orders happened with this item -->
+                                <form id="delete1" action="" method="post">
+                                </form>
+                            </td>
                         </tr>
                         </tbody></table>
                 </div>
