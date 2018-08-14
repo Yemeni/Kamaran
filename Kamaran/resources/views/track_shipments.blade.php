@@ -181,7 +181,7 @@
                                         <li><a href="#">Delayed</a></li>
                                         <li><a href="#">Arraived</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="">Edit</a></li>
+                                        <li><a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -243,7 +243,7 @@
                                         <li><a href="#">Delayed</a></li>
                                         <li><a href="#">Arraived</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="">Edit</a></li>
+                                        <li><a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -352,7 +352,7 @@
                                         <li><a href="#">on Hold</a></li>
                                         <li><a href="#">Arraived</a></li>
                                         <li class="divider"></li>
-                                        <li><a href="">Edit</a></li>
+                                        <li><a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
