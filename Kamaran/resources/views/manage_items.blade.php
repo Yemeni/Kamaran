@@ -27,8 +27,8 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody><tr>
+                    <table class="table table-hover datatables">
+                        <thead>
                             <th>Item ID</th>
                             <th>Item Name</th>
                             <th>Description</th>
@@ -37,7 +37,8 @@
                             <th>Danger Level</th>
                             <th>Type</th>
                             <th>Actions</th>
-                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>123</td>
                             <td>Blue Wire Xyz</td>
