@@ -177,11 +177,6 @@ return [
 					'url'  => '/track_shipments'
 				],
 				[
-					'text' => 'Fill Shipments', // manager + employee
-					'icon' => 'ship',
-					'url'  => '/fill_shipment'
-				],
-				[
 					'text' => 'Manage Items', // manager + employee + employee_of_suppliers
 					'icon' => 'gears',
 					'url'  => '/manage_items'

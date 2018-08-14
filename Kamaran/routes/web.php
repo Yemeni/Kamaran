@@ -97,10 +97,6 @@ Route::get('/track_shipments', function (){
     return view('track_shipments');
 });
 
-Route::get('/fill_shipment', function (){
-    return view('fill_shipment');
-});
-
 Route::get('/manage_items', function (){
     return view('manage_items');
 });
