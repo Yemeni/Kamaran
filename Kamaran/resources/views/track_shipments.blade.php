@@ -68,13 +68,7 @@
                                                             <input type="text" class="form-control pull-right input-append date form_datetime" id="">
                                                         </div>
                                                     </div>
-                                                    @section('js')
-                                                        <script type="text/javascript">
-                                                            $(".form_datetime").datetimepicker({
-                                                                format: "dd MM yyyy - hh:ii"
-                                                            });
-                                                        </script>
-                                                    @append
+
                                                     <div class="form-group">
                                                         <label for="">Expected Arrival:</label>
                                                         <div class="input-group date">
@@ -84,13 +78,7 @@
                                                             <input type="text" class="form-control pull-right input-append date form_datetime" id="">
                                                         </div>
                                                     </div>
-                                                    @section('js')
-                                                        <script type="text/javascript">
-                                                            $(".form_datetime").datetimepicker({
-                                                                format: "dd MM yyyy - hh:ii"
-                                                            });
-                                                        </script>
-                                                    @append
+
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
@@ -513,4 +501,12 @@
         </div>
     </div>
 
+@stop
+
+@section('adminlte_js')
+    <script type="text/javascript">
+        $(".form_datetime").datetimepicker({
+            format: "dd MM yyyy - hh:ii"
+        });
+    </script>
 @stop
