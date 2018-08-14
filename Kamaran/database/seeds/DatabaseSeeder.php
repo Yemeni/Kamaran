@@ -76,9 +76,10 @@ class DatabaseSeeder extends Seeder {
 
 		factory(\App\Order::class, 10)->create();
 
-		factory(\App\Supplier::class, 2)->create();
+		factory(\App\Supplier::class, 2)->create()->each(function ($s){
+			$s->items()->saveMany(factory(\App\Item::class, 5)->make());
+		});
 
-		factory(\App\Item::class, 10)->create();
 
 	}
 }

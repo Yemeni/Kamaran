@@ -21,6 +21,7 @@ class CreateInventoriesTable extends Migration
             $table->enum('transaction_type', ['voucher','consume','initial_balance','returns','surplus','shortage','normal_shortage']);
             $table->timestamp('date')->nullabe();
             $table->integer('quantity');
+            $table->integer('arrived_status')->default(0);
             $table->text('comment')->nullabe();
             $table->timestamps();
         });

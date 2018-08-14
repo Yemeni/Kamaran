@@ -52,6 +52,8 @@ $factory->define(\App\Supplier::class, function (Faker $faker) {
 	];
 });
 
+
+
 $factory->define(\App\Item::class, function (Faker $faker) {
 	return [
 		'category_id'   => 1,

@@ -10,6 +10,7 @@
 @section('content')
 
     <div class="row">
+        @alert
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -63,15 +64,44 @@
                                 {{--<td>They will give 5% discount the next time we order</td>--}}
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-secondary dropdown-toggle"
+                                                type="button"
+                                                id="dropdownMenuButton"
+                                                data-toggle="dropdown"
+                                                aria-haspopup="true"
+                                                aria-expanded="false">
                                             Dropdown button
+                                            <span class="caret"></span>
                                         </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/approve') }}">Approve</a><i class="fa fa-fw fa-check "></i>
-                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/cancel') }}">Cancel</a><i class="fa fa-fw fa-times "></i>
-                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/edit') }}">Edit</a><i class="fa fa-fw fa-pencil"></i>
-                                            <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/edit') }}">Delete</a><i class="fa fa-fw fa-delete"></i>
-                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="{{ url('/order/'.$order->id.'/approve') }}">
+                                                    <i class="fa fa-fw fa-check "></i>
+                                                    Approve
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="{{ url('/order/'.$order->id.'/cancel') }}">
+                                                    <i class="fa fa-fw fa-times "></i>
+                                                    Cancel
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="{{ url('/order/'.$order->id.'/edit') }}">
+                                                    <i class="fa fa-fw fa-pencil"></i>
+                                                    Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="{{ url('/order/'.$order->id.'/delete') }}">
+                                                    <i class="fa fa-fw fa-trash"></i>
+                                                    Delete
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </td>
                             </tr>
@@ -148,18 +178,18 @@
                                 {{--<td>50$</td>--}}
                                 {{--<td>They will give 5% discount the next time we order</td>--}}
                                 {{--<td>--}}
-                                    {{--<a href="">--}}
-                                        {{--<i class="fa fa-fw fa-check "></i>--}}
-                                        {{--Approve--}}
-                                    {{--</a>--}}
-                                    {{--<a href="">--}}
-                                        {{--<i class="fa fa-fw fa-times "></i>--}}
-                                        {{--Cancel--}}
-                                    {{--</a>--}}
-                                    {{--<a href="">--}}
-                                        {{--<i class="fa fa-fw fa-sticky-note "></i>--}}
-                                        {{--Other--}}
-                                    {{--</a>--}}
+                                {{--<a href="">--}}
+                                {{--<i class="fa fa-fw fa-check "></i>--}}
+                                {{--Approve--}}
+                                {{--</a>--}}
+                                {{--<a href="">--}}
+                                {{--<i class="fa fa-fw fa-times "></i>--}}
+                                {{--Cancel--}}
+                                {{--</a>--}}
+                                {{--<a href="">--}}
+                                {{--<i class="fa fa-fw fa-sticky-note "></i>--}}
+                                {{--Other--}}
+                                {{--</a>--}}
                                 {{--</td>--}}
                             </tr>
                         @endforeach

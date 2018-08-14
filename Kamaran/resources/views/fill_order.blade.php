@@ -18,7 +18,16 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Order details:</h3>
                         </div>
-                        <!-- /.box-header -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    <!-- /.box-header -->
                         <!-- form start -->
                         <form role="form" action="{{ url('/order') }}" method="post">
                             @csrf
@@ -58,7 +67,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Comment</label>
-                                    <textarea name="comment" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea name="comment"
+                                              class="form-control"
+                                              rows="3"
+                                              placeholder="Enter ..."></textarea>
                                 </div>
                                 <div></div>
 
@@ -68,6 +80,17 @@
                                         <option selected disabled>Choose the Supplier first</option>
                                     </select>
                                 </div>
+
+                                @if(auth()->user()->isAdmin())
+                                    <div class="form-group">
+                                        <label for="">Categories:</label>
+                                        <select name="category_id" class="js-example-basic-single form-control">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
 
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
@@ -79,10 +102,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Total Cost:</label>&nbsp;
-                                    <span id="total">0</span> $
+                                    <span id="total">0</span>
+                                    $
                                 </div>
 
-                            <!-- /.box-body -->
+                                <!-- /.box-body -->
 
                                 <div class="box-footer">
                                     <a href="{{ url('/review_orders') }}" class="btn btn-default">Cancel</a>
@@ -117,10 +141,10 @@
 
             $(".form_datetime").datetimepicker();
 
-                $('.js-example-basic-single').select2();
+            $('.js-example-basic-single').select2();
 
             $('select[name="supplier_id"]').on('change.select2', function (eve) {
-                $.get("/supplier/"+$(this).val()+"/items", function(data, status){
+                $.get("/supplier/" + $(this).val() + "/items", function (data, status) {
                     $('.js-example-basic-single-item').select2({
                         data: JSON.parse(data)
                     });
