@@ -85,7 +85,8 @@ Route::put('/category/{category}', 'CategoryController@update');
 Route::delete('/category/{category}', 'CategoryController@destroy');
 
 Route::get('/review_orders', 'OrderController@index');
-
+Route::get('/order/{order}/approve', 'OrderController@approve');
+Route::get('/order/{order}/cancel', 'OrderController@cancel');
 Route::get('/fill_order', 'OrderController@create');
 
 Route::get('/track_shipments', function (){

@@ -36,7 +36,7 @@ $factory->define(\App\Order::class, function (Faker $faker) {
 		'item_id'          => $faker->numberBetween(1, 10),
 		'quantity'         => $faker->numberBetween(200, 1220),
 		'cost'             => $faker->numberBetween(100000, 1000000),
-		'order_status'     => $faker->randomElement(['pending', 'approved', 'cancelled', 'other']),
+		'order_status'     => $faker->randomElement(['pending', 'approved', 'cancelled']),
 		'date'             => \Carbon\Carbon::now()->subMinutes(20),
 		'letter_of_credit' => 'cif',
 		'approval_date'    => \Carbon\Carbon::now(),
@@ -58,7 +58,7 @@ $factory->define(\App\Item::class, function (Faker $faker) {
 		'name'          => $faker->colorName,
 		'description'   => $faker->paragraph,
 		'specification' => $faker->paragraph,
-		'unit'          => $faker->randomElement(['tons', 'liters', 'meters']),
+		'unit'          => $faker->randomElement(['KG','Gram','Tonne','Liter','Milliliter','Barrel','Gallon','Bottle','Meter','Centimeter','Kilometer','Cartons','Pack','Packet','Box']),
 		'danger_level'  => $faker->randomElement(['low', 'flammable', 'toxic']),
 		'type'          => $faker->jobTitle,
 	];

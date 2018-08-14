@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('category_id')->index();
             $table->unsignedInteger('supplier_id')->index();
             $table->unsignedInteger('item_id')->index();
-            $table->enum('order_status', ['pending','approved','cancelled','other']);
+            $table->enum('order_status', ['pending','approved','cancelled']);
             $table->timestamp('date')->nullable();
             $table->integer('quantity')->default(0);
             $table->integer('cost')->default(0);

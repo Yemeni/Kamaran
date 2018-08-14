@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Alerts\Alert;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class OrderController extends Controller {
 	{
 		$pendingOrders = Order::where('order_status', 'pending')->get();
 		$approvedOrders = Order::where('order_status', 'approved')->get();
-		$cancelledOrders = Order::where('order_status', 'cancelled')->where('order_status', 'other')->get();
+		$cancelledOrders = Order::where('order_status', 'cancelled')->get();
 
 		return view('review_orders', compact('pendingOrders', 'approvedOrders', 'cancelledOrders'));
 	}
@@ -53,6 +54,40 @@ class OrderController extends Controller {
 	public function show(Order $order)
 	{
 		//
+	}
+
+	/**
+	 * @param Order $order
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
+	 */
+	public function approve(Order $order)
+	{
+		$order->update([
+			'order_status' => 'approved',
+		]);
+
+		Alert::flash('Order has been approved', 'success');
+
+		return back();
+	}
+
+	/**
+	 * @param Order $order
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
+	 */
+	public function cancel(Order $order)
+	{
+		$order->update([
+			'order_status' => 'cancelled',
+		]);
+
+		Alert::flash('Order has been cancelled', 'success');
+
+		return back();
 	}
 
 	/**

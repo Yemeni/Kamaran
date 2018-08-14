@@ -44,7 +44,7 @@
                                 <td>{{ $order->supplier->name }}</td>
                                 <td>{{ $order->category->name }}</td>
                                 <td>{{ $order->item->name }}</td>
-                                <td>{{ $order->quantity }} KG</td>
+                                <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
                                 <td>{{ $order->cost }} $</td>
                                 <td>{{ $order->comment }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
@@ -57,17 +57,13 @@
                                 {{--<td>50$</td>--}}
                                 {{--<td>They will give 5% discount the next time we order</td>--}}
                                 <td>
-                                    <a href="">
+                                    <a href="{{ url('/order/'.$order->id.'/approve') }}">
                                         <i class="fa fa-fw fa-check "></i>
                                         Approve
                                     </a>
-                                    <a href="">
+                                    <a href="{{ url('/order/'.$order->id.'/cancel') }}">
                                         <i class="fa fa-fw fa-times "></i>
                                         Cancel
-                                    </a>
-                                    <a href="">
-                                        <i class="fa fa-fw fa-sticky-note "></i>
-                                        Other
                                     </a>
                                 </td>
                             </tr>
@@ -84,7 +80,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Cancelled/Other Orders</h3>
+                    <h3 class="box-title">Cancelled Orders</h3>
 
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -99,8 +95,8 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+                <div class="box-body table-responsive">
+                    <table class="table table-hover datatables">
                         <thead>
                         <tr>
                             <th>Order ID</th>
@@ -117,7 +113,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($pendingOrders as $order)
+                        @foreach($cancelledOrders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
                                 <td>{{ $order->user->name }}</td>
@@ -126,8 +122,8 @@
                                 <td>{{ $order->supplier->name }}</td>
                                 <td>{{ $order->category->name }}</td>
                                 <td>{{ $order->item->name }}</td>
-                                <td>{{ $order->quantity }} KG</td>
-                                <td>{{ $order->cost }}</td>
+                                <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
+                                <td>{{ $order->cost }} $</td>
                                 <td>{{ $order->comment }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
@@ -181,8 +177,8 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+                <div class="box-body table-responsive">
+                    <table class="table table-hover datatables">
                         <thead>
                         <tr>
                             <th>Order ID</th>
@@ -199,7 +195,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($pendingOrders as $order)
+                        @foreach($approvedOrders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
                                 <td>{{ $order->user->name }}</td>
@@ -208,8 +204,8 @@
                                 <td>{{ $order->supplier->name }}</td>
                                 <td>{{ $order->category->name }}</td>
                                 <td>{{ $order->item->name }}</td>
-                                <td>{{ $order->quantity }} KG</td>
-                                <td>{{ $order->cost }}</td>
+                                <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
+                                <td>{{ $order->cost }} $</td>
                                 <td>{{ $order->comment }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
