@@ -220,6 +220,7 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
+                            <th></th>
                         </tr>
                         <tr>
                             <td><a href="">555</a></td>
@@ -230,36 +231,18 @@
                             <td>22-8-2018</td>
                             <td>50,000 tons</td>
                             <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">on Hold</a></li>
+                                        <li><a href="#">Canceled</a></li>
+                                        <li><a href="#">Delayed</a></li>
+                                        <li><a href="#">Arraived</a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -297,6 +280,7 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
+                            <th></th>
                         </tr>
                         <tr>
                             <td><a href="">555</a></td>
@@ -307,36 +291,18 @@
                             <td>22-8-2018</td>
                             <td>50,000 tons</td>
                             <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Moving</a></li>
+                                        <li><a href="#">on Hold</a></li>
+                                        <li><a href="#">Delayed</a></li>
+                                        <li><a href="#">Arraived</a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -374,6 +340,7 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
+                            <th></th>
                         </tr>
                         <tr>
                             <td><a href="">555</a></td>
@@ -384,36 +351,18 @@
                             <td>22-8-2018</td>
                             <td>50,000 tons</td>
                             <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Moving</a></li>
+                                        <li><a href="#">Canceled</a></li>
+                                        <li><a href="#">on Hold</a></li>
+                                        <li><a href="#">Arraived</a></li>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -452,39 +401,6 @@
                             <th>Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>25-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>25-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">555</a></td>
-                            <td><a href="">Tobacco Type 50</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>25-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
                             <td><a href="">555</a></td>
