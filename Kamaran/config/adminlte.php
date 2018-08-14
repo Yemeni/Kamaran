@@ -150,22 +150,26 @@ return [
 				[
 					'text' => 'Category', // Admin
 					'icon' => '',
-					'url'  => '/category/create'
+					'url'  => '/category/create',
+					'can' => 'admin'
 				],
 				[
 					'text' => 'Manage Categories', // Admin
 					'icon' => '',
-					'url'  => '/category'
+					'url'  => '/category',
+					'can' => 'admin'
 				],
 				[
 					'text' => 'Review Orders', // manager
 					'icon' => 'file',
-					'url'  => '/review_orders'
+					'url'  => '/review_orders',
+					'can' => 'admin||manager'
 				],
 				[
 					'text' => 'Fill Order', // manager
 					'icon' => 'file',
-					'url'  => '/fill_order'
+					'url'  => '/fill_order',
+					'can' => 'admin||manager'
 				],
 				[
 					'text' => 'Track Shipments', // manager

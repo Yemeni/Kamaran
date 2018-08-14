@@ -35,6 +35,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @php
+                            if (! auth()->user()->isAdmin()){
+                                $pendingOrders = $pendingOrders->where('category_id', auth()->user()->category_id);
+                            }
+                        @endphp
                         @foreach($pendingOrders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
@@ -46,7 +51,7 @@
                                 <td>{{ $order->item->name }}</td>
                                 <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
                                 <td>{{ $order->cost }} $</td>
-                                <td>{{ $order->comment }}</td>
+                                <td>{{ $order->comment ?? '-' }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
                                 {{--<td>CIF</td>--}}
@@ -61,9 +66,15 @@
                                         <i class="fa fa-fw fa-check "></i>
                                         Approve
                                     </a>
+                                    <br>
                                     <a href="{{ url('/order/'.$order->id.'/cancel') }}">
                                         <i class="fa fa-fw fa-times "></i>
                                         Cancel
+                                    </a>
+                                    <br>
+                                    <a href="{{ url('/order/'.$order->id.'/edit') }}">
+                                        <i class="fa fa-fw fa-pencil"></i>
+                                        Edit
                                     </a>
                                 </td>
                             </tr>
@@ -113,6 +124,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @php
+                            if (! auth()->user()->isAdmin()){
+                                $cancelledOrders = $cancelledOrders->where('category_id', auth()->user()->category_id);
+                            }
+                        @endphp
                         @foreach($cancelledOrders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
@@ -124,7 +140,7 @@
                                 <td>{{ $order->item->name }}</td>
                                 <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
                                 <td>{{ $order->cost }} $</td>
-                                <td>{{ $order->comment }}</td>
+                                <td>{{ $order->comment ?? '-' }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
                                 {{--<td>CIF</td>--}}
@@ -190,11 +206,17 @@
                             <th>Item</th>
                             <th>Quantity</th>
                             <th>Cost</th>
+                            <th>Approved Date</th>
                             <th>Comment</th>
                             {{--<th></th>--}}
                         </tr>
                         </thead>
                         <tbody>
+                        @php
+                            if (! auth()->user()->isAdmin()){
+                                $approvedOrders = $approvedOrders->where('category_id', auth()->user()->category_id);
+                            }
+                        @endphp
                         @foreach($approvedOrders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
@@ -206,7 +228,8 @@
                                 <td>{{ $order->item->name }}</td>
                                 <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
                                 <td>{{ $order->cost }} $</td>
-                                <td>{{ $order->comment }}</td>
+                                <td>{{ $order->approval_date->format('d-m-y') }}</td>
+                                <td>{{ $order->comment ?? '-' }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
                                 {{--<td>CIF</td>--}}

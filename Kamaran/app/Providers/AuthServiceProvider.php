@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Order;
 use App\Policies\CategoryPolicy;
+use App\Policies\OrderPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -17,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider {
 	protected $policies = [
 		'App\User'     => 'App\Policies\UserPolicy',
 		Category::class => CategoryPolicy::class,
+		Order::class => OrderPolicy::class,
 	];
 
 	/**
@@ -32,6 +35,12 @@ class AuthServiceProvider extends ServiceProvider {
 
 		Gate::define('admin||manager', function ($user) {
 			return $user->level == 'admin' || $user->level == 'manager';
+		});
+		Gate::define('manager||employee', function ($user) {
+			return $user->level == 'employee' || $user->level == 'manager';
+		});
+		Gate::define('admin||manager||employee', function ($user) {
+			return $user->level == 'admin' || $user->level == 'employee' || $user->level == 'manager';
 		});
 		Gate::define('admin', function ($user) {
 			return $user->level == 'admin';

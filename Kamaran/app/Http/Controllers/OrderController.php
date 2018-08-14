@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Alerts\Alert;
 use App\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class OrderController extends Controller {
 
@@ -15,6 +17,8 @@ class OrderController extends Controller {
 	 */
 	public function index()
 	{
+		Gate::authorize('admin||manager');
+
 		$pendingOrders = Order::where('order_status', 'pending')->get();
 		$approvedOrders = Order::where('order_status', 'approved')->get();
 		$cancelledOrders = Order::where('order_status', 'cancelled')->get();
@@ -29,6 +33,8 @@ class OrderController extends Controller {
 	 */
 	public function create()
 	{
+		Gate::authorize('admin||manager||employee');
+
 		return view('fill_order');
 	}
 
@@ -64,8 +70,11 @@ class OrderController extends Controller {
 	 */
 	public function approve(Order $order)
 	{
+		$this->authorize('statusChange', $order);
+
 		$order->update([
 			'order_status' => 'approved',
+			'approved_date' => Carbon::now()->timestamp
 		]);
 
 		Alert::flash('Order has been approved', 'success');
@@ -81,6 +90,8 @@ class OrderController extends Controller {
 	 */
 	public function cancel(Order $order)
 	{
+		$this->authorize('statusChange', $order);
+
 		$order->update([
 			'order_status' => 'cancelled',
 		]);
@@ -99,7 +110,7 @@ class OrderController extends Controller {
 	 */
 	public function edit(Order $order)
 	{
-		//
+		Gate::authorize('admin||manager||employee');
 	}
 
 	/**

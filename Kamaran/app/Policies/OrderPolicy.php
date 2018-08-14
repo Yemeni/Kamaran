@@ -10,16 +10,21 @@ class OrderPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Determine whether the user can view the order.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Order  $order
-     * @return mixed
-     */
-    public function view(User $user, Order $order)
+	/**
+	 * Determine whether the user can view the order.
+	 *
+	 * @param  \App\User $user
+	 *
+	 * @return mixed
+	 */
+    public function view(User $user)
     {
-        //
+		return $user->isAdmin() || $user->isManager();
+    }
+
+	public function statusChange(User $user, Order $order)
+	{
+		return $user->isAdmin() || ($user->isManager() && $user->category_id == $order->category_id);
     }
 
     /**
