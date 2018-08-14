@@ -37,6 +37,10 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!-- datetimepicker styles -->
+    <link href="{{ asset('vendor/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 <body class="hold-transition @yield('body_class')">
 
@@ -61,6 +65,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
 
+<!-- datatimepicker scripts TODO: add it in config option -->
+<script src="{{ asset('vendor/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
+
 @yield('adminlte_js')
 
 <script type="text/javascript">
@@ -68,6 +75,8 @@
         $('.datatables').DataTable();
     } );
 </script>
+
+
 
 </body>
 </html>
