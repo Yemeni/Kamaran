@@ -176,12 +176,12 @@
                                     <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
+                                        <li><a href="" class="btn btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
+                                        <li class="divider"></li>
                                         <li><a href="#">Moving</a></li>
                                         <li><a href="#">Canceled</a></li>
                                         <li><a href="#">Delayed</a></li>
                                         <li><a href="#">Arraived</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -238,12 +238,12 @@
                                     <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
+                                        <li><a href="" class="btn btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
+                                        <li class="divider"></li>
                                         <li><a href="#">on Hold</a></li>
                                         <li><a href="#">Canceled</a></li>
                                         <li><a href="#">Delayed</a></li>
                                         <li><a href="#">Arraived</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -347,12 +347,12 @@
                                     <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">Change Status
                                         <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
+                                        <li><a href="" class="btn btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
+                                        <li class="divider"></li>
                                         <li><a href="#">Moving</a></li>
                                         <li><a href="#">Canceled</a></li>
                                         <li><a href="#">on Hold</a></li>
                                         <li><a href="#">Arraived</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Edit</a></li>
                                     </ul>
                                 </div>
                             </td>
