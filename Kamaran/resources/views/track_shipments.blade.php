@@ -97,6 +97,11 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="">Item Name:</label>
+                                                        <input type="text" disabled="" value="Wire Type xyz" class="form-control" id="">
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="">Danger Level:</label>
                                                         <input type="text" disabled="" value="Flammable" class="form-control" id="">
                                                     </div>
