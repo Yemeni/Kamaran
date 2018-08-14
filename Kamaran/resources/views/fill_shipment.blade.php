@@ -32,6 +32,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Expected Arrival Date:</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" id="datepicker">
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="">Order:</label>
                                     <select class="js-example-basic-single-order form-control">
                                         <option value="">114</option>
