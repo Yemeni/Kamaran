@@ -41,9 +41,9 @@
             <!-- Logo -->
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>A</b>LT') !!}</span>
+                <span class="logo-mini"><img src="{{ asset('resources/Kamaran_Header.jpg') }}" alt="" width="200px" height="50px"></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</span>
+                <span class="logo-lg"><img src="{{ asset('resources/Kamaran_Header.jpg') }}" alt="" width="200px" height="50px"></span>
             </a>
 
             <!-- Header Navbar -->
