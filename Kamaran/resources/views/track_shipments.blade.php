@@ -320,7 +320,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="" data-toggle="modal" data-target="#myModal">Edit</a>
+                                            <a href="" data-toggle="modal" data-target="#onHoldModal">Edit</a>
                                         </li>
                                         <li class="divider"></li>
                                         <li>
@@ -338,6 +338,116 @@
                                     </ul>
                                 </div>
                             </td>
+                            <!-- Modal -->
+                            <div id="onHoldModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;
+                                            </button>
+                                            <h4 class="modal-title">Shipment Information:</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form"
+                                                  action=""
+                                                  method="post">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="">Date:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   name="arrival_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Expected Arrival:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   name="expected_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Status:</label>
+                                                        <select name="shipment_status" class="form-control">
+                                                            <option value="on_hold">
+                                                                on Hold
+                                                            </option>
+                                                            <option value="moving">
+                                                                Moving
+                                                            </option>
+                                                            <option value="delayed">
+                                                                Delayed
+                                                            </option>
+                                                            <option value="cancelled">
+                                                                Canceled
+                                                            </option>
+                                                            <option value="arrived">
+                                                                Arrived
+                                                            </option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Quantity:</label>
+                                                        <input type="number"
+                                                               max=""
+                                                               name="quantity"
+                                                               class="form-control"
+                                                               id="">
+                                                        <span>
+                                                            remaining
+                                                            </span>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Item Name:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value=""
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Danger Level:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value=""
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <!-- /.box-body -->
+
+                                                    <div class="box-footer">
+                                                        <button type="button"
+                                                                class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary pull-right">
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                         </tbody>
                     </table>
@@ -437,7 +547,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="" data-toggle="modal" data-target="#myModal">Edit</a>
+                                            <a href="" data-toggle="modal" data-target="#movingModal">Edit</a>
                                         </li>
                                         <li class="divider"></li>
                                         <li>
@@ -455,6 +565,116 @@
                                     </ul>
                                 </div>
                             </td>
+                            <!-- Modal -->
+                            <div id="movingModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;
+                                            </button>
+                                            <h4 class="modal-title">Shipment Information:</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form"
+                                                  action=""
+                                                  method="post">
+                                                <div class="box-body">
+                                                    <div class="form-group">
+                                                        <label for="">Date:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   name="arrival_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Expected Arrival:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   name="expected_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Status:</label>
+                                                        <select name="shipment_status" class="form-control">
+                                                            <option value="on_hold">
+                                                                on Hold
+                                                            </option>
+                                                            <option value="moving">
+                                                                Moving
+                                                            </option>
+                                                            <option value="delayed">
+                                                                Delayed
+                                                            </option>
+                                                            <option value="cancelled">
+                                                                Canceled
+                                                            </option>
+                                                            <option value="arrived">
+                                                                Arrived
+                                                            </option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Quantity:</label>
+                                                        <input type="number"
+                                                               max=""
+                                                               name="quantity"
+                                                               class="form-control"
+                                                               id="">
+                                                        <span>
+                                                            remaining
+                                                            </span>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Item Name:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value=""
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Danger Level:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value=""
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <!-- /.box-body -->
+
+                                                    <div class="box-footer">
+                                                        <button type="button"
+                                                                class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary pull-right">
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                         </tbody>
                     </table>
