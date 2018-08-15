@@ -16,9 +16,10 @@
                     <h3 class="box-title">Items</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
+                        <tr>
                             <th>Item ID</th>
                             <th>Item Name</th>
                             <th>Description</th>
@@ -27,6 +28,7 @@
                             <th>Danger Level</th>
                             <th>Type</th>
                             <th>Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr>

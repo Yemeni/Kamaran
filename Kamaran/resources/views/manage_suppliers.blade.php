@@ -14,15 +14,17 @@
                     <h3 class="box-title">Suppliers</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
+                        <tr>
                             <th>Supplier ID</th>
                             <th>Supplier Name</th>
                             <th>Address</th>
                             <th>Phone</th>
                             <th>Email</th>
                             <th>Action</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr>

@@ -267,7 +267,7 @@
                                                 <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">Delayed</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arraived</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -401,7 +401,7 @@
 
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
 
                         <thead>
@@ -587,7 +587,7 @@
                     <h3 class="box-title">Cancelled Shipments</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
 
                         <thead>
@@ -634,7 +634,7 @@
                     <h3 class="box-title">Delayed Shipments</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
                         <th>Shipment ID</th>
@@ -648,6 +648,7 @@
                         <th>Comment</th>
                         <th></th>
                         </thead>
+                        </tr>
                         <tbody>
                         @foreach($delayed as $ship)
                             <tr>
@@ -819,7 +820,7 @@
                     <h3 class="box-title">Arrived Shipments</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
                         <th>Shipment ID</th>
