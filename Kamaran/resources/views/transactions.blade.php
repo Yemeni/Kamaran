@@ -27,8 +27,8 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody><tr>
+                    <table class="table table-hover datatables">
+                        <thead>
                             <th>Transaction ID</th>
                             <th>Transaction Type</th>
                             <th>Employee</th>
@@ -36,42 +36,23 @@
                             <th>Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
-                        </tr>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
                         <tr>
-                            <td><a href="">data</a></td>
-                            <td>data</td>
-                            <td><a href="">data</a></td>
-                            <td><a href="">data</a></td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td>data</td>
-                            <td><span class="label label-success">data</span></td>
-                            <td>data</td>
+                            <td>514</td>
+                            <td>Vouchar</td>
+                            <td>Ahmed Ali</td>
+                            <td>563</td>
+                            <td>2088-2-11</td>
+                            <td>500000</td>
+                            <td>Comment here</td>
+                            <td>
+                                <a href="" class="btn btn-warning">Edit</a>
+                                <button onclick="" class="btn btn-danger">Delete</button> <!-- only if no orders happened with this item -->
+                                <form id="delete1" action="" method="post">
+                                </form>
+                            </td>
                         </tr>
                         </tbody></table>
                 </div>
