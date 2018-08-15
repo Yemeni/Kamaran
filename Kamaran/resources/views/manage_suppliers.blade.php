@@ -25,41 +25,28 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody><tr>
+                    <table class="table table-hover datatables">
+                        <thead>
                             <th>Supplier ID</th>
                             <th>Supplier Name</th>
                             <th>Address</th>
                             <th>Phone</th>
                             <th>Email</th>
-                        </tr>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
                         <tr>
-                            <td><a href="">154</a></td>
+                            <td>154</td>
                             <td>Motors Limited .co</td>
                             <td>China, Beijing</td>
                             <td>+967 777 777 777</td>
                             <td>sales@chinaXyz.cn</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Motors Limited .co</td>
-                            <td>China, Beijing</td>
-                            <td>+967 777 777 777</td>
-                            <td>sales@chinaXyz.cn</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Motors Limited .co</td>
-                            <td>China, Beijing</td>
-                            <td>+967 777 777 777</td>
-                            <td>sales@chinaXyz.cn</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">154</a></td>
-                            <td>Motors Limited .co</td>
-                            <td>China, Beijing</td>
-                            <td>+967 777 777 777</td>
-                            <td>sales@chinaXyz.cn</td>
+                            <td>
+                                <a href="" class="btn btn-warning">Edit</a>
+                                <button onclick="" class="btn btn-danger">Delete</button> <!-- only if no orders happened with this item -->
+                                <form id="delete1" action="" method="post">
+                                </form>
+                            </td>
                         </tr>
                         </tbody></table>
                 </div>

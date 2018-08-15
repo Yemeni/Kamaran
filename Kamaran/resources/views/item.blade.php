@@ -29,9 +29,8 @@
                                 <div class="form-group">
                                     <label for="">Category:</label>
                                     <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
+                                        <option>Department of Something</option>
+                                        <option>Department of Raw Materials</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -45,16 +44,29 @@
                                 <div class="form-group">
                                     <label for="">Unit:</label>
                                     <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
+                                        <option>KG</option>
+                                        <option>Gram</option>
+                                        <option>Tonne</option>
+                                        <option>Liter</option>
+                                        <option>Milliliter</option>
+                                        <option>Barre</option>
+                                        <option>Gallon</option>
+                                        <option>Bottle</option>
+                                        <option>Meter</option>
+                                        <option>Centimeter</option>
+                                        <option>Kilometer</option>
+                                        <option>Cartons</option>
+                                        <option>Pack</option>
+                                        <option>Packet</option>
+                                        <option>Box</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Danger Level:</label>
                                     <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
+                                        <option>low</option>
+                                        <option>flammable</option>
+                                        <option>toxic</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -82,70 +94,6 @@
                                     </div>
                                     <!-- /.tab-content -->
                                 </div>
-                                @section('js')
-                                    <script>
-                                        // select2 auto complete
-                                        $(document).ready(function() {
-                                            $('.js-example-basic-single').select2();
-                                        });
-
-                                        // add new tab
-                                        $(".nav-tabs").on("click", "a", function (e) {
-                                            e.preventDefault();
-                                            if (!$(this).hasClass('add-tab')) {
-                                                $(this).tab('show');
-                                            }
-                                        })
-                                            .on("click", "span", function () {
-                                                var anchor = $(this).siblings('a');
-                                                $(anchor.attr('href')).remove();
-                                                $(this).parent().remove();
-                                                $(".nav-tabs li").children('a').first().click();
-                                            });
-
-                                        $('.add-tab').click(function (e) {
-                                            e.preventDefault();
-                                            var id = $(".nav-tabs").children().length; //think about it ;)
-                                            var tabId = 'tab_' + id;
-                                            $(this).closest('li').before('<li><a href="#tab_' + id + '">Supplier ' + id +'</a> <span> x </span></li>');
-                                            $('.tab-content').append('<div class="tab-pane" id="' + tabId + '">' +
-                                                '<div class="form-group">' +
-                                                '<label for="">Supplier Name:</label>' +
-                                                '<select class="js-example-basic-single'+id +' form-control">' +
-                                                '<option value="">Something .co</option>' + // repopulate from database
-                                                '<option value="">Something2 .co</option>' +
-                                                '</select>' +
-                                                '</div>' +
-                                                '</div>');
-                                            $('.nav-tabs li:nth-child(' + id + ') a').click();
-
-                                            $(document).ready(function() {
-                                                $('.js-example-basic-single'+id).select2();
-                                            });
-                                        });
-                                    </script>
-                                    @append
-                                @section('css')
-                                    <style>
-                                        .nav-tabs > li {
-                                            position:relative;
-                                        }
-                                        .nav-tabs > li > a {
-                                            display:inline-block;
-                                        }
-                                        .nav-tabs > li > span {
-                                            display:none;
-                                            cursor:pointer;
-                                            position:absolute;
-                                            right: 6px;
-                                            top: 8px;
-                                            color: red;
-                                        }
-                                        .nav-tabs > li:hover > span {
-                                            display: inline-block;
-                                        }
-                                    </style>
-                                    @append
 
                                 <!-- nav-tabs-custom -->
 
@@ -166,4 +114,48 @@
 
 
 @stop
+
+@section('adminlte_js')
+    <script>
+        // select2 auto complete
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+
+        // add new tab
+        $(".nav-tabs").on("click", "a", function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass('add-tab')) {
+                $(this).tab('show');
+            }
+        })
+            .on("click", "span", function () {
+                var anchor = $(this).siblings('a');
+                $(anchor.attr('href')).remove();
+                $(this).parent().remove();
+                $(".nav-tabs li").children('a').first().click();
+            });
+
+        $('.add-tab').click(function (e) {
+            e.preventDefault();
+            var id = $(".nav-tabs").children().length; //think about it ;)
+            var tabId = 'tab_' + id;
+            $(this).closest('li').before('<li><a href="#tab_' + id + '">Supplier ' + id +'</a> <span> x </span></li>');
+            $('.tab-content').append('<div class="tab-pane" id="' + tabId + '">' +
+                '<div class="form-group">' +
+                '<label for="">Supplier Name:</label>' +
+                '<select class="js-example-basic-single'+id +' form-control">' +
+                '<option value="">Something .co</option>' + // repopulate from database
+                '<option value="">Something2 .co</option>' +
+                '</select>' +
+                '</div>' +
+                '</div>');
+            $('.nav-tabs li:nth-child(' + id + ') a').click();
+
+            $(document).ready(function() {
+                $('.js-example-basic-single'+id).select2();
+            });
+        });
+    </script>
+@endsection
 
