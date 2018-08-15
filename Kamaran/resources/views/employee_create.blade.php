@@ -128,7 +128,7 @@
 
 @stop
 
-@section('adminlte_js')
+@section('js')
     <script>
         $(document).ready(function () {
             $('select[name="level"]').on('change', function (eve) {
@@ -146,4 +146,4 @@
             })
         })
     </script>
-@endsection
+@append

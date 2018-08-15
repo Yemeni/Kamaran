@@ -102,7 +102,7 @@
 @stop
 
 
-@section('adminlte_js')
+@section('js')
     <script>
         // select2 auto complete
         $(document).ready(function () {
@@ -145,5 +145,5 @@
             });
         });
     </script>
-@endsection
+@append
 
