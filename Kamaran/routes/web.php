@@ -59,8 +59,8 @@ Route::get('/performance', function (){
     return view('performance');
 });
 
-Route::get('/inventory', function (){
-    return view('inventory');
+Route::get('/inventory_dashboard', function (){
+    return view('inventory_dashboard');
 });
 
 Route::get('/orders', function (){
@@ -124,12 +124,12 @@ Route::get('/manage_suppliers', function (){
     return view('manage_suppliers');
 });
 
-Route::get('/make_transaction', function (){
-    return view('make_transaction');
+Route::get('/inventory_transaction', function (){
+    return view('inventory_transaction');
 });
 
-Route::get('/transactions', function (){
-    return view('transactions');
+Route::get('/inventory', function (){
+    return view('inventory');
 });
 
 Route::get('/print_reports', function (){

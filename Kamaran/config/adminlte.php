@@ -125,9 +125,9 @@ return [
 					'url'  => '/performance'
 				],
 				[
-					'text' => 'Inventory', // manager
+					'text' => 'Inventory Dashboard', // manager
 					'icon' => 'archive',
-					'url'  => '/inventory'
+					'url'  => '/inventory_dashboard'
 				],
 				[
 					'text' => 'Orders', // manager
@@ -198,14 +198,14 @@ return [
 					'url'  => '/supplier'
 				],
 				[
-					'text' => 'Make Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+					'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
 					'icon' => '',
-					'url'  => '/make_transaction'
+					'url'  => '/inventory_transaction'
 				],
 				[
-					'text' => 'Transactions', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+					'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
 					'icon' => '',
-					'url'  => '/transactions'
+					'url'  => '/Inventory'
 				],
 				[
 					'text' => 'Print Reports', // manager + employee
