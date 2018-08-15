@@ -53,7 +53,7 @@
             <div class="box">
                 <div style="padding:10px;">
                     Filter by:
-                    <form class="form-inline" action="/action_page.php">
+                        <form class="form-inline" action="">
                         <div class="form-group">
                             <label for="">Category:</label>
                             <select class="form-control">
@@ -79,7 +79,7 @@
                             </select>
                         </div>
 
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default">Filter</button>
                     </form>
                 </div>
             </div>
