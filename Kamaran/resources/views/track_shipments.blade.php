@@ -279,23 +279,12 @@
                 <div class="box-header">
                     <h3 class="box-title">Moving Shipments</h3>
 
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
-                        <tr>
+                    <table class="table table-hover datatables">
+
+                        <thead>
                             <th>Shipment ID</th>
                             <th>Item</th>
                             <th>Staff</th>
@@ -305,7 +294,8 @@
                             <th>Quantity</th>
                             <th>Comment</th>
                             <th></th>
-                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>
                                 <a href="">555</a>
@@ -362,24 +352,12 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Cancelled Shipments</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
-                        <tr>
+                    <table class="table table-hover datatables">
+
+                        <thead>
                             <th>Shipment ID</th>
                             <th>Item</th>
                             <th>Staff</th>
@@ -388,7 +366,8 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
-                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>
                                 <a href="">555</a>
@@ -418,24 +397,11 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Delayed Shipments</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
-                        <tr>
+                    <table class="table table-hover datatables">
+                        <thead>
                             <th>Shipment ID</th>
                             <th>Item</th>
                             <th>Staff</th>
@@ -445,7 +411,8 @@
                             <th>Quantity</th>
                             <th>Comment</th>
                             <th></th>
-                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>
                                 <a href="">555</a>
@@ -502,24 +469,11 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Arrived Shipments</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
-                        <tr>
+                    <table class="table table-hover datatables">
+                        <thead>
                             <th>Shipment ID</th>
                             <th>Item</th>
                             <th>Staff</th>
@@ -529,7 +483,8 @@
                             <th>Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
-                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>
                                 <a href="">555</a>
