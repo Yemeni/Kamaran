@@ -51,6 +51,44 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
+                <div style="padding:10px;">
+                    Filter by:
+                    <form class="form-inline" action="/action_page.php">
+                        <div class="form-group">
+                            <label for="">Category:</label>
+                            <select class="form-control">
+                                <option>Department of Katha</option>
+                                <option>Department of Bla</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Item:</label>
+                            <select class="form-control">
+                                <option>Blue Grape</option>
+                                <option>Red Tree</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Status:</label>
+                            <select class="form-control">
+                                <option>All Statuses</option>
+                                <option>Voucher</option>
+                                <option>Consume</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Transactions</h3>
                 </div>
