@@ -205,7 +205,7 @@ return [
 				[
 					'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
 					'icon' => '',
-					'url'  => '/Inventory'
+					'url'  => '/inventory'
 				],
 				[
 					'text' => 'Print Reports', // manager + employee
