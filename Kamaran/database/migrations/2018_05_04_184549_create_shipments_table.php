@@ -23,6 +23,7 @@ class CreateShipmentsTable extends Migration
             $table->timestamp('expected_date')->nullable();
             $table->timestamp('arrival_date')->nullable();
             $table->integer('quantity')->default(0);
+            $table->integer('invoice')->nullable();
             $table->enum('shipment_status', ['on_hold','moving','cancelled','arrived','delayed']);
             $table->text('comment')->nullable();
             $table->timestamps();

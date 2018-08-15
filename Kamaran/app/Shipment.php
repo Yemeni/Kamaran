@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shipment extends Model
 {
     protected $fillable = [
-        'order_id', 'partial', 'date', 'category_id', 'expected_date', 'user_id', 'arrival_date', 'quantity', 'shipment_status', 'comment'
+        'invoice', 'order_id', 'partial', 'date', 'category_id', 'expected_date', 'user_id', 'arrival_date', 'quantity', 'shipment_status', 'comment'
     ];
 
     protected $dates = ['date', 'expected_date', 'arrival_date'];

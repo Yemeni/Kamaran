@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Alerts\Alert;
+use App\Inventory;
 use App\Shipment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -103,38 +104,61 @@ class ShipmentController extends Controller {
 		$request->validate([
 			'arrival_date'    => 'required|date',
 			'expected_date'   => 'required|date',
-			'quantity'        => 'required|numeric|max:' . ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()),
+			'quantity'        => 'nullable|numeric|max:' . ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()),
 			'shipment_status' => [
 				'required',
 				Rule::in(['on_hold', 'moving', 'cancelled', 'arrived', 'delayed'])
 			],
+			'invoice'         => 'required|integer',
 		]);
 
-
-		if ((int) $request->quantity < ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()))
+		if ($request->has('quantity'))
 		{
-			Shipment::create([
-				'order_id'        => $shipment->order->id,
-				'user_id'         => $shipment->user->id,
-				'category_id'     => $shipment->category_id,
-				'partial'         => 1,
-				'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-				'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
-				'quantity'        => $request->quantity,
-				'shipment_status' => $request->shipment_status,
-				'date'            => Carbon::now()->timestamp
-			]);
+			if ((int) $request->quantity < ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()))
+			{
+				Shipment::create([
+					'order_id'        => $shipment->order->id,
+					'user_id'         => $shipment->user->id,
+					'category_id'     => $shipment->category_id,
+					'partial'         => 1,
+					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
+					'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
+					'invoice'         => $request->invoice,
+					'quantity'        => $request->quantity,
+					'shipment_status' => $request->shipment_status,
+					'date'            => Carbon::now()->timestamp
+				]);
 
-			$shipment->update([
-				'partial' => 1,
-			]);
+				$shipment->update([
+					'partial' => 1,
+				]);
+			} else
+			{
+				$shipment->update([
+					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
+					'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
+					'invoice'         => $request->invoice,
+					'quantity'        => $request->quantity,
+					'shipment_status' => $request->shipment_status,
+				]);
+			}
 		} else
 		{
 			$shipment->update([
 				'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
 				'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
-				'quantity'        => $request->quantity,
+				'invoice'         => $request->invoice,
 				'shipment_status' => $request->shipment_status,
+			]);
+		}
+
+		if ($request->shipment_status == 'arrived'){
+			Inventory::create([
+				'category_id' => $shipment->category_id,
+				'shipment_id' => $shipment->id,
+				'transaction_type' => 'on_hold',
+				'quantity' => $shipment->quantity,
+				'arrival_status' => 0,
 			]);
 		}
 
@@ -152,6 +176,18 @@ class ShipmentController extends Controller {
 	 */
 	public function changeStatus(Shipment $shipment, $status)
 	{
+		$this->authorize('update', $shipment);
+
+		if ($status == 'arrived'){
+			Inventory::create([
+				'category_id' => $shipment->category_id,
+				'shipment_id' => $shipment->id,
+				'transaction_type' => 'on_hold',
+				'quantity' => $shipment->quantity,
+				'arrival_status' => 0,
+			]);
+		}
+
 		$shipment->update([
 			'shipment_status' => $status
 		]);

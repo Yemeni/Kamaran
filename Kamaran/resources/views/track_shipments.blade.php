@@ -84,10 +84,10 @@
                                                     <div class="box-body">
                                                         <div class="form-group">
                                                             <label for="">Invoice:</label>
-                                                                <input type="number"
-                                                                       name=""
-                                                                       class="form-control"
-                                                                       id="">
+                                                            <input type="number"
+                                                                   name="invoice"
+                                                                   class="form-control"
+                                                                   id="">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="">Expected Arrival Date:</label>
@@ -233,7 +233,7 @@
                         @foreach($onHold as $ship)
                             <tr>
                                 <td>{{ $ship->id }}</td>
-                                <td>5555555</td>
+                                <td>{{ $ship->invoice }}</td>
                                 <td>
                                     <a href="">{{ $ship->order->item->name }}</a>
                                 </td>
@@ -285,13 +285,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <form role="form"
-                                                  action=""
+                                                  action="{{ url('/shipment/'.$ship->id) }}"
                                                   method="post">
+                                                @csrf
+                                                @method('PUT')
+
                                                 <div class="box-body">
                                                     <div class="form-group">
                                                         <label for="">Invoice:</label>
                                                         <input type="number"
-                                                               name=""
+                                                               name="invoice"
+                                                               value="{{ $ship->invoice }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -302,6 +306,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
+                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
                                                                    name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -315,6 +320,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
+                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
                                                                    name="expected_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -324,19 +330,19 @@
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
                                                         <select name="shipment_status" class="form-control">
-                                                            <option value="on_hold">
+                                                            <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
-                                                            <option value="moving">
+                                                            <option {{ $ship->shipment_status == 'moving' ? 'selected' : '' }} value="moving">
                                                                 Moving
                                                             </option>
-                                                            <option value="delayed">
+                                                            <option {{ $ship->shipment_status == 'delayed' ? 'selected' : '' }} value="delayed">
                                                                 Delayed
                                                             </option>
-                                                            <option value="cancelled">
+                                                            <option {{ $ship->shipment_status == 'cancelled' ? 'selected' : '' }} value="cancelled">
                                                                 Canceled
                                                             </option>
-                                                            <option value="arrived">
+                                                            <option {{ $ship->shipment_status == 'arrived' ? 'selected' : '' }} value="arrived">
                                                                 Arrived
                                                             </option>
                                                         </select>
@@ -346,7 +352,7 @@
                                                         <label for="">Item Name:</label>
                                                         <input type="text"
                                                                disabled=""
-                                                               value=""
+                                                               value="{{ $ship->order->item->name }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -355,7 +361,7 @@
                                                         <label for="">Danger Level:</label>
                                                         <input type="text"
                                                                disabled=""
-                                                               value=""
+                                                               value="{{ $ship->order->item->danger_level }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -399,61 +405,61 @@
                     <table class="table table-hover datatables">
 
                         <thead>
-                            <th>Shipment ID</th>
-                            <th>Invoice</th>
-                            <th>Item</th>
-                            <th>Staff</th>
-                            <th>Partial</th>
-                            <th>Date</th>
-                            <th>Expected Arrival Date</th>
-                            <th>Quantity</th>
-                            <th>Comment</th>
-                            <th></th>
+                        <th>Shipment ID</th>
+                        <th>Invoice</th>
+                        <th>Item</th>
+                        <th>Staff</th>
+                        <th>Partial</th>
+                        <th>Date</th>
+                        <th>Expected Arrival Date</th>
+                        <th>Quantity</th>
+                        <th>Comment</th>
+                        <th></th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                555
-                            </td>
-                            <td>555555</td>
-                            <td>
-                                <a href="">Tobacco Type 50</a>
-                            </td>
-                            <td>
-                                <a href="">Ahmed Ali</a>
-                            </td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle btn-sm"
-                                            type="button"
-                                            data-toggle="dropdown">Change Status
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="" data-toggle="modal" data-target="#movingModal">Edit</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#">on Hold</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Canceled</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Delayed</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Arraived</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
+                        @foreach($moving as $ship)
+                            <tr>
+                                <td>{{ $ship->id }}</td>
+                                <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    <a href="">{{ $ship->order->item->name }}</a>
+                                </td>
+                                <td>
+                                    <a href="">{{ $ship->user->name }}</a>
+                                </td>
+                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>{{ $ship->date->format('d-m-y') }}</td>
+                                <td>{{ $ship->expected_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
+                                <td>{{ $ship->comment }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                                type="button"
+                                                data-toggle="dropdown">Change Status
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="" data-toggle="modal" data-target="#movingModal">Edit</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/on_hold') }}">On Hold</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">Canceled</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">Delayed</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                             <!-- Modal -->
                             <div id="movingModal" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
@@ -466,13 +472,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <form role="form"
-                                                  action=""
+                                                  action="{{ url('/shipment/'.$ship->id) }}"
                                                   method="post">
+                                                @csrf
+                                                @method('PUT')
+
                                                 <div class="box-body">
                                                     <div class="form-group">
                                                         <label for="">Invoice:</label>
                                                         <input type="number"
-                                                               name=""
+                                                               name="invoice"
+                                                               value="{{ $ship->invoice }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -483,6 +493,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
+                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
                                                                    name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -496,6 +507,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
+                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
                                                                    name="expected_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -505,19 +517,19 @@
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
                                                         <select name="shipment_status" class="form-control">
-                                                            <option value="on_hold">
+                                                            <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
-                                                            <option value="moving">
+                                                            <option {{ $ship->shipment_status == 'moving' ? 'selected' : '' }} value="moving">
                                                                 Moving
                                                             </option>
-                                                            <option value="delayed">
+                                                            <option {{ $ship->shipment_status == 'delayed' ? 'selected' : '' }} value="delayed">
                                                                 Delayed
                                                             </option>
-                                                            <option value="cancelled">
+                                                            <option {{ $ship->shipment_status == 'cancelled' ? 'selected' : '' }} value="cancelled">
                                                                 Canceled
                                                             </option>
-                                                            <option value="arrived">
+                                                            <option {{ $ship->shipment_status == 'arrived' ? 'selected' : '' }} value="arrived">
                                                                 Arrived
                                                             </option>
                                                         </select>
@@ -527,7 +539,7 @@
                                                         <label for="">Item Name:</label>
                                                         <input type="text"
                                                                disabled=""
-                                                               value=""
+                                                               value="{{ $ship->order->item->name }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -536,7 +548,7 @@
                                                         <label for="">Danger Level:</label>
                                                         <input type="text"
                                                                disabled=""
-                                                               value=""
+                                                               value="{{ $ship->order->item->danger_level }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -559,7 +571,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -579,34 +591,34 @@
                     <table class="table table-hover datatables">
 
                         <thead>
-                            <th>Shipment ID</th>
-                            <th>Invoice</th>
-                            <th>Item</th>
-                            <th>Staff</th>
-                            <th>Partial</th>
-                            <th>Date</th>
-                            <th>Expected Arrival Date</th>
-                            <th>Quantity</th>
-                            <th>Comment</th>
+                        <th>Shipment ID</th>
+                        <th>Invoice</th>
+                        <th>Item</th>
+                        <th>Staff</th>
+                        <th>Partial</th>
+                        <th>Date</th>
+                        <th>Expected Arrival Date</th>
+                        <th>Quantity</th>
+                        <th>Comment</th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                555
-                            </td>
-                            <td>5555555</td>
-                            <td>
-                                <a href="">Tobacco Type 50</a>
-                            </td>
-                            <td>
-                                <a href="">Ahmed Ali</a>
-                            </td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
+                        @foreach($cancelled as $ship)
+                            <tr>
+                                <td>{{ $ship->id }}</td>
+                                <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    <a href="">{{ $ship->order->item->name }}</a>
+                                </td>
+                                <td>
+                                    <a href="">{{ $ship->user->name }}</a>
+                                </td>
+                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>{{ $ship->date->format('d-m-y') }}</td>
+                                <td>{{ $ship->expected_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
+                                <td>{{ $ship->comment }}</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -625,63 +637,63 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover datatables">
                         <thead>
-                            <th>Shipment ID</th>
-                            <th>Invoice</th>
-                            <th>Item</th>
-                            <th>Staff</th>
-                            <th>Partial</th>
-                            <th>Date</th>
-                            <th>Expected Arrival Date</th>
-                            <th>Quantity</th>
-                            <th>Comment</th>
-                            <th></th>
+                        <th>Shipment ID</th>
+                        <th>Invoice</th>
+                        <th>Item</th>
+                        <th>Staff</th>
+                        <th>Partial</th>
+                        <th>Date</th>
+                        <th>Expected Arrival Date</th>
+                        <th>Quantity</th>
+                        <th>Comment</th>
+                        <th></th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                555
-                            </td>
-                            <td>5555555</td>
-                            <td>
-                                <a href="">Tobacco Type 50</a>
-                            </td>
-                            <td>
-                                <a href="">Ahmed Ali</a>
-                            </td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle btn-sm"
-                                            type="button"
-                                            data-toggle="dropdown">Change Status
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="" data-toggle="modal" data-target="#movingModal">Edit</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#">Moving</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Canceled</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">on Hold</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Arraived</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
+                        @foreach($delayed as $ship)
+                            <tr>
+                                <td>{{ $ship->id }}</td>
+                                <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    <a href="">{{ $ship->order->item->name }}</a>
+                                </td>
+                                <td>
+                                    <a href="">{{ $ship->user->name }}</a>
+                                </td>
+                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>{{ $ship->date->format('d-m-y') }}</td>
+                                <td>{{ $ship->expected_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
+                                <td>{{ $ship->comment }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                                type="button"
+                                                data-toggle="dropdown">Change Status
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="" data-toggle="modal" data-target="#delayedModal">Edit</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/on_hold') }}">On Hold</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">Canceled</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/moving') }}">Moving</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                             <!-- Modal -->
-                            <div id="movingModal" class="modal fade" role="dialog">
+                            <div id="delayedModal" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
@@ -692,13 +704,17 @@
                                         </div>
                                         <div class="modal-body">
                                             <form role="form"
-                                                  action=""
+                                                  action="{{ url('/shipment/'.$ship->id) }}"
                                                   method="post">
+                                                @csrf
+                                                @method('PUT')
+
                                                 <div class="box-body">
                                                     <div class="form-group">
                                                         <label for="">Invoice:</label>
                                                         <input type="number"
-                                                               name=""
+                                                               name="invoice"
+                                                               value="{{ $ship->invoice }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -709,6 +725,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
+                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
                                                                    name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -722,6 +739,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
+                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
                                                                    name="expected_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -731,19 +749,19 @@
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
                                                         <select name="shipment_status" class="form-control">
-                                                            <option value="on_hold">
+                                                            <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
-                                                            <option value="moving">
+                                                            <option {{ $ship->shipment_status == 'moving' ? 'selected' : '' }} value="moving">
                                                                 Moving
                                                             </option>
-                                                            <option value="delayed">
+                                                            <option {{ $ship->shipment_status == 'delayed' ? 'selected' : '' }} value="delayed">
                                                                 Delayed
                                                             </option>
-                                                            <option value="cancelled">
+                                                            <option {{ $ship->shipment_status == 'cancelled' ? 'selected' : '' }} value="cancelled">
                                                                 Canceled
                                                             </option>
-                                                            <option value="arrived">
+                                                            <option {{ $ship->shipment_status == 'arrived' ? 'selected' : '' }} value="arrived">
                                                                 Arrived
                                                             </option>
                                                         </select>
@@ -753,7 +771,7 @@
                                                         <label for="">Item Name:</label>
                                                         <input type="text"
                                                                disabled=""
-                                                               value=""
+                                                               value="{{ $ship->order->item->name }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -762,7 +780,7 @@
                                                         <label for="">Danger Level:</label>
                                                         <input type="text"
                                                                disabled=""
-                                                               value=""
+                                                               value="{{ $ship->order->item->danger_level }}"
                                                                class="form-control"
                                                                id="">
                                                     </div>
@@ -785,7 +803,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -804,36 +822,36 @@
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover datatables">
                         <thead>
-                            <th>Shipment ID</th>
-                            <th>Invoice</th>
-                            <th>Item</th>
-                            <th>Staff</th>
-                            <th>Partial</th>
-                            <th>Date</th>
-                            <th>Expected Arrival Date</th>
-                            <th>Arrival Date</th>
-                            <th>Quantity</th>
-                            <th>Comment</th>
+                        <th>Shipment ID</th>
+                        <th>Invoice</th>
+                        <th>Item</th>
+                        <th>Staff</th>
+                        <th>Partial</th>
+                        <th>Date</th>
+                        <th>Expected Arrival Date</th>
+                        <th>Arrival Date</th>
+                        <th>Quantity</th>
+                        <th>Comment</th>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                555
-                            </td>
-                            <td>555555555</td>
-                            <td>
-                                <a href="">Tobacco Type 50</a>
-                            </td>
-                            <td>
-                                <a href="">Ahmed Ali</a>
-                            </td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>25-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
+                        @foreach($arrived as $ship)
+                            <tr>
+                                <td>{{ $ship->id }}</td>
+                                <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    <a href="">{{ $ship->order->item->name }}</a>
+                                </td>
+                                <td>
+                                    <a href="">{{ $ship->user->name }}</a>
+                                </td>
+                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>{{ $ship->date->format('d-m-y') }}</td>
+                                <td>{{ $ship->expected_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->arrival_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
+                                <td>{{ $ship->comment }}</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

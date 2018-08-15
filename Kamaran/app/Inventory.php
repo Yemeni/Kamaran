@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     protected $fillable = [
-        'transaction_type', 'user_id', 'category_id', 'shipment_id', 'date', 'quantity', 'comment'
+        'arrival_status', 'transaction_type', 'user_id', 'category_id', 'shipment_id', 'date', 'quantity', 'comment'
     ];
     
     protected $dates = ['date'];
