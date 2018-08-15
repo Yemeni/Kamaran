@@ -104,12 +104,19 @@ Route::put('/item/{item}', 'ItemController@update');
 Route::post('/item', 'ItemController@store');
 Route::get('/item/{item}', 'ItemController@destroy');
 
-Route::get('/supplier/{supplier}/items', function(\App\Supplier $supplier){
+Route::get('/supplier/{supplier}/items/{category?}', function(\App\Supplier $supplier, $category = null){
 //	return $supplier->items;
 	$items = '[';
-	foreach ($supplier->items as $key => $item){
-		$items .= '{"id":"'.$item->id.'","text":"'.$item->name.'"}';
-		if ($key < (count($supplier->items)-1)) $items .= ',';
+	if ($category){
+		foreach ($supplier->items()->where('category_id', $category)->get() as $key => $item){
+			$items .= '{"id":"'.$item->id.'","text":"'.$item->name.'"}';
+			if ($key < (count($supplier->items)-1)) $items .= ',';
+		}
+	}else{
+		foreach ($supplier->items as $key => $item){
+			$items .= '{"id":"'.$item->id.'","text":"'.$item->name.'"}';
+			if ($key < (count($supplier->items)-1)) $items .= ',';
+		}
 	}
 	$items .= ']';
 

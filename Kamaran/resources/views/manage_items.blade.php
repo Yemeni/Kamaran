@@ -10,6 +10,7 @@
 @section('content')
 
     <div class="row">
+        @alert
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -34,8 +35,8 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->description }}</td>
-                                <td>{{ $item->specification }}</td>
+                                <td>{{ $item->description ?? '-' }}</td>
+                                <td>{{ $item->specification ?? '-' }}</td>
                                 <td>{{ $item->unit }}</td>
                                 <td>
                                     <span class="label label-success">{{ $item->danger_level }}</span>

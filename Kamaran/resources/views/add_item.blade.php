@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Add/Edit Item</h1>
+    <h1>Add Item</h1>
 
 @stop
 
@@ -18,32 +18,44 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Item details:</h3>
                         </div>
-                        <!-- /.box-header -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                    @endif
+                    <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" _lpchecked="1">
+                        <form role="form" action="{{ url('/item') }}" method="post">
+                            @csrf
+
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="">Name:</label>
-                                    <input type="text" class="form-control" id="">
+                                    <input type="text" name="name" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Category:</label>
-                                    <select class="form-control">
-                                        <option>Department of Something</option>
-                                        <option>Department of Raw Materials</option>
+                                    <select name="category_id" class="form-control">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" name="description" rows="3" placeholder="Enter ..."></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Specification</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" name="specification" rows="3" placeholder="Enter ..."></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Unit:</label>
-                                    <select class="form-control">
+                                    <select name="unit" class="form-control">
                                         <option>KG</option>
                                         <option>Gram</option>
                                         <option>Tonne</option>
@@ -63,15 +75,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Danger Level:</label>
-                                    <select class="form-control">
+                                    <select name="danger_level" class="form-control">
                                         <option>low</option>
                                         <option>flammable</option>
                                         <option>toxic</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Type:</label>
-                                    <input type="text" class="form-control" id="">
                                 </div>
                                 <div></div>
 
@@ -80,7 +88,7 @@
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="clear" class="btn btn-default ">Cancel</button>
+                                <a href="{{ url('/item') }}" class="btn btn-default ">Cancel</a>
                                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                             </div>
                         </form>

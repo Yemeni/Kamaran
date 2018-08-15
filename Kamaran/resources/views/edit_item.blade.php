@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Add/Edit Item</h1>
+    <h1>Edit Item</h1>
 
 @stop
 
@@ -18,90 +18,88 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Item details:</h3>
                         </div>
-                        <!-- /.box-header -->
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                    @endif
+                    <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" _lpchecked="1">
+                        <form role="form" action="{{ url('/item/'.$item->id) }}" method="post">
+                            @csrf
+                            @method('PUT')
+
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="">Name:</label>
-                                    <input type="text" class="form-control" id="">
+                                    <input type="text" name="name" value="{{ $item->name }}" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Category:</label>
-                                    <select class="form-control">
-                                        <option>Department of Something</option>
-                                        <option>Department of Raw Materials</option>
+                                    <select name="category_id" class="form-control">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $item->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control"
+                                              name="description"
+                                              rows="3"
+                                              placeholder="Enter ...">{{ $item->description }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Specification</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control"
+                                              name="specification"
+                                              rows="3"
+                                              placeholder="Enter ...">{{ $item->specification }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Unit:</label>
-                                    <select class="form-control">
-                                        <option>KG</option>
-                                        <option>Gram</option>
-                                        <option>Tonne</option>
-                                        <option>Liter</option>
-                                        <option>Milliliter</option>
-                                        <option>Barre</option>
-                                        <option>Gallon</option>
-                                        <option>Bottle</option>
-                                        <option>Meter</option>
-                                        <option>Centimeter</option>
-                                        <option>Kilometer</option>
-                                        <option>Cartons</option>
-                                        <option>Pack</option>
-                                        <option>Packet</option>
-                                        <option>Box</option>
+                                    <select name="unit" class="form-control">
+                                        <option {{ $item->unit == 'KG' ? 'selected' : '' }}>KG</option>
+                                        <option {{ $item->unit == 'Gram' ? 'selected' : '' }}>Gram</option>
+                                        <option {{ $item->unit == 'Tonne' ? 'selected' : '' }}>Tonne</option>
+                                        <option {{ $item->unit == 'Liter' ? 'selected' : '' }}>Liter</option>
+                                        <option {{ $item->unit == 'Milliliter' ? 'selected' : '' }}>Milliliter
+                                        </option>
+                                        <option {{ $item->unit == 'Barre' ? 'selected' : '' }}>Barre</option>
+                                        <option {{ $item->unit == 'Gallon' ? 'selected' : '' }}>Gallon</option>
+                                        <option {{ $item->unit == 'Bottle' ? 'selected' : '' }}>Bottle</option>
+                                        <option {{ $item->unit == 'Meter' ? 'selected' : '' }}>Meter</option>
+                                        <option {{ $item->unit == 'Centimeter' ? 'selected' : '' }}>Centimeter
+                                        </option>
+                                        <option {{ $item->unit == 'Kilometer' ? 'selected' : '' }}>Kilometer
+                                        </option>
+                                        <option {{ $item->unit == 'Cartons' ? 'selected' : '' }}>Cartons</option>
+                                        <option {{ $item->unit == 'Pack' ? 'selected' : '' }}>Pack</option>
+                                        <option {{ $item->unit == 'Packet' ? 'selected' : '' }}>Packet</option>
+                                        <option {{ $item->unit == 'Box' ? 'selected' : '' }}>Box</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Danger Level:</label>
-                                    <select class="form-control">
-                                        <option>low</option>
-                                        <option>flammable</option>
-                                        <option>toxic</option>
+                                    <select name="danger_level" class="form-control">
+                                        <option {{ $item->danger_level == 'low' ? 'selected' : '' }}>low</option>
+                                        <option {{ $item->danger_level == 'flammable' ? 'selected' : '' }}>flammable
+                                        </option>
+                                        <option {{ $item->danger_level == 'toxic' ? 'selected' : '' }}>toxic</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Type:</label>
-                                    <input type="text" class="form-control" id="">
                                 </div>
                                 <div></div>
 
-                                <!-- Custom Tabs -->
-                                <div class="nav-tabs-custom">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Supplier 1</a></li>
-                                        <li class="pull-right add-tab"><a href="#" class="text-muted"><i class="fa fa-plus"></i> Add Supplier</a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab_1">
-                                            <div class="form-group">
-                                                <label for="">Supplier Name:</label>
-                                                <select class="js-example-basic-single form-control">
-                                                    <option value="">Something .co</option>
-                                                    <option value="">Company XYZ .limted</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.tab-content -->
-                                </div>
-
-                                <!-- nav-tabs-custom -->
 
                             </div>
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="clear" class="btn btn-default ">Cancel</button>
+                                <a href="{{ url('/item') }}" class="btn btn-default ">Cancel</a>
                                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                             </div>
                         </form>
@@ -114,48 +112,3 @@
 
 
 @stop
-
-@section('adminlte_js')
-    <script>
-        // select2 auto complete
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-
-        // add new tab
-        $(".nav-tabs").on("click", "a", function (e) {
-            e.preventDefault();
-            if (!$(this).hasClass('add-tab')) {
-                $(this).tab('show');
-            }
-        })
-            .on("click", "span", function () {
-                var anchor = $(this).siblings('a');
-                $(anchor.attr('href')).remove();
-                $(this).parent().remove();
-                $(".nav-tabs li").children('a').first().click();
-            });
-
-        $('.add-tab').click(function (e) {
-            e.preventDefault();
-            var id = $(".nav-tabs").children().length; //think about it ;)
-            var tabId = 'tab_' + id;
-            $(this).closest('li').before('<li><a href="#tab_' + id + '">Supplier ' + id +'</a> <span> x </span></li>');
-            $('.tab-content').append('<div class="tab-pane" id="' + tabId + '">' +
-                '<div class="form-group">' +
-                '<label for="">Supplier Name:</label>' +
-                '<select class="js-example-basic-single'+id +' form-control">' +
-                '<option value="">Something .co</option>' + // repopulate from database
-                '<option value="">Something2 .co</option>' +
-                '</select>' +
-                '</div>' +
-                '</div>');
-            $('.nav-tabs li:nth-child(' + id + ') a').click();
-
-            $(document).ready(function() {
-                $('.js-example-basic-single'+id).select2();
-            });
-        });
-    </script>
-@endsection
-
