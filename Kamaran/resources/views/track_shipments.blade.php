@@ -267,7 +267,7 @@
                                                 <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">Delayed</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arraived</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -451,7 +451,7 @@
                                             <a href="#">Delayed</a>
                                         </li>
                                         <li>
-                                            <a href="#">Arraived</a>
+                                            <a href="#">Arrived</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -681,7 +681,7 @@
                                             <a href="#">on Hold</a>
                                         </li>
                                         <li>
-                                            <a href="#">Arraived</a>
+                                            <a href="#">Arrived</a>
                                         </li>
                                     </ul>
                                 </div>
