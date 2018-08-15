@@ -180,22 +180,26 @@ return [
 				[
 					'text' => 'Manage Items', // manager + employee + employee_of_suppliers
 					'icon' => 'gears',
-					'url'  => '/manage_items'
+					'url'  => '/item',
+					'can'  => 'admin||supplier'
 				],
 				[
 					'text' => 'Add/Edit Item', // manager + employee + employee_of_suppliers
 					'icon' => 'gears',
-					'url'  => '/item'
+					'url'  => '/item/create',
+					'can'  => 'admin||supplier'
 				],
 				[
 					'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
 					'icon' => 'users',
-					'url'  => '/manage_suppliers'
+					'url'  => '/manage_suppliers',
+					'can'  => 'admin||supplier'
 				],
 				[
 					'text' => 'Add/Edit Supplier', // manager + employee + employee_of_suppliers
 					'icon' => 'users',
-					'url'  => '/supplier'
+					'url'  => '/supplier',
+					'can'  => 'admin||supplier'
 				],
 				[
 					'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
