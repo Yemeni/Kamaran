@@ -22,7 +22,6 @@
                             <th>Transaction ID</th>
                             <th>Transaction Type</th>
                             <th>Employee</th>
-                            <th>Shipment ID</th>
                             <th>Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
@@ -33,7 +32,6 @@
                             <td>514</td>
                             <td>Vouchar</td>
                             <td>Ahmed Ali</td>
-                            <td>563</td>
                             <td>2088-2-11</td>
                             <td>500000</td>
                             <td>Comment here</td>
