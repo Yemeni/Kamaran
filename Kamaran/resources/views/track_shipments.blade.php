@@ -588,7 +588,6 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
-                            <th></th>
                         </thead>
                         <tbody>
                         <tr>
@@ -607,10 +606,6 @@
                             <td>22-8-2018</td>
                             <td>50,000 tons</td>
                             <td>They will give 5% discount the next time we order</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-sm">Reship
-                                </button>
-                            </td>
                         </tr>
                         </tbody>
                     </table>

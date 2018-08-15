@@ -235,6 +235,7 @@
                             <th>Cost</th>
                             <th>Approved Date</th>
                             <th>Comment</th>
+                            <th>Action</th>
                             {{--<th></th>--}}
                         </tr>
                         </thead>
@@ -257,6 +258,10 @@
                                 <td>{{ $order->cost }} $</td>
                                 <td>{{ $order->approval_date->format('d-m-y') }}</td>
                                 <td>{{ $order->comment ?? '-' }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-info btn-sm">Ship
+                                    </button>
+                                </td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
                                 {{--<td>CIF</td>--}}
