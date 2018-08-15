@@ -93,9 +93,8 @@ Route::get('/order/{order}/edit', 'OrderController@edit');
 Route::get('/order/{order}/delete', 'OrderController@destroy');
 Route::get('/fill_order', 'OrderController@create');
 
-Route::get('/track_shipments', function (){
-    return view('track_shipments');
-});
+Route::get('/track_shipments', 'ShipmentController@index');
+Route::put('/shipment/{shipment}', 'ShipmentController@update');
 
 Route::get('/manage_items', function (){
     return view('manage_items');

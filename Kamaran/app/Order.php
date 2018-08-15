@@ -32,6 +32,21 @@ class Order extends Model
 		return $this->belongsTo(Item::class);
 	}
 
+	public function shipmentTotalQuantity()
+	{
+		$total = 0;
+
+		if ($this->shipments()->count()){
+			foreach ($this->shipments as $shipment)
+			{
+				$total += $shipment->quantity;
+			}
+		}
+
+
+		return $total;
+	}
+
 	public function shipments()
 	{
 		return $this->hasMany(Shipment::class);
