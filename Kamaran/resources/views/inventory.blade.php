@@ -24,7 +24,6 @@
                             <th>Employee</th>
                             <th>Date</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
                             <th>Action</th>
                         </tr>
                         </thead>
