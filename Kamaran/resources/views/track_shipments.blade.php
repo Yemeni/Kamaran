@@ -35,7 +35,6 @@
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -49,13 +48,12 @@
                             <tr>
                                 <td>{{ $ship->id }}</td>
                                 <td>
-                                    <a href="">{{ $ship->order->item->name }}</a>
+                                    {{ $ship->order->item->name }}
                                 </td>
                                 <td>
-                                    <a href="">{{ $ship->user->name }}</a>
+                                    {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
-                                <td>{{ $ship->comment ?? '-' }}</td>
                                 <td>
                                     <button type="button"
                                             class="btn btn-info btn-sm"
@@ -225,7 +223,6 @@
                             <th>Date</th>
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -235,16 +232,15 @@
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
                                 <td>
-                                    <a href="">{{ $ship->order->item->name }}</a>
+                                    {{ $ship->order->item->name }}
                                 </td>
                                 <td>
-                                    <a href="">{{ $ship->user->name }}</a>
+                                    {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
-                                <td>{{ $ship->comment }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle btn-sm"
@@ -413,7 +409,6 @@
                         <th>Date</th>
                         <th>Expected Arrival Date</th>
                         <th>Quantity</th>
-                        <th>Comment</th>
                         <th></th>
                         </thead>
                         <tbody>
@@ -422,16 +417,15 @@
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
                                 <td>
-                                    <a href="">{{ $ship->order->item->name }}</a>
+                                    {{ $ship->order->item->name }}
                                 </td>
                                 <td>
-                                    <a href="">{{ $ship->user->name }}</a>
+                                    {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
-                                <td>{{ $ship->comment }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle btn-sm"
@@ -599,7 +593,6 @@
                         <th>Date</th>
                         <th>Expected Arrival Date</th>
                         <th>Quantity</th>
-                        <th>Comment</th>
                         </thead>
                         <tbody>
                         @foreach($cancelled as $ship)
@@ -607,16 +600,15 @@
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
                                 <td>
-                                    <a href="">{{ $ship->order->item->name }}</a>
+                                    {{ $ship->order->item->name }}
                                 </td>
                                 <td>
-                                    <a href="">{{ $ship->user->name }}</a>
+                                    {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
-                                <td>{{ $ship->comment }}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -645,7 +637,6 @@
                         <th>Date</th>
                         <th>Expected Arrival Date</th>
                         <th>Quantity</th>
-                        <th>Comment</th>
                         <th></th>
                         </thead>
                         </tr>
@@ -655,16 +646,15 @@
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
                                 <td>
-                                    <a href="">{{ $ship->order->item->name }}</a>
+                                    {{ $ship->order->item->name }}
                                 </td>
                                 <td>
-                                    <a href="">{{ $ship->user->name }}</a>
+                                    {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
-                                <td>{{ $ship->comment }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle btn-sm"
@@ -832,7 +822,6 @@
                         <th>Expected Arrival Date</th>
                         <th>Arrival Date</th>
                         <th>Quantity</th>
-                        <th>Comment</th>
                         </thead>
                         <tbody>
                         @foreach($arrived as $ship)
@@ -840,17 +829,16 @@
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
                                 <td>
-                                    <a href="">{{ $ship->order->item->name }}</a>
+                                    {{ $ship->order->item->name }}
                                 </td>
                                 <td>
-                                    <a href="">{{ $ship->user->name }}</a>
+                                    {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->arrival_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
-                                <td>{{ $ship->comment }}</td>
                             </tr>
                         @endforeach
                         </tbody>
