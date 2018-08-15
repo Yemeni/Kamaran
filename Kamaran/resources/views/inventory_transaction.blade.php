@@ -34,16 +34,13 @@
                                         <option>Normal Shortage</option>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="">Employee Name:</label>
-                                    <input type="text" disabled="" value="Ahmed Ali" class="form-control" id="">
-                                </div>
-                                <div class="input-group input-group-sm">
-                                    <label for="">Shipment:</label>
-                                    <input type="text" disabled="" class="form-control">
-                                    <span class="input-group-btn">
-                                    <button type="button" class="btn btn-info btn-flat">Browse</button>
-                                </span>
+                                    <label for="">Item:</label>
+                                    <select class="js-example-basic-single form-control">
+                                        <option value="">Red Wine</option>
+                                        <option value="">Green Chocolate</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Date:</label>
@@ -51,13 +48,17 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" disabled="" value="2018-5-15 12:30 PM" class="form-control pull-right" id="datepicker">
+                                        <input type="text"
+                                               name="date"
+                                               class="form-control pull-right input-append date form_datetime"
+                                               id="">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
                                     <input type="text" class="form-control" id="">
+                                    <span>5000 Liters remaining</span>
                                 </div>
 
                                 <div class="form-group">
@@ -71,6 +72,11 @@
                                     <button type="clear" class="btn btn-default ">Cancel</button>
                                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
                                 </div>
+
+                            </div>
+
+
+
                         </form>
                     </div>
                     <div class="col-md-2"></div>
@@ -81,3 +87,13 @@
 
 
 @stop
+
+@section('adminlte_js')
+    <script>
+        // select2 auto complete
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+            $(".form_datetime").datetimepicker();
+        });
+    </script>
+@endsection
