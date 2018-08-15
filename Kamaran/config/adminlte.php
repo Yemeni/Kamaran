@@ -184,7 +184,7 @@ return [
 					'can'  => 'admin||supplier'
 				],
 				[
-					'text' => 'Add/Edit Item', // manager + employee + employee_of_suppliers
+					'text' => 'Add Item', // manager + employee + employee_of_suppliers
 					'icon' => 'gears',
 					'url'  => '/item/create',
 					'can'  => 'admin||supplier'
@@ -196,7 +196,7 @@ return [
 					'can'  => 'admin||supplier'
 				],
 				[
-					'text' => 'Add/Edit Supplier', // manager + employee + employee_of_suppliers
+					'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
 					'icon' => 'users',
 					'url'  => '/supplier',
 					'can'  => 'admin||supplier'

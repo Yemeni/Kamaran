@@ -30,7 +30,7 @@ class ItemPolicy
      */
     public function create(User $user)
     {
-        return $user->level == 'employee' || $user->level == 'head_of_suppliers' || $user->level == 'manager';
+        return $user->level == 'admin' || $user->level == 'head_of_suppliers';
     }
 
     /**
