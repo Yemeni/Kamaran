@@ -18,7 +18,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover" style="background: url({{asset('resources/Report Page Logo.png')}});background-repeat: no-repeat;background-size: cover;">
+                    <table class="table table-hover">
                         <tbody><tr>
                             <th>Transaction ID</th>
                             <th>Transaction Type</th>
@@ -100,6 +100,28 @@
                             <td>Ahmed Ali</td>
                             <td>11-7-2018</td>
                             <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">Total Inventory</td>
+                            <td colspan="3">500,0000 Tones</td>
                         </tr>
                         </tbody></table>
                 </div>
