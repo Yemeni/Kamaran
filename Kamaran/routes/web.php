@@ -122,13 +122,12 @@ Route::get('/supplier/{supplier}/items/{category?}', function(\App\Supplier $sup
 
 	return $items;
 });
-Route::get('/supplier', function (){
-    return view('supplier');
-});
-
-Route::get('/manage_suppliers', function (){
-    return view('manage_suppliers');
-});
+Route::get('/supplier/create', 'SupplierController@create');
+Route::post('/supplier', 'SupplierController@store');
+Route::put('/supplier/{supplier}', 'SupplierController@update');
+Route::get('/supplier/{supplier}', 'SupplierController@destroy');
+Route::get('/supplier/{supplier}/edit', 'SupplierController@edit');
+Route::get('/supplier', 'SupplierController@index');
 
 Route::get('/inventory_transaction', function (){
     return view('inventory_transaction');

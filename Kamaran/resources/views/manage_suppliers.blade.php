@@ -8,6 +8,7 @@
 
 @section('content')
     <div class="row">
+        @alert
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -27,20 +28,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>154</td>
-                            <td>Motors Limited .co</td>
-                            <td>China, Beijing</td>
-                            <td>+967 777 777 777</td>
-                            <td>sales@chinaXyz.cn</td>
-                            <td>
-                                <a href="" class="btn btn-warning">Edit</a>
-                                <button onclick="" class="btn btn-danger">Delete</button> <!-- only if no orders happened with this item -->
-                                <form id="delete1" action="" method="post">
-                                </form>
-                            </td>
-                        </tr>
-                        </tbody></table>
+                        @foreach($suppliers as $supplier)
+                            <tr>
+                                <td>{{ $supplier->id }}</td>
+                                <td>{{ $supplier->name }}</td>
+                                <td>{{ $supplier->address }}</td>
+                                <td>{{ $supplier->phone }}</td>
+                                <td>
+                                    <a href="mailto:{{ $supplier->email }}">{{ $supplier->email }}</a>
+                                </td>
+                                <td>
+                                    <a href="{{ url('/supplier/'.$supplier->id.'/edit') }}" class="btn btn-warning">
+                                        Edit
+                                    </a>
+                                    <a href="{{ url('/supplier/'.$supplier->id) }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
