@@ -31,22 +31,25 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>123</td>
-                            <td>Blue Wire Xyz</td>
-                            <td>This is the description of the item</td>
-                            <td>Material: something, color: blue</td>
-                            <td>Centimeter</td>
-                            <td><span class="label label-success">Flammable</span></td>
-                            <td>Wire</td>
-                            <td>
-                                <a href="" class="btn btn-warning">Edit</a>
-                                <button onclick="" class="btn btn-danger">Delete</button> <!-- only if no orders happened with this item -->
-                                <form id="delete1" action="" method="post">
-                                </form>
-                            </td>
-                        </tr>
-                        </tbody></table>
+                        @foreach($items as $item)
+                            <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->description }}</td>
+                                <td>{{ $item->specification }}</td>
+                                <td>{{ $item->unit }}</td>
+                                <td>
+                                    <span class="label label-success">{{ $item->danger_level }}</span>
+                                </td>
+                                <td>{{ $item->type }}</td>
+                                <td>
+                                    <a href="{{ url('/item/'.$item->id.'/edit') }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ url('/item/'.$item->id) }}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>

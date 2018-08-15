@@ -93,17 +93,16 @@ Route::get('/order/{order}/edit', 'OrderController@edit');
 Route::get('/order/{order}/delete', 'OrderController@destroy');
 Route::get('/fill_order', 'OrderController@create');
 
-Route::get('/track_shipments', 'ShipmentController@index');
+Route::get('/item', 'ShipmentController@index');
 Route::put('/shipment/{shipment}', 'ShipmentController@update');
 Route::get('/shipment/{shipment}/{status}', 'ShipmentController@changeStatus');
 
-Route::get('/manage_items', function (){
-    return view('manage_items');
-});
-
-Route::get('/item', function (){
-    return view('item');
-});
+Route::get('/item', 'ItemController@index');
+Route::get('/item/create', 'ItemController@create');
+Route::get('/item/{item}/edit', 'ItemController@edit');
+Route::put('/item/{item}', 'ItemController@update');
+Route::post('/item', 'ItemController@store');
+Route::get('/item/{item}', 'ItemController@destroy');
 
 Route::get('/supplier/{supplier}/items', function(\App\Supplier $supplier){
 //	return $supplier->items;
