@@ -11,133 +11,104 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="box box-primary">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Printing conditions:</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form" _lpchecked="1">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="">Department:</label> <!-- for Admin only, for employees auto select according to their category/department-->
-                                    <select class="form-control">
-                                        <option value="">Department ABC</option>
-                                        <option value="">Department Raw Materials</option>
-                                    </select>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Item Name:</label>
-                                    <select class="js-example-basic-single-item form-control">
-                                        <option value="">Tobacco xyz</option>
-                                        <option value="">Something xyz</option>
-                                    </select>
-                                    </span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Conditions:</label>
-                                    <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Order Status
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Shipments
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Inventory Transactions In
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Inventory Transactions Out
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                    Total Available in Inventory
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2"></div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                        <div class="form-group">
-                                            <label for="">From Date:</label>
-                                            <div class="row">
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-6">
-                                                    <div class="input-group date">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-calendar"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control pull-right input-append date form_datetime" id="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5"></div>
-                                            </div>
-                                        </div>
-                                    <div class="form-group">
-                                        <label for="">To Date:</label>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-6">
-                                                <div class="input-group date">
-                                                    <div class="input-group-addon">
-                                                        <i class="fa fa-calendar"></i>
-                                                    </div>
-                                                    <input type="text" class="form-control pull-right input-append date form_datetime" id="">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="box-footer">
-                                <button type="clear" class="btn btn-default ">Cancel</button>
-                                <button type="submit" class="btn btn-primary pull-right">Print</button>
-                            </div>
-                        </form>
-                    </div>
-
+            <div class="box">
+                <img src="{{ asset('resources/Report Page Header.jpg') }}">
+                <div class="box-header">
+                    <h3 class="box-title">Department of Bla > Item X y z</h3>
                 </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" style="background: url({{asset('resources/Report Page Logo.png')}});background-repeat: no-repeat;background-size: cover;">
+                        <tbody><tr>
+                            <th>Transaction ID</th>
+                            <th>Transaction Type</th>
+                            <th>Category</th>
+                            <th>Item</th>
+                            <th>Employee</th>
+                            <th>Date</th>
+                            <th>Quantity</th>
+
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        <tr>
+                            <td>183</td>
+                            <td>Consume</td>
+                            <td>Department of XYZ</td>
+                            <td>Red Tobaco</td>
+                            <td>Ahmed Ali</td>
+                            <td>11-7-2018</td>
+                            <td>5000 tones</td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <!-- /.box-body -->
             </div>
+
         </div>
     </div>
 
 
 @stop
 
-
-@section('adminlte_js')
-    <script>
-        // select2 auto complete
-        $(document).ready(function() {
-            $('.js-example-basic-single-item').select2();
-
-            $(".form_datetime").datetimepicker({
-                format: "dd MM yyyy - hh:ii"
-            });
-        });
-    </script>
-@endsection
