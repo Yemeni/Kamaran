@@ -192,13 +192,13 @@ return [
 				[
 					'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
 					'icon' => 'users',
-					'url'  => '/manage_suppliers',
+					'url'  => '/supplier',
 					'can'  => 'admin||supplier'
 				],
 				[
 					'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
 					'icon' => 'users',
-					'url'  => '/supplier',
+					'url'  => '/supplier/create',
 					'can'  => 'admin||supplier'
 				],
 				[
