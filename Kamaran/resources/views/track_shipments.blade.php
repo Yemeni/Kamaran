@@ -852,8 +852,8 @@
 
 @stop
 
-@section('adminlte_js')
+@section('js')
     <script type="text/javascript">
         $(".form_datetime").datetimepicker();
     </script>
-@stop
+@append

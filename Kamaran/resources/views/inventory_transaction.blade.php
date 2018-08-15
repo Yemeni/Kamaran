@@ -88,7 +88,7 @@
 
 @stop
 
-@section('adminlte_js')
+@section('js')
     <script>
         // select2 auto complete
         $(document).ready(function() {
@@ -96,4 +96,4 @@
             $(".form_datetime").datetimepicker();
         });
     </script>
-@endsection
+@append
