@@ -54,7 +54,7 @@
                                 <td>
                                     <a href="">{{ $ship->user->name }}</a>
                                 </td>
-                                <td>{{ $ship->quantity }}</td>
+                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>{{ $ship->comment ?? '-' }}</td>
                                 <td>
                                     <button type="button"
@@ -205,10 +205,10 @@
                         </ul>
                     </div>
             @endif
-                <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody>
+            <!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table class="table table-hover datatables">
+                        <thead>
                         <tr>
                             <th>Shipment ID</th>
                             <th>Item</th>
@@ -220,47 +220,51 @@
                             <th>Comment</th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>144</td>
-                            <td>
-                                <a href="">Tobacco Type 50</a>
-                            </td>
-                            <td>
-                                <a href="">Ahmed Ali</a>
-                            </td>
-                            <td>True</td>
-                            <td>11-7-2018</td>
-                            <td>22-8-2018</td>
-                            <td>50,000 tons</td>
-                            <td>They will give 5% discount the next time we order</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle btn-sm"
-                                            type="button"
-                                            data-toggle="dropdown">Change Status
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="" data-toggle="modal" data-target="#myModal">Edit</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                            <a href="#">Moving</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Canceled</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Delayed</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Arraived</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($onHold as $ship)
+                            <tr>
+                                <td>{{ $ship->id }}</td>
+                                <td>
+                                    <a href="">{{ $ship->order->item->name }}</a>
+                                </td>
+                                <td>
+                                    <a href="">{{ $ship->user->name }}</a>
+                                </td>
+                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>{{ $ship->date->format('d-m-y') }}</td>
+                                <td>{{ $ship->expected_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
+                                <td>{{ $ship->comment }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                                type="button"
+                                                data-toggle="dropdown">Change Status
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="" data-toggle="modal" data-target="#myModal">Edit</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/moving') }}">Moving</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">Canceled</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">Delayed</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arraived</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

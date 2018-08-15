@@ -95,6 +95,7 @@ Route::get('/fill_order', 'OrderController@create');
 
 Route::get('/track_shipments', 'ShipmentController@index');
 Route::put('/shipment/{shipment}', 'ShipmentController@update');
+Route::get('/shipment/{shipment}/{status}', 'ShipmentController@changeStatus');
 
 Route::get('/manage_items', function (){
     return view('manage_items');

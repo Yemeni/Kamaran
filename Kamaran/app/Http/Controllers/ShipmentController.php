@@ -22,9 +22,23 @@ class ShipmentController extends Controller {
 
 		$pending = Shipment::with(['user', 'order.item'])->where('arrival_date', null)
 			->where('expected_date', null)->get();
-		$onHold = Shipment::with(['user', 'order.item'])->where('shipment_status', 'on_hold')->get();
+		$onHold = Shipment::with(['user', 'order.item'])->where('shipment_status', 'on_hold')
+			->where('arrival_date', '!=', null)
+			->where('expected_date', '!=', null)->get();
+		$moving = Shipment::with(['user', 'order.item'])->where('shipment_status', 'moving')
+			->where('arrival_date', '!=', null)
+			->where('expected_date', '!=', null)->get();
+		$cancelled = Shipment::with(['user', 'order.item'])->where('shipment_status', 'cancelled')
+			->where('arrival_date', '!=', null)
+			->where('expected_date', '!=', null)->get();
+		$delayed = Shipment::with(['user', 'order.item'])->where('shipment_status', 'delayed')
+			->where('arrival_date', '!=', null)
+			->where('expected_date', '!=', null)->get();
+		$arrived = Shipment::with(['user', 'order.item'])->where('shipment_status', 'arrived')
+			->where('arrival_date', '!=', null)
+			->where('expected_date', '!=', null)->get();
 
-		return view('track_shipments', compact('pending', 'onHold'));
+		return view('track_shipments', compact('pending', 'onHold', 'moving', 'cancelled', 'delayed', 'arrived'));
 	}
 
 	/**
@@ -127,6 +141,24 @@ class ShipmentController extends Controller {
 		Alert::flash('The shipment has been updated', 'success');
 
 		return redirect('/track_shipments');
+	}
+
+	/**
+	 * @param Shipment $shipment
+	 * @param          $status
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
+	 */
+	public function changeStatus(Shipment $shipment, $status)
+	{
+		$shipment->update([
+			'shipment_status' => $status
+		]);
+
+		Alert::flash('The shipment has been updated', 'success');
+
+		return back();
 	}
 
 	/**
