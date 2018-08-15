@@ -40,6 +40,11 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @php
+                            if (! auth()->user()->isAdmin()){
+                                $pending = $pending->where('category_id', auth()->user()->category_id);
+                            }
+                        @endphp
                         @foreach($pending as $ship)
                             <tr>
                                 <td>{{ $ship->id }}</td>

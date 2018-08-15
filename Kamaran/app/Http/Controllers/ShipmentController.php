@@ -84,6 +84,8 @@ class ShipmentController extends Controller {
 	 */
 	public function update(Request $request, Shipment $shipment)
 	{
+		$this->authorize('update', $shipment);
+
 		$request->validate([
 			'arrival_date'    => 'required|date',
 			'expected_date'   => 'required|date',
@@ -95,7 +97,7 @@ class ShipmentController extends Controller {
 		]);
 
 
-		if ((int)$request->quantity < ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()))
+		if ((int) $request->quantity < ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()))
 		{
 			Shipment::create([
 				'order_id'        => $shipment->order->id,
@@ -107,6 +109,10 @@ class ShipmentController extends Controller {
 				'quantity'        => $request->quantity,
 				'shipment_status' => $request->shipment_status,
 				'date'            => Carbon::now()->timestamp
+			]);
+
+			$shipment->update([
+				'partial' => 1,
 			]);
 		} else
 		{
