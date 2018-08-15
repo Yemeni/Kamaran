@@ -56,26 +56,26 @@
                         <form class="form-inline" action="">
                         <div class="form-group">
                             <label for="">Category:</label>
-                            <select class="form-control">
-                                <option>Department of Katha</option>
-                                <option>Department of Bla</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="">Item:</label>
-                            <select name="item_id" class="js-example-basic-single-item form-control">
+                            <select name="" class="js-example-basic-single-item form-control">
                                 <option>Blue Grape Bla</option>
                                 <option>Red Tobacco Bla</option>
                             </select>
                         </div>
 
                         <div class="form-group">
+                            <label for="">Item:</label>
+                            <select name="item_id" class="js-example-basic-single-item form-control">
+                                <option>All Items</option>
+                                <option>Red Tobacco Bla</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label for="">Status:</label>
-                            <select class="form-control">
+                            <select name="" class="js-example-basic-single-item form-control">
                                 <option>All Transactions</option>
-                                <option>Voucher</option>
-                                <option>Consume</option>
+                                <option>Blue Grape Bla</option>
+                                <option>Red Tobacco Bla</option>
                             </select>
                         </div>
 
