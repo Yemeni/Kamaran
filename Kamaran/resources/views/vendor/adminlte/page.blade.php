@@ -41,7 +41,7 @@
             <!-- Logo -->
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><img src="{{ asset('resources/Kamaran_Header.jpg') }}" alt="" width="200px" height="50px"></span>
+                <span class="logo-mini"><img src="{{ asset('resources/Kamaran_Header_Small.jpg') }}" alt="" width="50px" height="50px"></span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><img src="{{ asset('resources/Kamaran_Header.jpg') }}" alt="" width="200px" height="50px"></span>
             </a>
