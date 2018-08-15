@@ -61,6 +61,8 @@
                         <tr>
                             <th>Transaction ID</th>
                             <th>Transaction Type</th>
+                            <th>Category</th>
+                            <th>Item</th>
                             <th>Employee</th>
                             <th>Date</th>
                             <th>Quantity</th>
@@ -72,6 +74,8 @@
                         <tr>
                             <td>514</td>
                             <td>Consume</td>
+                            <td>Department of Bla</td>
+                            <td>Blue Tobacco xyz</td>
                             <td>Ahmed Ali</td>
                             <td>2088-2-11</td>
                             <td>500000</td>
