@@ -64,16 +64,16 @@
 
                         <div class="form-group">
                             <label for="">Item:</label>
-                            <select class="form-control">
-                                <option>Blue Grape</option>
-                                <option>Red Tree</option>
+                            <select name="item_id" class="js-example-basic-single-item form-control">
+                                <option>Blue Grape Bla</option>
+                                <option>Red Tobacco Bla</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="">Status:</label>
                             <select class="form-control">
-                                <option>All Statuses</option>
+                                <option>All Transactions</option>
                                 <option>Voucher</option>
                                 <option>Consume</option>
                             </select>
@@ -138,3 +138,13 @@
 @stop
 
 
+
+@section('js')
+
+    <script>
+        $(document).ready(function () {
+                    $('.js-example-basic-single-item').select2();
+        })
+    </script>
+
+@append
