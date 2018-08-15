@@ -17,9 +17,9 @@ class Inventory extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function shipment()
+    public function item()
     {
-        return $this->belongsTo(Shipment::class);
+        return $this->belongsTo(Item::class);
     }
 
     public function category()

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Alerts\Alert;
+use App\Category;
 use App\Inventory;
+use App\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -17,9 +19,24 @@ class InventoryController extends Controller
     public function index()
     {
         $onHold = Inventory::where('arrival_status', 0)->get();
-        $inventories = Inventory::all();
+        $inventories = Inventory::query();
 
-        return view('inventory', compact('onHold', 'inventories'));
+        if (\request()->has('category_id')){
+        	$inventories = $inventories->where('category_id', \request('category_id'));
+		}
+		if (\request()->has('item_id')){
+        	$inventories = $inventories->where('item_id', \request('item_id'));
+		}
+		if (\request()->has('status')){
+        	$inventories = $inventories->where('transaction_type', \request('status'));
+		}
+
+		$inventories = $inventories->get();
+
+		$categories = Category::orderBy('name', 'asc')->get();
+		$items = Item::orderBy('name', 'asc')->get();
+
+        return view('inventory', compact('onHold', 'inventories', 'items', 'categories'));
     }
 
     /**

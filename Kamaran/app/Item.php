@@ -13,6 +13,11 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
+	public function inventory()
+	{
+		return $this->hasOne(Inventory::class);
+    }
+
     public function suppliers()
     {
         return $this->belongsToMany(Supplier::class, 'catalogs');

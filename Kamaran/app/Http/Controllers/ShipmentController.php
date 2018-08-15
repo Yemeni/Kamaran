@@ -155,7 +155,7 @@ class ShipmentController extends Controller {
 		if ($request->shipment_status == 'arrived'){
 			Inventory::create([
 				'category_id' => $shipment->category_id,
-				'shipment_id' => $shipment->id,
+				'item_id' => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity' => $shipment->quantity,
 				'arrival_status' => 0,
@@ -181,7 +181,7 @@ class ShipmentController extends Controller {
 		if ($status == 'arrived'){
 			Inventory::create([
 				'category_id' => $shipment->category_id,
-				'shipment_id' => $shipment->id,
+				'item_id' => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity' => $shipment->quantity,
 				'arrival_status' => 0,

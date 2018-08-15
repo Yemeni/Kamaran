@@ -34,10 +34,12 @@
                                 <td>{{ $inv->id }}</td>
                                 <td>{{ $inv->user->name ?? '-' }}</td>
                                 <td>{{ $inv->date ? $inv->date->format('Y-m-d H:i') : '-' }}</td>
-                                <td>{{ $inv->quantity }} {{ $inv->shipment->order->item->unit }}</td>
+                                <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
                                 <td>{{ $inv->comment ?? '-' }}</td>
                                 <td>
-                                    <a href="{{ url('/inventory/'.$inv->id.'/approved') }}" class="btn btn-info btn-sm">Approve</a>
+                                    <a href="{{ url('/inventory/'.$inv->id.'/approved') }}" class="btn btn-info btn-sm">
+                                        Approve
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -55,29 +57,50 @@
             <div class="box">
                 <div style="padding:10px;">
                     Filter by:
-                    <form class="form-inline" action="">
+                    <form class="form-inline" action="{{ url('/inventory#trans') }}">
                         <div class="form-group">
                             <label for="">Category:</label>
-                            <select name="" class="js-example-basic-single-item form-control">
-                                <option>Blue Grape Bla</option>
-                                <option>Red Tobacco Bla</option>
+                            <select name="category_id" class="js-example-basic-single-item form-control">
+                                <option selected disabled>Filter by category</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="">Item:</label>
                             <select name="item_id" class="js-example-basic-single-item form-control">
-                                <option>All Items</option>
-                                <option>Red Tobacco Bla</option>
+                                <option selected disabled>Filter by item</option>
+                                @foreach($items as $item)
+                                    <option value="{{ $item->id }}" {{ request('item_id') == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="">Status:</label>
-                            <select name="" class="js-example-basic-single-item form-control">
-                                <option>All Transactions</option>
-                                <option>Blue Grape Bla</option>
-                                <option>Red Tobacco Bla</option>
+                            <select name="status" class="js-example-basic-single-item form-control">
+                                <option selected disabled>Filter by transaction type</option>
+                                <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">voucher
+                                </option>
+                                <option {{ request('status') == 'on_hold' ? 'selected' : '' }} value="on_hold">on hold
+                                </option>
+                                <option {{ request('status') == 'consume' ? 'selected' : '' }} value="consume">consume
+                                </option>
+                                <option {{ request('status') == 'initial_balance' ? 'selected' : '' }} value="initial_balance">
+                                    initial balance
+                                </option>
+                                <option {{ request('status') == 'returns' ? 'selected' : '' }} value="returns">returns
+                                </option>
+                                <option {{ request('status') == 'surplus' ? 'selected' : '' }} value="surplus">surplus
+                                </option>
+                                <option {{ request('status') == 'shortage' ? 'selected' : '' }} value="shortage">
+                                    shortage
+                                </option>
+                                <option {{ request('status') == 'normal_shortage' ? 'selected' : '' }} value="normal_shortage">
+                                    normal shortage
+                                </option>
                             </select>
                         </div>
 
@@ -95,7 +118,7 @@
                     <h3 class="box-title">Transactions</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive">
+                <div id="trans" class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
                         <tr>
@@ -111,24 +134,26 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>514</td>
-                            <td>Consume</td>
-                            <td>Department of Bla</td>
-                            <td>Blue Tobacco xyz</td>
-                            <td>Ahmed Ali</td>
-                            <td>2088-2-11</td>
-                            <td>500000</td>
-                            <td>Comment here</td>
-                            <td>
-                                <a href="" class="btn btn-warning">Edit</a>
-                                <button onclick="" class="btn btn-danger">Delete</button>
-                                <form id="delete1" action="" method="post">
-                                    <input type="hidden" name="_token" value="">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                </form>
-                            </td>
-                        </tr>
+                        @foreach($inventories as $inv)
+                            <tr>
+                                <td>{{ $inv->id }}</td>
+                                <td>{{ $inv->transaction_type }}</td>
+                                <td>{{ $inv->category->name }}</td>
+                                <td>{{ $inv->item->name }}</td>
+                                <td>{{ $inv->user->name }}</td>
+                                <td>{{ $inv->date->format('Y-m-d H:i') }}</td>
+                                <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
+                                <td>{{ $inv->comment ?? '-' }}</td>
+                                <td>
+                                    <a href="" class="btn btn-warning">Edit</a>
+                                    <button onclick="" class="btn btn-danger">Delete</button>
+                                    <form id="delete1" action="" method="post">
+                                        <input type="hidden" name="_token" value="">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
