@@ -93,7 +93,7 @@ Route::get('/order/{order}/edit', 'OrderController@edit');
 Route::get('/order/{order}/delete', 'OrderController@destroy');
 Route::get('/fill_order', 'OrderController@create');
 
-Route::get('/item', 'ShipmentController@index');
+Route::get('/track_shipments', 'ShipmentController@index');
 Route::put('/shipment/{shipment}', 'ShipmentController@update');
 Route::get('/shipment/{shipment}/{status}', 'ShipmentController@changeStatus');
 
@@ -133,9 +133,8 @@ Route::get('/inventory_transaction', function (){
     return view('inventory_transaction');
 });
 
-Route::get('/inventory', function (){
-    return view('inventory');
-});
+Route::get('/inventory', 'InventoryController@index');
+Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
 
 Route::get('/print_reports', function (){
     return view('print_reports');

@@ -29,18 +29,20 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>514</td>
-                            <td>Ahmed Ali</td>
-                            <td>2088-2-11</td>
-                            <td>500000</td>
-                            <td>Comment here</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-sm">Approve
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody></table>
+                        @foreach($onHold as $inv)
+                            <tr>
+                                <td>{{ $inv->id }}</td>
+                                <td>{{ $inv->user->name ?? '-' }}</td>
+                                <td>{{ $inv->date ? $inv->date->format('Y-m-d H:i') : '-' }}</td>
+                                <td>{{ $inv->quantity }} {{ $inv->shipment->order->item->unit }}</td>
+                                <td>{{ $inv->comment ?? '-' }}</td>
+                                <td>
+                                    <a href="{{ url('/inventory/'.$inv->id.'/approved') }}" class="btn btn-info btn-sm">Approve</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -53,7 +55,7 @@
             <div class="box">
                 <div style="padding:10px;">
                     Filter by:
-                        <form class="form-inline" action="">
+                    <form class="form-inline" action="">
                         <div class="form-group">
                             <label for="">Category:</label>
                             <select name="" class="js-example-basic-single-item form-control">
@@ -127,7 +129,8 @@
                                 </form>
                             </td>
                         </tr>
-                        </tbody></table>
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -143,7 +146,7 @@
 
     <script>
         $(document).ready(function () {
-                    $('.js-example-basic-single-item').select2();
+            $('.js-example-basic-single-item').select2();
         })
     </script>
 

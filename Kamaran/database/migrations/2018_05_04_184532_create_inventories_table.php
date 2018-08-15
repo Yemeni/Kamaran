@@ -19,7 +19,7 @@ class CreateInventoriesTable extends Migration
             $table->unsignedInteger('category_id')->index();
             $table->unsignedInteger('shipment_id')->nullable()->index();
             $table->enum('transaction_type', ['voucher','on_hold','consume','initial_balance','returns','surplus','shortage','normal_shortage']);
-            $table->timestamp('date')->nullabe();
+            $table->timestamp('date')->nullable();
             $table->integer('quantity');
             $table->integer('arrival_status')->default(0);
             $table->text('comment')->nullable();

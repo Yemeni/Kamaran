@@ -143,6 +143,8 @@
                 $('#total').html(total);
             });
 
+            $('.js-example-basic-single-item').select2();
+
             $(".form_datetime").datetimepicker();
 
             $('.js-example-basic-single').select2();

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Alerts\Alert;
 use App\Inventory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -14,7 +16,10 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+        $onHold = Inventory::where('arrival_status', 0)->get();
+        $inventories = Inventory::all();
+
+        return view('inventory', compact('onHold', 'inventories'));
     }
 
     /**
@@ -38,15 +43,27 @@ class InventoryController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Inventory  $inventory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Inventory $inventory)
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  \App\Inventory $inventory
+	 *
+	 * @return \Illuminate\Http\Response
+	 * @throws \Exception
+	 */
+    public function approved(Inventory $inventory)
     {
-        //
+        $inventory->update([
+        	'arrival_status' => 1,
+			'date' => Carbon::now()->timestamp,
+			'user_id' => auth()->id(),
+			'transaction_type' => 'voucher',
+
+		]);
+
+        Alert::flash('The Inventory has been approved', 'success');
+
+        return back();
     }
 
     /**
