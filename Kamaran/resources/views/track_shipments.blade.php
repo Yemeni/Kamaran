@@ -83,7 +83,14 @@
 
                                                     <div class="box-body">
                                                         <div class="form-group">
-                                                            <label for="">Date:</label>
+                                                            <label for="">Invoice:</label>
+                                                                <input type="number"
+                                                                       name=""
+                                                                       class="form-control"
+                                                                       id="">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="">Expected Arrival Date:</label>
                                                             <div class="input-group date">
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i>
@@ -96,7 +103,7 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="">Expected Arrival:</label>
+                                                            <label for="">Arrival Date:</label>
                                                             <div class="input-group date">
                                                                 <div class="input-group-addon">
                                                                     <i class="fa fa-calendar"></i>
@@ -211,6 +218,7 @@
                         <thead>
                         <tr>
                             <th>Shipment ID</th>
+                            <th>Invoice</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Partial</th>
@@ -225,6 +233,7 @@
                         @foreach($onHold as $ship)
                             <tr>
                                 <td>{{ $ship->id }}</td>
+                                <td>5555555</td>
                                 <td>
                                     <a href="">{{ $ship->order->item->name }}</a>
                                 </td>
@@ -286,6 +295,7 @@
 
                         <thead>
                             <th>Shipment ID</th>
+                            <th>Invoice</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Partial</th>
@@ -298,8 +308,9 @@
                         <tbody>
                         <tr>
                             <td>
-                                <a href="">555</a>
+                                555
                             </td>
+                            <td>555555</td>
                             <td>
                                 <a href="">Tobacco Type 50</a>
                             </td>
@@ -354,7 +365,14 @@
                                                   method="post">
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        <label for="">Date:</label>
+                                                        <label for="">Invoice:</label>
+                                                        <input type="number"
+                                                               name=""
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Expected Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
@@ -367,7 +385,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="">Expected Arrival:</label>
+                                                        <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
@@ -469,6 +487,7 @@
 
                         <thead>
                             <th>Shipment ID</th>
+                            <th>Invoice</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Partial</th>
@@ -480,8 +499,9 @@
                         <tbody>
                         <tr>
                             <td>
-                                <a href="">555</a>
+                                555
                             </td>
+                            <td>5555555</td>
                             <td>
                                 <a href="">Tobacco Type 50</a>
                             </td>
@@ -513,6 +533,7 @@
                     <table class="table table-hover datatables">
                         <thead>
                             <th>Shipment ID</th>
+                            <th>Invoice</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Partial</th>
@@ -525,8 +546,9 @@
                         <tbody>
                         <tr>
                             <td>
-                                <a href="">555</a>
+                                555
                             </td>
+                            <td>5555555</td>
                             <td>
                                 <a href="">Tobacco Type 50</a>
                             </td>
@@ -581,7 +603,14 @@
                                                   method="post">
                                                 <div class="box-body">
                                                     <div class="form-group">
-                                                        <label for="">Date:</label>
+                                                        <label for="">Invoice:</label>
+                                                        <input type="number"
+                                                               name=""
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Expected Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
@@ -594,7 +623,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="">Expected Arrival:</label>
+                                                        <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
@@ -695,6 +724,7 @@
                     <table class="table table-hover datatables">
                         <thead>
                             <th>Shipment ID</th>
+                            <th>Invoice</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Partial</th>
@@ -707,8 +737,9 @@
                         <tbody>
                         <tr>
                             <td>
-                                <a href="">555</a>
+                                555
                             </td>
+                            <td>555555555</td>
                             <td>
                                 <a href="">Tobacco Type 50</a>
                             </td>
