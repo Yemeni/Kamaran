@@ -16,9 +16,10 @@
                     <h3 class="box-title">Latest Transactions</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
+                        <tr>
                             <th>Transaction ID</th>
                             <th>Transaction Type</th>
                             <th>Employee</th>
@@ -26,6 +27,7 @@
                             <th>Quantity</th>
                             <th>Comment</th>
                             <th>Action</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr>

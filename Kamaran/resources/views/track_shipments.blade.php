@@ -395,10 +395,11 @@
 
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
 
                         <thead>
+                        <tr>
                             <th>Shipment ID</th>
                             <th>Invoice</th>
                             <th>Item</th>
@@ -409,6 +410,7 @@
                             <th>Quantity</th>
                             <th>Comment</th>
                             <th></th>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr>
@@ -575,10 +577,11 @@
                     <h3 class="box-title">Cancelled Shipments</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
 
                         <thead>
+                        <tr>
                             <th>Shipment ID</th>
                             <th>Invoice</th>
                             <th>Item</th>
@@ -588,6 +591,7 @@
                             <th>Expected Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr>
@@ -622,9 +626,10 @@
                     <h3 class="box-title">Delayed Shipments</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
+                        <tr>
                             <th>Shipment ID</th>
                             <th>Invoice</th>
                             <th>Item</th>
@@ -636,6 +641,7 @@
                             <th>Comment</th>
                             <th></th>
                         </thead>
+                        </tr>
                         <tbody>
                         <tr>
                             <td>
@@ -801,9 +807,10 @@
                     <h3 class="box-title">Arrived Shipments</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
+                <div class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
+                        <tr>
                             <th>Shipment ID</th>
                             <th>Invoice</th>
                             <th>Item</th>
@@ -814,6 +821,7 @@
                             <th>Arrival Date</th>
                             <th>Quantity</th>
                             <th>Comment</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <tr>
