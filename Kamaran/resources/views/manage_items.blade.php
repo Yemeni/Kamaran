@@ -26,7 +26,6 @@
                             <th>Specification</th>
                             <th>Unit</th>
                             <th>Danger Level</th>
-                            <th>Type</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -41,7 +40,6 @@
                                 <td>
                                     <span class="label label-success">{{ $item->danger_level }}</span>
                                 </td>
-                                <td>{{ $item->type }}</td>
                                 <td>
                                     <a href="{{ url('/item/'.$item->id.'/edit') }}" class="btn btn-warning">Edit</a>
                                     <a href="{{ url('/item/'.$item->id) }}" class="btn btn-danger">Delete</a>
