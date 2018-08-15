@@ -24,7 +24,6 @@
                             <th>Employee</th>
                             <th>Date</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -118,7 +117,7 @@
                     <h3 class="box-title">Transactions</h3>
                 </div>
                 <!-- /.box-header -->
-                <div id="trans" class="box-body table-responsive">
+                <div id="trans  " class="box-body table-responsive">
                     <table class="table table-hover datatables">
                         <thead>
                         <tr>
@@ -129,8 +128,6 @@
                             <th>Employee</th>
                             <th>Date</th>
                             <th>Quantity</th>
-                            <th>Comment</th>
-                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -156,6 +153,12 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div style="float:right;">
+                        <a href="">
+                            <i class="fa fa-fw fa-print "></i>
+                            <span>Print</span>
+                        </a>
+
                 </div>
                 <!-- /.box-body -->
             </div>
