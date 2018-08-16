@@ -114,7 +114,7 @@ class OrderController extends Controller {
 
 		$order->update([
 			'order_status'  => 'approved',
-			'approved_date' => Carbon::now()->timestamp
+			'approval_date' => Carbon::now()->timestamp
 		]);
 
 		Shipment::create([
