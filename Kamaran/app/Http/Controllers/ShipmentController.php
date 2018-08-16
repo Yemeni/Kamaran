@@ -107,7 +107,7 @@ class ShipmentController extends Controller {
 		$this->authorize('update', $shipment);
 
 		$request->validate([
-			'arrival_date'    => 'required|date',
+			'arrival_date'    => 'nullable|date',
 			'expected_date'   => 'required|date',
 			'quantity'        => 'nullable|numeric|max:' . ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()),
 			'shipment_status' => [

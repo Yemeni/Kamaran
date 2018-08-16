@@ -107,7 +107,7 @@
                                                                     <i class="fa fa-calendar"></i>
                                                                 </div>
                                                                 <input type="text"
-                                                                       name="expected_date"
+                                                                       name="arrival_date"
                                                                        class="form-control pull-right input-append date form_datetime"
                                                                        id="">
                                                             </div>
@@ -316,8 +316,8 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
-                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
-                                                                   name="expected_date"
+                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
+                                                                   name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
                                                         </div>
@@ -501,8 +501,8 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
-                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
-                                                                   name="expected_date"
+                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
+                                                                   name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
                                                         </div>
@@ -730,8 +730,8 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
-                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
-                                                                   name="expected_date"
+                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
+                                                                   name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
                                                         </div>
