@@ -317,54 +317,11 @@
             </div>
         </div>
         <!-- ./col -->
-        <div class="col-sm-12 col-md-6">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Latest Transactions</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding bg-blue text-black">
-                    <table class="table table-hover">
-                        <tbody><tr>
-                            <th>Transaction ID</th>
-                            <th>Date</th>
-                            <th>Type</th>
-                            <th>Quantity</th>
-                        </tr>
-                        <tr>
-                            <td><a href="">183</a></td>
-                            <td>11-7-2018</td>
-                            <td>data</td>
-                            <td>50,000</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">188</a></td>
-                            <td>11-7-2018</td>
-                            <td>data</td>
-                            <td>50,000</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">199</a></td>
-                            <td>11-7-2018</td>
-                            <td>data</td>
-                            <td>50,000</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">200</a></td>
-                            <td>11-7-2018</td>
-                            <td>data</td>
-                            <td>50,000</td>
-                        </tr>
-                        </tbody></table>
-                </div>
-                <!-- /.box-body -->
-            </div>
-        </div>
-        <!-- ./col -->
+
     </div>
 
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-8">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Latest Orders</h3>
@@ -384,6 +341,7 @@
                     <table class="table table-hover">
                         <tbody><tr>
                             <th>Order ID</th>
+                            <th>Item</th>
                             <th>Staff</th>
                             <th>Date</th>
                             <th>Approval Date</th>
@@ -392,8 +350,9 @@
                             <th>Comment</th>
                         </tr>
                         <tr>
-                            <td><a href="">183</a></td>
-                            <td><a href="">Ahmed Ali</a></td>
+                            <td>6565</td>
+                            <td>Blue Cheese</td>
+                            <td>Ahmed Ali</td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
@@ -401,30 +360,13 @@
                             <td>They will give 5% discount the next time we order</td>
                         </tr>
                         <tr>
-                            <td><a href="">219</a></td>
-                            <td><a href="">Alexander Mohammed</a></td>
+                            <td>5656</td>
+                            <td>Blue Cheese</td>
+                            <td>Alexander Mohammed</td>
                             <td>11-7-2018</td>
                             <td>11-7-2018</td>
                             <td>CIF</td>
                             <td><span class="label label-warning">Pending</span></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">657</a></td>
-                            <td><a href="">Ibtisam Doe</a></td>
-                            <td>11-7-2018</td>
-                            <td>11-7-2018</td>
-                            <td>FOB</td>
-                            <td><span class="label label-success">Approved</span></td>
-                            <td>This is very necessary for the XVR machine</td>
-                        </tr>
-                        <tr>
-                            <td><a href="">175</a></td>
-                            <td><a href="">Fatimah Salah</a></td>
-                            <td>11-7-2018</td>
-                            <td>11-7-2018</td>
-                            <td>CIF</td>
-                            <td><span class="label label-danger">Cancelled</span></td>
                             <td></td>
                         </tr>
                         </tbody></table>
@@ -433,6 +375,41 @@
             </div>
             <!-- /.box -->
         </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Latest Transactions</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding text-black">
+                    <table class="table table-hover">
+                        <tbody><tr>
+                            <th>Transaction ID</th>
+                            <th>Item</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                        </tr>
+                        <tr>
+                            <td>645</td>
+                            <td>Blue Cheese</td>
+                            <td>11-7-2018</td>
+                            <td>data</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td>565656</td>
+                            <td>Blue Cheese</td>
+                            <td>11-7-2018</td>
+                            <td>data</td>
+                            <td>50,000</td>
+                        </tr>
+                        </tbody></table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- ./col -->
     </div>
 
 
