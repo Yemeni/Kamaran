@@ -19,7 +19,8 @@
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
-                        <tbody><tr>
+                        <tbody>
+                        <tr>
                             <th>Transaction ID</th>
                             <th>Transaction Type</th>
                             <th>Category</th>
@@ -29,105 +30,30 @@
                             <th>Quantity</th>
 
                         </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
-                        <tr>
-                            <td>183</td>
-                            <td>Consume</td>
-                            <td>Department of XYZ</td>
-                            <td>Red Tobaco</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>5000 tones</td>
-                        </tr>
+                        @foreach($inventories as $inv)
+                            <tr>
+                                <td>{{ $inv->id }}</td>
+                                <td>{{ $inv->transaction_type }}</td>
+                                <td>{{ $inv->category->name }}</td>
+                                <td>{{ $inv->item->name }}</td>
+                                <td>{{ $inv->user->name }}</td>
+                                <td>{{ $inv->date->format('Y-m-d H:i') }}</td>
+                                <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
+                            </tr>
+                        @endforeach
                         <tr>
                             <td colspan="4">Total Inventory</td>
-                            <td colspan="3">500,0000 Tones</td>
+                            <td colspan="3">{{ $result }} units</td>
                         </tr>
-                        </tbody></table>
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
-            <div>Printed by <span>Hammoood Ali</span> on 1st March 2018 - 04:40</div>
+            <div>Printed by
+                <span>Hammoood Ali</span>
+                on 1st March 2018 - 04:40
+            </div>
 
         </div>
     </div>
@@ -137,8 +63,8 @@
 
 @section('css')
     <style>
-        footer{
-            display:none;
+        footer {
+            display: none;
         }
     </style>
-    @append
+@append

@@ -135,6 +135,7 @@ Route::get('/inventory_transaction', function (){
 
 Route::get('/inventory', 'InventoryController@index');
 Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
+Route::get('/inventory/print', 'InventoryController@print');
 
 Route::get('/print_reports', function (){
     return view('print_reports');

@@ -144,10 +144,10 @@
                         </tbody>
                     </table>
                     <div style="float:right;">
-                        <button href="">
+                        <a href="{{ url('/inventory/print') }}" class="btn btn-default">
                             <i class="fa fa-fw fa-print "></i>
                             <span>Print</span>
-                        </button>
+                        </a>
 
                 </div>
                 <!-- /.box-body -->

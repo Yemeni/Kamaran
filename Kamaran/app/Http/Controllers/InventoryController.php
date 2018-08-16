@@ -36,6 +36,8 @@ class InventoryController extends Controller
 		$categories = Category::orderBy('name', 'asc')->get();
 		$items = Item::orderBy('name', 'asc')->get();
 
+		session()->put('filtered', $inventories);
+
         return view('inventory', compact('onHold', 'inventories', 'items', 'categories'));
     }
 
@@ -58,6 +60,25 @@ class InventoryController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+	public function print()
+	{
+		$total = 0;
+		$result = '';
+		$pos = ['voucher', 'initial_balance', 'surplus'];
+
+		foreach (session('filtered') as $inv){
+			if (in_array($inv->transaction_type, $pos)){
+				$total += $inv->quantity;
+			}else{
+				$total -= $inv->quantity;
+			}
+		}
+
+		$result = (string)number_format($total);
+
+		return view('print_reports', ['inventories' => session('filtered'), 'result' => $result]);
     }
 
 	/**
