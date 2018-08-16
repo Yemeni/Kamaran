@@ -34,7 +34,6 @@
                                 <td>{{ $inv->user->name ?? '-' }}</td>
                                 <td>{{ $inv->date ? $inv->date->format('Y-m-d H:i') : '-' }}</td>
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
-                                <td>{{ $inv->comment ?? '-' }}</td>
                                 <td>
                                     <a href="{{ url('/inventory/'.$inv->id.'/approved') }}" class="btn btn-info btn-sm">
                                         Approve
@@ -140,24 +139,15 @@
                                 <td>{{ $inv->user->name }}</td>
                                 <td>{{ $inv->date->format('Y-m-d H:i') }}</td>
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
-                                <td>{{ $inv->comment ?? '-' }}</td>
-                                <td>
-                                    <a href="" class="btn btn-warning">Edit</a>
-                                    <button onclick="" class="btn btn-danger">Delete</button>
-                                    <form id="delete1" action="" method="post">
-                                        <input type="hidden" name="_token" value="">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                    </form>
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                     <div style="float:right;">
-                        <a href="">
+                        <button href="">
                             <i class="fa fa-fw fa-print "></i>
                             <span>Print</span>
-                        </a>
+                        </button>
 
                 </div>
                 <!-- /.box-body -->
@@ -167,7 +157,6 @@
     </div>
 
 @stop
-
 
 
 @section('js')

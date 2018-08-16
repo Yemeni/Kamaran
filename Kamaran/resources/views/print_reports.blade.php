@@ -14,7 +14,7 @@
             <div class="box">
                 <img src="{{ asset('resources/Report Page Header.jpg') }}">
                 <div class="box-header">
-                    <h3 class="box-title">Department of Bla > Item X y z</h3>
+                    <h3 class="box-title">Report of: Department of Bla - Item Blue Tobacco - All Transactions</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
@@ -127,6 +127,7 @@
                 </div>
                 <!-- /.box-body -->
             </div>
+            <div>Printed by <span>Hammoood Ali</span> on 1st March 2018 - 04:40</div>
 
         </div>
     </div>
@@ -134,3 +135,10 @@
 
 @stop
 
+@section('css')
+    <style>
+        footer{
+            display:none;
+        }
+    </style>
+    @append
