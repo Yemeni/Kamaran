@@ -64,13 +64,13 @@
                                 {{--<td>They will give 5% discount the next time we order</td>--}}
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle"
+                                        <button class="btn btn-primary dropdown-toggle btn-sm"
                                                 type="button"
                                                 id="dropdownMenuButton"
                                                 data-toggle="dropdown"
                                                 aria-haspopup="true"
                                                 aria-expanded="false">
-                                            Dropdown button
+                                            Change Status
                                             <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
