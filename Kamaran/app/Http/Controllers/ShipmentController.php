@@ -12,10 +12,10 @@ use Illuminate\Validation\Rule;
 
 class ShipmentController extends Controller {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -127,7 +127,7 @@ class ShipmentController extends Controller {
 					'category_id'     => $shipment->category_id,
 					'partial'         => 1,
 					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-					'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
+					'arrival_date'    => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
 					'invoice'         => $request->invoice,
 					'quantity'        => $request->quantity,
 					'shipment_status' => $request->shipment_status,
@@ -141,7 +141,7 @@ class ShipmentController extends Controller {
 			{
 				$shipment->update([
 					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-					'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
+					'arrival_date'    => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
 					'invoice'         => $request->invoice,
 					'quantity'        => $request->quantity,
 					'shipment_status' => $request->shipment_status,
@@ -151,19 +151,21 @@ class ShipmentController extends Controller {
 		{
 			$shipment->update([
 				'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-				'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
+				'arrival_date'    => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
 				'invoice'         => $request->invoice,
 				'shipment_status' => $request->shipment_status,
 			]);
 		}
 
-		if ($request->shipment_status == 'arrived'){
+		if ($request->shipment_status == 'arrived')
+		{
 			Inventory::create([
-				'category_id' => $shipment->category_id,
-				'item_id' => $shipment->order->item->id,
+				'category_id'      => $shipment->category_id,
+				'item_id'          => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
-				'quantity' => $shipment->quantity,
-				'arrival_status' => 0,
+				'quantity'         => $shipment->quantity,
+				'arrival_date'     => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : Carbon::now()->timestamp,
+				'arrival_status'   => 0,
 			]);
 		}
 
@@ -183,13 +185,15 @@ class ShipmentController extends Controller {
 	{
 		$this->authorize('update', $shipment);
 
-		if ($status == 'arrived'){
+		if ($status == 'arrived')
+		{
 			Inventory::create([
-				'category_id' => $shipment->category_id,
-				'item_id' => $shipment->order->item->id,
+				'category_id'      => $shipment->category_id,
+				'item_id'          => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
-				'quantity' => $shipment->quantity,
-				'arrival_status' => 0,
+				'quantity'         => $shipment->quantity,
+				'arrival_date'     => $shipment->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : Carbon::now()->timestamp,
+				'arrival_status'   => 0,
 			]);
 		}
 
