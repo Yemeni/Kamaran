@@ -43,7 +43,7 @@ class InventoryController extends Controller {
 			$inventories = $inventories->where('transaction_type', \request('status'));
 		}
 
-		$inventories = $inventories->get();
+		$inventories = $inventories->where('arrival_status', 1)->get();
 
 		$categories = Category::orderBy('name', 'asc')->get();
 		$items = Item::orderBy('name', 'asc')->get();
