@@ -129,9 +129,10 @@ Route::get('/supplier/{supplier}', 'SupplierController@destroy');
 Route::get('/supplier/{supplier}/edit', 'SupplierController@edit');
 Route::get('/supplier', 'SupplierController@index');
 
-Route::get('/inventory_transaction', 'InventoryController@create');
 
+Route::get('/inventory_transaction', 'InventoryController@create');
 Route::get('/inventory', 'InventoryController@index');
+Route::post('/inventory', 'InventoryController@store');
 Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
 Route::get('/inventory/print', 'InventoryController@print');
 
