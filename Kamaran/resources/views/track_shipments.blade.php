@@ -100,6 +100,19 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group">
+                                                            <label for="">Arrival Date:</label>
+                                                            <div class="input-group date">
+                                                                <div class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </div>
+                                                                <input type="text"
+                                                                       name="expected_date"
+                                                                       class="form-control pull-right input-append date form_datetime"
+                                                                       id="">
+                                                            </div>
+                                                        </div>
+
 
                                                         <div class="form-group">
                                                             <label for="">Status:</label>
@@ -297,6 +310,20 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="">Arrival Date:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
+                                                                   name="expected_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="">Status:</label>
                                                         <select name="shipment_status" class="form-control">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
@@ -455,6 +482,20 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Expected Arrival Date:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
+                                                                   name="expected_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
@@ -670,6 +711,20 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="">Expected Arrival Date:</label>
+                                                        <div class="input-group date">
+                                                            <div class="input-group-addon">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                            <input type="text"
+                                                                   value="{{ $ship->expected_date->format('Y-m-d H:i') }}"
+                                                                   name="expected_date"
+                                                                   class="form-control pull-right input-append date form_datetime"
+                                                                   id="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
                                                                 <i class="fa fa-calendar"></i>
