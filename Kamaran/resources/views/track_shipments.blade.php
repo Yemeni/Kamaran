@@ -316,7 +316,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
-                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
+                                                                   value="{{ $ship->arrival_date ? $ship->arrival_date->format('Y-m-d H:i') : ''}}"
                                                                    name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -501,7 +501,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
-                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
+                                                                   value="{{ $ship->arrival_date ? $ship->arrival_date->format('Y-m-d H:i') : ''}}"
                                                                    name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -730,7 +730,7 @@
                                                                 <i class="fa fa-calendar"></i>
                                                             </div>
                                                             <input type="text"
-                                                                   value="{{ $ship->arrival_date->format('Y-m-d H:i') }}"
+                                                                   value="{{ $ship->arrival_date ? $ship->arrival_date->format('Y-m-d H:i') : ''}}"
                                                                    name="arrival_date"
                                                                    class="form-control pull-right input-append date form_datetime"
                                                                    id="">
@@ -837,7 +837,7 @@
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
-                                <td>{{ $ship->arrival_date->format('d-m-y') }}</td>
+                                <td>{{ $ship->arrival_date ? $ship->arrival_date->format('d-m-y') : '' }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                             </tr>
                         @endforeach

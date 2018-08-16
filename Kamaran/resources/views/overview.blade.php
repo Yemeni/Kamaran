@@ -117,9 +117,10 @@
             <!-- small box -->
             <div class="small-box bg-blue">
                 <div class="inner">
-                    <h3>2/4 Quarter Orders</h3>
 
-                    <h3>53 <sup style="font-size: 20px">Orders</sup> 41 <sup style="font-size: 20px">Approved</sup></h3>
+                    <h3>{{ \App\Order::all()->count() }}
+                        <sup style="font-size: 20px">Orders</sup> {{ \App\Order::where('order_status','approved')->count() }}
+                        <sup style="font-size: 20px">Approved</sup></h3>
 
                     <p>You have made 3 Orders today (2 Approved)</p>
                     <div>
@@ -131,10 +132,10 @@
                                 var myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                        labels: ["January", "February", "March", "April", "May", "June", "July",],
+                                        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "september"],
                                         datasets: [
                                             {
-                                                data: [65, 8, 90, 81, 56, 55, 40,],
+                                                data: [0, 0, 0, 0, 0, 0, 0, {{ \App\Order::where('order_status','approved')->count() }}, 0, 0],
                                                 backgroundColor: '#3498db',
                                                 borderColor: 'rgba(136,136,136,0.5)',
                                                 pointBackgroundColor: '#3498db',
@@ -143,7 +144,7 @@
                                             },
 
                                             {
-                                                data: [77, 48, 99, 88, 96, 66, 100,],
+                                                data: [0, 0, 0, 0, 0, 0, 0, {{ \App\Order::all()->count() }}, 0, 0],
                                                 backgroundColor: '#2ecccc',
                                                 borderColor: '#aaaaaa',
                                                 pointBackgroundColor: '#6d2ecc',
