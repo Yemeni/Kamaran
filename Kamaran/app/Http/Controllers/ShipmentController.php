@@ -107,7 +107,6 @@ class ShipmentController extends Controller {
 		$this->authorize('update', $shipment);
 
 		$request->validate([
-			'arrival_date'    => 'required|date',
 			'expected_date'   => 'required|date',
 			'quantity'        => 'nullable|numeric|max:' . ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()),
 			'shipment_status' => [
@@ -127,7 +126,6 @@ class ShipmentController extends Controller {
 					'category_id'     => $shipment->category_id,
 					'partial'         => 1,
 					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-					'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
 					'invoice'         => $request->invoice,
 					'quantity'        => $request->quantity,
 					'shipment_status' => $request->shipment_status,
@@ -141,7 +139,6 @@ class ShipmentController extends Controller {
 			{
 				$shipment->update([
 					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-					'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
 					'invoice'         => $request->invoice,
 					'quantity'        => $request->quantity,
 					'shipment_status' => $request->shipment_status,
@@ -151,7 +148,6 @@ class ShipmentController extends Controller {
 		{
 			$shipment->update([
 				'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-				'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
 				'invoice'         => $request->invoice,
 				'shipment_status' => $request->shipment_status,
 			]);
@@ -164,6 +160,7 @@ class ShipmentController extends Controller {
 				'transaction_type' => 'on_hold',
 				'quantity' => $shipment->quantity,
 				'arrival_status' => 0,
+				'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date),
 			]);
 		}
 
@@ -189,6 +186,7 @@ class ShipmentController extends Controller {
 				'item_id' => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity' => $shipment->quantity,
+				'arrival_date'    => Carbon::createFromFormat('Y-m-d H:i', $shipment->arrival_date),
 				'arrival_status' => 0,
 			]);
 		}
