@@ -32,10 +32,24 @@
                 <div class="inner">
                     <h3>53</h3>
 
-                    <p>Moving Shipments</p>
+                    <p>Pending Shipments</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-purple">
+                <div class="inner">
+                    <h3>8</h3>
+
+                    <p>Total Suppliers</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -47,7 +61,7 @@
                 <div class="inner">
                     <h3>12</h3>
 
-                    <p>New Items</p>
+                    <p>Total Items</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-android-drafts"></i>
@@ -56,20 +70,7 @@
             </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-2 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-purple">
-                <div class="inner">
-                    <h3>8</h3>
 
-                    <p>New Suppliers</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
         <!-- ./col -->
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
@@ -77,7 +78,7 @@
                 <div class="inner">
                     <h3>33</h3>
 
-                    <p>New Transactions</p>
+                    <p>On Hold Inventory</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-android-exit"></i>
