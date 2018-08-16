@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Gate;
 
 class SupplierController extends Controller {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 	/**
 	 * Display a listing of the resource.
 	 *
