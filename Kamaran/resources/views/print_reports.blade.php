@@ -68,3 +68,11 @@
         }
     </style>
 @append
+
+@section('js')
+    <script>
+        $(document).ready(function (eve) {
+            window.print();
+        });
+    </script>
+@append
