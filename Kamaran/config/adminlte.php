@@ -204,12 +204,14 @@ return [
 				[
 					'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
 					'icon' => '',
-					'url'  => '/inventory_transaction'
+					'url'  => '/inventory_transaction',
+					'can' => 'admin||inventory'
 				],
 				[
 					'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
 					'icon' => '',
-					'url'  => '/inventory'
+					'url'  => '/inventory',
+					'can' => 'admin||inventory'
 				]
 
 			]

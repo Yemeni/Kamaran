@@ -129,9 +129,7 @@ Route::get('/supplier/{supplier}', 'SupplierController@destroy');
 Route::get('/supplier/{supplier}/edit', 'SupplierController@edit');
 Route::get('/supplier', 'SupplierController@index');
 
-Route::get('/inventory_transaction', function (){
-    return view('inventory_transaction');
-});
+Route::get('/inventory_transaction', 'InventoryController@create');
 
 Route::get('/inventory', 'InventoryController@index');
 Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');

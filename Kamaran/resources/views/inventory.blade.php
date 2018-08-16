@@ -10,6 +10,7 @@
 @section('content')
 
     <div class="row">
+        @alert
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">

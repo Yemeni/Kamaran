@@ -18,28 +18,52 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Transaction details:</h3>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                    @endif
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" _lpchecked="1">
+                        <form role="form" action="{{ url('/invnetory') }}" method="post">
+                            @csrf
+
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="">Type:</label>
-                                    <select class="form-control">
-                                        <option>Voucher</option>
-                                        <option>Consume</option>
-                                        <option>Initial Balance</option>
-                                        <option>Returns</option>
-                                        <option>Surplus</option>
-                                        <option>Shortage</option>
-                                        <option>Normal Shortage</option>
+                                    <select name="transaction_type" class="form-control">
+                                        <option value="voucher">voucher
+                                        </option>
+                                        <option value="on_hold">on hold
+                                        </option>
+                                        <option value="consume">consume
+                                        </option>
+                                        <option value="initial_balance">
+                                            initial balance
+                                        </option>
+                                        <option value="returns">returns
+                                        </option>
+                                        <option value="surplus">surplus
+                                        </option>
+                                        <option value="shortage">
+                                            shortage
+                                        </option>
+                                        <option value="normal_shortage">
+                                            normal shortage
+                                        </option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="">Item:</label>
-                                    <select class="js-example-basic-single form-control">
-                                        <option value="">Red Wine</option>
-                                        <option value="">Green Chocolate</option>
+                                    <select name="item_id" class="js-example-basic-single form-control">
+                                        @foreach($items as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -57,19 +81,18 @@
 
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
-                                    <input type="text" class="form-control" id="">
-                                    <span>5000 Liters remaining</span>
+                                    <input type="text" name="quantity" class="form-control" id="">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Comment</label>
-                                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea class="form-control" name="comment" rows="3" placeholder="Enter ..."></textarea>
                                 </div>
 
                                 <!-- /.box-body -->
 
                                 <div class="box-footer">
-                                    <button type="clear" class="btn btn-default ">Cancel</button>
+                                    <a href="/inventory" class="btn btn-default ">Cancel</a>
                                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
                                 </div>
 

@@ -51,8 +51,8 @@
                 <!-- /.box-body -->
             </div>
             <div>Printed by
-                <span>Hammoood Ali</span>
-                on 1st March 2018 - 04:40
+                <span>{{ auth()->user()->name }}</span>
+                on {{ \Carbon\Carbon::now()->format('Y-m-d H:i') }}
             </div>
 
         </div>

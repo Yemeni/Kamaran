@@ -8,16 +8,24 @@ use App\Inventory;
 use App\Item;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class InventoryController extends Controller
 {
-    /**
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+    	Gate::authorize('admin||inventory');
+
         $onHold = Inventory::where('arrival_status', 0)->get();
         $inventories = Inventory::query();
 
@@ -48,7 +56,10 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+    	$items = Item::whereHas('inventory')->get();
+
+
+    	return view('inventory_transaction', compact('items'));
     }
 
     /**
@@ -59,11 +70,15 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$request->validate([
+
+		]);
     }
 
 	public function print()
 	{
+		Gate::authorize('admin||inventory');
+
 		$total = 0;
 		$result = '';
 		$pos = ['voucher', 'initial_balance', 'surplus'];
@@ -91,6 +106,8 @@ class InventoryController extends Controller
 	 */
     public function approved(Inventory $inventory)
     {
+		Gate::authorize('admin||inventory');
+
         $inventory->update([
         	'arrival_status' => 1,
 			'date' => Carbon::now()->timestamp,
