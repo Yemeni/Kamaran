@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Inventory Report')
 
 @section('content_header')
     <h1>Print Reports</h1>
@@ -71,8 +71,23 @@
 
 @section('js')
     <script>
-        $(document).ready(function (eve) {
-            window.print();
-        });
+
+        function method1(){
+            $(document).ready(function (eve) {
+                window.print();
+            });
+        }
+
+        function method2(){
+            location.assign('/inventory');
+        }
+
+        $.ajax({
+            url:method1(),
+            success:function(){
+                method2();
+            }
+        })
+        
     </script>
 @append
