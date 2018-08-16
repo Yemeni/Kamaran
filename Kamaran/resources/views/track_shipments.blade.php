@@ -58,11 +58,11 @@
                                     <button type="button"
                                             class="btn btn-info btn-sm"
                                             data-toggle="modal"
-                                            data-target="#myModal">Process
+                                            data-target="#myModal{{ $ship->id }}">Process
                                     </button>
                                 </td>
                                 <!-- Modal -->
-                                <div id="myModal" class="modal fade" role="dialog">
+                                <div id="myModal{{ $ship->id }}" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
 
                                         <!-- Modal content-->
@@ -250,7 +250,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#onHoldModal">Edit</a>
+                                                <a href="" data-toggle="modal" data-target="#onHoldModal{{ $ship->id }}">Edit</a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
@@ -270,7 +270,7 @@
                                 </td>
                             </tr>
                             <!-- Modal -->
-                            <div id="onHoldModal" class="modal fade" role="dialog">
+                            <div id="onHoldModal{{ $ship->id }}" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
@@ -435,7 +435,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#movingModal">Edit</a>
+                                                <a href="" data-toggle="modal" data-target="#movingModal{{ $ship->id }}">Edit</a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
@@ -455,7 +455,7 @@
                                 </td>
                             </tr>
                             <!-- Modal -->
-                            <div id="movingModal" class="modal fade" role="dialog">
+                            <div id="movingModal{{ $ship->id }}" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
@@ -664,7 +664,7 @@
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#delayedModal">Edit</a>
+                                                <a href="" data-toggle="modal" data-target="#delayedModal{{ $ship->id }}">Edit</a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
@@ -684,7 +684,7 @@
                                 </td>
                             </tr>
                             <!-- Modal -->
-                            <div id="delayedModal" class="modal fade" role="dialog">
+                            <div id="delayedModal{{ $ship->id }}" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
