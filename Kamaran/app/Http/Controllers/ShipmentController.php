@@ -159,8 +159,8 @@ class ShipmentController extends Controller {
 				'item_id'          => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity'         => $shipment->quantity,
-				'arrival_date'     => $shipment->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $shipment->arrival_date) : Carbon::now()->timestamp,
-				'arrival_status'   => 0,
+				'arrival_date'     => $request ->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : Carbon::now()->timestamp,
+				'arrival_status'   => 1,
 			]);
 		}
 
@@ -187,8 +187,8 @@ class ShipmentController extends Controller {
 				'item_id'          => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity'         => $shipment->quantity,
-				'arrival_date'     => $shipment->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $shipment->arrival_date) : Carbon::now()->timestamp,
-				'arrival_status'   => 0,
+				'arrival_date'     => $shipment->arrival_date != null ? Carbon::createFromFormat('Y-m-d H:i', $shipment->arrival_date) : Carbon::now()->timestamp,
+				'arrival_status'   => 1,
 			]);
 		}
 
