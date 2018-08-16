@@ -74,12 +74,7 @@
                                 </div>
                                 <div></div>
 
-                                <div class="form-group">
-                                    <label for="">Item:</label>
-                                    <select name="item_id" class="js-example-basic-single-item form-control">
-                                        <option selected disabled>Choose the Supplier first</option>
-                                    </select>
-                                </div>
+
 
                                 @if(auth()->user()->isAdmin())
                                     <div class="form-group">
@@ -92,6 +87,12 @@
                                     </div>
                                 @endif
 
+                                <div class="form-group">
+                                    <label for="">Item:</label>
+                                    <select name="item_id" class="js-example-basic-single-item form-control">
+                                        <option selected disabled>Choose the Supplier first</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
                                     <input name="quantity" type="number" class="form-control calc" id="">
