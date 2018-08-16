@@ -15,14 +15,16 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>80</h3>
+                    <h3>{{ $pendingOrders }}</h3>
 
                     <p>Pending Orders</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -30,28 +32,32 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{ $pendingShipments }}</h3>
 
                     <p>Pending Shipments</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-purple">
                 <div class="inner">
-                    <h3>8</h3>
+                    <h3>{{ $totalSuppliers }}</h3>
 
                     <p>Total Suppliers</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -59,14 +65,16 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>12</h3>
+                    <h3>{{ $totalItems }}</h3>
 
                     <p>Total Items</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-android-drafts"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -76,14 +84,16 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>33</h3>
+                    <h3>{{ $onHoldInventories }}</h3>
 
                     <p>On Hold Inventory</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-android-exit"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- .col -->
@@ -121,56 +131,61 @@
                                 var myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                        labels : ["January","February","March","April","May","June","July",],
-                                        datasets : [
+                                        labels: ["January", "February", "March", "April", "May", "June", "July",],
+                                        datasets: [
                                             {
-                                                data : [65,8,90,81,56,55,40,],
-                                                backgroundColor :'#3498db',
-                                                borderColor : 'rgba(136,136,136,0.5)',
-                                                pointBackgroundColor:'#3498db',
-                                                pointBorderColor : '#fff',
-                                                label:"Approved Orders"},
+                                                data: [65, 8, 90, 81, 56, 55, 40,],
+                                                backgroundColor: '#3498db',
+                                                borderColor: 'rgba(136,136,136,0.5)',
+                                                pointBackgroundColor: '#3498db',
+                                                pointBorderColor: '#fff',
+                                                label: "Approved Orders"
+                                            },
 
                                             {
-                                                data : [77,48,99,88,96,66,100,],
-                                                backgroundColor :'#2ecccc',
-                                                borderColor : '#aaaaaa',
-                                                pointBackgroundColor:'#6d2ecc',
-                                                pointBorderColor : '#fff',
-                                                label:"Total Orders"},
+                                                data: [77, 48, 99, 88, 96, 66, 100,],
+                                                backgroundColor: '#2ecccc',
+                                                borderColor: '#aaaaaa',
+                                                pointBackgroundColor: '#6d2ecc',
+                                                pointBorderColor: '#fff',
+                                                label: "Total Orders"
+                                            },
 
                                         ]
                                     },
                                     options: {
-                                        responsive:true,
-                                        layout:{padding:{top:12,left:12,bottom:12,},},
+                                        responsive: true,
+                                        layout: {padding: {top: 12, left: 12, bottom: 12,},},
                                         scales: {
-                                            xAxes:[{
-                                                stacked: true,gridLines:{borderDash:[],},
+                                            xAxes: [{
+                                                stacked: true, gridLines: {borderDash: [],},
                                             }],
 
-                                            yAxes:[{
-                                                stacked: true,gridLines:{borderDash:[],},
+                                            yAxes: [{
+                                                stacked: true, gridLines: {borderDash: [],},
                                             }],
-                                        },plugins:{
-                                            datalabels:{display:true,
-                                                font:{
-                                                    style:' bold',},},
+                                        }, plugins: {
+                                            datalabels: {
+                                                display: true,
+                                                font: {
+                                                    style: ' bold',
+                                                },
+                                            },
                                         },
-                                        legend:{
-                                            labels:{
-                                                generateLabels: function(chart){
-                                                    return  chart.data.datasets.map( function( dataset, i ){
-                                                        return{
-                                                            text:dataset.label,
-                                                            lineCap:dataset.borderCapStyle,
-                                                            lineDash:[],
+                                        legend: {
+                                            labels: {
+                                                generateLabels: function (chart) {
+                                                    return chart.data.datasets.map(function (dataset, i) {
+                                                        return {
+                                                            text: dataset.label,
+                                                            lineCap: dataset.borderCapStyle,
+                                                            lineDash: [],
                                                             lineDashOffset: 0,
-                                                            lineJoin:dataset.borderJoinStyle,
-                                                            fillStyle:dataset.backgroundColor,
-                                                            strokeStyle:dataset.borderColor,
-                                                            lineWidth:dataset.pointBorderWidth,
-                                                            lineDash:dataset.borderDash,
+                                                            lineJoin: dataset.borderJoinStyle,
+                                                            fillStyle: dataset.backgroundColor,
+                                                            strokeStyle: dataset.borderColor,
+                                                            lineWidth: dataset.pointBorderWidth,
+                                                            lineDash: dataset.borderDash,
                                                         }
                                                     })
                                                 },
@@ -178,27 +193,25 @@
                                             },
                                         },
 
-                                        title:{
-                                            display:true,
-                                            text:'Total Orders',
-                                            fontColor:'#3498db',
-                                            fontSize:32,
-                                            fontStyle:' bold',
+                                        title: {
+                                            display: true,
+                                            text: 'Total Orders',
+                                            fontColor: '#3498db',
+                                            fontSize: 32,
+                                            fontStyle: ' bold',
                                         },
                                         elements: {
-                                            arc: {
-                                            },
+                                            arc: {},
                                             point: {},
-                                            line: {tension:0.4,
+                                            line: {
+                                                tension: 0.4,
                                             },
-                                            rectangle: {
-                                            },
+                                            rectangle: {},
                                         },
-                                        tooltips:{
-                                        },
-                                        hover:{
-                                            mode:'nearest',
-                                            animationDuration:400,
+                                        tooltips: {},
+                                        hover: {
+                                            mode: 'nearest',
+                                            animationDuration: 400,
                                         },
                                     }
                                 });
@@ -206,7 +219,9 @@
                         @append
                     </div>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -229,56 +244,61 @@
                                 var myChart2 = new Chart(ctx2, {
                                     type: 'bar',
                                     data: {
-                                        labels : ["January","February","March","April","May","June","July",],
-                                        datasets : [
+                                        labels: ["January", "February", "March", "April", "May", "June", "July",],
+                                        datasets: [
                                             {
-                                                data : [650545111,80545111,900545111,805451111,505451116,505451115,154511140,],
-                                                backgroundColor :'#3498db',
-                                                borderColor : 'rgba(136,136,136,0.5)',
-                                                pointBackgroundColor:'#3498db',
-                                                pointBorderColor : '#fff',
-                                                label:"Tobacco Consumed"},
+                                                data: [650545111, 80545111, 900545111, 805451111, 505451116, 505451115, 154511140,],
+                                                backgroundColor: '#3498db',
+                                                borderColor: 'rgba(136,136,136,0.5)',
+                                                pointBackgroundColor: '#3498db',
+                                                pointBorderColor: '#fff',
+                                                label: "Tobacco Consumed"
+                                            },
 
                                             {
-                                                data : [705451117,480545111,905451119,805451118,905451116,605451116,1005451110,],
-                                                backgroundColor :'#2ecccc',
-                                                borderColor : '#aaaaaa',
-                                                pointBackgroundColor:'#6d2ecc',
-                                                pointBorderColor : '#fff',
-                                                label:"Tobacco Ordered"},
+                                                data: [705451117, 480545111, 905451119, 805451118, 905451116, 605451116, 1005451110,],
+                                                backgroundColor: '#2ecccc',
+                                                borderColor: '#aaaaaa',
+                                                pointBackgroundColor: '#6d2ecc',
+                                                pointBorderColor: '#fff',
+                                                label: "Tobacco Ordered"
+                                            },
 
                                         ]
                                     },
                                     options: {
-                                        responsive:true,
-                                        layout:{padding:{top:12,left:12,bottom:12,},},
+                                        responsive: true,
+                                        layout: {padding: {top: 12, left: 12, bottom: 12,},},
                                         scales: {
-                                            xAxes:[{
-                                                stacked: true,gridLines:{borderDash:[],},
+                                            xAxes: [{
+                                                stacked: true, gridLines: {borderDash: [],},
                                             }],
 
-                                            yAxes:[{
-                                                stacked: true,gridLines:{borderDash:[],},
+                                            yAxes: [{
+                                                stacked: true, gridLines: {borderDash: [],},
                                             }],
-                                        },plugins:{
-                                            datalabels:{display:true,
-                                                font:{
-                                                    style:' bold',},},
+                                        }, plugins: {
+                                            datalabels: {
+                                                display: true,
+                                                font: {
+                                                    style: ' bold',
+                                                },
+                                            },
                                         },
-                                        legend:{
-                                            labels:{
-                                                generateLabels: function(chart){
-                                                    return  chart.data.datasets.map( function( dataset, i ){
-                                                        return{
-                                                            text:dataset.label,
-                                                            lineCap:dataset.borderCapStyle,
-                                                            lineDash:[],
+                                        legend: {
+                                            labels: {
+                                                generateLabels: function (chart) {
+                                                    return chart.data.datasets.map(function (dataset, i) {
+                                                        return {
+                                                            text: dataset.label,
+                                                            lineCap: dataset.borderCapStyle,
+                                                            lineDash: [],
                                                             lineDashOffset: 0,
-                                                            lineJoin:dataset.borderJoinStyle,
-                                                            fillStyle:dataset.backgroundColor,
-                                                            strokeStyle:dataset.borderColor,
-                                                            lineWidth:dataset.pointBorderWidth,
-                                                            lineDash:dataset.borderDash,
+                                                            lineJoin: dataset.borderJoinStyle,
+                                                            fillStyle: dataset.backgroundColor,
+                                                            strokeStyle: dataset.borderColor,
+                                                            lineWidth: dataset.pointBorderWidth,
+                                                            lineDash: dataset.borderDash,
                                                         }
                                                     })
                                                 },
@@ -286,27 +306,25 @@
                                             },
                                         },
 
-                                        title:{
-                                            display:true,
-                                            text:'Total Tobacco',
-                                            fontColor:'#3498db',
-                                            fontSize:32,
-                                            fontStyle:' bold',
+                                        title: {
+                                            display: true,
+                                            text: 'Total Tobacco',
+                                            fontColor: '#3498db',
+                                            fontSize: 32,
+                                            fontStyle: ' bold',
                                         },
                                         elements: {
-                                            arc: {
-                                            },
+                                            arc: {},
                                             point: {},
-                                            line: {tension:0.4,
+                                            line: {
+                                                tension: 0.4,
                                             },
-                                            rectangle: {
-                                            },
+                                            rectangle: {},
                                         },
-                                        tooltips:{
-                                        },
-                                        hover:{
-                                            mode:'nearest',
-                                            animationDuration:400,
+                                        tooltips: {},
+                                        hover: {
+                                            mode: 'nearest',
+                                            animationDuration: 400,
                                         },
                                     }
                                 });
@@ -314,7 +332,9 @@
                         @append
                     </div>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">More info
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
         <!-- ./col -->
@@ -326,51 +346,35 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Latest Orders</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
-                        <tbody><tr>
+                        <tbody>
+                        <tr>
                             <th>Order ID</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Date</th>
-                            <th>Approval Date</th>
                             <th>Letter</th>
                             <th>Status</th>
                             <th>Comment</th>
                         </tr>
-                        <tr>
-                            <td>6565</td>
-                            <td>Blue Cheese</td>
-                            <td>Ahmed Ali</td>
-                            <td>11-7-2018</td>
-                            <td>11-7-2018</td>
-                            <td>CIF</td>
-                            <td><span class="label label-success">Approved</span></td>
-                            <td>They will give 5% discount the next time we order</td>
-                        </tr>
-                        <tr>
-                            <td>5656</td>
-                            <td>Blue Cheese</td>
-                            <td>Alexander Mohammed</td>
-                            <td>11-7-2018</td>
-                            <td>11-7-2018</td>
-                            <td>CIF</td>
-                            <td><span class="label label-warning">Pending</span></td>
-                            <td></td>
-                        </tr>
-                        </tbody></table>
+                        @foreach($latestOrders as $order)
+                            <tr>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->item->name }}</td>
+                                <td>{{ $order->user->name }}</td>
+                                <td>{{ $order->date->format('d-m-Y') }}</td>
+                                <td>{{ $order->letter_of_credit }}</td>
+                                <td>
+                                    <span class="label label-{{ $order->order_status == 'approved' ? 'success' : 'warning' }}">{{ $order->order_status }}</span>
+                                </td>
+                                <td>They will give 5% discount the next time we order</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -384,28 +388,25 @@
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding text-black">
                     <table class="table table-hover">
-                        <tbody><tr>
+                        <tbody>
+                        <tr>
                             <th>Transaction ID</th>
                             <th>Item</th>
                             <th>Date</th>
                             <th>Type</th>
                             <th>Quantity</th>
                         </tr>
-                        <tr>
-                            <td>645</td>
-                            <td>Blue Cheese</td>
-                            <td>11-7-2018</td>
-                            <td>data</td>
-                            <td>50,000</td>
-                        </tr>
-                        <tr>
-                            <td>565656</td>
-                            <td>Blue Cheese</td>
-                            <td>11-7-2018</td>
-                            <td>data</td>
-                            <td>50,000</td>
-                        </tr>
-                        </tbody></table>
+                        @foreach($latestInventories as $inventory)
+                            <tr>
+                                <td>{{ $inventory->id }}</td>
+                                <td>{{ $inventory->item->name }}</td>
+                                <td>{{ $inventory->date->format('d-m-Y') }}</td>
+                                <td>{{ $inventory->transaction_type }}</td>
+                                <td>{{ $inventory->quantity }} {{ $inventory->item->unit }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>

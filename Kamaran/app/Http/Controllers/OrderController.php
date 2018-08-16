@@ -120,7 +120,7 @@ class OrderController extends Controller {
 		Shipment::create([
 			'order_id'    => $order->id,
 			'user_id'     => auth()->id(),
-			'category_id' => auth()->user()->category_id,
+			'category_id' => $order->category_id,
 			'date'        => Carbon::now()->timestamp
 		]);
 

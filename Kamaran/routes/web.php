@@ -136,9 +136,9 @@ Route::post('/inventory', 'InventoryController@store');
 Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
 Route::get('/inventory/print', 'InventoryController@print');
 
-Route::get('/print_reports', function (){
-    return view('print_reports');
-});
+//Route::get('/print_reports', function (){
+//    return view('print_reports');
+//});
 
 // Staff Management
 
