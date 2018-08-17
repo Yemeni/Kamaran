@@ -53,7 +53,7 @@
                                 <td>
                                     {{ $ship->user->name }}
                                 </td>
-                                <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
+                                <td>{{ $ship->order->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <button type="button"
                                             class="btn btn-info btn-sm"
