@@ -43,11 +43,14 @@ class HomeController extends Controller {
 
 		$tobacco = Item::where('name', 'Tobacco')->first();
 
-		$consumedTobacco = Item::where('name', 'Tobacco')->first()
-			->inventory()->where('transaction_type', 'consume')->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
+		if (Item::where('name','tobacco')->first())
+		{
+			$consumedTobacco = Item::where('name', 'Tobacco')->first()
+				->inventory()->where('transaction_type', 'consume')->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
 
-		$orderedTobacco = Item::where('name', 'Tobacco')->first()
-			->order()->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
+			$orderedTobacco = Item::where('name', 'Tobacco')->first()
+				->order()->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
+		}
 
 		$latestOrders = Order::latest()->take(5)->get();
 		$latestInventories = Inventory::where('arrival_status', 1)->latest()->take(5)->get();
@@ -118,46 +121,50 @@ class HomeController extends Controller {
 	 */
 	private function getTobaccoStatistics($consumed = false, $orders = false)
 	{
-		if ($consumed){
-			$tobaccos = Item::where('name','Tobacco')->first()->inventory()->where('transaction_type','consume')->select('id', 'created_at', 'quantity')
-				->get()
-				->groupBy(function ($date) {
-					//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-					return Carbon::parse($date->created_at)->format('m'); // grouping by months
-				});
-		}elseif ($orders){
-			$tobaccos = Item::where('name','Tobacco')->first()->order()->select('id', 'created_at', 'quantity')
-				->get()
-				->groupBy(function ($date) {
-					//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-					return Carbon::parse($date->created_at)->format('m'); // grouping by months
-				});
-		}
-
-		$tobaccomcount = [];
-		$tobaccoArr = [];
-		$totalTo = 0;
-
-		foreach ($tobaccos as $key => $value)
-		{
-			foreach ($value as $tob){
-				$totalTo += $tob->quantity;
+		if (Item::where('name','tobacco')->first()){
+			if ($consumed){
+				$tobaccos = Item::where('name','Tobacco')->first()->inventory()->where('transaction_type','consume')->select('id', 'created_at', 'quantity')
+					->get()
+					->groupBy(function ($date) {
+						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+						return Carbon::parse($date->created_at)->format('m'); // grouping by months
+					});
+			}elseif ($orders){
+				$tobaccos = Item::where('name','Tobacco')->first()->order()->select('id', 'created_at', 'quantity')
+					->get()
+					->groupBy(function ($date) {
+						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+						return Carbon::parse($date->created_at)->format('m'); // grouping by months
+					});
 			}
-			$tobaccomcount[(int) $key] = $totalTo;
-		}
 
-		for ($i = 1; $i <= 12; $i ++)
-		{
-			if (!empty($tobaccomcount[$i]))
+			$tobaccomcount = [];
+			$tobaccoArr = [];
+			$totalTo = 0;
+
+			foreach ($tobaccos as $key => $value)
 			{
-				$tobaccoArr[] = $tobaccomcount[$i];
-			} else
-			{
-				$tobaccoArr[] = 0;
+				foreach ($value as $tob){
+					$totalTo += $tob->quantity;
+				}
+				$tobaccomcount[(int) $key] = $totalTo;
 			}
+
+			for ($i = 1; $i <= 12; $i ++)
+			{
+				if (!empty($tobaccomcount[$i]))
+				{
+					$tobaccoArr[] = $tobaccomcount[$i];
+				} else
+				{
+					$tobaccoArr[] = 0;
+				}
+			}
+
+			return $tobaccoArr;
 		}
 
-		return $tobaccoArr;
+		return false;
 	}
 
 	/**

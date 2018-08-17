@@ -22,6 +22,9 @@
                         <thead>
                         <tr>
                             <th>Transaction ID</th>
+                            <th>Invoice #</th>
+                            <th>Category</th>
+                            <th>Item</th>
                             <th>Employee</th>
                             <th>Date</th>
                             <th>Quantity</th>
@@ -32,6 +35,9 @@
                         @foreach($onHold as $inv)
                             <tr>
                                 <td>{{ $inv->id }}</td>
+                                <td>{{ $inv->shipment->invoice }}</td>
+                                <td>{{ $inv->category->name }}</td>
+                                <td>{{ $inv->item->name }}</td>
                                 <td>{{ $inv->user->name ?? '-' }}</td>
                                 <td>{{ $inv->date ? $inv->date->format('Y-m-d H:i') : '-' }}</td>
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>

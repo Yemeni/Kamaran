@@ -157,6 +157,7 @@ class ShipmentController extends Controller {
 			Inventory::create([
 				'category_id'      => $shipment->category_id,
 				'item_id'          => $shipment->order->item->id,
+				'shipment_id'      => $shipment->id,
 				'transaction_type' => 'on_hold',
 				'quantity'         => $shipment->quantity,
 				'arrival_status'   => 0,
@@ -185,6 +186,7 @@ class ShipmentController extends Controller {
 			Inventory::create([
 				'category_id'      => $shipment->category_id,
 				'item_id'          => $shipment->order->item->id,
+				'shipment_id'      => $shipment->id,
 				'transaction_type' => 'on_hold',
 				'quantity'         => $shipment->quantity,
 				'arrival_status'   => 0,
@@ -193,7 +195,7 @@ class ShipmentController extends Controller {
 
 		$shipment->update([
 			'shipment_status' => $status,
-			'arrival_date' => Carbon::now()->timestamp,
+			'arrival_date'    => Carbon::now()->timestamp,
 		]);
 
 		Alert::flash('The shipment has been updated', 'success');

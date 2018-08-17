@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     protected $fillable = [
-        'arrival_status', 'transaction_type', 'user_id', 'category_id', 'item_id', 'date', 'quantity', 'comment'
+        'arrival_status', 'shipment_id', 'transaction_type', 'user_id', 'category_id', 'item_id', 'date', 'quantity', 'comment'
     ];
     
     protected $dates = ['date'];
@@ -20,6 +20,11 @@ class Inventory extends Model
     public function item()
     {
         return $this->belongsTo(Item::class);
+    }
+
+	public function shipment()
+	{
+		return $this->belongsTo(Shipment::class);
     }
 
     public function category()

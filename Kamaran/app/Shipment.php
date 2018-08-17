@@ -22,6 +22,11 @@ class Shipment extends Model
         return $this->belongsTo(User::class);
     }
 
+	public function inventory()
+	{
+		return $this->hasOne(Inventory::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
