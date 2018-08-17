@@ -61,7 +61,8 @@
                             <label for="">Category:</label>
                             <select name="category_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by category</option>
-                                @foreach($categories as $category)
+                                <option value="all">All Categories</option>
+                            @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -71,7 +72,8 @@
                             <label for="">Item:</label>
                             <select name="item_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by item</option>
-                                @foreach($items as $item)
+                                <option value="all">All Items</option>
+                            @foreach($items as $item)
                                     <option value="{{ $item->id }}" {{ request('item_id') == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                                 @endforeach
                             </select>
@@ -81,6 +83,7 @@
                             <label for="">Status:</label>
                             <select name="status" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by transaction type</option>
+                                <option value="all">All Transaction types</option>
                                 <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">in stock
                                 </option>
                                 <option {{ request('status') == 'on_hold' ? 'selected' : '' }} value="on_hold">on hold

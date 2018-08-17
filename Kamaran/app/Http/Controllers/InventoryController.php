@@ -32,15 +32,23 @@ class InventoryController extends Controller {
 
 		if (\request()->has('category_id'))
 		{
-			$inventories = $inventories->where('category_id', \request('category_id'));
+			if (\request('category_id') != 'all')
+			{
+				$inventories = $inventories->where('category_id', \request('category_id'));
+			}
 		}
 		if (\request()->has('item_id'))
 		{
-			$inventories = $inventories->where('item_id', \request('item_id'));
+			if (\request('item_id') != 'all')
+			{
+				$inventories = $inventories->where('item_id', \request('item_id'));
+			}
 		}
 		if (\request()->has('status'))
 		{
-			$inventories = $inventories->where('transaction_type', \request('status'));
+			if (\request('status') != 'all'){
+				$inventories = $inventories->where('transaction_type', \request('status'));
+			}
 		}
 
 		$inventories = $inventories->where('arrival_status', 1)->get();
