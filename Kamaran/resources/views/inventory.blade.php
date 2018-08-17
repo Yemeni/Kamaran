@@ -111,6 +111,30 @@
                                 </option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="">From:</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text"
+                                       name="date"
+                                       class="form-control pull-right input-append date form_datetime"
+                                       id="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">To:</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text"
+                                       name="date"
+                                       class="form-control pull-right input-append date form_datetime"
+                                       id="">
+                            </div>
+                        </div>
 
                         <button type="submit" class="btn btn-default">Filter</button>
                     </form>
@@ -180,6 +204,7 @@
     <script>
         $(document).ready(function () {
             $('.js-example-basic-single-item').select2();
+            $(".form_datetime").datetimepicker();
         })
     </script>
 
