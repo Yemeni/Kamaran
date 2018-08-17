@@ -78,9 +78,9 @@
                                     <label for="">Danger Level:</label>
                                     <select name="danger_level" class="form-control">
                                         <option selected disabled>Select a Danger level</option>
-                                        <option>low</option>
-                                        <option>flammable</option>
-                                        <option>toxic</option>
+                                        <option value="low">C- Low Priority</option>
+                                        <option value="flammable">B- Normal Priority</option>
+                                        <option value="toxic">A- High Priority</option>
                                     </select>
                                 </div>
                                 <div></div>

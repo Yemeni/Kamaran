@@ -39,7 +39,22 @@
                                 <td>{{ $item->specification ?? '-' }}</td>
                                 <td>{{ $item->unit }}</td>
                                 <td>
-                                    <span class="label label-success">{{ $item->danger_level }}</span>
+                                    @switch($item->danger_level)
+                                        @case('low')
+                                            <span class="label label-success">C- Low Priority</span>
+                                        @break
+
+                                        @case('flammable')
+                                            <span class="label label-warning">B- Normal Priority</span>
+                                        @break
+
+                                        @case('toxic')
+                                            <span class="label label-danger">A- High Priority</span>
+                                        @break
+
+                                        @default
+                                        Undefined
+                                    @endswitch
                                 </td>
                                 <td>
                                     <div class="dropdown">
