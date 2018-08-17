@@ -32,6 +32,7 @@
                         <thead>
                         <tr>
                             <th>Shipment ID</th>
+                            <th>Supplier</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Quantity</th>
@@ -47,6 +48,9 @@
                         @foreach($pending as $ship)
                             <tr>
                                 <td>{{ $ship->id }}</td>
+                                <td>
+                                    {{ $ship->order->supplier->name }}
+                                </td>
                                 <td>
                                     {{ $ship->order->item->name }}
                                 </td>
@@ -148,6 +152,15 @@
                                                         </div>
 
                                                         <div class="form-group">
+                                                            <label for="">Supplier:</label>
+                                                            <input type="text"
+                                                                   disabled=""
+                                                                   value="{{ $ship->order->supplier->name }}"
+                                                                   class="form-control"
+                                                                   id="">
+                                                        </div>
+
+                                                        <div class="form-group">
                                                             <label for="">Item Name:</label>
                                                             <input type="text"
                                                                    disabled=""
@@ -217,6 +230,7 @@
                         <tr>
                             <th>Shipment ID</th>
                             <th>Invoice</th>
+                            <th>Supplier</th>
                             <th>Item</th>
                             <th>Staff</th>
                             <th>Partial</th>
@@ -231,6 +245,9 @@
                             <tr>
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    {{ $ship->order->supplier->name }}
+                                </td>
                                 <td>
                                     {{ $ship->order->item->name }}
                                 </td>
@@ -362,6 +379,15 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="">Supplier:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value="{{ $ship->order->supplier->name }}"
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="">Item Name:</label>
                                                         <input type="text"
                                                                disabled=""
@@ -420,6 +446,7 @@
                         <thead>
                         <th>Shipment ID</th>
                         <th>Invoice</th>
+                        <th>Supplier</th>
                         <th>Item</th>
                         <th>Staff</th>
                         <th>Partial</th>
@@ -433,6 +460,9 @@
                             <tr>
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    {{ $ship->order->supplier->name }}
+                                </td>
                                 <td>
                                     {{ $ship->order->item->name }}
                                 </td>
@@ -564,6 +594,15 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="">Supplier:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value="{{ $ship->order->supplier->name }}"
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="">Item Name:</label>
                                                         <input type="text"
                                                                disabled=""
@@ -621,6 +660,7 @@
                         <thead>
                         <th>Shipment ID</th>
                         <th>Invoice</th>
+                        <th>Supplier</th>
                         <th>Item</th>
                         <th>Staff</th>
                         <th>Partial</th>
@@ -633,6 +673,9 @@
                             <tr>
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    {{ $ship->order->supplier->name }}
+                                </td>
                                 <td>
                                     {{ $ship->order->item->name }}
                                 </td>
@@ -665,6 +708,7 @@
                         <thead>
                         <th>Shipment ID</th>
                         <th>Invoice</th>
+                        <th>Supplier</th>
                         <th>Item</th>
                         <th>Staff</th>
                         <th>Partial</th>
@@ -679,6 +723,9 @@
                             <tr>
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    {{ $ship->order->supplier->name }}
+                                </td>
                                 <td>
                                     {{ $ship->order->item->name }}
                                 </td>
@@ -810,6 +857,15 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="">Supplier:</label>
+                                                        <input type="text"
+                                                               disabled=""
+                                                               value="{{ $ship->order->supplier->name }}"
+                                                               class="form-control"
+                                                               id="">
+                                                    </div>
+
+                                                    <div class="form-group">
                                                         <label for="">Item Name:</label>
                                                         <input type="text"
                                                                disabled=""
@@ -866,6 +922,7 @@
                         <thead>
                         <th>Shipment ID</th>
                         <th>Invoice</th>
+                        <th>Supplier</th>
                         <th>Item</th>
                         <th>Staff</th>
                         <th>Partial</th>
@@ -879,6 +936,9 @@
                             <tr>
                                 <td>{{ $ship->id }}</td>
                                 <td>{{ $ship->invoice }}</td>
+                                <td>
+                                    {{ $ship->order->supplier->name }}
+                                </td>
                                 <td>
                                     {{ $ship->order->item->name }}
                                 </td>
