@@ -81,7 +81,7 @@
                             <label for="">Status:</label>
                             <select name="status" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by transaction type</option>
-                                <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">voucher
+                                <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">in stock
                                 </option>
                                 <option {{ request('status') == 'on_hold' ? 'selected' : '' }} value="on_hold">on hold
                                 </option>
@@ -134,7 +134,13 @@
                         @foreach($inventories as $inv)
                             <tr>
                                 <td>{{ $inv->id }}</td>
-                                <td>{{ $inv->transaction_type }}</td>
+                                <td>
+                                    @if($inv->transaction_type == 'voucher')
+                                        in stock
+                                    @else
+                                        {{ $inv->transaction_type }}
+                                    @endif
+                                </td>
                                 <td>{{ $inv->category->name }}</td>
                                 <td>{{ $inv->item->name }}</td>
                                 <td>{{ $inv->user->name }}</td>

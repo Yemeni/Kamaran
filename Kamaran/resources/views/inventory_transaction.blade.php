@@ -36,7 +36,7 @@
                                 <div class="form-group">
                                     <label for="">Type:</label>
                                     <select name="transaction_type" class="form-control">
-                                        <option value="voucher">voucher
+                                        <option value="voucher">in stock
                                         </option>
                                         <option value="on_hold">on hold
                                         </option>
@@ -57,6 +57,7 @@
                                         </option>
                                     </select>
                                 </div>
+
 
                                 <div class="form-group">
                                     <label for="">Item:</label>
