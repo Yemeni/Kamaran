@@ -39,7 +39,7 @@
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="/track_Shipment" class="small-box-footer">More info
+                <a href="/track_shipments" class="small-box-footer">More info
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>

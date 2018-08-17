@@ -50,7 +50,7 @@ class HomeController extends Controller {
 			->order()->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
 
 		$latestOrders = Order::latest()->take(5)->get();
-		$latestInventories = Inventory::latest()->take(5)->get();
+		$latestInventories = Inventory::where('arrival_status', 1)->latest()->take(5)->get();
 
 		return view('overview', compact('tobaccoChart', 'consumedTobacco', 'orderedTobacco', 'ordersChart', 'tobacco', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
 	}
