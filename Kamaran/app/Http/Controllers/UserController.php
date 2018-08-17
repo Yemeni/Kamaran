@@ -88,14 +88,13 @@ class UserController extends Controller {
 			'password' => bcrypt($request->password)
 		]);
 
-		Alert::flash('updated successfully', 'success');
+		Alert::flash('Password updated successfully', 'success');
 
 		return back();
 	}
 
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 * @throws \Illuminate\Auth\Access\AuthorizationException
 	 */
 	public function employees()
 	{
@@ -171,6 +170,9 @@ class UserController extends Controller {
 		return redirect('/manage_employees');
 	}
 
+	/**
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	public function myManager()
 	{
 		Gate::authorize('employee');
@@ -207,7 +209,7 @@ class UserController extends Controller {
 
 		$request->validate([
 			'name'        => 'required',
-			'username'    => 'required|unique:users,username,'.$user->id,
+			'username'    => 'required|unique:users,username,' . $user->id,
 			'gender'      => [
 				'required',
 				Rule::in(['male', 'female']),
@@ -223,15 +225,15 @@ class UserController extends Controller {
 		]);
 
 		$user->update([
-			'name' => $request->name,
-			'username' => $request->username,
-			'gender' => $request->gender,
-			'phone' => $request->phone,
-			'email' => $request->email,
-			'level' => $request->level,
-			'address' => $request->address,
+			'name'        => $request->name,
+			'username'    => $request->username,
+			'gender'      => $request->gender,
+			'phone'       => $request->phone,
+			'email'       => $request->email,
+			'level'       => $request->level,
+			'address'     => $request->address,
 			'category_id' => $request->category_id ?? null,
-			'status' => $request->status == 'active' ? 'active' : 'inactive',
+			'status'      => $request->status == 'active' ? 'active' : 'inactive',
 		]);
 
 		Alert::flash('User updated successfully', 'success');
@@ -248,12 +250,41 @@ class UserController extends Controller {
 	public function destroy(User $user)
 	{
 		$this->authorize('delete', $user);
-		//check if there is no data related then delete
+
+		if ($user->status == 'active')
+		{
+			$user->update([
+				'status' => 'inactive'
+			]);
+
+			Alert::flash('User ' . $user->name . ' is inactive now', 'success');
+		} else
+		{
+			$user->update([
+				'status' => 'active'
+			]);
+
+			Alert::flash('User ' . $user->name . ' is active now', 'success');
+
+		}
+
+
+		return back();
+	}
+
+	/**
+	 * @param User $user
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 * @throws \Exception
+	 */
+	public function passwordReset(User $user)
+	{
 		$user->update([
-			'status' => 'inactive'
+			'password' => bcrypt('kamaran'),
 		]);
 
-		Alert::flash('User deleted successfully', 'success');
+		Alert::flash('Password for User "' . $user->name . '" has been changed to default', 'success');
 
 		return back();
 	}

@@ -56,6 +56,7 @@
                                 <div class="form-group">
                                     <label for="">Unit:</label>
                                     <select name="unit" class="form-control">
+                                        <option selected disabled>Select a Unit</option>
                                         <option>KG</option>
                                         <option>Gram</option>
                                         <option>Tonne</option>
@@ -76,6 +77,7 @@
                                 <div class="form-group">
                                     <label for="">Danger Level:</label>
                                     <select name="danger_level" class="form-control">
+                                        <option selected disabled>Select a Danger level</option>
                                         <option>low</option>
                                         <option>flammable</option>
                                         <option>toxic</option>

@@ -112,8 +112,8 @@
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="clear" class="btn btn-default ">Cancel</button>
-                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                <a href="/supplier" class="btn btn-default ">Cancel</a>
+                                <button type="submit" class="btn btn-primary pull-right">Update</button>
                             </div>
                         </form>
                     </div>

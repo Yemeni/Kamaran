@@ -159,8 +159,7 @@ class ShipmentController extends Controller {
 				'item_id'          => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity'         => $shipment->quantity,
-				'arrival_date'     => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : Carbon::now()->timestamp,
-				'arrival_status'   => 1,
+				'arrival_status'   => 0,
 			]);
 		}
 
@@ -180,6 +179,7 @@ class ShipmentController extends Controller {
 	{
 		$this->authorize('update', $shipment);
 
+
 		if ($status == 'arrived')
 		{
 			Inventory::create([
@@ -187,13 +187,13 @@ class ShipmentController extends Controller {
 				'item_id'          => $shipment->order->item->id,
 				'transaction_type' => 'on_hold',
 				'quantity'         => $shipment->quantity,
-				'arrival_date'     => Carbon::now()->timestamp,
-				'arrival_status'   => 1,
+				'arrival_status'   => 0,
 			]);
 		}
 
 		$shipment->update([
-			'shipment_status' => $status
+			'shipment_status' => $status,
+			'arrival_date' => Carbon::now()->timestamp,
 		]);
 
 		Alert::flash('The shipment has been updated', 'success');

@@ -17,15 +17,15 @@
                     <h3 class="box-title">Categories</h3>
 
                     {{--<div class="box-tools">--}}
-                        {{--<div class="input-group input-group-sm" style="width: 150px;">--}}
-                            {{--<input type="text" name="table_search" class="form-control pull-right" placeholder="Search">--}}
+                    {{--<div class="input-group input-group-sm" style="width: 150px;">--}}
+                    {{--<input type="text" name="table_search" class="form-control pull-right" placeholder="Search">--}}
 
-                            {{--<div class="input-group-btn">--}}
-                                {{--<button type="submit" class="btn btn-default">--}}
-                                    {{--<i class="fa fa-search"></i>--}}
-                                {{--</button>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                    {{--<div class="input-group-btn">--}}
+                    {{--<button type="submit" class="btn btn-default">--}}
+                    {{--<i class="fa fa-search"></i>--}}
+                    {{--</button>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                     {{--</div>--}}
                 </div>
                 <!-- /.box-header -->
@@ -46,14 +46,35 @@
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td>{{ $category->comment ?? 'null' }}</td>
-                                <td>{{ $category->managerUser()->name ?? 'null' }}</td>
+                                <td>{{ $category->managerUser()->name ?? '-' }}</td>
                                 <td>
-                                    <a href="{{ url('/category/'.$category->id.'/edit') }}" class="btn btn-warning">Edit</a>
-                                    <button onclick="if(confirm('do you really want to delete the {{ $category->name }}?')){$('#delete{{ $category->id }}').submit();return false;}" class="btn btn-danger">Delete</button>
-                                    <form id="delete{{ $category->id }}" action="{{ url('/category/'.$category->id) }}" method="post">
-                                        @csrf
-                                        @method("DELETE")
-                                    </form>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle"
+                                                type="button"
+                                                data-toggle="dropdown">Options
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a href="{{ url('/category/'.$category->id.'/edit') }}">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="if(confirm('do you really want to delete the {{ $category->name }}?')){$('#delete{{ $category->id }}').submit();return false;}">
+                                                    <i class="fa fa-trash"></i> Delete
+                                                </a>
+                                                <form id="delete{{ $category->id }}"
+                                                      action="{{ url('/category/'.$category->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method("DELETE")
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
                                 </td>
                             </tr>
                         @endforeach

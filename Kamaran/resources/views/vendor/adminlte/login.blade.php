@@ -24,7 +24,7 @@
 
                     <div class="form-group has-feedback {{ $errors->has('username') ? 'has-error' : '' }}">
                         <input type="text" name="username" class="form-control" value="{{ old('username') }}"
-                               placeholder="Username">
+                               placeholder="Username" autofocus>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         @if ($errors->has('username'))
                             <span class="help-block">

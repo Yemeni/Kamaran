@@ -4,39 +4,45 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class 	Order extends Model
-{
-    protected $fillable = [
-        'order_status', 'date', 'quantity', 'letter_of_credit', 'cost', 'category_id', 'approval_date', 'user_id', 'supplier_id', 'comment', 'item_id'
-    ];
-    
-    protected $dates = ['date', 'approval_date'];
+class Order extends Model {
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+	protected $fillable = [
+		'order_status', 'date', 'quantity', 'letter_of_credit', 'cost', 'category_id', 'approval_date', 'user_id', 'supplier_id', 'comment', 'item_id'
+	];
 
-    public function supplier()
-    {
-        return $this->belongsTo(Supplier::class);
-    }
+	protected $dates = ['date', 'approval_date'];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+	public function user()
+	{
+		return $this->belongsTo(User::class);
+	}
+
+	public function supplier()
+	{
+		return $this->belongsTo(Supplier::class);
+	}
+
+	public function category()
+	{
+		return $this->belongsTo(Category::class);
+	}
 
 	public function item()
 	{
 		return $this->belongsTo(Item::class);
 	}
 
+	public function HaveCancelledShipments()
+	{
+		return $this->shipments()->where('shipment_status', 'cancelled')->count();
+	}
+
 	public function shipmentTotalQuantity()
 	{
 		$total = 0;
 
-		if ($this->shipments()->count()){
+		if ($this->shipments()->count())
+		{
 			foreach ($this->shipments as $shipment)
 			{
 				$total += $shipment->quantity;

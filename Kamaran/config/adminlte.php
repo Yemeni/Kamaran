@@ -113,32 +113,33 @@ return [
 		[
 			'text'    => 'Dashboard', // manager
 			'icon'    => 'tachometer',
+			'can' => 'admin||manager',
 			'submenu' => [
 				[
 					'text' => 'Overview', // manager
 					'icon' => 'eye',
-					'url'  => '/'
+					'url'  => '/',
 				],
-				[
-					'text' => 'Performance', // manager
-					'icon' => 'spinner',
-					'url'  => '/performance'
-				],
-				[
-					'text' => 'Inventory Dashboard', // manager
-					'icon' => 'archive',
-					'url'  => '/inventory_dashboard'
-				],
-				[
-					'text' => 'Orders', // manager
-					'icon' => 'shopping-cart',
-					'url'  => '/orders'
-				],
-				[
-					'text' => 'Shipments', // manager
-					'icon' => 'ship',
-					'url'  => '/shipments'
-				]
+//				[
+//					'text' => 'Performance', // manager
+//					'icon' => 'spinner',
+//					'url'  => '/performance'
+//				],
+//				[
+//					'text' => 'Inventory Dashboard', // manager
+//					'icon' => 'archive',
+//					'url'  => '/inventory_dashboard'
+//				],
+//				[
+//					'text' => 'Orders', // manager
+//					'icon' => 'shopping-cart',
+//					'url'  => '/orders'
+//				],
+//				[
+//					'text' => 'Shipments', // manager
+//					'icon' => 'ship',
+//					'url'  => '/shipments'
+//				]
 
 			]
 
@@ -148,15 +149,15 @@ return [
 			'icon'    => 'wrench',
 			'submenu' => [
 				[
-					'text' => 'Category', // Admin
-					'icon' => '',
-					'url'  => '/category/create',
-					'can'  => 'admin'
-				],
-				[
 					'text' => 'Manage Categories', // Admin
 					'icon' => '',
 					'url'  => '/category',
+					'can'  => 'admin'
+				],
+				[
+					'text' => 'Category', // Admin
+					'icon' => '',
+					'url'  => '/category/create',
 					'can'  => 'admin'
 				],
 				[

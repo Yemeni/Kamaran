@@ -100,7 +100,7 @@
 
                             <div class="box-footer">
                                 <a href="{{ url('/item') }}" class="btn btn-default ">Cancel</a>
-                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                <button type="submit" class="btn btn-primary pull-right">Update</button>
                             </div>
                         </form>
                     </div>

@@ -107,8 +107,9 @@
                                     <div class="form-group" style="display: none;" id="category">
                                         <label for="">Category:</label>
                                         <select class="form-control" name="category_id">
+                                            <option selected disabled>-- Select a Category --</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}"  {{ $user->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}" {{ $user->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -126,7 +127,9 @@
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="status" value="active" {{ $user->status == 'active' ? 'checked' : '' }}>
+                                            <input type="checkbox"
+                                                   name="status"
+                                                   value="active" {{ $user->status == 'active' ? 'checked' : '' }}>
                                             Active
                                         </label>
                                     </div>

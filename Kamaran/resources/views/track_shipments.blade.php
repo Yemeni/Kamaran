@@ -11,8 +11,8 @@
 @section('content')
 
     <div class="row">
-        @alert
         <div class="col-xs-12">
+            @alert
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Pending Shipments</h3>
@@ -243,27 +243,44 @@
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
                                                 type="button"
                                                 data-toggle="dropdown">Change Status
                                             <span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu dropdown-menu-right">
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#onHoldModal{{ $ship->id }}">Edit</a>
+                                                <a href=""
+                                                   data-toggle="modal"
+                                                   data-target="#onHoldModal{{ $ship->id }}">
+                                                    <i class="fa fa-edit"></i>
+                                                    Edit
+                                                </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/moving') }}">Moving</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/moving') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Moving
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">Canceled</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Canceled
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">Delayed</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Delayed
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Arrived
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -428,27 +445,44 @@
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
                                                 type="button"
                                                 data-toggle="dropdown">Change Status
                                             <span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu dropdown-menu-right">
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#movingModal{{ $ship->id }}">Edit</a>
+                                                <a href=""
+                                                   data-toggle="modal"
+                                                   data-target="#movingModal{{ $ship->id }}">
+                                                    <i class="fa fa-edit"></i>
+                                                    Edit
+                                                </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/on_hold') }}">On Hold</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/on_hold') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    On Hold
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">Canceled</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Canceled
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">Delayed</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/delayed') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Delayed
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Arrived
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -657,27 +691,44 @@
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
                                                 type="button"
                                                 data-toggle="dropdown">Change Status
                                             <span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu dropdown-menu-right">
                                             <li>
-                                                <a href="" data-toggle="modal" data-target="#delayedModal{{ $ship->id }}">Edit</a>
+                                                <a href=""
+                                                   data-toggle="modal"
+                                                   data-target="#delayedModal{{ $ship->id }}">
+                                                    <i class="fa fa-edit"></i>
+                                                    Edit
+                                                </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/on_hold') }}">On Hold</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/moving') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Moving
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">Canceled</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/cancelled') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Canceled
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/moving') }}">Moving</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/on_hold') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    On Hold
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">Arrived</a>
+                                                <a href="{{ url('/shipment/'.$ship->id.'/arrived') }}">
+                                                    <i class="fa fa-anchor"></i>
+                                                    Arrived
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
@@ -835,9 +886,9 @@
                                     {{ $ship->user->name }}
                                 </td>
                                 <td>{{ $ship->partial ? 'True' : 'False' }}</td>
-                                <td>{{ $ship->date->format('d-m-y') }}</td>
-                                <td>{{ $ship->expected_date->format('d-m-y') }}</td>
-                                <td>{{ $ship->arrival_date ? $ship->arrival_date->format('d-m-y') : '' }}</td>
+                                <td>{{ $ship->date->format('d-m-Y') }}</td>
+                                <td>{{ $ship->expected_date->format('d-m-Y') }}</td>
+                                <td>{{ $ship->arrival_date ? $ship->arrival_date->format('d-m-Y') : '' }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                             </tr>
                         @endforeach

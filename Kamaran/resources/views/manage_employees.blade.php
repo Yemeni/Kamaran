@@ -92,20 +92,38 @@
                                 <td>{{ $employee->address }}</td>
                                 <td>{{ $employee->status }}</td>
                                 <td>
-                                    <a href="{{ url('employee/'.$employee->id.'/edit') }}" class="btn btn-warning">
-                                        Edit
-                                    </a>
-                                    <button class="btn btn-{{ $employee->status == 'active' ? 'danger' : 'success' }}"
-                                            onclick="if(confirm('Do you really want to delete {{ $employee->name }}?')){$('#deleteForm{{ $employee->id }}').submit();return false;}">
-                                        {{ $employee->status == 'active' ? 'Deactivate' : 'Activate' }}
-                                    </button>
-                                    <form action="{{ url('/employee/'.$employee->id) }}"
-                                          method="post"
-                                          id="deleteForm{{ $employee->id }}"
-                                          style="display: none;">
-                                        @csrf
-                                        @method("DELETE")
-                                    </form>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle"
+                                                type="button"
+                                                data-toggle="dropdown">Options
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                                <a href="{{ url('employee/'.$employee->id.'/edit') }}">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/user/'.$employee->id.'/password/reset') }}">
+                                                    <i class="fa fa-key"></i> Reset Password
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="text-{{ $employee->status == 'active' ? 'danger' : 'success' }}" href="javascript:void(0)"
+                                                        onclick="if(confirm('Do you really want to {{ $employee->status == 'active' ? 'Deactivate' : 'Activate' }} {{ $employee->name }}?')){$('#deleteForm{{ $employee->id }}').submit();return false;}">
+                                                    <i class="fa fa-check-square-o text-{{ $employee->status == 'active' ? 'danger' : 'success' }}"></i> {{ $employee->status == 'active' ? 'Deactivate' : 'Activate' }}
+                                                </a>
+                                                <form action="{{ url('/employee/'.$employee->id) }}"
+                                                      method="post"
+                                                      id="deleteForm{{ $employee->id }}"
+                                                      style="display: none;">
+                                                    @csrf
+                                                    @method("DELETE")
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

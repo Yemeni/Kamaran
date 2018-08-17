@@ -150,7 +150,7 @@ Route::get('/manage_employees', 'UserController@employees');
 
 Route::get('/employee', 'UserController@create');
 Route::post('/employee', 'UserController@store');
-
+Route::get('/user/{user}/password/reset', 'UserController@passwordReset');
 Route::get('/employee/{user}/edit', 'UserController@edit');
 Route::post('/employee/{user}/edit', 'UserController@update');
 

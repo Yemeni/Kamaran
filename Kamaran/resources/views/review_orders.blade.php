@@ -10,8 +10,8 @@
 @section('content')
 
     <div class="row">
-        @alert
         <div class="col-xs-12">
+            @alert
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Pending Orders</h3>
@@ -30,7 +30,8 @@
                             <th>Category</th>
                             <th>Item</th>
                             <th>Quantity</th>
-                            <th>Cost</th>
+                            <th>Cost per Unit</th>
+                            <th>Total Cost</th>
                             <th>Comment</th>
                             <th></th>
                         </tr>
@@ -45,13 +46,15 @@
                             <tr>
                                 <td>{{ $order->id }}</td>
                                 <td>{{ $order->user->name }}</td>
+
                                 <td>{{ $order->date->format('d-m-y') }}</td>
                                 <td>{{ strtoupper($order->letter_of_credit) }}</td>
                                 <td>{{ $order->supplier->name }}</td>
                                 <td>{{ $order->category->name }}</td>
                                 <td>{{ $order->item->name }}</td>
                                 <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
-                                <td>{{ $order->cost }} $</td>
+                                <td>{{ number_format($order->cost) }} $</td>
+                                <td>{{ number_format($order->cost * $order->quantity) }} $</td>
                                 <td>{{ $order->comment ?? '-' }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}
@@ -64,7 +67,7 @@
                                 {{--<td>They will give 5% discount the next time we order</td>--}}
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
                                                 type="button"
                                                 id="dropdownMenuButton"
                                                 data-toggle="dropdown"
@@ -73,7 +76,7 @@
                                             Change Status
                                             <span class="caret"></span>
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu dropdown-menu-right">
                                             <li>
                                                 <a class="dropdown-item"
                                                    href="{{ url('/order/'.$order->id.'/approve') }}">
@@ -119,18 +122,6 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Cancelled Orders</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive">
@@ -206,18 +197,6 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Approved Orders</h3>
-
-                    <div class="box-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive">
@@ -259,8 +238,12 @@
                                 <td>{{ $order->approval_date->format('d-m-y') }}</td>
                                 <td>{{ $order->comment ?? '-' }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-info btn-sm">Ship
-                                    </button>
+                                    @if($order->haveCancelledShipments())
+                                        <button type="button" class="btn btn-info btn-sm">Ship
+                                        </button>
+                                    @else
+                                        -
+                                    @endif
                                 </td>
                                 {{--<td>Ahmed Ali</td>--}}
                                 {{--<td>11-7-2018</td>--}}

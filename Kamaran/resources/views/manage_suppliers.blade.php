@@ -8,8 +8,8 @@
 
 @section('content')
     <div class="row">
-        @alert
         <div class="col-xs-12">
+            @alert
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Suppliers</h3>
@@ -38,10 +38,26 @@
                                     <a href="mailto:{{ $supplier->email }}">{{ $supplier->email }}</a>
                                 </td>
                                 <td>
-                                    <a href="{{ url('/supplier/'.$supplier->id.'/edit') }}" class="btn btn-warning">
-                                        Edit
-                                    </a>
-                                    <a href="{{ url('/supplier/'.$supplier->id) }}" class="btn btn-danger">Delete</a>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle"
+                                                type="button"
+                                                data-toggle="dropdown">Options
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="{{ url('/supplier/'.$supplier->id.'/edit') }}">
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('/supplier/'.$supplier->id) }}">
+                                                    <i class="fa fa-trash"></i> Delete
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
                                 </td>
                             </tr>
                         @endforeach
