@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone:</label>
-                                    <input type="text" name="phone" class="form-control" id="">
+                                    <input type="number" name="phone" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email:</label>
