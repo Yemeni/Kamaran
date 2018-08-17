@@ -70,7 +70,7 @@ class OrderController extends Controller {
 			'comment'          => 'nullable',
 			'item_id'          => 'required|exists:items,id',
 			'quantity'         => 'required|integer',
-			'cost'             => 'required|integer',
+			'cost'             => 'required|numeric',
 		]);
 
 		Order::create([
