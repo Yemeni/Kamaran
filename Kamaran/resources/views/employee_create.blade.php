@@ -84,12 +84,7 @@
                                         <select class="form-control" name="category_id">
                                             <option disabled selected>Select Category</option>
                                             @foreach($categories as $category)
-                                                @foreach($employees as $employee)
-                                                    @if($category->id != $employee->category->id && $employee->level != 'manager')
-                                                        @break
-                                                    @endif
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                @endforeach
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
