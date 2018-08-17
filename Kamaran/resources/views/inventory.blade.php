@@ -39,7 +39,7 @@
                                 <td>{{ $inv->category->name }}</td>
                                 <td>{{ $inv->item->name }}</td>
                                 <td>{{ $inv->user->name ?? '-' }}</td>
-                                <td>{{ $inv->date ? $inv->date->format('Y-m-d H:i') : '-' }}</td>
+                                <td>{{ $inv->date ? $inv->date->format('Y-m-d') : '-' }}</td>
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
                                 <td>
                                     <a href="{{ url('/inventory/'.$inv->id.'/approved') }}" class="btn btn-info btn-sm">
@@ -153,7 +153,7 @@
                                 <td>{{ $inv->category->name }}</td>
                                 <td>{{ $inv->item->name }}</td>
                                 <td>{{ $inv->user->name }}</td>
-                                <td>{{ $inv->date->format('Y-m-d H:i') }}</td>
+                                <td>{{ $inv->date->format('Y-m-d') }}</td>
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
                             </tr>
                         @endforeach
