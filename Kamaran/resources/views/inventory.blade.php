@@ -165,7 +165,24 @@
                         </thead>
                         <tbody>
                         @foreach($inventories as $inv)
-                            <tr>
+                            <tr
+                                @switch($inv->transaction_type)
+                                    @case('voucher')
+                                    @case('initial_balance')
+                                    @case('surplus')
+                                        class="success"
+                                    @break
+
+                                    @case('consume')
+                                    @case('shortage')
+                                    @case('normal_shortage')
+                                        class="danger"
+                                    @break
+
+                                    @default
+                                        class="info"
+                                @endswitch
+                            >
                                 <td>{{ $inv->id }}</td>
                                 <td>
                                     @if($inv->transaction_type == 'voucher')
