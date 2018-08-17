@@ -146,6 +146,11 @@ class UserController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		if (Category::find($request->category_id)->count()){
+			Alert::flash('This Category is already with a manager', 'danger');
+
+			return redirect('/manage_employees');
+		}
 		$request->validate([
 			'name'        => 'required',
 			'username'    => 'required|unique:users,username',
