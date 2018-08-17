@@ -56,7 +56,7 @@
 
                                 <div class="form-group">
                                     <label for="">Items:</label>
-                                    <select class="select2 form-control" name="items[]" id="items" multiple="multiple">
+                                    <select class="select2 form-control" name="item_id[]" id="items" multiple="multiple">
                                         @foreach($items as $item)
                                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                                         @endforeach
