@@ -67,46 +67,16 @@
                                 </div>
                                 <div></div>
 
-                                <!-- Custom Tabs -->
-                                <div class="nav-tabs-custom">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        @foreach($supplier->items as $item)
-                                            <li class="{{ $loop->first ? 'active' : '' }}">
-                                                <a href="#tab_{{ $loop->iteration }}"
-                                                   data-toggle="tab"
-                                                   aria-expanded="true">Item {{ $loop->iteration }}</a>
-                                                @if(!$loop->first)
-                                                    <span> x</span>
-                                                @endif
-                                            </li>
+                                <div class="form-group">
+                                    <label for="">Items:</label>
+                                    <select class="select2 form-control" name="items[]" id="items" multiple="multiple">
+                                        @foreach($items as $item)
+                                            @foreach($supplier->items as $it)
+                                                <option value="{{ $item->id }}" {{ $item->id == $it->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                            @endforeach
                                         @endforeach
-                                        <li class="pull-right add-tab">
-                                            <a href="#" class="text-muted">
-                                                <i class="fa fa-plus"></i>
-                                                Add Items
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        @foreach($supplier->items as $it)
-                                            <div class="tab-pane {{ $loop->first ? 'active' : '' }}"
-                                                 id="tab_{{ $loop->iteration }}">
-                                                <div class="form-group">
-                                                    <label for="">Item Name:</label>
-                                                    <select name="item_id[]"
-                                                            class="js-example-basic-single form-control">
-                                                        @foreach($items as $item)
-                                                            <option value="{{ $item->id }}" {{ $item->id == $it->id ? 'selected' : '' }}>{{ $item->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                    <!-- /.tab-content -->
+                                    </select>
                                 </div>
-
-                                <!-- nav-tabs-custom -->
 
                             </div>
                             <!-- /.box-body -->
@@ -131,6 +101,9 @@
         // select2 auto complete
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
+            $('.select2').select2({
+                placeholder: 'Select Items'
+            });
         });
 
         // add new tab

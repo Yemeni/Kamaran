@@ -54,35 +54,14 @@
                                 </div>
                                 <div></div>
 
-                                <!-- Custom Tabs -->
-                                <div class="nav-tabs-custom">
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li class="active">
-                                            <a href="#tab_1" data-toggle="tab" aria-expanded="true">Item 1</a>
-                                        </li>
-                                        <li class="pull-right add-tab">
-                                            <a href="#" class="text-muted">
-                                                <i class="fa fa-plus"></i>
-                                                Add Items
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="tab_1">
-                                            <div class="form-group">
-                                                <label for="">Item Name:</label>
-                                                <select name="item_id[]" class="js-example-basic-single form-control">
-                                                    @foreach($items as $item)
-                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.tab-content -->
+                                <div class="form-group">
+                                    <label for="">Items:</label>
+                                    <select class="select2 form-control" name="items[]" id="items" multiple="multiple">
+                                        @foreach($items as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-
-                                <!-- nav-tabs-custom -->
 
                             </div>
                             <!-- /.box-body -->
@@ -107,6 +86,9 @@
         // select2 auto complete
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
+            $('.select2').select2({
+                placeholder: 'Select Items'
+            });
         });
 
         // add new tab
