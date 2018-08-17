@@ -113,33 +113,33 @@ return [
 		[
 			'text'    => 'Dashboard', // manager
 			'icon'    => 'tachometer',
-			'can' => 'admin||manager',
+			'can'     => 'admin||manager',
 			'submenu' => [
 				[
 					'text' => 'Overview', // manager
 					'icon' => 'eye',
 					'url'  => '/',
 				],
-//				[
-//					'text' => 'Performance', // manager
-//					'icon' => 'spinner',
-//					'url'  => '/performance'
-//				],
-//				[
-//					'text' => 'Inventory Dashboard', // manager
-//					'icon' => 'archive',
-//					'url'  => '/inventory_dashboard'
-//				],
-//				[
-//					'text' => 'Orders', // manager
-//					'icon' => 'shopping-cart',
-//					'url'  => '/orders'
-//				],
-//				[
-//					'text' => 'Shipments', // manager
-//					'icon' => 'ship',
-//					'url'  => '/shipments'
-//				]
+				//				[
+				//					'text' => 'Performance', // manager
+				//					'icon' => 'spinner',
+				//					'url'  => '/performance'
+				//				],
+				//				[
+				//					'text' => 'Inventory Dashboard', // manager
+				//					'icon' => 'archive',
+				//					'url'  => '/inventory_dashboard'
+				//				],
+				//				[
+				//					'text' => 'Orders', // manager
+				//					'icon' => 'shopping-cart',
+				//					'url'  => '/orders'
+				//				],
+				//				[
+				//					'text' => 'Shipments', // manager
+				//					'icon' => 'ship',
+				//					'url'  => '/shipments'
+				//				]
 
 			]
 
@@ -152,58 +152,61 @@ return [
 				[
 					'text'    => 'Category',
 					'icon'    => 'archive',
+					'can'  => 'admin',
 					'submenu' => [
-				[
-					'text' => 'Add Category', // Admin
-					'icon' => 'archive',
-					'url'  => '/category/create',
-					'can'  => 'admin'
+						[
+							'text' => 'Add Category', // Admin
+							'icon' => 'archive',
+							'url'  => '/category/create',
+							'can'  => 'admin'
+						],
+						[
+							'text' => 'Manage Categories', // Admin
+							'icon' => 'archive',
+							'url'  => '/category',
+							'can'  => 'admin'
+						],
+					]
 				],
-				[
-					'text' => 'Manage Categories', // Admin
-					'icon' => 'archive',
-					'url'  => '/category',
-					'can'  => 'admin'
-				],
-			]
-		],
 				[
 					'text'    => 'Item',
 					'icon'    => 'gears',
+					'can'  => 'admin||supplier',
 					'submenu' => [
-				[
-					'text' => 'Add Item', // manager + employee + employee_of_suppliers
-					'icon' => 'gears',
-					'url'  => '/item/create',
-					'can'  => 'admin||supplier'
+						[
+							'text' => 'Add Item', // manager + employee + employee_of_suppliers
+							'icon' => 'gears',
+							'url'  => '/item/create',
+							'can'  => 'admin||supplier'
+						],
+						[
+							'text' => 'Manage Items', // manager + employee + employee_of_suppliers
+							'icon' => 'gears',
+							'url'  => '/item',
+							'can'  => 'admin||supplier'
+						],
+					]
 				],
-				[
-					'text' => 'Manage Items', // manager + employee + employee_of_suppliers
-					'icon' => 'gears',
-					'url'  => '/item',
-					'can'  => 'admin||supplier'
-				],
-				]
-			],
 				[
 					'text'    => 'Order',
 					'icon'    => 'file',
+					'can'  => 'admin||manager||employee',
 					'submenu' => [
 
-				[
-					'text' => 'Fill Order', // manager
-					'icon' => 'file',
-					'url'  => '/fill_order',
-					'can'  => 'admin||manager||employee'
+						[
+							'text' => 'Fill Order', // manager
+							'icon' => 'file',
+							'url'  => '/fill_order',
+							'can'  => 'admin||manager||employee'
+						],
+						[
+							'text' => 'Review Orders', // manager
+							'icon' => 'file',
+							'url'  => '/review_orders',
+							'can'  => 'admin||manager||employee'
+						],
+					]
 				],
-				[
-					'text' => 'Review Orders', // manager
-					'icon' => 'file',
-					'url'  => '/review_orders',
-					'can'  => 'admin||manager||employee'
-				],
-			]
-			],
 				[
 					'text' => 'Track Shipments', // manager
 					'icon' => 'ship',
@@ -213,41 +216,41 @@ return [
 				[
 					'text'    => 'Inventory',
 					'icon'    => 'cubes',
+					'can'  => 'admin||inventory',
 					'submenu' => [
-				[
-					'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
-					'icon' => 'cubes',
-					'url'  => '/inventory',
-					'can' => 'admin||inventory'
+						[
+							'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+							'icon' => 'cubes',
+							'url'  => '/inventory',
+							'can'  => 'admin||inventory'
+						],
+						[
+							'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+							'icon' => 'cubes',
+							'url'  => '/inventory_transaction',
+							'can'  => 'admin||inventory'
+						],
+					]
 				],
 				[
-					'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
-					'icon' => 'cubes',
-					'url'  => '/inventory_transaction',
-					'can' => 'admin||inventory'
-				],
-			]
-		],
-		[
-			'text'    => 'Supplier',
-			'icon'    => 'users',
-			'submenu' => [
-			[
-					'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
-					'icon' => 'users',
-					'url'  => '/supplier/create',
-					'can'  => 'admin||supplier'
-				],
+					'text'    => 'Supplier',
+					'icon'    => 'users',
+					'can'  => 'admin||supplier',
+					'submenu' => [
+						[
+							'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
+							'icon' => 'users',
+							'url'  => '/supplier/create',
+							'can'  => 'admin||supplier'
+						],
 
-				[
-					'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
-					'icon' => 'users',
-					'url'  => '/supplier',
-					'can'  => 'admin||supplier'
-				],
-			]],
-
-
+						[
+							'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
+							'icon' => 'users',
+							'url'  => '/supplier',
+							'can'  => 'admin||supplier'
+						],
+					]],
 
 
 			]
