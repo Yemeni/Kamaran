@@ -86,9 +86,9 @@
                                 <div class="form-group">
                                     <label for="">Danger Level:</label>
                                     <select name="danger_level" class="form-control">
-                                        <option {{ $item->danger_level == 'low' ? 'selected' : '' }}>C- Low Priority</option>
-                                        <option {{ $item->danger_level == 'flammable' ? 'selected' : '' }}>B- Normal Priority</option>
-                                        <option {{ $item->danger_level == 'toxic' ? 'selected' : '' }}>A- High Priority</option>
+                                        <option value="low" {{ $item->danger_level == 'low' ? 'selected' : '' }}>C- Low Priority</option>
+                                        <option value="flammable" {{ $item->danger_level == 'flammable' ? 'selected' : '' }}>B- Normal Priority</option>
+                                        <option value="toxic" {{ $item->danger_level == 'toxic' ? 'selected' : '' }}>A- High Priority</option>
                                     </select>
                                 </div>
                                 <div></div>
