@@ -148,42 +148,29 @@ return [
 			'text'    => 'Apps', // manager + employee + employee_of_suppliers
 			'icon'    => 'wrench',
 			'submenu' => [
+
 				[
-					'text' => 'Manage Categories', // Admin
-					'icon' => '',
-					'url'  => '/category',
-					'can'  => 'admin'
-				],
+					'text'    => 'Category',
+					'icon'    => 'archive',
+					'submenu' => [
 				[
-					'text' => 'Category', // Admin
-					'icon' => '',
+					'text' => 'Add Category', // Admin
+					'icon' => 'archive',
 					'url'  => '/category/create',
 					'can'  => 'admin'
 				],
 				[
-					'text' => 'Review Orders', // manager
-					'icon' => 'file',
-					'url'  => '/review_orders',
-					'can'  => 'admin||manager||employee'
+					'text' => 'Manage Categories', // Admin
+					'icon' => 'archive',
+					'url'  => '/category',
+					'can'  => 'admin'
 				],
+			]
+		],
 				[
-					'text' => 'Fill Order', // manager
-					'icon' => 'file',
-					'url'  => '/fill_order',
-					'can'  => 'admin||manager||employee'
-				],
-				[
-					'text' => 'Track Shipments', // manager
-					'icon' => 'ship',
-					'url'  => '/track_shipments',
-					'can'  => 'admin||manager||employee'
-				],
-				[
-					'text' => 'Manage Items', // manager + employee + employee_of_suppliers
-					'icon' => 'gears',
-					'url'  => '/item',
-					'can'  => 'admin||supplier'
-				],
+					'text'    => 'Item',
+					'icon'    => 'gears',
+					'submenu' => [
 				[
 					'text' => 'Add Item', // manager + employee + employee_of_suppliers
 					'icon' => 'gears',
@@ -191,29 +178,77 @@ return [
 					'can'  => 'admin||supplier'
 				],
 				[
-					'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
-					'icon' => 'users',
-					'url'  => '/supplier',
+					'text' => 'Manage Items', // manager + employee + employee_of_suppliers
+					'icon' => 'gears',
+					'url'  => '/item',
 					'can'  => 'admin||supplier'
 				],
+				]
+			],
 				[
+					'text'    => 'Order',
+					'icon'    => 'file',
+					'submenu' => [
+
+				[
+					'text' => 'Fill Order', // manager
+					'icon' => 'file',
+					'url'  => '/fill_order',
+					'can'  => 'admin||manager||employee'
+				],
+				[
+					'text' => 'Review Orders', // manager
+					'icon' => 'file',
+					'url'  => '/review_orders',
+					'can'  => 'admin||manager||employee'
+				],
+			]
+			],
+				[
+					'text' => 'Track Shipments', // manager
+					'icon' => 'ship',
+					'url'  => '/track_shipments',
+					'can'  => 'admin||manager||employee'
+				],
+				[
+					'text'    => 'Inventory',
+					'icon'    => 'cubes',
+					'submenu' => [
+				[
+					'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+					'icon' => 'cubes',
+					'url'  => '/inventory',
+					'can' => 'admin||inventory'
+				],
+				[
+					'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+					'icon' => 'cubes',
+					'url'  => '/inventory_transaction',
+					'can' => 'admin||inventory'
+				],
+			]
+		],
+		[
+			'text'    => 'Supplier',
+			'icon'    => 'users',
+			'submenu' => [
+			[
 					'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
 					'icon' => 'users',
 					'url'  => '/supplier/create',
 					'can'  => 'admin||supplier'
 				],
+
 				[
-					'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
-					'icon' => '',
-					'url'  => '/inventory_transaction',
-					'can' => 'admin||inventory'
+					'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
+					'icon' => 'users',
+					'url'  => '/supplier',
+					'can'  => 'admin||supplier'
 				],
-				[
-					'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
-					'icon' => '',
-					'url'  => '/inventory',
-					'can' => 'admin||inventory'
-				]
+			]],
+
+
+
 
 			]
 
