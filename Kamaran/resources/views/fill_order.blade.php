@@ -134,7 +134,7 @@
                 var total = 1;
                 $('.calc').each(function () {
                     if ($(this).val() != '') {
-                        total *= parseInt($(this).val());
+                        total *= parseFloat($(this).val());
                     }
                 });
                 $('#total').html(total);
