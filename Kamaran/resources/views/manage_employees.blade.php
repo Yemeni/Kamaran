@@ -84,7 +84,32 @@
                                 <td>{{ $employee->phone }}</td>
                                 <td>{{ $employee->email }}</td>
                                 <td>
-                                    {{ ucwords($employee->level) }}
+                                    {{-- ucwords($employee->level) --}}
+                                    @switch($employee->level)
+                                        @case('admin')
+                                            Admin/Manager
+                                        @break
+
+                                        @case('manager')
+                                            Head of Department
+                                        @break
+
+                                        @case('employee')
+                                            Employee
+                                        @break
+
+                                        @case('inventory_employee')
+                                            Inventory Employee
+                                        @break
+
+                                        @case('head_of_suppliers')
+                                            Head of Suppliers
+                                        @break
+
+                                        @default
+                                            Undefined
+                                    @endswitch
+
                                     @if(! is_null($employee->category))
                                         @ <strong>{{ $employee->category->name }}</strong>
                                     @endif
