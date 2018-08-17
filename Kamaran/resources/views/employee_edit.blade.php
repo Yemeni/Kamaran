@@ -104,7 +104,7 @@
                                             </option>
                                         </select>
                                     </div>
-                                    <div class="form-group" style="display: none;" id="category">
+                                    <div class="form-group" style="display: {{ in_array($user->level, ['admin','inventory_employee','head_of_suppliers']) ? 'none' : 'block' }};" id="category">
                                         <label for="">Category:</label>
                                         <select class="form-control" name="category_id">
                                             <option selected disabled>-- Select a Category --</option>
