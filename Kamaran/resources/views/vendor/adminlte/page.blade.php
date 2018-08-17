@@ -57,8 +57,8 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
-                        @if(isset($user->name))
-                            <li><a>Hello {{ $user->name }}</a></li>
+                        @if(isset(Auth::user()->name)))
+                            <li><a href="/profile">Hello {{ Auth::user()->name }}</a></li>
                         @endif
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
