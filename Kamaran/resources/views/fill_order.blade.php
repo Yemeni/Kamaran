@@ -147,6 +147,7 @@
 
             $('select[name="supplier_id"]').on('change.select2', function (eve) {
                 $.get("/supplier/" + $(this).val() + "/items/{{ auth()->user()->category_id }}", function (data, status) {
+                    $('.js-example-basic-single-item').empty();
                     $('.js-example-basic-single-item').select2({
                         data: JSON.parse(data)
                     });
