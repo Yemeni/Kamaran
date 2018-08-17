@@ -39,7 +39,7 @@
                     <!-- /.navbar-collapse -->
             @else
             <!-- Logo -->
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
+            <a href="{{ url(config('adminlte.dashboard_url', '')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><img src="{{ asset('resources/Kamaran_Header_Small.jpg') }}" alt="" width="50px" height="50px"></span>
                 <!-- logo for regular state and mobile devices -->
