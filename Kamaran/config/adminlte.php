@@ -263,17 +263,18 @@ return [
 					'url'  => '/profile'
 				],
 				[
+					'text' => 'Add Employee', // manager + employee_of_suppliers + employee
+					'icon' => 'users',
+					'url'  => '/employee',
+					'can'  => 'admin||manager'
+				],
+				[
 					'text' => 'Manage Employees', // manager + employee_of_suppliers
 					'icon' => 'users',
 					'url'  => '/manage_employees',
 					'can'  => 'admin||manager'
 				],
-				[
-					'text' => 'Employee', // manager + employee_of_suppliers + employee
-					'icon' => 'users',
-					'url'  => '/employee',
-					'can'  => 'admin||manager'
-				],
+
 				[
 					'text' => 'My Manager', // employee
 					'icon' => 'users',
