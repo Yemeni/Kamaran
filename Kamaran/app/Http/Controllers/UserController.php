@@ -163,7 +163,7 @@ class UserController extends Controller {
 			'address'     => 'required'
 		]);
 
-		User::create($request->all());
+		User::create(array_merge($request->all(),['password' => bcrypt('kamaran')]));
 
 		Alert::flash('User added successfully', 'success');
 
