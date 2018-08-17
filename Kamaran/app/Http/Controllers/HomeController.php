@@ -33,6 +33,7 @@ class HomeController extends Controller {
 		Gate::authorize('admin||manager');
 
 		$ordersChart = $this->ordersChart();
+		$tobaccoChart = $this->tobaccoChart();
 
 		$pendingOrders = Order::where('order_status', 'pending')->count();
 		$pendingShipments = Shipment::where('shipment_status', 'pending')->count();
@@ -40,12 +41,47 @@ class HomeController extends Controller {
 		$totalItems = Item::all()->count();
 		$onHoldInventories = Inventory::where('arrival_status', 0)->count();
 
-		$tobacco = Item::where('name', 'tobacco')->first();
+		$tobacco = Item::where('name', 'Tobacco')->first();
+
+		$consumedTobacco = Item::where('name', 'Tobacco')->first()
+			->inventory()->where('transaction_type', 'consume')->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
+
+		$orderedTobacco = Item::where('name', 'Tobacco')->first()
+			->order()->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
 
 		$latestOrders = Order::latest()->take(5)->get();
 		$latestInventories = Inventory::latest()->take(5)->get();
 
-		return view('overview', compact('ordersChart', 'tobacco', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
+		return view('overview', compact('tobaccoChart', 'consumedTobacco', 'orderedTobacco', 'ordersChart', 'tobacco', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
+	}
+
+	private function tobaccoChart()
+	{
+		return app()->chartjs
+			->name('Tobacco')
+			->type('bar')
+			->size(['width' => 700, 'height' => 400])
+			->labels(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
+			->datasets([
+				[
+					'data'                 => $this->getTobaccoStatistics(true),
+					'backgroundColor'      => '#3498db',
+					'borderColor'          => 'rgba(136,136,136,0.5)',
+					'pointBackgroundColor' => '#3498db',
+					'pointBorderColor'     => '#fff',
+					'label'                => "Tobacco Consumed",
+				],
+				[
+					'data'                 => $this->getTobaccoStatistics(false, true),
+					'backgroundColor'      => '#2ecccc',
+					'borderColor'          => '#aaaaaa',
+					'pointBackgroundColor' => '#6d2ecc',
+					'pointBorderColor'     => '#fff',
+					'label'                => "Tobacco Ordered"
+				]
+			])
+			->options([]);
+
 	}
 
 	private function ordersChart()
@@ -75,6 +111,53 @@ class HomeController extends Controller {
 				],
 			])
 			->options([]);
+	}
+
+	/**
+	 * @return array
+	 */
+	private function getTobaccoStatistics($consumed = false, $orders = false)
+	{
+		if ($consumed){
+			$tobaccos = Item::where('name','Tobacco')->first()->inventory()->where('transaction_type','consume')->select('id', 'created_at', 'quantity')
+				->get()
+				->groupBy(function ($date) {
+					//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+					return Carbon::parse($date->created_at)->format('m'); // grouping by months
+				});
+		}elseif ($orders){
+			$tobaccos = Item::where('name','Tobacco')->first()->order()->select('id', 'created_at', 'quantity')
+				->get()
+				->groupBy(function ($date) {
+					//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+					return Carbon::parse($date->created_at)->format('m'); // grouping by months
+				});
+		}
+
+		$tobaccomcount = [];
+		$tobaccoArr = [];
+		$totalTo = 0;
+
+		foreach ($tobaccos as $key => $value)
+		{
+			foreach ($value as $tob){
+				$totalTo += $tob->quantity;
+			}
+			$tobaccomcount[(int) $key] = $totalTo;
+		}
+
+		for ($i = 1; $i <= 12; $i ++)
+		{
+			if (!empty($tobaccomcount[$i]))
+			{
+				$tobaccoArr[] = $tobaccomcount[$i];
+			} else
+			{
+				$tobaccoArr[] = 0;
+			}
+		}
+
+		return $tobaccoArr;
 	}
 
 	/**
