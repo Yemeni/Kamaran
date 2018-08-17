@@ -69,7 +69,7 @@
                             </div>
 
                             <div class="box-footer">
-                                <button type="reset" class="btn btn-default ">Cancel</button>
+                                <a href="/category" class="btn btn-default ">Cancel</a>
                                 <button type="submit" class="btn btn-primary pull-right">Edit</button>
                             </div>
                         </form>
