@@ -146,10 +146,12 @@ class UserController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		if (Category::find($request->category_id)->count()){
-			Alert::flash('This Category is already with a manager', 'danger');
+		if ($request->has('category_id')){
+			if (Category::find($request->category_id)->count()){
+				Alert::flash('This Category is already with a manager', 'danger');
 
-			return redirect('/manage_employees');
+				return redirect('/manage_employees');
+			}
 		}
 		$request->validate([
 			'name'        => 'required',

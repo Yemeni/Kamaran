@@ -35,11 +35,15 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="">Name:</label>
-                                    <input type="text" name="name" class="form-control" id="">
+                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Username:</label>
-                                    <input type="text" name="username" class="form-control" id="">
+                                    <input type="text"
+                                           value="{{ old('username') }}"
+                                           name="username"
+                                           class="form-control"
+                                           id="">
                                 </div>
                                 <div class="form-group">
                                     <div class="radio">
@@ -48,35 +52,55 @@
                                                    name="gender"
                                                    id="optionsRadios1"
                                                    value="male"
-                                                   checked="">
+                                                    {{ old('gender') == 'male' ? 'checked' : '' }}>
                                             Male
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="gender" id="optionsRadios2" value="female">
+                                            <input type="radio" name="gender" id="optionsRadios2" value="female"
+                                                    {{ old('gender') == 'female' ? 'checked' : '' }}>
+
                                             Female
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone:</label>
-                                    <input type="text" name="phone" class="form-control" id="">
+                                    <input type="text"
+                                           name="phone"
+                                           value="{{ old('phone') }}"
+                                           class="form-control"
+                                           id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email:</label>
-                                    <input type="email" name="email" class="form-control" id="">
+                                    <input type="email"
+                                           name="email"
+                                           value="{{ old('email') }}"
+                                           class="form-control"
+                                           id="">
                                 </div>
                                 @if(! auth()->user()->isManager())
                                     <div class="form-group">
                                         <label for="">Level:</label>
                                         <select class="form-control" name="level">
                                             <option selected disabled>-- Select a Level --</option>
-                                            <option value="admin">Admin/Manager</option>
-                                            <option value="manager">Head of Department</option>
-                                            <option value="employee">Employee</option>
-                                            <option value="inventory_employee">Inventory Employee</option>
-                                            <option value="head_of_suppliers">Head of Suppliers</option>
+                                            <option {{ old('level') == 'admin' ? 'selected' : ''  }} value="admin">
+                                                Admin/Manager
+                                            </option>
+                                            <option {{ old('level') == 'manager' ? 'selected' : ''  }} value="manager">
+                                                Head of Department
+                                            </option>
+                                            <option {{ old('level') == 'employee' ? 'selected' : ''  }} value="employee">
+                                                Employee
+                                            </option>
+                                            <option {{ old('level') == 'inventory_employee' ? 'selected' : ''  }} value="inventory_employee">
+                                                Inventory Employee
+                                            </option>
+                                            <option {{ old('level') == 'head_of_suppliers' ? 'selected' : ''  }} value="head_of_suppliers">
+                                                Head of Suppliers
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group" style="display: none;" id="category">
@@ -84,7 +108,10 @@
                                         <select class="form-control" name="category_id">
                                             <option disabled selected>Select Category</option>
                                             @foreach($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}"
+                                                        {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                                    {{ $category->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -97,12 +124,12 @@
                                     <textarea class="form-control"
                                               rows="3"
                                               name="address"
-                                              placeholder="Enter ..."></textarea>
+                                              placeholder="Enter ...">{{ old('address') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="status" value="active" checked>
+                                            <input type="checkbox" name="status" value="active" {{ old('status') == 'active' ? 'checked' : '' }}>
                                             Active
                                         </label>
                                     </div>
@@ -114,7 +141,7 @@
                             <!-- /.box-body -->
 
                             <div class="box-footer">
-                                <button type="reset" class="btn btn-default ">Cancel</button>
+                                <a href="/manage_employees" class="btn btn-default ">Cancel</a>
                                 <button type="submit" class="btn btn-primary pull-right">Submit</button>
                             </div>
                         </form>
