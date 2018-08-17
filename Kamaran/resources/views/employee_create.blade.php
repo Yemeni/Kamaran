@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone:</label>
-                                    <input type="text"
+                                    <input type="number"
                                            name="phone"
                                            value="{{ old('phone') }}"
                                            class="form-control"
