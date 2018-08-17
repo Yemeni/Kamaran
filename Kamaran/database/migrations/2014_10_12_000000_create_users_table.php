@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password')->default('$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm');
+            $table->string('password')->default(bcrypt('kamaran'));
             $table->enum('gender', ['male', 'female']);
             $table->string('phone')->unique();
             $table->enum('level', ['admin','manager','employee','inventory_employee','head_of_suppliers']);

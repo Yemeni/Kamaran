@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder {
 			'name'     => 'admin',
 			'username' => 'admin',
 			'email'    => 'admin@kamaran.com',
-			'password' => bcrypt('Kamaran'),
+			'password' => bcrypt('kamaran'),
 			'phone'    => '77777771',
 			'status'   => 1,
 			'gender'   => 'male',
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder {
 			'name'        => 'yousef',
 			'username'    => 'yousef',
 			'email'       => 'yousef@kamaran.com',
-			'password'    => bcrypt('Kamaran'),
+			'password'    => bcrypt('kamaran'),
 			'phone'       => '77772777',
 			'status'      => 1,
 			'gender'      => 'male',
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder {
 			'name'        => 'rashad',
 			'username'    => 'rashad',
 			'email'       => 'rashad@kamaran.com',
-			'password'    => bcrypt('Kamaran'),
+			'password'    => bcrypt('kamaran'),
 			'phone'       => '77777773',
 			'status'      => 1,
 			'gender'      => 'male',
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder {
 			'name'     => 'anwar',
 			'username' => 'anwar',
 			'email'    => 'anwar@kamaran.com',
-			'password' => bcrypt('Kamaran'),
+			'password' => bcrypt('kamaran'),
 			'phone'    => '77777774',
 			'status'   => 1,
 			'gender'   => 'male',
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder {
 			'name'     => 'employee',
 			'username' => 'employee',
 			'email'    => 'employee@kamaran.com',
-			'password' => bcrypt('Kamaran'),
+			'password' => bcrypt('kamaran'),
 			'phone'    => '77777775',
 			'status'   => 1,
 			'gender'   => 'male',
@@ -74,21 +74,21 @@ class DatabaseSeeder extends Seeder {
 			'address'  => 'Haddah St., XYZ Road, Sana\'a'
 		]);
 
-		factory(\App\Order::class, 10)->create();
-
-		factory(\App\Supplier::class, 2)->create()->each(function ($s) {
-			$s->items()->saveMany(factory(\App\Item::class, 5)->make());
-		});
-
-		foreach (\App\Order::where('order_status', 'approved')->get() as $order)
-		{
-			\App\Shipment::create([
-				'order_id'    => $order->id,
-				'user_id'     => 2,
-				'category_id' => 1,
-				'date'        => \Carbon\Carbon::now()->timestamp
-			]);
-		}
+//		factory(\App\Order::class, 10)->create();
+//
+//		factory(\App\Supplier::class, 2)->create()->each(function ($s) {
+//			$s->items()->saveMany(factory(\App\Item::class, 5)->make());
+//		});
+//
+//		foreach (\App\Order::where('order_status', 'approved')->get() as $order)
+//		{
+//			\App\Shipment::create([
+//				'order_id'    => $order->id,
+//				'user_id'     => 2,
+//				'category_id' => 1,
+//				'date'        => \Carbon\Carbon::now()->timestamp
+//			]);
+//		}
 
 	}
 }

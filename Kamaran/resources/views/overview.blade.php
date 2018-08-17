@@ -123,9 +123,7 @@
                         <sup style="font-size: 20px">Approved</sup></h3>
 
                     <p>You have made 3 Orders today (2 Approved)</p>
-                    <div class="bg-gray"">
-                        {{--<canvas id="myChart" width="700" height="400" class="bg-gray"></canvas>--}}
-                        {{--@section('js')--}}
+                    <div class="bg-gray">
 
                             {{--<script>--}}
                                 {{--var ctx = document.getElementById("myChart");--}}
