@@ -87,6 +87,10 @@ class OrderController extends Controller {
 
 		Alert::flash('New order has been added', 'success');
 
+		if (auth()->user()->level == 'employee'){
+			return back();
+		}
+
 		return redirect('/review_orders');
 	}
 
