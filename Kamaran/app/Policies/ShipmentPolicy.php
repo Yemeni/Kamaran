@@ -42,7 +42,7 @@ class ShipmentPolicy
      */
     public function update(User $user, Shipment $shipment)
     {
-        return ($user->id == $shipment->user_id && $user->category_id == $shipment->category_id) || $user->level == 'admin' || ($user->level == 'manager' && $user->category_id == $shipment->category_id);
+        return ($user->level == 'employee' && $user->id == $shipment->user_id && $user->category_id == $shipment->category_id) || $user->level == 'admin' || ($user->level == 'manager' && $user->category_id == $shipment->category_id);
     }
 
     /**
