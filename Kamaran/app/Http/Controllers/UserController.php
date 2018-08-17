@@ -153,8 +153,8 @@ class UserController extends Controller {
 				'required',
 				Rule::in(['male', 'female']),
 			],
-			'phone'       => 'required',
-			'email'       => 'required|email',
+			'phone'       => 'required|unique:users,phone',
+			'email'       => 'required|email|unique:users,email',
 			'level'       => [
 				'required',
 				Rule::in(['admin', 'employee', 'manager', 'inventory_employee', 'head_of_suppliers']),
