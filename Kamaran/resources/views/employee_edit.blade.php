@@ -88,10 +88,10 @@
                                         <label for="">Level:</label>
                                         <select class="form-control" name="level">
                                             <option selected disabled>-- Select a Level --</option>
-                                            <option value="admin" {{ $user->level == 'admin' ? 'selected' : '' }}>Admin
+                                            <option value="admin" {{ $user->level == 'admin' ? 'selected' : '' }}>Admin/Manager
                                             </option>
                                             <option value="manager" {{ $user->level == 'manager' ? 'selected' : '' }}>
-                                                Manager
+                                                Head of Department
                                             </option>
                                             <option value="employee" {{ $user->level == 'employee' ? 'selected' : '' }}>
                                                 Employee

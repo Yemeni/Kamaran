@@ -72,8 +72,8 @@
                                         <label for="">Level:</label>
                                         <select class="form-control" name="level">
                                             <option selected disabled>-- Select a Level --</option>
-                                            <option value="admin">Admin</option>
-                                            <option value="manager">Manager</option>
+                                            <option value="admin">Admin/Manager</option>
+                                            <option value="manager">Head of Department</option>
                                             <option value="employee">Employee</option>
                                             <option value="inventory_employee">Inventory Employee</option>
                                             <option value="head_of_suppliers">Head of Suppliers</option>
