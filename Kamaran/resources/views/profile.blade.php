@@ -112,7 +112,7 @@
             @alert('BTA')
             <div class="box box-primary" id="settings">
                 <div class="box-body">
-                    <form class="form-horizontal" action="{{ url('/profile/edit') }}" method="post">
+                    <form class="form-horizontal" action="{{ url('/profile/edit') }}" method="post" autocomplete="off">
                         @csrf
 
                         {{--<div class="form-group">--}}
@@ -163,7 +163,7 @@
                 <div class="box-body">
                     <form class="form-horizontal"
                           action="{{ url('/profile/changePassword') }}"
-                          method="post">
+                          method="post" autocomplete="off">
                         @csrf
 
                         <div class="form-group">

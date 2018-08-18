@@ -62,7 +62,7 @@
             <div class="box">
                 <div style="padding:10px;">
                     Filter by:
-                    <form class="form-inline" action="{{ url('/inventory#trans') }}">
+                    <form class="form-inline" action="{{ url('/inventory#trans') }}" autocomplete="off">
                         <div class="form-group">
                             <label for="">Category:</label>
                             <select name="category_id" class="js-example-basic-single-item form-control">

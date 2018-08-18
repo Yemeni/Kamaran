@@ -29,7 +29,7 @@
                     @endif
                     <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('/supplier') }}" method="post">
+                        <form role="form" action="{{ url('/supplier') }}" method="post" autocomplete="off">
                             @csrf
 
                             <div class="box-body">

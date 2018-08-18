@@ -29,7 +29,7 @@
                     @endif
                     <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('/order/'.$order->id) }}" method="post">
+                        <form role="form" action="{{ url('/order/'.$order->id) }}" method="post" autocomplete="off">
                             @csrf
                             @method("PUT")
 

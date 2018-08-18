@@ -79,7 +79,7 @@
                                             <div class="modal-body">
                                                 <form role="form"
                                                       action="{{ url('/shipment/'.$ship->id) }}"
-                                                      method="post">
+                                                      method="post" autocomplete="off">
                                                     @csrf
                                                     @method('PUT')
 
@@ -322,7 +322,7 @@
                                         <div class="modal-body">
                                             <form role="form"
                                                   action="{{ url('/shipment/'.$ship->id) }}"
-                                                  method="post">
+                                                  method="post" autocomplete="off">
                                                 @csrf
                                                 @method('PUT')
 
@@ -543,7 +543,7 @@
                                         <div class="modal-body">
                                             <form role="form"
                                                   action="{{ url('/shipment/'.$ship->id) }}"
-                                                  method="post">
+                                                  method="post" autocomplete="off">
                                                 @csrf
                                                 @method('PUT')
 
@@ -818,7 +818,7 @@
                                         <div class="modal-body">
                                             <form role="form"
                                                   action="{{ url('/shipment/'.$ship->id) }}"
-                                                  method="post">
+                                                  method="post" autocomplete="off">
                                                 @csrf
                                                 @method('PUT')
 

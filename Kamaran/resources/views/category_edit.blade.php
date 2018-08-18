@@ -33,7 +33,7 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" _lpchecked="1" action="{{ url('/category/'.$category->id) }}" method="post">
+                        <form role="form" _lpchecked="1" action="{{ url('/category/'.$category->id) }}" method="post" autocomplete="off">
                             @csrf
                             @method("PUT")
 

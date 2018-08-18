@@ -29,7 +29,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form role="form" action="{{ url('/employee') }}" method="post">
+                        <form role="form" action="{{ url('/employee') }}" method="post" autocomplete="off">
                             @csrf
 
                             <div class="box-body">
