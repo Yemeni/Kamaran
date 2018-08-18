@@ -53,7 +53,7 @@
                                 <td>{{ $order->category->name }}</td>
                                 <td>{{ $order->item->name }}</td>
                                 <td>{{ $order->quantity }} {{ $order->item->unit }}</td>
-                                <td>{{ number_format($order->cost) }} $</td>
+                                <td>{{ ($order->cost) }} $</td>
                                 <td>{{ number_format($order->cost * $order->quantity) }} $</td>
                                 <td>{{ $order->comment ?? '-' }}</td>
                                 {{--<td>Ahmed Ali</td>--}}
