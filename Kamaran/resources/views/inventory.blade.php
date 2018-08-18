@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-        @alert
+            @alert
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">On Hold Transactions</h3>
@@ -67,7 +67,7 @@
                             <select name="category_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by category</option>
                                 <option value="all">All Categories</option>
-                            @foreach($categories as $category)
+                                @foreach($categories as $category)
                                     <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                 @endforeach
                             </select>
@@ -77,7 +77,7 @@
                             <select name="item_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by item</option>
                                 <option value="all">All Items</option>
-                            @foreach($items as $item)
+                                @foreach($items as $item)
                                     <option value="{{ $item->id }}" {{ request('item_id') == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                                 @endforeach
                             </select>
@@ -109,36 +109,30 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="">From:</label>
                             <div class="input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
                                 <input type="text"
-                                       name="date"
+                                       name="from"
+                                       value="{{ request()->has('from') ? request('from') : '' }}"
+                                       placeholder="Date from"
                                        class="form-control pull-right input-append date form_datetime"
                                        id="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="">To:</label>
                             <div class="input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
                                 <input type="text"
-                                       name="date"
+                                       name="to"
+                                       value="{{ request()->has('to') ? request('to') : '' }}"
+                                       placeholder="Date to"
                                        class="form-control pull-right input-append date form_datetime"
                                        id="">
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control form_datetime" name="from" value="{{ request()->has('from') ? request('from') : '' }}" placeholder="Date from">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control form_datetime" name="to" value="{{ request()->has('to') ? request('to') : '' }}" placeholder="Date to">
                         </div>
 
                         <button type="submit" class="btn btn-default">Filter</button>
@@ -171,22 +165,22 @@
                         <tbody>
                         @foreach($inventories as $inv)
                             <tr
-                                @switch($inv->transaction_type)
+                                    @switch($inv->transaction_type)
                                     @case('voucher')
                                     @case('initial_balance')
                                     @case('surplus')
-                                        class="success"
+                                    class="success"
                                     @break
 
                                     @case('consume')
                                     @case('shortage')
                                     @case('normal_shortage')
-                                        class="danger"
+                                    class="danger"
                                     @break
 
                                     @default
-                                        class="info"
-                                @endswitch
+                                    class="info"
+                                    @endswitch
                             >
                                 <td>{{ $inv->id }}</td>
                                 <td>
@@ -211,24 +205,24 @@
                             <span>Print</span>
                         </a>
 
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <!-- /.box-body -->
+                <!-- /.box -->
             </div>
-            <!-- /.box -->
         </div>
-    </div>
 
-@stop
+        @stop
 
 
-@section('js')
+        @section('js')
 
-    <script>
-        $(document).ready(function () {
-            $('.js-example-basic-single-item').select2();
+            <script>
+                $(document).ready(function () {
+                    $('.js-example-basic-single-item').select2();
 
-            $(".form_datetime").datetimepicker();
-        })
-    </script>
+                    $(".form_datetime").datetimepicker();
+                })
+            </script>
 
 @append
