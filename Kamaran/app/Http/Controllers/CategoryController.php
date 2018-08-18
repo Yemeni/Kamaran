@@ -127,7 +127,7 @@ class CategoryController extends Controller {
 	{
 		Gate::authorize('admin');
 
-		if ($category->users()->count() > 0)
+		if ($category->users()->count() || $category->inventories()->count() || $category->orders()->count())
 		{
 			Alert::flash('You can not delete this category because of related records', 'danger');
 
