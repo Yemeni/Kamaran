@@ -96,11 +96,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
-                                    <input name="quantity" type="number" class="form-control calc" id="">
+                                    <input name="quantity" step="0.01" type="number" class="form-control calc" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Cost:</label>
-                                    <input type="number"step="0.01" name="cost" class="form-control calc" id="">
+                                    <input type="number" step="0.01" name="cost" class="form-control calc" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Total Cost:</label>&nbsp;

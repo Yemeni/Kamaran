@@ -98,11 +98,11 @@
 
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
-                                    <input name="quantity" value="{{ $order->quantity }}" type="number" class="form-control calc" id="">
+                                    <input name="quantity" step="0.01" value="{{ $order->quantity }}" type="number" class="form-control calc" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Cost:</label>
-                                    <input type="number" name="cost" value="{{ $order->cost }}" class="form-control calc" id="">
+                                    <input type="number" step="0.01" name="cost" value="{{ $order->cost }}" class="form-control calc" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Total Cost:</label>&nbsp;
