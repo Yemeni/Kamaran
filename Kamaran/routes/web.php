@@ -59,9 +59,8 @@ Route::get('/performance', function (){
     return view('performance');
 });
 
-Route::get('/inventory_dashboard', function (){
-    return view('inventory_dashboard');
-});
+Route::get('/inventory_balance', 'InventoryBalanceController@index');
+
 
 Route::get('/orders', function (){
     return view('orders');

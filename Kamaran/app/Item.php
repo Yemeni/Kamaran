@@ -18,6 +18,12 @@ class Item extends Model {
 		return $this->hasMany(Inventory::class);
 	}
 
+	public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
 	public function suppliers()
 	{
 		return $this->belongsToMany(Supplier::class, 'catalogs');
@@ -44,6 +50,25 @@ class Item extends Model {
 
 		return $total;
 	}
+
+    public function pendingOrders($withString = true)
+    {
+        $total = 0;
+
+        foreach ($this->orders as $order)
+        {
+            if ($order->order_status == 'pending')
+            {
+                $total += $order->quantity;
+            }
+
+        }
+
+        if ($withString)
+            return (string) number_format($total) . ' ' . $this->unit;
+
+        return $total;
+    }
 
 	public function order()
 	{

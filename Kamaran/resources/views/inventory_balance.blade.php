@@ -40,7 +40,7 @@
                 </div>
         </div>
 
-        <div class="col-lg-10 col-xs-6 bg-blue">
+        <div class="col-lg-10 col-xs-6 ">
 
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
@@ -48,15 +48,15 @@
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p class="bg-green">Current</p>
+                    <p class="bg-green" style="text-align: center;">Current</p>
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p class="bg-yellow">Shipping</p>
+                    <p class="bg-yellow" style="text-align: center;">Shipping</p>
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p class="bg-red">Ordered</p>
+                    <p class="bg-red" style="text-align: center;">Ordered</p>
                 </div>
             </div>
 
@@ -67,17 +67,17 @@
 
                 <div class="col-lg-6 col-xs-6">
 
-                    <div class="progress">
+                    <div class="progress" style="border-radius: 10px">
                         <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                            1,222 tones
+                            {{ $currentInventory }}
                             <span class="sr-only">40% Complete (success)</span>
                         </div>
                         <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                            554 tones
+                            {{ $currentShipping }}
                             <span class="sr-only">40% Complete (success)</span>
                         </div>
                         <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                            400 tones
+                            {{ $currentOrdered }}
                             <span class="sr-only">40% Complete (success)</span>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
 
                 <div class="col-lg-6 col-xs-6">
 
-                    <div class="progress">
+                    <div class="progress" style="border-radius: 10px">
                         <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
                             1052 meters
                             <span class="sr-only">40% Complete (success)</span>
@@ -117,7 +117,7 @@
 
                 <div class="col-lg-6 col-xs-6">
 
-                    <div class="progress">
+                    <div class="progress" style="border-radius: 10px">
                         <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
                             1052 meters
                             <span class="sr-only">40% Complete (success)</span>
@@ -142,7 +142,7 @@
 
                 <div class="col-lg-6 col-xs-6">
 
-                    <div class="progress">
+                    <div class="progress" style="border-radius: 10px">
                         <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
                             1052 meters
                             <span class="sr-only">40% Complete (success)</span>

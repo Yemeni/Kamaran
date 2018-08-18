@@ -125,11 +125,11 @@ return [
 				//					'icon' => 'spinner',
 				//					'url'  => '/performance'
 				//				],
-				//				[
-				//					'text' => 'Inventory Dashboard', // manager
-				//					'icon' => 'archive',
-				//					'url'  => '/inventory_dashboard'
-				//				],
+                [
+                    'text' => 'Inventory Balance', // manager
+                    'icon' => 'archive',
+                    'url'  => '/inventory_balance'
+                ],
 				//				[
 				//					'text' => 'Orders', // manager
 				//					'icon' => 'shopping-cart',
