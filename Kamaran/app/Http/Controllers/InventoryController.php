@@ -50,6 +50,18 @@ class InventoryController extends Controller {
 				$inventories = $inventories->where('transaction_type', \request('status'));
 			}
 		}
+		if (\request()->has('from'))
+		{
+			if (\request('from') != ''){
+				$inventories = $inventories->where('date', '>=', Carbon::createFromFormat('Y-m-d H:i', \request('from')));
+			}
+		}
+		if (\request()->has('to'))
+		{
+			if (\request('to') != ''){
+				$inventories = $inventories->where('date', '<=', Carbon::createFromFormat('Y-m-d H:i', \request('to')));
+			}
+		}
 
 		$inventories = $inventories->where('arrival_status', 1)->get();
 

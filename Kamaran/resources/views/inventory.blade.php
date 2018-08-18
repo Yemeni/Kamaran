@@ -62,9 +62,8 @@
             <div class="box">
                 <div style="padding:10px;">
                     Filter by:
-                    <form class="form-inline" action="{{ url('/inventory#trans') }}">
+                    <form class="form-inline" action="{{ url('/inventory#trans') }}" autocomplete="false">
                         <div class="form-group">
-                            <label for="">Category:</label>
                             <select name="category_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by category</option>
                                 <option value="all">All Categories</option>
@@ -75,7 +74,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Item:</label>
                             <select name="item_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by item</option>
                                 <option value="all">All Items</option>
@@ -86,7 +84,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="">Status:</label>
                             <select name="status" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by transaction type</option>
                                 <option value="all">All Transaction types</option>
@@ -110,6 +107,14 @@
                                     normal shortage
                                 </option>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control form_datetime" name="from" value="{{ request()->has('from') ? request('from') : '' }}" placeholder="Date from">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control form_datetime" name="to" value="{{ request()->has('to') ? request('to') : '' }}" placeholder="Date to">
                         </div>
 
                         <button type="submit" class="btn btn-default">Filter</button>
@@ -180,6 +185,8 @@
     <script>
         $(document).ready(function () {
             $('.js-example-basic-single-item').select2();
+
+            $(".form_datetime").datetimepicker();
         })
     </script>
 
