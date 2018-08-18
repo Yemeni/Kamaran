@@ -147,7 +147,9 @@ class UserController extends Controller {
 	public function store(Request $request)
 	{
 		if ($request->has('category_id')){
-			if (Category::find($request->category_id)->count()){
+			if (Category::where('id',$request->category_id)->whereHas('users', function ($q){
+				$q->where('level', 'manager');
+			})->count()){
 				Alert::flash('This Category is already with a manager', 'danger');
 
 				return redirect('/manage_employees');
