@@ -218,7 +218,24 @@
                                 <th>Quantity</th>
                             </tr>
                             @foreach($latestInventories as $inventory)
-                                <tr>
+                                <tr
+                                        @switch($inventory->transaction_type)
+                                            @case('voucher')
+                                            @case('initial_balance')
+                                            @case('surplus')
+                                            class="success"
+                                            @break
+
+                                            @case('consume')
+                                            @case('shortage')
+                                            @case('normal_shortage')
+                                            class="danger"
+                                            @break
+
+                                            @default
+                                            class="info"
+                                        @endswitch
+                                >
                                     <td>{{ $inventory->id }}</td>
                                     <td>{{ $inventory->item->name }}</td>
                                     <td>{{ $inventory->date->format('d-m-Y') }}</td>

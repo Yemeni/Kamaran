@@ -29,7 +29,7 @@
                     @endif
                     <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('/order/'.$order->id) }}" method="post">
+                        <form role="form" action="{{ url('/order/'.$order->id) }}" method="post" autocomplete="off">
                             @csrf
                             @method("PUT")
 
@@ -98,11 +98,11 @@
 
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
-                                    <input name="quantity" value="{{ $order->quantity }}" type="number" class="form-control calc" id="">
+                                    <input name="quantity" step="0.01" value="{{ $order->quantity }}" type="number" class="form-control calc" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Cost:</label>
-                                    <input type="number" name="cost" value="{{ $order->cost }}" class="form-control calc" id="">
+                                    <input type="number" step="0.01" name="cost" value="{{ $order->cost }}" class="form-control calc" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Total Cost:</label>&nbsp;
@@ -137,7 +137,7 @@
                 var total = 1;
                 $('.calc').each(function () {
                     if ($(this).val() != '') {
-                        total *= parseInt($(this).val());
+                        total *= parseFloat($(this).val());
                     }
                 });
                 $('#total').html(total);

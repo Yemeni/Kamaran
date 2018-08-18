@@ -286,7 +286,13 @@ return [
 				]
 
 			]
-		]
+		],
+        [
+            'text' => 'About/Help', // employee
+            'icon' => 'info-circle',
+            'url'  => '/about'
+
+        ]
 	],
 
 	//

@@ -69,7 +69,7 @@ class OrderController extends Controller {
 			'supplier_id'      => 'required|exists:suppliers,id',
 			'comment'          => 'nullable',
 			'item_id'          => 'required|exists:items,id',
-			'quantity'         => 'required|integer',
+			'quantity'         => 'required|numeric',
 			'cost'             => 'required|numeric',
 		]);
 
@@ -189,8 +189,8 @@ class OrderController extends Controller {
 			'supplier_id'      => 'required|exists:suppliers,id',
 			'comment'          => 'nullable',
 			'item_id'          => 'required|exists:items,id',
-			'quantity'         => 'required|integer',
-			'cost'             => 'required|integer',
+			'quantity'         => 'required|numeric',
+			'cost'             => 'required|numeric',
 		]);
 
 		$order->update([

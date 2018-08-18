@@ -79,7 +79,7 @@
                                             <div class="modal-body">
                                                 <form role="form"
                                                       action="{{ url('/shipment/'.$ship->id) }}"
-                                                      method="post">
+                                                      method="post" autocomplete="off">
                                                     @csrf
                                                     @method('PUT')
 
@@ -254,7 +254,13 @@
                                 <td>
                                     {{ $ship->user->name }}
                                 </td>
-                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>
+                                    @if($ship->partial)
+                                        Yes
+                                    @else
+                                        No
+                                    @endif
+                                </td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
@@ -316,7 +322,7 @@
                                         <div class="modal-body">
                                             <form role="form"
                                                   action="{{ url('/shipment/'.$ship->id) }}"
-                                                  method="post">
+                                                  method="post" autocomplete="off">
                                                 @csrf
                                                 @method('PUT')
 
@@ -469,7 +475,13 @@
                                 <td>
                                     {{ $ship->user->name }}
                                 </td>
-                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>
+                                    @if($ship->partial)
+                                        Yes
+                                    @else
+                                        No
+                                    @endif
+                                </td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
@@ -531,7 +543,7 @@
                                         <div class="modal-body">
                                             <form role="form"
                                                   action="{{ url('/shipment/'.$ship->id) }}"
-                                                  method="post">
+                                                  method="post" autocomplete="off">
                                                 @csrf
                                                 @method('PUT')
 
@@ -682,7 +694,13 @@
                                 <td>
                                     {{ $ship->user->name }}
                                 </td>
-                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>
+                                    @if($ship->partial)
+                                        Yes
+                                    @else
+                                        No
+                                    @endif
+                                </td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
@@ -732,7 +750,13 @@
                                 <td>
                                     {{ $ship->user->name }}
                                 </td>
-                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>
+                                    @if($ship->partial)
+                                        Yes
+                                    @else
+                                        No
+                                    @endif
+                                </td>
                                 <td>{{ $ship->date->format('d-m-y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-y') }}</td>
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
@@ -794,7 +818,7 @@
                                         <div class="modal-body">
                                             <form role="form"
                                                   action="{{ url('/shipment/'.$ship->id) }}"
-                                                  method="post">
+                                                  method="post" autocomplete="off">
                                                 @csrf
                                                 @method('PUT')
 
@@ -945,7 +969,13 @@
                                 <td>
                                     {{ $ship->user->name }}
                                 </td>
-                                <td>{{ $ship->partial ? 'True' : 'False' }}</td>
+                                <td>
+                                    @if($ship->partial)
+                                        Yes
+                                    @else
+                                        No
+                                    @endif
+                                </td>
                                 <td>{{ $ship->date->format('d-m-Y') }}</td>
                                 <td>{{ $ship->expected_date->format('d-m-Y') }}</td>
                                 <td>{{ $ship->arrival_date ? $ship->arrival_date->format('d-m-Y') : '' }}</td>

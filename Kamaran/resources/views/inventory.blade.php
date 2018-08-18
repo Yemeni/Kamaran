@@ -62,7 +62,7 @@
             <div class="box">
                 <div style="padding:10px;">
                     Filter by:
-                    <form class="form-inline" action="{{ url('/inventory#trans') }}" autocomplete="false">
+                    <form class="form-inline" action="{{ url('/inventory#trans') }}" autocomplete="off">
                         <div class="form-group">
                             <select name="category_id" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by category</option>
@@ -108,6 +108,30 @@
                                 </option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="">From:</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text"
+                                       name="date"
+                                       class="form-control pull-right input-append date form_datetime"
+                                       id="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">To:</label>
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text"
+                                       name="date"
+                                       class="form-control pull-right input-append date form_datetime"
+                                       id="">
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control form_datetime" name="from" value="{{ request()->has('from') ? request('from') : '' }}" placeholder="Date from">
@@ -146,7 +170,24 @@
                         </thead>
                         <tbody>
                         @foreach($inventories as $inv)
-                            <tr>
+                            <tr
+                                @switch($inv->transaction_type)
+                                    @case('voucher')
+                                    @case('initial_balance')
+                                    @case('surplus')
+                                        class="success"
+                                    @break
+
+                                    @case('consume')
+                                    @case('shortage')
+                                    @case('normal_shortage')
+                                        class="danger"
+                                    @break
+
+                                    @default
+                                        class="info"
+                                @endswitch
+                            >
                                 <td>{{ $inv->id }}</td>
                                 <td>
                                     @if($inv->transaction_type == 'voucher')

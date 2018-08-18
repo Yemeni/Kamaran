@@ -21,8 +21,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('item_id')->index();
             $table->enum('order_status', ['pending','approved','cancelled']);
             $table->timestamp('date')->nullable();
-            $table->integer('quantity')->default(0);
-            $table->integer('cost')->default(0);
+            $table->double('quantity')->default(0);
+            $table->double('cost')->default(0);
             $table->enum('letter_of_credit', ['cif','cf','fob','cfr','other']);
             $table->timestamp('approval_date')->nullable();
             $table->text('comment')->nullable();

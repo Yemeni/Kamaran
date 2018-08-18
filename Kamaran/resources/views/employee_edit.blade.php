@@ -29,7 +29,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form role="form" action="{{ url('/employee/'.$user->id.'/edit') }}" method="post">
+                        <form role="form" action="{{ url('/employee/'.$user->id.'/edit') }}" method="post" autocomplete="off">
                             @csrf
 
                             <div class="box-body">
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone:</label>
-                                    <input type="text"
+                                    <input type="number"
                                            name="phone"
                                            value="{{ $user->phone }}"
                                            class="form-control"

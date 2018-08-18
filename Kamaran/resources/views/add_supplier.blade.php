@@ -29,7 +29,7 @@
                     @endif
                     <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('/supplier') }}" method="post">
+                        <form role="form" action="{{ url('/supplier') }}" method="post" autocomplete="off">
                             @csrf
 
                             <div class="box-body">
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone:</label>
-                                    <input type="text" name="phone" class="form-control" id="">
+                                    <input type="number" name="phone" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email:</label>
