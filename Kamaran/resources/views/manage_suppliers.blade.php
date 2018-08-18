@@ -24,6 +24,7 @@
                             <th>Address</th>
                             <th>Phone</th>
                             <th>Email</th>
+                            <th>Items</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -38,6 +39,13 @@
                                     <a href="mailto:{{ $supplier->email }}">{{ $supplier->email }}</a>
                                 </td>
                                 <td>
+                                    <ul>
+                                        @foreach($supplier->items as $item)
+                                            <li>{{ $item->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle"
                                                 type="button"
@@ -47,12 +55,14 @@
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <a href="{{ url('/supplier/'.$supplier->id.'/edit') }}">
-                                                    <i class="fa fa-edit"></i> Edit
+                                                    <i class="fa fa-edit"></i>
+                                                    Edit
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="{{ url('/supplier/'.$supplier->id) }}">
-                                                    <i class="fa fa-trash"></i> Delete
+                                                    <i class="fa fa-trash"></i>
+                                                    Delete
                                                 </a>
                                             </li>
                                         </ul>
