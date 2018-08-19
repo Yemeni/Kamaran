@@ -51,7 +51,7 @@ class Item extends Model {
 		return $total;
 	}
 
-    public function pendingOrders($withString = true , $itemName = 'Tobacco3')
+    public function pendingOrders($withString = true , $itemName)
     {
         $total = 0;
 
@@ -62,11 +62,13 @@ class Item extends Model {
                 $total += $order->quantity;
             }
 
-            $itemOrders = Item::where('name', $itemName)->first()
-                ->order()->select('id')->get();
-            $total -= Shipment::whereIn('order_id', $itemOrders)->get()->sum('quantity');
-
         }
+
+        $itemOrders = Item::where('name', $itemName)->first()
+            ->order()->select('id')->get();
+
+        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
+
 
         if ($withString)
             return (string) number_format($total) . ' ' . $this->unit;
@@ -74,14 +76,14 @@ class Item extends Model {
         return $total;
     }
 
-    public function shippingItems($withString = true, $itemName = 'Tobacco3')
+    public function shippingItems($withString = true, $itemName)
     {
         $pos = ['on_hold','moving','delayed'];
         $total = 0;
         $itemOrders = Item::where('name', $itemName)->first()
             ->order()->select('id')->get();
 
-        $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed'])->get()->sum('quantity');
+        $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
         //$total -= $this->pendingOrders(false , 'approved');
 
 
