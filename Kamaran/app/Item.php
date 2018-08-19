@@ -70,6 +70,22 @@ class Item extends Model {
         return $total;
     }
 
+    public function shippingItems($withString = true, $itemName = 'Tobacco')
+    {
+        $pos = ['on_hold','moving','delayed'];
+        $total = 0;
+        $itemOrders = Item::where('name', $itemName)->first()
+            ->order()->select('id')->get();
+
+        $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed'])->get()->sum('quantity');
+
+
+        if ($withString)
+            return (string) number_format($total) . ' ' . $this->unit;
+
+        return $total;
+    }
+
 	public function order()
 	{
 		return $this->hasOne(Order::class);

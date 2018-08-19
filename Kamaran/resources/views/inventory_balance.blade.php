@@ -56,29 +56,26 @@
                 </div>
 
                 <div class="col-lg-2 col-xs-6">
-                    <p class="bg-red" style="text-align: center;">Ordered</p>
+                    <p class="bg-red" style="text-align: center;">Ordering</p>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-6 col-xs-6">
-                    <p>Australian Tobaco type C</p>
+                    <p>Australian Tobacco type C</p>
                 </div>
 
                 <div class="col-lg-6 col-xs-6">
 
                     <div class="progress" style="border-radius: 10px">
-                        <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                            {{ $currentInventory }}
-                            <span class="sr-only">40% Complete (success)</span>
+                        <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{{ $percentage['currentOrdered'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $percentage['currentOrdered'] }}%">
+                            {{ $balance['currentOrdered'] }}
                         </div>
-                        <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                            {{ $currentShipping }}
-                            <span class="sr-only">40% Complete (success)</span>
+                        <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="{{ $percentage['currentShipping'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $percentage['currentShipping'] }}%">
+                            {{ $balance['currentShipping'] }}
                         </div>
-                        <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                            {{ $currentOrdered }}
-                            <span class="sr-only">40% Complete (success)</span>
+                        <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{ $percentage['currentInventory'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $percentage['currentInventory'] }}%">
+                            {{ $balance['currentInventory'] }}
                         </div>
                     </div>
                 </div>
