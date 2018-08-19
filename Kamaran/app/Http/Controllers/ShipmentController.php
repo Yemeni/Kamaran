@@ -109,7 +109,7 @@ class ShipmentController extends Controller {
 				'required',
 				Rule::in(['on_hold', 'moving', 'cancelled', 'arrived', 'delayed'])
 			],
-			'invoice'         => 'required|integer',
+			'invoice'         => 'required|numeric',
 		]);
 
 		if ($request->has('quantity'))
