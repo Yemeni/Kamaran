@@ -29,7 +29,10 @@
                     @endif
                     <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('/supplier/'.$supplier->id) }}" method="post" autocomplete="off">
+                        <form role="form"
+                              action="{{ url('/supplier/'.$supplier->id) }}"
+                              method="post"
+                              autocomplete="off">
                             @csrf
                             @method('PUT')
 
@@ -69,11 +72,25 @@
 
                                 <div class="form-group">
                                     <label for="">Items:</label>
-                                    <select class="select2 form-control" name="item_id[]" id="items" multiple="multiple">
+                                    <select class="select2 form-control"
+                                            name="item_id[]"
+                                            id="items"
+                                            multiple="multiple">
                                         @foreach($items as $item)
+                                            @php
+                                                $ok = false;
+                                            @endphp
                                             @foreach($supplier->items as $it)
-                                                <option value="{{ $item->id }}" {{ $item->id == $it->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                                @if($item->id == $it->id)
+                                                    @php
+                                                        $ok = true;
+                                                    @endphp
+                                                    <option value="{{ $item->id }}" {{ $item->id == $it->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                                @endif
                                             @endforeach
+                                            @if(!$ok)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
