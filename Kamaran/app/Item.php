@@ -51,16 +51,20 @@ class Item extends Model {
 		return $total;
 	}
 
-    public function pendingOrders($withString = true)
+    public function pendingOrders($withString = true , $itemName = 'Tobacco3')
     {
         $total = 0;
 
         foreach ($this->orders as $order)
         {
-            if ($order->order_status == 'pending')
+            if ($order->order_status != 'cancelled')
             {
                 $total += $order->quantity;
             }
+
+            $itemOrders = Item::where('name', $itemName)->first()
+                ->order()->select('id')->get();
+            $total -= Shipment::whereIn('order_id', $itemOrders)->get()->sum('quantity');
 
         }
 
@@ -70,7 +74,7 @@ class Item extends Model {
         return $total;
     }
 
-    public function shippingItems($withString = true, $itemName = 'Tobacco')
+    public function shippingItems($withString = true, $itemName = 'Tobacco3')
     {
         $pos = ['on_hold','moving','delayed'];
         $total = 0;
@@ -78,6 +82,7 @@ class Item extends Model {
             ->order()->select('id')->get();
 
         $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed'])->get()->sum('quantity');
+        //$total -= $this->pendingOrders(false , 'approved');
 
 
         if ($withString)

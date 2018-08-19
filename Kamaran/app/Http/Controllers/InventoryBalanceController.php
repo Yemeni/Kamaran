@@ -31,7 +31,7 @@ class InventoryBalanceController extends Controller
         return view('inventory_balance', compact('balance','percentage'));
     }
 
-    private function quantityCalculator($withUnit = true , $itemName ='Tobacco'){
+    private function quantityCalculator($withUnit = true , $itemName ='Tobacco3'){
 
         $currentOrdered = Item::where('name', $itemName)->first()
             ->pendingOrders($withUnit);
@@ -56,6 +56,10 @@ class InventoryBalanceController extends Controller
         $total = $percentage['currentOrdered']
             + $percentage['currentShipping']
             + $percentage['currentInventory'];
+
+        if($total <= 0){
+            $total = 1;
+        }
 
         $data['currentOrdered'] = ($percentage['currentOrdered']/$total) * 100;
         $data['currentShipping'] = ($percentage['currentShipping']/$total) * 100;
