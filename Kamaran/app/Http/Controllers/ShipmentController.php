@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Alerts\Alert;
 use App\Inventory;
+use App\Order;
 use App\Shipment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -109,8 +110,24 @@ class ShipmentController extends Controller {
 				'required',
 				Rule::in(['on_hold', 'moving', 'cancelled', 'arrived', 'delayed'])
 			],
-			'invoice'         => 'required|integer',
+			'invoice'         => 'required|numeric',
 		]);
+
+		$relatedOrder = Order::find($shipment->order_id)->first();
+
+		if ($relatedOrder->approval_date >= Carbon::createFromFormat('Y-m-d H:i', $request->expected_date)){
+			Alert::flash('The expected date for "'.$shipment->order->item->name.'" on pending exceeds the order approval date', 'warning');
+
+			return back();
+		}
+
+		if ($request->has('arrival_date') && $request->arrival_date != null){
+			if (Carbon::createFromFormat('Y-m-d H:i', $request->expected_date) > Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date)){
+				Alert::flash('The expected date for "'.$shipment->order->item->name.'" on pending exceeds the order arrival date', 'warning');
+
+				return back();
+			}
+		}
 
 		if ($request->has('quantity'))
 		{

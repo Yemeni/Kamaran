@@ -92,40 +92,40 @@
         });
 
         // add new tab
-        $(".nav-tabs").on("click", "a", function (e) {
-            e.preventDefault();
-            if (!$(this).hasClass('add-tab')) {
-                $(this).tab('show');
-            }
-        })
-            .on("click", "span", function () {
-                var anchor = $(this).siblings('a');
-                $(anchor.attr('href')).remove();
-                $(this).parent().remove();
-                $(".nav-tabs li").children('a').first().click();
-            });
+        // $(".nav-tabs").on("click", "a", function (e) {
+        //     e.preventDefault();
+        //     if (!$(this).hasClass('add-tab')) {
+        //         $(this).tab('show');
+        //     }
+        // })
+        //     .on("click", "span", function () {
+        //         var anchor = $(this).siblings('a');
+        //         $(anchor.attr('href')).remove();
+        //         $(this).parent().remove();
+        //         $(".nav-tabs li").children('a').first().click();
+        //     });
 
-        $('.add-tab').click(function (e) {
-            e.preventDefault();
-            var id = $(".nav-tabs").children().length; //think about it ;)
-            var tabId = 'tab_' + id;
-            $(this).closest('li').before('<li><a href="#tab_' + id + '">Item ' + id + '</a> <span> x </span></li>');
-            $('.tab-content').append('<div class="tab-pane" id="' + tabId + '">' +
-                '<div class="form-group">' +
-                '<label for="">Item Name:</label>' +
-                '<select class="js-example-basic-single' + id + ' form-control" name="item_id[]">' +
-                    @foreach($items as $item)
-                        '<option value="{{ $item->id }}">{{ $item->name }}</option>' +
-                    @endforeach
-                        '</select>' +
-                '</div>' +
-                '</div>');
-            $('.nav-tabs li:nth-child(' + id + ') a').click();
+        {{--$('.add-tab').click(function (e) {--}}
+            {{--e.preventDefault();--}}
+            {{--var id = $(".nav-tabs").children().length; //think about it ;)--}}
+            {{--var tabId = 'tab_' + id;--}}
+            {{--$(this).closest('li').before('<li><a href="#tab_' + id + '">Item ' + id + '</a> <span> x </span></li>');--}}
+            {{--$('.tab-content').append('<div class="tab-pane" id="' + tabId + '">' +--}}
+                {{--'<div class="form-group">' +--}}
+                {{--'<label for="">Item Name:</label>' +--}}
+                {{--'<select class="js-example-basic-single' + id + ' form-control" name="item_id[]">' +--}}
+                    {{--@foreach($items as $item)--}}
+                        {{--'<option value="{{ $item->id }}">{{ $item->name }}</option>' +--}}
+                    {{--@endforeach--}}
+                        {{--'</select>' +--}}
+                {{--'</div>' +--}}
+                {{--'</div>');--}}
+            {{--$('.nav-tabs li:nth-child(' + id + ') a').click();--}}
 
-            $(document).ready(function () {
-                $('.js-example-basic-single' + id).select2();
-            });
-        });
+            {{--$(document).ready(function () {--}}
+                {{--$('.js-example-basic-single' + id).select2();--}}
+            {{--});--}}
+        {{--});--}}
     </script>
 @append
 

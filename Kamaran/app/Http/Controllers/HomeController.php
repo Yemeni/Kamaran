@@ -46,10 +46,10 @@ class HomeController extends Controller {
 		if (Item::where('name','tobacco')->first())
 		{
 			$consumedTobacco = Item::where('name', 'Tobacco')->first()
-				->inventory()->where('transaction_type', 'consume')->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
+				->inventory()->where('transaction_type', 'consume')->where(\DB::raw('MONTH(date)'), '=', date('m') - 1)->get()->sum('quantity');
 
 			$orderedTobacco = Item::where('name', 'Tobacco')->first()
-				->order()->where(\DB::raw('MONTH(created_at)'), '=', date('n') - 1)->get()->sum('quantity');
+				->order()->where(\DB::raw('MONTH(date)'), '=', date('m') - 1)->get()->sum('quantity');
 		}
 
 		$latestOrders = Order::latest()->take(5)->get();
@@ -123,18 +123,18 @@ class HomeController extends Controller {
 	{
 		if (Item::where('name','tobacco')->first()){
 			if ($consumed){
-				$tobaccos = Item::where('name','Tobacco')->first()->inventory()->where('transaction_type','consume')->select('id', 'created_at', 'quantity')
+				$tobaccos = Item::where('name','Tobacco')->first()->inventory()->where('transaction_type','consume')->select('id', 'date', 'quantity')
 					->get()
 					->groupBy(function ($date) {
 						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-						return Carbon::parse($date->created_at)->format('m'); // grouping by months
+						return Carbon::parse($date->date)->format('m'); // grouping by months
 					});
 			}elseif ($orders){
-				$tobaccos = Item::where('name','Tobacco')->first()->order()->select('id', 'created_at', 'quantity')
+				$tobaccos = Item::where('name','Tobacco')->first()->order()->select('id', 'date', 'quantity')
 					->get()
 					->groupBy(function ($date) {
 						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-						return Carbon::parse($date->created_at)->format('m'); // grouping by months
+						return Carbon::parse($date->date)->format('m'); // grouping by months
 					});
 			}
 
