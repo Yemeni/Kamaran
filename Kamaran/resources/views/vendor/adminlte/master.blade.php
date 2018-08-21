@@ -6,6 +6,8 @@
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
 @yield('title', config('adminlte.title', 'AdminLTE 2'))
 @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -15,18 +17,25 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
 
-    @if(config('adminlte.plugins.select2'))
-        <!-- Select2 -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
-    @endif
+    {{--@if(config('adminlte.plugins.select2'))--}}
+        {{--<!-- Select2 -->--}}
+        {{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">--}}
+    {{--@endif--}}
 
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
+    {{--@if(config('adminlte.plugins.select2'))--}}
+    {{--<!-- Select2 -->--}}
+    {{--<link rel="stylesheet" href="{{ asset('css/select2.min.css') }}">--}}
+    {{--@endif--}}
 
-    @if(config('adminlte.plugins.datatables'))
-        <!-- DataTables -->
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    @endif
+
+
+
+
+    {{--@if(config('adminlte.plugins.datatables'))--}}
+        {{--<!-- DataTables -->--}}
+        {{--<link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">--}}
+    {{--@endif--}}
+
 
     @yield('adminlte_css')
 
@@ -44,6 +53,11 @@
     <!-- custom css edits -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
 
+            <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+            <!-- Theme style -->
+            <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
+
+
 </head>
 <body class="hold-transition @yield('body_class')">
 
@@ -51,22 +65,20 @@
 
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+{{--<script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>--}}
+<script src="{!! mix('js/app.js') !!}"></script>
 
-@if(config('adminlte.plugins.select2'))
-    <!-- Select2 -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-@endif
 
-@if(config('adminlte.plugins.datatables'))
-    <!-- DataTables -->
-    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-@endif
 
-@if(config('adminlte.plugins.chartjs'))
-    <!-- ChartJS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-@endif
+{{--@if(config('adminlte.plugins.datatables'))--}}
+    {{--<!-- DataTables -->--}}
+    {{--<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>--}}
+{{--@endif--}}
+
+{{--@if(config('adminlte.plugins.chartjs'))--}}
+    {{--<!-- ChartJS -->--}}
+    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>--}}
+{{--@endif--}}
 
 <!-- datatimepicker scripts TODO: add it in config option -->
 <script src="{{ asset('vendor/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
