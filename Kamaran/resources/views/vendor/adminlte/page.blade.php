@@ -57,7 +57,7 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
-                        @if(isset(Auth::user()->name)))
+                        @if(isset(Auth::user()->name))
                             <li><a href="/profile">Hello {{ Auth::user()->name }}</a></li>
                         @endif
                         <li>
