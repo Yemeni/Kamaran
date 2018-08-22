@@ -123,20 +123,26 @@ class HomeController extends Controller {
 	{
 		if (Item::where('name','tobacco')->first()){
 			if ($consumed){
-				$tobaccos = Item::where('name','Tobacco')->first()->inventory()->where('transaction_type','consume')->select('id', 'date', 'quantity')
-					->get()
-					->groupBy(function ($date) {
-						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-						return Carbon::parse($date->date)->format('m'); // grouping by months
-					});
+                $totalConsumedArray =[];
+                for ($index = 0; $index <= 11; $index++) {
+                    // TODO: fetch year date from system time instead of 2018
+                    // TODO: the query is heavy
+                    $totalConsumedArray[$index] = Item::where('name', 'Tobacco')->first()->inventory()->where('transaction_type', 'consume')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index + 1))
+                        ->get()->sum('quantity');
+                }
+                return $totalConsumedArray;
+
 			}elseif ($orders){
 //                echo Item::where('name','Tobacco')->first()->order()->select('id', 'date', 'quantity')
 //                    ->get();
                 $totalOrdersArray =[];
                 for ($index = 0; $index <= 11; $index++) {
 
+                    // TODO: fetch year date from system time instead of 2018
+                    // TODO: the query is heavy
                     $totalOrdersArray[$index] =
                         Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereMonth('date', '=', date($index+1))
+                        Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index+1))
                         ->get()->sum('quantity');
 
 //                    $q->whereMonth('created_at', '=', date('m'));
