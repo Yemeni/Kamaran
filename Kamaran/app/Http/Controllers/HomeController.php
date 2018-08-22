@@ -133,8 +133,6 @@ class HomeController extends Controller {
                 return $totalConsumedArray;
 
 			}elseif ($orders){
-//                echo Item::where('name','Tobacco')->first()->order()->select('id', 'date', 'quantity')
-//                    ->get();
                 $totalOrdersArray =[];
                 for ($index = 0; $index <= 11; $index++) {
 
@@ -144,19 +142,8 @@ class HomeController extends Controller {
                         Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereMonth('date', '=', date($index+1))
                         Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index+1))
                         ->get()->sum('quantity');
-
-//                    $q->whereMonth('created_at', '=', date('m'));
-//                    $q->whereYear('created_at', '=', date('Y'));
                 }
-//                $array = array(0 => '5555', 1 => '555', 2 => '1234', 3 => '4444');
-//                echo serialize($totalOrdersArray);
                 return $totalOrdersArray;
-//                $tobaccos = Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->select('id', 'date', 'quantity')
-//					->get()
-//					->groupBy(function ($date) {
-//						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-//						return Carbon::parse($date->date)->format('m'); // grouping by months
-//					});
 			}
 
 			$tobaccomcount = [];
