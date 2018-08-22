@@ -19,7 +19,10 @@ class InventoryBalanceController extends Controller
         $this->middleware(['auth', 'auth.redirect']);
     }
 
-    public $itemNames = array('Tobacco','Tobacco3','Tobacco','Tobacco4');
+    public $itemNames = array('Tobacco','Cigarette Paper B','Cigarette Paper G','Filter Tip',
+        'Filter Tow', 'Outers B', 'Outers G', 'Blanks B', 'Blanks G', 'Carton B', 'Carton G',
+        'Blue Ink', 'Case Tape', 'Glue', 'Cellophane Wrap'
+        );
 
     public function index()
     {
