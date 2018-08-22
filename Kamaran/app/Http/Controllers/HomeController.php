@@ -139,7 +139,6 @@ class HomeController extends Controller {
                     // TODO: fetch year date from system time instead of 2018
                     // TODO: the query is heavy
                     $totalOrdersArray[$index] =
-                        Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereMonth('date', '=', date($index+1))
                         Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index+1))
                         ->get()->sum('quantity');
                 }
