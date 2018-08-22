@@ -130,7 +130,7 @@ class HomeController extends Controller {
 						return Carbon::parse($date->date)->format('m'); // grouping by months
 					});
 			}elseif ($orders){
-				$tobaccos = Item::where('name','Tobacco')->first()->order()->select('id', 'date', 'quantity')
+				$tobaccos = Item::where('name','Tobacco')->first()->order()->where('order_status','approved')->select('id', 'date', 'quantity')
 					->get()
 					->groupBy(function ($date) {
 						//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
