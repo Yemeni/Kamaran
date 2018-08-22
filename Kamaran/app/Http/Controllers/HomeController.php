@@ -146,30 +146,30 @@ class HomeController extends Controller {
                 return $totalOrdersArray;
 			}
 
-			$tobaccomcount = [];
-			$tobaccoArr = [];
-			$totalTo = 0;
-
-			foreach ($tobaccos as $key => $value)
-			{
-				foreach ($value as $tob){
-					$totalTo += $tob->quantity;
-				}
-				$tobaccomcount[(int) $key] = $totalTo;
-			}
-
-			for ($i = 1; $i <= 12; $i ++)
-			{
-				if (!empty($tobaccomcount[$i]))
-				{
-					$tobaccoArr[] = $tobaccomcount[$i];
-				} else
-				{
-					$tobaccoArr[] = 0;
-				}
-			}
-
-			return $tobaccoArr;
+//			$tobaccomcount = [];
+//			$tobaccoArr = [];
+//			$totalTo = 0;
+//
+//			foreach ($tobaccos as $key => $value)
+//			{
+//				foreach ($value as $tob){
+//					$totalTo += $tob->quantity;
+//				}
+//				$tobaccomcount[(int) $key] = $totalTo;
+//			}
+//
+//			for ($i = 1; $i <= 12; $i ++)
+//			{
+//				if (!empty($tobaccomcount[$i]))
+//				{
+//					$tobaccoArr[] = $tobaccomcount[$i];
+//				} else
+//				{
+//					$tobaccoArr[] = 0;
+//				}
+//			}
+//
+//			return $tobaccoArr;
 		}
 
 		return false;
