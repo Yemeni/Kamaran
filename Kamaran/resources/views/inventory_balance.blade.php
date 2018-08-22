@@ -47,40 +47,43 @@
                     <p class="text">Item Name</p>
                 </div>
 
-                <div class="col-lg-2 col-xs-6">
+                <div class="col-lg-2 col-xs-2">
                     <p class="bg-green" style="text-align: center;">Current</p>
                 </div>
 
-                <div class="col-lg-2 col-xs-6">
+                <div class="col-lg-2 col-xs-2">
                     <p class="bg-yellow" style="text-align: center;">Shipping</p>
                 </div>
 
-                <div class="col-lg-2 col-xs-6">
+                <div class="col-lg-2 col-xs-2">
                     <p class="bg-red" style="text-align: center;">Ordering</p>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-6 col-xs-6">
-                    <p>Australian Tobacco type C</p>
-                </div>
+            @foreach($itemNames as $itemName)
+                <div class="row">
+                    <div class="col-lg-6 col-xs-6">
+                        <p>
+                            {{ $itemName }}
+                        </p>
+                    </div>
 
-                <div class="col-lg-6 col-xs-6">
+                    <div class="col-lg-6 col-xs-6">
 
-                    <div class="progress" style="border-radius: 10px">
-                        <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{{ $percentage['currentInventory'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $percentage['currentInventory'] }}%">
-                            {{ $balance['currentInventory'] }}
-                        </div>
-                        <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="{{ $percentage['currentShipping'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $percentage['currentShipping'] }}%">
-                            {{ $balance['currentShipping'] }}
-                        </div>
-                        <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{ $percentage['currentOrdered'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $percentage['currentOrdered'] }}%">
-                            {{ $balance['currentOrdered'] }}
+                        <div class="progress" style="border-radius: 10px">
+                            <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{{ $percentage[$itemName]['currentInventory'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$itemName]['currentInventory'] }}%">
+                                {{ $balance[$itemName]['currentInventory'] }}
+                            </div>
+                            <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="{{ $percentage[$itemName]['currentShipping'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$itemName]['currentShipping'] }}%">
+                                {{ $balance[$itemName]['currentShipping'] }}
+                            </div>
+                            <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{ $percentage[$itemName]['currentOrdered'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$itemName]['currentOrdered'] }}%">
+                                {{ $balance[$itemName]['currentOrdered'] }}
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            @endforeach
 
             <div class="row">
                 <div class="col-lg-6 col-xs-6">

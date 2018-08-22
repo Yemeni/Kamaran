@@ -166,20 +166,20 @@
                         @foreach($inventories as $inv)
                             <tr
                                     @switch($inv->transaction_type)
-                                    @case('voucher')
-                                    @case('initial_balance')
-                                    @case('surplus')
-                                    class="success"
-                                    @break
+                                        @case('voucher')
+                                        @case('initial_balance')
+                                        @case('surplus')
+                                            class="success"
+                                            @break
 
-                                    @case('consume')
-                                    @case('shortage')
-                                    @case('normal_shortage')
-                                    class="danger"
-                                    @break
+                                        @case('consume')
+                                        @case('shortage')
+                                        @case('normal_shortage')
+                                            class="danger"
+                                            @break
 
-                                    @default
-                                    class="info"
+                                        @default
+                                            class="info"
                                     @endswitch
                             >
                                 <td>{{ $inv->id }}</td>

@@ -117,7 +117,10 @@ class InventoryController extends Controller {
 				$total += $inv->quantity;
 			} else
 			{
-				$total -= $inv->quantity;
+			    if($inv->arrival_status){
+                    $total -= $inv->quantity;
+            }
+
 			}
 		}
 

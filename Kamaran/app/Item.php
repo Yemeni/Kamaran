@@ -32,17 +32,32 @@ class Item extends Model {
 	public function inventoryBalance($withString = true)
 	{
 		$total = 0;
-		$pos = ['voucher', 'initial_balance', 'surplus'];
+//		$pos = ['voucher', 'initial_balance', 'surplus'];
 
 		foreach ($this->inventory as $inv)
 		{
-			if (in_array($inv->transaction_type, $pos))
-			{
-				$total += $inv->quantity;
-			} else
-			{
-				$total -= $inv->quantity;
-			}
+		    switch($inv->transaction_type){
+                case 'voucher':
+                case 'initial_balance':
+                case 'surplus':
+                    $total += $inv->quantity;
+                    break;
+                case 'on_hold':
+                    if($inv->arrival_status){
+                        $total += $inv->quantity;
+                    }
+                    break;
+                case 'consume':
+                case 'returns':
+                case 'shortage':
+                case 'normal_shortage':
+                    $total -= $inv->quantity;
+                    break;
+
+                default:
+                    // you should not end up here
+        }
+
 		}
 
 		if ($withString)
@@ -84,9 +99,8 @@ class Item extends Model {
             ->order()->select('id')->get();
 
         $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
-        //$total -= $this->pendingOrders(false , 'approved');
-
-
+        //$total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['cancelled'])->get()->sum('quantity');
+        //TODO: fix bug where accepting shipment then sending it counts it twice
         if ($withString)
             return (string) number_format($total) . ' ' . $this->unit;
 
