@@ -83,6 +83,12 @@
                                         <option value="toxic">A- High Priority</option>
                                     </select>
                                 </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="importantCheckBox" type="checkbox" name="important" value="0">
+                                        Important
+                                    </label>
+                                </div>
                                 <div></div>
 
 
@@ -103,3 +109,18 @@
 
 
 @stop
+@section('js')
+    <script>
+        $(document).ready(function () {
+            $('#importantCheckBox').change(function(){
+                cb = $(this);
+                if(cb.prop('checked')){
+                    cb.val(1);
+                }else{
+                    cb.val(0);
+                }
+
+            });
+        })
+    </script>
+@append

@@ -27,6 +27,7 @@
                             <th>Specification</th>
                             <th>Unit</th>
                             <th>Danger Level</th>
+                            <th>Important</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -55,6 +56,11 @@
                                         @default
                                         Undefined
                                     @endswitch
+                                </td>
+                                <td>
+                                    @if($item->important)
+                                        <i class="fa fa-fw fa-check"></i>
+                                        @endif
                                 </td>
                                 <td>
                                     <div class="dropdown">

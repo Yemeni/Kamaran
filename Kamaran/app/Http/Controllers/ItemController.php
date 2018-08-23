@@ -137,7 +137,15 @@ class ItemController extends Controller {
 			],
 		]);
 
-		$item->update($request->all());
+		$item->update([
+            'name'          => $request->name,
+            'category_id'   => $request->category_id,
+            'description'   => $request->description,
+            'specification' => $request->specification,
+            'unit' => $request->unit,
+            'danger_level' => $request->danger_level,
+            'important' => $request->important == '1' ? '1' : '0',
+        ]);
 
 		Alert::flash('New Item has been added', 'success');
 
