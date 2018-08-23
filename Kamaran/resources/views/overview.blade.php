@@ -189,7 +189,7 @@
                                     <td>
                                         <span class="label label-{{ $order->order_status == 'approved' ? 'success' : 'warning' }}">{{ $order->order_status }}</span>
                                     </td>
-                                    <td>They will give 5% discount the next time we order</td>
+                                    <td>{{ $order->comment }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
