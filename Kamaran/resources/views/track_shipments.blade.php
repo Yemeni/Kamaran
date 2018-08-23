@@ -60,7 +60,7 @@
                                 <td>{{ $ship->order->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <button type="button"
-                                            class="btn btn-info btn-sm"
+                                            class="btn btn-info btn-sm modal-button"
                                             data-toggle="modal"
                                             data-target="#myModal{{ $ship->id }}">Process
                                     </button>
@@ -266,7 +266,7 @@
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm modal-button"
                                                 type="button"
                                                 data-toggle="dropdown">Change Status
                                             <span class="caret"></span>
@@ -349,7 +349,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group arrival-date">
                                                         <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
@@ -365,7 +365,7 @@
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
-                                                        <select name="shipment_status" class="form-control">
+                                                        <select name="shipment_status" class="form-control shipment-select">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
@@ -487,7 +487,7 @@
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm modal-button"
                                                 type="button"
                                                 data-toggle="dropdown">Change Status
                                             <span class="caret"></span>
@@ -570,7 +570,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group arrival-date">
                                                         <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
@@ -586,7 +586,7 @@
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
-                                                        <select name="shipment_status" class="form-control">
+                                                        <select name="shipment_status" class="form-control shipment-select">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
@@ -762,7 +762,7 @@
                                 <td>{{ $ship->quantity }} {{ $ship->order->item->unit }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle btn-sm"
+                                        <button class="btn btn-secondary dropdown-toggle btn-sm modal-button"
                                                 type="button"
                                                 data-toggle="dropdown">Change Status
                                             <span class="caret"></span>
@@ -845,7 +845,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <div class="form-group arrival-date">
                                                         <label for="">Arrival Date:</label>
                                                         <div class="input-group date">
                                                             <div class="input-group-addon">
@@ -861,7 +861,7 @@
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
-                                                        <select name="shipment_status" class="form-control">
+                                                        <select name="shipment_status" class="form-control shipment-select">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
@@ -1007,7 +1007,12 @@
                         $('.arrival-date').hide();
                         break;
                 }
-            })
+
+            });
+            $('.modal-button').click(function() {
+                $('.shipment-select').val('on_hold');
+                $('.arrival-date').hide();
+            });
         })
 
     </script>
