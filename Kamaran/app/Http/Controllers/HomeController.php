@@ -42,7 +42,8 @@ class HomeController extends Controller {
 		$onHoldInventories = Inventory::where('arrival_status', 0)->count();
 
 		$tobacco = Item::where('name', 'Tobacco')->first();
-
+        $currentTobacco = $tobacco->inventoryBalance(false);
+        $tobaccoUnit = $tobacco->unit;
 		if ($tobacco)
 		{
 			$consumedTobacco = $tobacco
@@ -55,7 +56,7 @@ class HomeController extends Controller {
 		$latestOrders = Order::latest()->take(5)->get();
 		$latestInventories = Inventory::where('arrival_status', 1)->latest()->take(5)->get();
 
-		return view('overview', compact('tobaccoChart', 'consumedTobacco', 'orderedTobacco', 'ordersChart', 'tobacco', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
+		return view('overview', compact('tobaccoChart', 'consumedTobacco', 'orderedTobacco', 'ordersChart', 'tobacco', 'currentTobacco', 'tobaccoUnit', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
 	}
 
 	private function tobaccoChart()

@@ -140,11 +140,11 @@
                     <div class="inner">
                         <h3>Total Tobacco</h3>
 
-                        <h3>{{ \App\Item::where('name', 'tobacco')->first()->inventoryBalance(false) }}
-                            <sup style="font-size: 20px">tons</sup></h3>
+                        <h3>{{ $currentTobacco }}
+                            <sup style="font-size: 20px">{{ $tobaccoUnit }}</sup></h3>
 
-                        <p>Last month you consumed {{ $consumedTobacco }} tons</p>
-                        <p>Last month you ordered {{ $orderedTobacco }} tons</p>
+                        <p>Last month you consumed {{ $consumedTobacco }} <sup style="font-size: 10px">{{ $tobaccoUnit }}</sup></p>
+                        <p>Last month you ordered {{ $orderedTobacco }} <sup style="font-size: 10px">{{ $tobaccoUnit }}</sup></p>
                         <div class="bg-gray">
                             {!! $tobaccoChart->render() !!}
                         </div>
