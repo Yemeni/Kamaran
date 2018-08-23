@@ -106,48 +106,30 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tbody><tr>
-                            <th>Item ID</th>
-                            <th>Item Name</th>
-                            <th>Current Quantity</th>
-                            <th>Shipping Quantity</th>
-                            <th>Ordered Quantity</th>
-                            <th>Consumption Last Month</th>
-                        </tr>
-                        <tr>
-                            <td><a href="">153</a></td>
-                            <td><a href="">Tobbaco Type F</a></td>
-                            <td>11,455 tones</td>
-                            <td>2,000 tones</td>
-                            <td>2,559 tones</td>
-                            <td>2,800 tones</td>
-                        </tr>
-                        <tr>
-                            <td>186</td>
-                            <td>Tobbaco Type F</td>
-                            <td>11,455 tones</td>
-                            <td>2,000 tones</td>
-                            <td>2,559 tones</td>
-                            <td>2,800 tones</td>
-                        </tr>
-                        <tr>
-                            <td>188</td>
-                            <td>Tobbaco Type F</td>
-                            <td>11,455 tones</td>
-                            <td>2,000 tones</td>
-                            <td>2,559 tones</td>
-                            <td>2,800 tones</td>
-                        </tr>
-                        <tr>
-                            <td>180</td>
-                            <td>Tobbaco Type F</td>
-                            <td>11,455 tones</td>
-                            <td>2,000 tones</td>
-                            <td>2,559 tones</td>
-                            <td>2,800 tones</td>
-                        </tr>
-                        </tbody></table>
+                    <table class="table table-hover datatables">
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Item Name</th>
+                                <th>Current Quantity</th>
+                                <th>Shipping Quantity</th>
+                                <th>Ordering Quantity</th>
+                                <th>Consumption This Month</th>
+                                <th>Consumption Last Month</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>186</td>
+                                <td>Tobbaco Type F</td>
+                                <td>11,455 tones</td>
+                                <td>2,000 tones</td>
+                                <td>2,559 tones</td>
+                                <td>2,5559 tones</td>
+                                <td>2,800 tones</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <!-- /.box-body -->
             </div>
