@@ -133,9 +133,9 @@
                                                                 <option value="cancelled" {{ $ship->shipment_status == 'cancelled' ? 'selected' : '' }}>
                                                                     Canceled
                                                                 </option>
-                                                                <option value="arrived" {{ $ship->shipment_status == 'arrived' ? 'selected' : '' }}>
-                                                                    Arrived
-                                                                </option>
+                                                                {{--<option value="arrived" {{ $ship->shipment_status == 'arrived' ? 'selected' : '' }}>--}}
+                                                                    {{--Arrived--}}
+                                                                {{--</option>--}}
                                                             </select>
                                                         </div>
 
