@@ -99,10 +99,13 @@ class Item extends Model {
             ->order()->select('id')->get();
 
         $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
-
+        
         //TODO: fix bug where accepting shipment then sending it counts it twice
 //        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['cancelled'])->get()->sum('quantity');
 //        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->first()->inventory()->where('arrival_status' , 1)->get();
+        $itemID = Item::where('name', $itemName)->first()->id;
+        $total -= Inventory::with('shipment')->get()->where('item_id' , $itemID)->where('arrival_status', 1)->sum('quantity');
+//        $total -= Inventory::where('item_id', 8)->first()->shipment()->get()->sum('quantity');
         if ($withString)
             return (string) number_format($total) . ' ' . $this->unit;
 
