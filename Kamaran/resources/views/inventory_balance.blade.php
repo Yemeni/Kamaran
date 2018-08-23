@@ -128,8 +128,8 @@
                                 <td>{{ $balance[$item['id']]['currentInventory'] }}</td>
                                 <td>{{ $balance[$item['id']]['currentShipping'] }}</td>
                                 <td>{{ $balance[$item['id']]['currentOrdered'] }}</td>
-                                <td>2,5559 tones</td>
-                                <td>2,800 tones</td>
+                                <td>{{ $consumption[$item['id']]['consumptionThisMonth'] }}</td>
+                                <td>{{ $consumption[$item['id']]['consumptionLastMonth'] }}</td>
                             </tr>
                         @endforeach
                         </tbody>

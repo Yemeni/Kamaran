@@ -31,18 +31,23 @@ class InventoryBalanceController extends Controller
 
         $balance = $this->quantityCalculator();
         $percentage = $this->percentageCalculator(false);
+        $consumption = $this->consumptionCalculator();
 //        $items = Item::pluck('id')->toArray();
 //        $items = array(1=>1,2=>2,3=>2);
         $items = Item::select('id', 'name','important')->get()->toArray();
 
 
-        return view('inventory_balance', compact('balance','percentage','items'));
+        return view('inventory_balance', compact('balance','percentage','items', 'consumption'));
+    }
+
+    private function getItems(){
+        return Item::pluck('id')->toArray();
     }
 
 
     private function quantityCalculator($withUnit = true){
 //        $itemName = $this->itemName;
-        $items = Item::pluck('id')->toArray();
+        $items = $this->getItems();
         foreach($items as $item) {
             if (Item::where('id', $item)->first()) {
 
@@ -55,7 +60,7 @@ class InventoryBalanceController extends Controller
                 $currentInventory = Item::where('id', $item)->first()
                     ->inventoryBalance($withUnit);
 
-                $itemName = Item::where('id', $item)->first();
+//                $itemName = Item::where('id', $item)->first();
             }else{
                 $currentOrdered = 0;
                 $currentShipping = 0;
@@ -64,7 +69,7 @@ class InventoryBalanceController extends Controller
                 $data[$item]['currentOrdered'] = $currentOrdered;
                 $data[$item]['currentShipping'] = $currentShipping;
                 $data[$item]['currentInventory'] = $currentInventory;
-                $data[$item]['itemName'] = $itemName;
+//                $data[$item]['itemName'] = $itemName;
 
         }
         return ($data);
@@ -73,7 +78,7 @@ class InventoryBalanceController extends Controller
 
     private function percentageCalculator(){
         $percentage = $this->quantityCalculator(false);
-        $items = Item::pluck('id')->toArray();
+        $items = $this->getItems();
         foreach($items as $item) {
             if(Item::where('id', $item)->first()) {
                 $total = $percentage[$item]['currentOrdered']
@@ -99,6 +104,30 @@ class InventoryBalanceController extends Controller
             }
         }
         return ($data);
+    }
+
+    private function consumptionCalculator(){
+        $items = $this->getItems();
+        foreach($items as $item){
+            $itemInventory = Item::where('id', $item)->first();
+            // TODO: use system month instead of static number
+            $year = 2018;
+            $month = 8;
+            $data[$item]['consumptionLastMonth'] = $itemInventory->inventory()->where('transaction_type', 'consume')
+                ->whereYear('date', '=', date($year))
+                ->whereMonth('date', '=', date($month-1)) // exception when last month is January, it returns month 0
+                ->get()->sum('quantity');
+
+            $data[$item]['consumptionThisMonth'] = $itemInventory->inventory()->where('transaction_type', 'consume')
+                ->whereYear('date', '=', date($year))
+                ->whereMonth('date', '=', date($month))
+                ->get()->sum('quantity');
+        }
+        return ($data);
+//        $consumtionThisMonth = 1;
+//        $consumtionLastMonth = 1;
+//        ->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date('8'))
+//                ->get()->sum('quantity');
     }
 
 }
