@@ -82,7 +82,7 @@ class Item extends Model {
         $itemOrders = Item::where('name', $itemName)->first()
             ->order()->select('id')->get();
 
-        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
+        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived','cancelled'])->get()->sum('quantity');
 
 
         if ($withString)
