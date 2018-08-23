@@ -36,7 +36,7 @@ class HomeController extends Controller {
 		$tobaccoChart = $this->tobaccoChart();
 
 		$pendingOrders = Order::where('order_status', 'pending')->count();
-		$pendingShipments = Shipment::where('shipment_status', 'pending')->count();
+		$pendingShipments = Shipment::where('arrival_date', null)->where('expected_date', null)->count();
 		$totalSuppliers = Supplier::all()->count();
 		$totalItems = Item::all()->count();
 		$onHoldInventories = Inventory::where('arrival_status', 0)->count();
