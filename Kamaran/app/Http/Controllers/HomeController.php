@@ -43,12 +43,12 @@ class HomeController extends Controller {
 
 		$tobacco = Item::where('name', 'Tobacco')->first();
 
-		if (Item::where('name','tobacco')->first())
+		if ($tobacco)
 		{
-			$consumedTobacco = Item::where('name', 'Tobacco')->first()
+			$consumedTobacco = $tobacco
 				->inventory()->where('transaction_type', 'consume')->where(\DB::raw('MONTH(date)'), '=', date('m') - 1)->get()->sum('quantity');
 
-			$orderedTobacco = Item::where('name', 'Tobacco')->first()
+			$orderedTobacco = $tobacco
 				->order()->where(\DB::raw('MONTH(date)'), '=', date('m') - 1)->get()->sum('quantity');
 		}
 
@@ -121,13 +121,14 @@ class HomeController extends Controller {
 	 */
 	private function getTobaccoStatistics($consumed = false, $orders = false)
 	{
-		if (Item::where('name','tobacco')->first()){
+        $tobacco = Item::where('name', 'Tobacco')->first();
+		if ($tobacco){
 			if ($consumed){
                 $totalConsumedArray =[];
                 for ($index = 0; $index <= 11; $index++) {
                     // TODO: fetch year date from system time instead of 2018
                     // TODO: the query is heavy
-                    $totalConsumedArray[$index] = Item::where('name', 'Tobacco')->first()->inventory()->where('transaction_type', 'consume')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index + 1))
+                    $totalConsumedArray[$index] = $tobacco->inventory()->where('transaction_type', 'consume')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index + 1))
                         ->get()->sum('quantity');
                 }
                 return $totalConsumedArray;
@@ -139,7 +140,7 @@ class HomeController extends Controller {
                     // TODO: fetch year date from system time instead of 2018
                     // TODO: the query is heavy
                     $totalOrdersArray[$index] =
-                        Item::where('name','Tobacco')->first()->order()->where('order_status', 'approved')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index+1))
+                        $tobacco->order()->where('order_status', 'approved')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index+1))
                         ->get()->sum('quantity');
                 }
                 return $totalOrdersArray;
