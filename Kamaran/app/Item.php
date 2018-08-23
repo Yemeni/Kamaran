@@ -104,7 +104,7 @@ class Item extends Model {
 //        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['cancelled'])->get()->sum('quantity');
 //        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->first()->inventory()->where('arrival_status' , 1)->get();
         $itemID = Item::where('name', $itemName)->first()->id;
-        $total -= Inventory::with('shipment')->get()->where('item_id' , $itemID)->where('arrival_status', 1)->where('transaction_type','consume')->sum('quantity');
+        $total -= Inventory::with('shipment')->get()->where('item_id' , $itemID)->where('arrival_status', 1)->where('transaction_type','voucher')->sum('quantity');
 //        $total -= Inventory::where('item_id', 8)->first()->shipment()->get()->sum('quantity');
         if ($withString)
             return (string) number_format($total) . ' ' . $this->unit;
