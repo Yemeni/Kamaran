@@ -32,8 +32,6 @@ class Item extends Model {
 	public function inventoryBalance($withString = true)
 	{
 		$total = 0;
-//		$pos = ['voucher', 'initial_balance', 'surplus'];
-
 		foreach ($this->inventory as $inv)
 		{
 		    switch($inv->transaction_type){
@@ -93,19 +91,12 @@ class Item extends Model {
 
     public function shippingItems($withString = true, $item)
     {
-        $pos = ['on_hold','moving','delayed'];
         $total = 0;
         $itemOrders = Item::where('id', $item)->first()
             ->order()->select('id')->get();
 
         $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
-        
-        //TODO: fix bug where accepting shipment then sending it counts it twice
-//        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['cancelled'])->get()->sum('quantity');
-//        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->first()->inventory()->where('arrival_status' , 1)->get();
-//        $itemID = Item::where('id', $item)->first()->id;
         $total -= Inventory::with('shipment')->get()->where('item_id' , $item)->where('arrival_status', 1)->where('transaction_type','voucher')->sum('quantity');
-//        $total -= Inventory::where('item_id', 8)->first()->shipment()->get()->sum('quantity');
         if ($withString)
             return (string) number_format($total) . ' ' . $this->unit;
 

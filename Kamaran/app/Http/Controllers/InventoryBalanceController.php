@@ -20,11 +20,6 @@ class InventoryBalanceController extends Controller
         $this->middleware(['auth', 'auth.redirect']);
     }
 
-//    private $itemNames = array('Tobacco','Cigarette Paper B','Cigarette Paper G','Filter Tip',
-//        'Filter Tow', 'Outers B', 'Outers G', 'Blanks B', 'Blanks G', 'Carton B', 'Carton G',
-//        'Blue Ink', 'Case Tape', 'Glue', 'Cellophane Wrap'
-//        );
-
     public function index()
     {
         Gate::authorize('admin||manager');
@@ -32,10 +27,7 @@ class InventoryBalanceController extends Controller
         $balance = $this->quantityCalculator();
         $percentage = $this->percentageCalculator(false);
         $consumption = $this->consumptionCalculator();
-//        $items = Item::pluck('id')->toArray();
-//        $items = array(1=>1,2=>2,3=>2);
         $items = Item::select('id', 'name','important')->get()->toArray();
-
 
         return view('inventory_balance', compact('balance','percentage','items', 'consumption'));
     }
@@ -46,7 +38,6 @@ class InventoryBalanceController extends Controller
 
 
     private function quantityCalculator($withUnit = true){
-//        $itemName = $this->itemName;
         $items = $this->getItems();
         foreach($items as $item) {
             if (Item::where('id', $item)->first()) {
@@ -60,7 +51,6 @@ class InventoryBalanceController extends Controller
                 $currentInventory = Item::where('id', $item)->first()
                     ->inventoryBalance($withUnit);
 
-//                $itemName = Item::where('id', $item)->first();
             }else{
                 $currentOrdered = 0;
                 $currentShipping = 0;
@@ -69,7 +59,6 @@ class InventoryBalanceController extends Controller
                 $data[$item]['currentOrdered'] = $currentOrdered;
                 $data[$item]['currentShipping'] = $currentShipping;
                 $data[$item]['currentInventory'] = $currentInventory;
-//                $data[$item]['itemName'] = $itemName;
 
         }
         return ($data);
@@ -124,10 +113,6 @@ class InventoryBalanceController extends Controller
                 ->get()->sum('quantity');
         }
         return ($data);
-//        $consumtionThisMonth = 1;
-//        $consumtionLastMonth = 1;
-//        ->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date('8'))
-//                ->get()->sum('quantity');
     }
 
 }
