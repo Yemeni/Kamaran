@@ -104,7 +104,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group">
+                                                        <div class="form-group arrival-date">
                                                             <label for="">Arrival Date:</label>
                                                             <div class="input-group date">
                                                                 <div class="input-group-addon">
@@ -120,7 +120,7 @@
 
                                                         <div class="form-group">
                                                             <label for="">Status:</label>
-                                                            <select name="shipment_status" class="form-control">
+                                                            <select name="shipment_status" class="form-control shipment-select">
                                                                 <option value="on_hold" {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }}>
                                                                     on Hold
                                                                 </option>
@@ -996,5 +996,19 @@
 @section('js')
     <script type="text/javascript">
         $(".form_datetime").datetimepicker();
+        $('.arrival-date').hide();
+        $(document).ready(function () {
+            $('.shipment-select').on('change', function (eve) {
+                switch ($(this).val()) {
+                    case 'arrived':
+                        $('.arrival-date').show();
+                        break;
+                    default:
+                        $('.arrival-date').hide();
+                        break;
+                }
+            })
+        })
+
     </script>
 @append
