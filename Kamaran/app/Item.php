@@ -66,7 +66,7 @@ class Item extends Model {
 		return $total;
 	}
 
-    public function pendingOrders($withString = true , $itemName)
+    public function pendingOrders($withString = true , $item)
     {
         $total = 0;
 
@@ -79,7 +79,7 @@ class Item extends Model {
 
         }
 
-        $itemOrders = Item::where('name', $itemName)->first()
+        $itemOrders = Item::where('id', $item)->first()
             ->order()->select('id')->get();
 
         $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived','cancelled'])->get()->sum('quantity');
@@ -91,11 +91,11 @@ class Item extends Model {
         return $total;
     }
 
-    public function shippingItems($withString = true, $itemName)
+    public function shippingItems($withString = true, $item)
     {
         $pos = ['on_hold','moving','delayed'];
         $total = 0;
-        $itemOrders = Item::where('name', $itemName)->first()
+        $itemOrders = Item::where('id', $item)->first()
             ->order()->select('id')->get();
 
         $total += Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->get()->sum('quantity');
@@ -103,8 +103,8 @@ class Item extends Model {
         //TODO: fix bug where accepting shipment then sending it counts it twice
 //        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['cancelled'])->get()->sum('quantity');
 //        $total -= Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['on_hold','moving','delayed','arrived'])->first()->inventory()->where('arrival_status' , 1)->get();
-        $itemID = Item::where('name', $itemName)->first()->id;
-        $total -= Inventory::with('shipment')->get()->where('item_id' , $itemID)->where('arrival_status', 1)->where('transaction_type','voucher')->sum('quantity');
+//        $itemID = Item::where('id', $item)->first()->id;
+        $total -= Inventory::with('shipment')->get()->where('item_id' , $item)->where('arrival_status', 1)->where('transaction_type','voucher')->sum('quantity');
 //        $total -= Inventory::where('item_id', 8)->first()->shipment()->get()->sum('quantity');
         if ($withString)
             return (string) number_format($total) . ' ' . $this->unit;

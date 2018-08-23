@@ -60,29 +60,31 @@
                 </div>
             </div>
 
-            @foreach($itemNames as $itemName)
+            @foreach($items as $item)
+                @if($item['important'])
                 <div class="row">
                     <div class="col-lg-6 col-xs-6">
                         <p>
-                            {{ $itemName }}
+                            {{ $item['name'] }}
                         </p>
                     </div>
 
                     <div class="col-lg-6 col-xs-6">
 
                         <div class="progress" style="border-radius: 10px">
-                            <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{{ $percentage[$itemName]['currentInventory'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$itemName]['currentInventory'] }}%">
-                                {{ $balance[$itemName]['currentInventory'] }}
+                            <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{{ $percentage[$item['id']]['currentInventory'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$item['id']]['currentInventory'] }}%">
+                                {{ $balance[$item['id']]['currentInventory'] }}
                             </div>
-                            <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="{{ $percentage[$itemName]['currentShipping'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$itemName]['currentShipping'] }}%">
-                                {{ $balance[$itemName]['currentShipping'] }}
+                            <div class="progress-bar progress-bar-yellow" role="progressbar" aria-valuenow="{{ $percentage[$item['id']]['currentShipping'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$item['id']]['currentShipping'] }}%">
+                                {{ $balance[$item['id']]['currentShipping'] }}
                             </div>
-                            <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{ $percentage[$itemName]['currentOrdered'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$itemName]['currentOrdered'] }}%">
-                                {{ $balance[$itemName]['currentOrdered'] }}
+                            <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="{{ $percentage[$item['id']]['currentOrdered'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$item['id']]['currentOrdered'] }}%">
+                                {{ $balance[$item['id']]['currentOrdered'] }}
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
             @endforeach
 
         </div>
@@ -119,15 +121,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($items as $item)
                             <tr>
-                                <td>186</td>
-                                <td>Tobbaco Type F</td>
-                                <td>11,455 tones</td>
-                                <td>2,000 tones</td>
-                                <td>2,559 tones</td>
+                                <td>{{ $item['id'] }}</td>
+                                <td>{{ $item['name'] }}</td>
+                                <td>{{ $balance[$item['id']]['currentInventory'] }}</td>
+                                <td>{{ $balance[$item['id']]['currentShipping'] }}</td>
+                                <td>{{ $balance[$item['id']]['currentOrdered'] }}</td>
                                 <td>2,5559 tones</td>
                                 <td>2,800 tones</td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
