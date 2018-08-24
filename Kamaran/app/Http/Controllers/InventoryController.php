@@ -23,11 +23,10 @@ class InventoryController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function showInventoryReports()
 	{
 		Gate::authorize('admin||inventory');
 
-		$onHold = Inventory::where('arrival_status', 0)->get();
 		$inventories = Inventory::query();
 
 		if (\request()->has('category_id'))
@@ -70,8 +69,14 @@ class InventoryController extends Controller {
 
 		session()->put('filtered', $inventories);
 
-		return view('inventory', compact('onHold', 'inventories', 'items', 'categories'));
+		return view('inventory', compact('inventories', 'items', 'categories'));
 	}
+    public function showIncomingShipments()
+    {
+        Gate::authorize('admin||inventory');
+        $onHold = Inventory::where('arrival_status', 0)->get();
+        return view('inventory_incoming_shipments', compact('onHold'));
+    }
 
 	/**
 	 * Show the form for creating a new resource.

@@ -134,7 +134,7 @@ return [
 			'submenu' => [
 
 				[
-					'text'    => 'Category',
+					'text'    => 'Categories',
 					'icon'    => 'archive',
 					'can'  => 'admin',
 					'submenu' => [
@@ -153,7 +153,7 @@ return [
 					]
 				],
 				[
-					'text'    => 'Item',
+					'text'    => 'Items',
 					'icon'    => 'gears',
 					'can'  => 'admin||supplier',
 					'submenu' => [
@@ -172,7 +172,7 @@ return [
 					]
 				],
 				[
-					'text'    => 'Order',
+					'text'    => 'Orders',
 					'icon'    => 'file',
 					'can'  => 'admin||manager||employee',
 					'submenu' => [
@@ -192,7 +192,7 @@ return [
 					]
 				],
 				[
-					'text'    => 'Supplier',
+					'text'    => 'Suppliers',
 					'icon'    => 'users',
 					'can'  => 'admin||supplier',
 					'submenu' => [
@@ -211,10 +211,23 @@ return [
 						],
 					]],
                 [
-                    'text' => 'Track Shipments', // manager
-                    'icon' => 'ship',
-                    'url'  => '/track_shipments',
-                    'can'  => 'admin||manager||employee'
+                    'text'    => 'Shipments',
+                    'icon'    => '',
+                    'can'  => 'admin||inventory',
+                    'submenu' => [
+                        [
+                            'text' => 'Track Shipments', // manager
+                            'icon' => 'ship',
+                            'url'  => '/track_shipments',
+                            'can'  => 'admin||manager||employee'
+                        ],
+                        [
+                            'text' => 'Shipments Status', // manager
+                            'icon' => 'ship',
+                            'url'  => '/',
+                            'can'  => 'admin||manager||employee'
+                        ],
+                    ],
                 ],
                 [
                     'text'    => 'Inventory',
@@ -222,20 +235,26 @@ return [
                     'can'  => 'admin||inventory',
                     'submenu' => [
                         [
-                            'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                            'text' => 'Incoming Shipments',
                             'icon' => 'cubes',
-                            'url'  => '/inventory',
+                            'url'  => '/inventory_incoming_shipments',
                             'can'  => 'admin||inventory'
                         ],
                         [
-                            'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                            'text' => 'Make Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                             'icon' => 'cubes',
                             'url'  => '/inventory_transaction',
                             'can'  => 'admin||inventory'
                         ],
+                        [
+                            'text' => 'Inventory Reports', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                            'icon' => 'cubes',
+                            'url'  => '/inventory',
+                            'can'  => 'admin||inventory'
+                        ],
                     ]
                 ],
-                
+
 			]
 
 		],

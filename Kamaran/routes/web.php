@@ -79,9 +79,13 @@ Route::get('/supplier', 'SupplierController@index');
 
 
 Route::get('/inventory_transaction', 'InventoryController@create');
-Route::get('/inventory', 'InventoryController@index');
+Route::get('/inventory', 'InventoryController@showInventoryReports');
 Route::post('/inventory', 'InventoryController@store');
-Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
+
+//Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
+Route::get('/inventory_incoming_shipments/', 'InventoryController@showIncomingShipments');
+Route::get('/inventory_incoming_shipments/{inventory}/approved', 'InventoryController@approved');
+
 Route::get('/inventory/print', 'InventoryController@print');
 
 
