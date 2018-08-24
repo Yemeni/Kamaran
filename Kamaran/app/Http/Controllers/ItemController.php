@@ -69,7 +69,7 @@ class ItemController extends Controller {
 			],
 			'danger_level' => [
 				'required',
-				Rule::in(['low','flammable','toxic'])
+				Rule::in(['low','normal','high'])
 			],
 		]);
 
@@ -133,7 +133,7 @@ class ItemController extends Controller {
 			],
 			'danger_level' => [
 				'required',
-				Rule::in(['low','flammable','toxic'])
+				Rule::in(['low','normal','high'])
 			],
 		]);
 

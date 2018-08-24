@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->text('description')->nullable();
             $table->text('specification')->nullable();
             $table->enum('unit', ['KG','Gram','Tonne','Liter','Milliliter','Barrel','Gallon','Bottle','Meter','Centimeter','Kilometer','Cartons','Pack','Packet','Box']);
-            $table->enum('danger_level', ['low','flammable','toxic']);
+            $table->enum('danger_level', ['low','normal','high']);
             $table->boolean('important')->default(false);
             $table->timestamps();
         });

@@ -45,11 +45,11 @@
                                             <span class="label label-success">C- Low Priority</span>
                                         @break
 
-                                        @case('flammable')
+                                        @case('normal')
                                             <span class="label label-warning">B- Normal Priority</span>
                                         @break
 
-                                        @case('toxic')
+                                        @case('high')
                                             <span class="label label-danger">A- High Priority</span>
                                         @break
 

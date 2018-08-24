@@ -61,7 +61,7 @@ $factory->define(\App\Item::class, function (Faker $faker) {
 		'description'   => $faker->paragraph,
 		'specification' => $faker->paragraph,
 		'unit'          => $faker->randomElement(['KG','Gram','Tonne','Liter','Milliliter','Barrel','Gallon','Bottle','Meter','Centimeter','Kilometer','Cartons','Pack','Packet','Box']),
-		'danger_level'  => $faker->randomElement(['low', 'flammable', 'toxic']),
+		'danger_level'  => $faker->randomElement(['low', 'normal', 'high']),
 	];
 });
 

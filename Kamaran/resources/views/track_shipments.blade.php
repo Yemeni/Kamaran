@@ -159,7 +159,22 @@
                                                             <label for="">Danger Level:</label>
                                                             <input type="text"
                                                                    disabled=""
-                                                                   value="{{ $ship->order->item->danger_level }}"
+                                                                   @switch( $ship->order->item->danger_level)
+                                                                       @case('low')
+                                                                       value="C- Low Priority"
+                                                                       @break
+
+                                                                       @case('normal')
+                                                                       value="B- Normal Priority"
+                                                                       @break
+
+                                                                       @case('high')
+                                                                       value="A- High Priority"
+                                                                       @break
+
+                                                                       @default
+                                                                       Undefined
+                                                                   @endswitch
                                                                    class="form-control"
                                                                    id="">
                                                         </div>
