@@ -160,7 +160,17 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Laravel IDE helper (PhpStorm)
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        /*
+         * Admin LTE Service Provider
+         */
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+
+
 
 
     ],
