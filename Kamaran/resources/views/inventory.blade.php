@@ -39,7 +39,7 @@
                             <select name="status" class="js-example-basic-single-item form-control">
                                 <option selected disabled>Filter by transaction type</option>
                                 <option value="all">All Transaction types</option>
-                                <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">in stock
+                                <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">In Stock
                                 </option>
                                 <option {{ request('status') == 'on_hold' ? 'selected' : '' }} value="on_hold">on hold
                                 </option>
@@ -136,11 +136,32 @@
                             >
                                 <td>{{ $inv->id }}</td>
                                 <td>
-                                    @if($inv->transaction_type == 'voucher')
-                                        in stock
-                                    @else
-                                        {{ $inv->transaction_type }}
-                                    @endif
+                                    @switch($inv->transaction_type)
+                                        @case('voucher')
+                                            In Stock
+                                        @break
+
+                                        @case('initial_balance')
+                                            Initial Balance
+                                        @break
+
+                                        @case('surplus')
+                                            Surplus
+                                        @break
+
+                                        @case('consume')
+                                            Consume
+                                        @break
+                                        @case('shortage')
+                                            Shortage
+                                        @break
+                                        @case('normal_shortage')
+                                            Normal Shortage
+                                        @break
+
+                                        @default
+                                            Undefined
+                                    @endswitch
                                 </td>
                                 <td>{{ $inv->category->name }}</td>
                                 <td>{{ $inv->item->name }}</td>

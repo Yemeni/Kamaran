@@ -178,7 +178,7 @@ class InventoryController extends Controller {
 
 		$result = (string) number_format($total);
 
-		return view('print_reports', ['inventories' => session('filtered'), 'result' => $result]);
+		return view('print_report', ['inventories' => session('filtered'), 'result' => $result]);
 	}
 
 	/**
