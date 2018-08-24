@@ -191,28 +191,9 @@ return [
 						],
 					]
 				],
-				[
-					'text'    => 'Suppliers',
-					'icon'    => 'users',
-					'can'  => 'admin||supplier',
-					'submenu' => [
-						[
-							'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
-							'icon' => 'users',
-							'url'  => '/supplier/create',
-							'can'  => 'admin||supplier'
-						],
-
-						[
-							'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
-							'icon' => 'users',
-							'url'  => '/supplier',
-							'can'  => 'admin||supplier'
-						],
-					]],
                 [
                     'text'    => 'Shipments',
-                    'icon'    => '',
+                    'icon'    => 'ship',
                     'can'  => 'admin||inventory',
                     'submenu' => [
                         [
@@ -224,7 +205,7 @@ return [
                         [
                             'text' => 'Shipments Status', // manager
                             'icon' => 'ship',
-                            'url'  => '/',
+                            'url'  => '/shipments_status',
                             'can'  => 'admin||manager||employee'
                         ],
                     ],
@@ -251,6 +232,26 @@ return [
                             'icon' => 'cubes',
                             'url'  => '/inventory',
                             'can'  => 'admin||inventory'
+                        ],
+                    ]
+                ],
+                [
+                    'text'    => 'Suppliers',
+                    'icon'    => 'users',
+                    'can'  => 'admin||supplier',
+                    'submenu' => [
+                        [
+                            'text' => 'Add Supplier', // manager + employee + employee_of_suppliers
+                            'icon' => 'users',
+                            'url'  => '/supplier/create',
+                            'can'  => 'admin||supplier'
+                        ],
+
+                        [
+                            'text' => 'Manage Suppliers', // manager + employee + employee_of_suppliers
+                            'icon' => 'users',
+                            'url'  => '/supplier',
+                            'can'  => 'admin||supplier'
                         ],
                     ]
                 ],

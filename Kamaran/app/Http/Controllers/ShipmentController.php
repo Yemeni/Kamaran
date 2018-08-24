@@ -23,12 +23,11 @@ class ShipmentController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function showShipmentsStatus()
 	{
 		Gate::authorize('admin||manager||employee');
 
-		$pending = Shipment::with(['user', 'order.item'])->where('arrival_date', null)
-			->where('expected_date', null)->get();
+
 		$onHold = Shipment::with(['user', 'order.item'])->where('shipment_status', 'on_hold')
 			->where('expected_date', '!=', null)->get();
 		$moving = Shipment::with(['user', 'order.item'])->where('shipment_status', 'moving')
@@ -40,8 +39,16 @@ class ShipmentController extends Controller {
 		$arrived = Shipment::with(['user', 'order.item'])->where('shipment_status', 'arrived')
 			->where('expected_date', '!=', null)->get();
 
-		return view('track_shipments', compact('pending', 'onHold', 'moving', 'cancelled', 'delayed', 'arrived'));
+		return view('shipments_status', compact('onHold', 'moving', 'cancelled', 'delayed', 'arrived'));
 	}
+
+	public function showPendingShipments(){
+        Gate::authorize('admin||manager||employee');
+
+        $pending = Shipment::with(['user', 'order.item'])->where('arrival_date', null)
+            ->where('expected_date', null)->get();
+        return view('track_shipments', compact('pending'));
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -183,7 +190,7 @@ class ShipmentController extends Controller {
 
 		Alert::flash('The shipment has been updated', 'success');
 
-		return redirect('/track_shipments');
+		return redirect('/shipments_status');
 	}
 
 	/**

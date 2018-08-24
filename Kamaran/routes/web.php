@@ -41,7 +41,9 @@ Route::get('/order/{order}/edit', 'OrderController@edit');
 Route::get('/order/{order}/delete', 'OrderController@destroy');
 Route::get('/fill_order', 'OrderController@create');
 
-Route::get('/track_shipments', 'ShipmentController@index');
+Route::get('/track_shipments', 'ShipmentController@showPendingShipments');
+Route::get('/shipments_status', 'ShipmentController@showShipmentsStatus');
+
 Route::put('/shipment/{shipment}', 'ShipmentController@update');
 Route::get('/shipment/{shipment}/{status}', 'ShipmentController@changeStatus');
 
