@@ -192,31 +192,6 @@ return [
 					]
 				],
 				[
-					'text' => 'Track Shipments', // manager
-					'icon' => 'ship',
-					'url'  => '/track_shipments',
-					'can'  => 'admin||manager||employee'
-				],
-				[
-					'text'    => 'Inventory',
-					'icon'    => 'cubes',
-					'can'  => 'admin||inventory',
-					'submenu' => [
-						[
-							'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
-							'icon' => 'cubes',
-							'url'  => '/inventory',
-							'can'  => 'admin||inventory'
-						],
-						[
-							'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
-							'icon' => 'cubes',
-							'url'  => '/inventory_transaction',
-							'can'  => 'admin||inventory'
-						],
-					]
-				],
-				[
 					'text'    => 'Supplier',
 					'icon'    => 'users',
 					'can'  => 'admin||supplier',
@@ -235,8 +210,32 @@ return [
 							'can'  => 'admin||supplier'
 						],
 					]],
-
-
+                [
+                    'text' => 'Track Shipments', // manager
+                    'icon' => 'ship',
+                    'url'  => '/track_shipments',
+                    'can'  => 'admin||manager||employee'
+                ],
+                [
+                    'text'    => 'Inventory',
+                    'icon'    => 'cubes',
+                    'can'  => 'admin||inventory',
+                    'submenu' => [
+                        [
+                            'text' => 'Inventory', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                            'icon' => 'cubes',
+                            'url'  => '/inventory',
+                            'can'  => 'admin||inventory'
+                        ],
+                        [
+                            'text' => 'Inventory Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
+                            'icon' => 'cubes',
+                            'url'  => '/inventory_transaction',
+                            'can'  => 'admin||inventory'
+                        ],
+                    ]
+                ],
+                
 			]
 
 		],
@@ -278,7 +277,7 @@ return [
 
         ]
 	],
-    
+
 	/*
 	|--------------------------------------------------------------------------
 	| Menu Filters
