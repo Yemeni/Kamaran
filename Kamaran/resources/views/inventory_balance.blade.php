@@ -39,23 +39,50 @@
                     <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
         </div>
+        <div class="col-lg-2 col-xs-2">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>80</h3>
 
-        <div class="col-lg-10 col-xs-6 ">
+                    <p>Shipping</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+            <!-- ./col -->
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>53</h3>
+
+                    <p>Orderes</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="col-lg-8 col-xs-6">
 
             <div class="row">
-                <div class="col-lg-6 col-xs-6">
-                    <p class="text">Item Name</p>
+                <div class="col-lg-3 col-xs-4">
+                    <p class="text text-bold">Item Name</p>
                 </div>
 
-                <div class="col-lg-2 col-xs-2">
+                <div class="col-lg-3 col-xs-2">
                     <p class="bg-green" style="text-align: center;">Current</p>
                 </div>
 
-                <div class="col-lg-2 col-xs-2">
+                <div class="col-lg-3 col-xs-2">
                     <p class="bg-yellow" style="text-align: center;">Shipping</p>
                 </div>
 
-                <div class="col-lg-2 col-xs-2">
+                <div class="col-lg-3 col-xs-2">
                     <p class="bg-red" style="text-align: center;">Ordering</p>
                 </div>
             </div>
@@ -63,13 +90,13 @@
             @foreach($items as $item)
                 @if($item['important'])
                 <div class="row">
-                    <div class="col-lg-6 col-xs-6">
+                    <div class="col-lg-3 col-xs-6">
                         <p>
                             {{ $item['name'] }}
                         </p>
                     </div>
 
-                    <div class="col-lg-6 col-xs-6">
+                    <div class="col-lg-9 col-xs-6">
 
                         <div class="progress" style="border-radius: 10px">
                             <div class="progress-bar progress-bar-green" role="progressbar" aria-valuenow="{{ $percentage[$item['id']]['currentInventory'] }}" aria-valuemin="10" aria-valuemax="100" style="width: {{ $percentage[$item['id']]['currentInventory'] }}%">

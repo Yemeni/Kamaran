@@ -127,11 +127,12 @@
                     ->count() }} Orders made today ({{ \App\Order::where('order_status','approved')
                     ->whereDate('date', '=', date('2018-08-24'))
                     ->count() }} Approved)</p>
+                    <p><br/></p>
                     <div class="bg-gray">
                         {!! $ordersChart->render() !!}
                     </div>
                 </div>
-                <a href="#" class="small-box-footer">More info
+                <a href="/review_orders" class="small-box-footer">More info
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
@@ -142,9 +143,9 @@
                 <!-- small box -->
                 <div class="small-box bg-blue">
                     <div class="inner">
-                        <h3>Total Tobacco</h3>
+                        <h3>Total Tobacco
 
-                        <h3>{{ $currentTobacco }}
+                        {{ $currentTobacco }}
                             <sup style="font-size: 20px">{{ $tobaccoUnit }}</sup></h3>
 
                         <p>Last month you consumed {{ $consumedTobacco }} <sup style="font-size: 10px">{{ $tobaccoUnit }}</sup></p>
@@ -153,7 +154,7 @@
                             {!! $tobaccoChart->render() !!}
                         </div>
                     </div>
-                    <a href="#" class="small-box-footer">More info
+                    <a href="/inventory_balance" class="small-box-footer">More info
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
