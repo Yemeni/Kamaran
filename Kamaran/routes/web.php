@@ -1,63 +1,12 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-/*
- * layouts plan
-/login
-/dashboard
-    - admin view
-    - manager view
-    - staff view
-    - inventory employee view
-/categories
-    - admin view
-/items
-    - manager + staff view
-/suppliers
-    - manager view
-    - staff view
-/staff
-    - manager view
-/orders
-    - manager view
-    - staff view
-/shipments
-    - manager+staff view
-/inventory
-    - manager+staff view
-    - inventory employee view
-
- */
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-
-//Route::get('/something', function () {
-//    return view('something');
-//});
-
 Auth::routes();
 
-
-// Temporally views for debugging
-// Dashboard
 Route::get('/', 'HomeController@index');
 
-Route::get('/performance', function (){
-    return view('performance');
-});
+//Route::get('/performance', function (){
+//    return view('performance');
+//});
 
 Route::get('/inventory_balance', 'InventoryBalanceController@index');
 
@@ -135,9 +84,6 @@ Route::post('/inventory', 'InventoryController@store');
 Route::get('/inventory/{inventory}/approved', 'InventoryController@approved');
 Route::get('/inventory/print', 'InventoryController@print');
 
-//Route::get('/print_reports', function (){
-//    return view('print_reports');
-//});
 
 // Staff Management
 
