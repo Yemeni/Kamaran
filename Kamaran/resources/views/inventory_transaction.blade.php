@@ -38,22 +38,22 @@
                                     <select name="transaction_type" class="form-control">
                                         {{--<option value="voucher">In Stock--}}
                                         {{--</option>--}}
-                                        <option value="on_hold">on hold
-                                        </option>
-                                        <option value="consume">consume
+                                        {{--<option value="on_hold">on hold--}}
+                                        {{--</option>--}}
+                                        <option value="consume">Consume
                                         </option>
                                         <option value="initial_balance">
-                                            initial balance
+                                            Initial Balance
                                         </option>
-                                        <option value="returns">returns
+                                        <option value="returns">Returns
                                         </option>
-                                        <option value="surplus">surplus
+                                        <option value="surplus">Surplus
                                         </option>
                                         <option value="shortage">
-                                            shortage
+                                            Shortage
                                         </option>
                                         <option value="normal_shortage">
-                                            normal shortage
+                                            Normal Shortage
                                         </option>
                                     </select>
                                 </div>
