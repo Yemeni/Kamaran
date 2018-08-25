@@ -24,7 +24,7 @@
                             <tr>
                                 <th colspan="7">
                                     <img src="{{ asset('resources/Report Page Header.jpg') }}">
-                                    <p>Report of: Department of Bla - Item Blue Tobacco - All Transactions</p>
+                                    <p>Report of: {{ $reportHeader['category'] }} - {{ $reportHeader['item'] }} - {{ $reportHeader['status'] }} Transactions {{ $reportHeader['fromDate'] }} {{ $reportHeader['toDate'] }}</p>
                                 </th>
                             </tr>
                             <tr>

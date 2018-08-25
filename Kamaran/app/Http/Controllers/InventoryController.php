@@ -67,7 +67,60 @@ class InventoryController extends Controller {
 		$categories = Category::orderBy('name', 'asc')->get();
 		$items = Item::orderBy('name', 'asc')->get();
 
-		session()->put('filtered', $inventories);
+        $reportHeader = array();
+
+        $category_id = request('category_id');
+        $reportHeader['category'] = is_object(Category::where('id', $category_id)->first()) ? Category::where('id', $category_id)->first()->name : 'All Departments';
+
+        $item_id = request('item_id');
+        $reportHeader['item'] = is_object(Item::where('id', $item_id)->first()) ? "Item " . Item::where('id', $item_id)->first()->name : 'All Items';
+
+        $status = request('status');
+        if(!is_object(Inventory::where('transaction_type', $status)->first())){
+            $reportHeader['status'] = 'All';
+        }else{
+//            $reportHeader['status'] = $status;
+            switch($status) {
+                case 'voucher':
+                    $reportHeader['status'] = "In Stock";
+                    break;
+                case 'initial_balance':
+                    $reportHeader['status'] = "Initial Balance";
+                    break;
+                case 'surplus':
+                    $reportHeader['status'] = "Surplus";
+                    break;
+                case 'on_hold':
+                    $reportHeader['status'] = "On Hold";
+                    break;
+                case 'consume':
+                    $reportHeader['status'] = "Consume";
+                    break;
+                case 'returns':
+                    $reportHeader['status'] = "Returns";
+                    break;
+                case 'shortage':
+                    $reportHeader['status'] = "Shortage";
+                    break;
+                case 'normal_shortage':
+                    $reportHeader['status'] = "Normal Shortage";
+                    break;
+
+                default:
+                    // you should not end up here
+            }
+
+        }
+
+
+        $fromDate = request('from');
+        $reportHeader['fromDate'] = is_null($fromDate) ? "" : "- From Date: " . $fromDate;
+
+        $toDate = request('to');
+        $reportHeader['toDate'] = is_null($toDate) ? "" : "- To Date: " . $toDate;
+
+        session()->put('filtered', $inventories);
+		session()->put('reportHeader', $reportHeader);
 
 		return view('inventory', compact('inventories', 'items', 'categories'));
 	}
@@ -176,9 +229,10 @@ class InventoryController extends Controller {
 			}
 		}
 
+        $reportHeader = session('reportHeader');
 		$result = (string) number_format($total);
 
-		return view('print_report', ['inventories' => session('filtered'), 'result' => $result]);
+		return view('print_report', ['inventories' => session('filtered'), 'result' => $result, 'reportHeader' => $reportHeader]);
 	}
 
 	/**
