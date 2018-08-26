@@ -214,23 +214,44 @@ class InventoryController extends Controller {
 	{
 		Gate::authorize('admin||inventory');
 
-		$total = 0;
-		$result = '';
+
 		$pos = ['voucher', 'initial_balance', 'surplus'];
+
 
 		foreach (session('filtered') as $inv)
 		{
-			if (in_array($inv->transaction_type, $pos))
+            $total[$inv->item_id]['total'] = isset($total[$inv->item_id]['total']) ? $total[$inv->item_id]['total'] : 0;
+            if(!isset($total[$inv->item_id]['name'])){
+                $total[$inv->item_id]['name'] = Item::where('id', $inv->item_id)->first()->name;
+                $total[$inv->item_id]['unit'] = Item::where('id', $inv->item_id)->first()->unit;
+            }
+
+
+            if (in_array($inv->transaction_type, $pos))
 			{
-				$total += $inv->quantity;
+				$total[$inv->item_id]['total'] += $inv->quantity;
 			} else
 			{
-				$total -= $inv->quantity;
+				$total[$inv->item_id]['total'] -= $inv->quantity;
 			}
 		}
 
+//        foreach($questions as $key => $question){
+//            $questions[$key]['answers'] = $answers_model->get_answers_by_question_id($question['question_id']);
+//        }
+
+        foreach($total as $key => $tot){
+            $total[$key]['total']  = (string)number_format($tot['total']);
+        }
+
+
+//        $result = array_map(function($var){
+//            return (string) number_format($var);
+//        }, $total);
+
+		$result = $total;
+
         $reportHeader = session('reportHeader');
-		$result = (string) number_format($total);
 
 		return view('print_report', ['inventories' => session('filtered'), 'result' => $result, 'reportHeader' => $reportHeader]);
 	}

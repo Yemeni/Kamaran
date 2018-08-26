@@ -90,10 +90,13 @@
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
                             </tr>
                         @endforeach
-                        <tr>
-                            <td colspan="4">Total Inventory</td>
-                            <td colspan="3">{{ $result }} units</td>
-                        </tr>
+
+                        @foreach($result as $res)
+                            <tr>
+                                <td colspan="4">Current {{ $res['name'] }} in Inventory</td>
+                                <td colspan="3">{{ $res['total'] }} {{ $res['unit'] }}</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
