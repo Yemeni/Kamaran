@@ -41,22 +41,22 @@
                                 <option value="all">All Transaction types</option>
                                 <option {{ request('status') == 'voucher' ? 'selected' : '' }} value="voucher">In Stock
                                 </option>
-                                <option {{ request('status') == 'on_hold' ? 'selected' : '' }} value="on_hold">on hold
+                                <option {{ request('status') == 'on_hold' ? 'selected' : '' }} value="on_hold">On Hold
                                 </option>
-                                <option {{ request('status') == 'consume' ? 'selected' : '' }} value="consume">consume
+                                <option {{ request('status') == 'consume' ? 'selected' : '' }} value="consume">Consume
                                 </option>
                                 <option {{ request('status') == 'initial_balance' ? 'selected' : '' }} value="initial_balance">
-                                    initial balance
+                                    Initial Balance
                                 </option>
-                                <option {{ request('status') == 'returns' ? 'selected' : '' }} value="returns">returns
+                                <option {{ request('status') == 'returns' ? 'selected' : '' }} value="returns">Returns
                                 </option>
-                                <option {{ request('status') == 'surplus' ? 'selected' : '' }} value="surplus">surplus
+                                <option {{ request('status') == 'surplus' ? 'selected' : '' }} value="surplus">Surplus
                                 </option>
                                 <option {{ request('status') == 'shortage' ? 'selected' : '' }} value="shortage">
-                                    shortage
+                                    Shortage
                                 </option>
                                 <option {{ request('status') == 'normal_shortage' ? 'selected' : '' }} value="normal_shortage">
-                                    normal shortage
+                                    Normal Shortage
                                 </option>
                             </select>
                         </div>

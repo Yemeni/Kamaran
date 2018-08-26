@@ -36,6 +36,7 @@
                                 <div class="form-group">
                                     <label for="">Type:</label>
                                     <select name="transaction_type" class="form-control">
+                                        <option selected disabled>Select Transaction Type</option>
                                         {{--<option value="voucher">In Stock--}}
                                         {{--</option>--}}
                                         {{--<option value="on_hold">on hold--}}
