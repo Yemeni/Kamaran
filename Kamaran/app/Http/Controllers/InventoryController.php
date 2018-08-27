@@ -40,7 +40,7 @@ class InventoryController extends Controller {
 		{
 			if (\request('item_id') != 'all')
 			{
-				$inventories = $inventories->where('item_id', \request('item_id'));
+				$inventories = $inventories->whereIn('item_id', \request('item_id'));
 			}
 		}
 		if (\request()->has('status'))
@@ -74,6 +74,11 @@ class InventoryController extends Controller {
 
         $item_id = request('item_id');
         $reportHeader['item'] = is_object(Item::where('id', $item_id)->first()) ? "Item " . Item::where('id', $item_id)->first()->name : 'All Items';
+//        $reportHeader['item'] = isset($item_id[1]) ? 'Selected Items' : 'All Items 2';
+        if(isset($item_id[1])){
+            $reportHeader['item'] ='Selected Items';
+        }
+
 
         $status = request('status');
         if(!is_object(Inventory::where('transaction_type', $status)->first())){
@@ -164,7 +169,7 @@ class InventoryController extends Controller {
 			$item = Item::find($request->item_id);
 		}
 
-		$total = 0;
+		$total = array();
 		$result = '';
 		$pos = ['voucher', 'initial_balance', 'surplus'];
 
@@ -240,16 +245,24 @@ class InventoryController extends Controller {
 //            $questions[$key]['answers'] = $answers_model->get_answers_by_question_id($question['question_id']);
 //        }
 
-        foreach($total as $key => $tot){
-            $total[$key]['total']  = (string)number_format($tot['total']);
+        if(isset($total)){
+        foreach ($total as $key => $tot) {
+            $total[$key]['total'] = (string)number_format($tot['total']);
         }
+            $result = $total;
+
+        }else{
+            $result = array();
+        }
+//        foreach($total as $key => $tot){
+//            $total[$key]['total']  = (string)number_format($tot['total']);
+//        }
 
 
 //        $result = array_map(function($var){
 //            return (string) number_format($var);
 //        }, $total);
 
-		$result = $total;
 
         $reportHeader = session('reportHeader');
 

@@ -26,11 +26,16 @@
                         </div>
 
                         <div class="form-group">
-                            <select name="item_id" class="js-example-basic-single-item form-control">
-                                <option selected disabled>Filter by item</option>
-                                <option value="all">All Items</option>
+                            <select name="item_id[]" class="js-example-basic-single-item form-control" multiple="multiple">
+                                <option {{ is_null(request('item_id')) ? 'selected' : '' }} disabled>Filter by item</option>
+                                {{--{{ !in_array($item->id, request('item_id')) ? 'selected' : '' }}--}}
+                                {{--<option selected disabled>Filter by item</option>--}}
+                                {{--<option value="all">All Items</option>--}}
                                 @foreach($items as $item)
-                                    <option value="{{ $item->id }}" {{ request('item_id') == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                    {{--<option value="{{ $item->id }}" {{ in_array($item->id, request('item_id')) ? 'selected' : '' }}>{{ $item->name }}</option>--}}
+                                    <option value="{{ $item->id }}" {{ !is_null(request('item_id')) ? in_array($item->id, request('item_id')) ? 'selected' : '' : ''}}>{{ $item->name }}</option>
+                                    {{--<option value="item_id[{{ $item->id }}]" >{{ $item->name }}</option>--}}
+                                    {{--<option value="{{ $item->id }}" >{{ $item->name }}</option>--}}
                                 @endforeach
                             </select>
                         </div>
