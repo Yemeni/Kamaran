@@ -29849,8 +29849,8 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(146);
-__webpack_require__(233);
-module.exports = __webpack_require__(234);
+__webpack_require__(234);
+module.exports = __webpack_require__(235);
 
 
 /***/ }),
@@ -29870,6 +29870,7 @@ __webpack_require__(184);
 __webpack_require__(185);
 __webpack_require__(186);
 // window.Vue = require('vue');
+__webpack_require__(233);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -86788,10 +86789,43 @@ module.exports = {
 /* 233 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+/**
+ * Created by Yousef on 8/28/2018.
+ */
+
+window.onload = setInterval(clock, 1000);
+
+function clock() {
+    var d = new Date();
+
+    var date = d.getDate();
+
+    var month = d.getMonth();
+    var montharr = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    month = montharr[month];
+
+    var year = d.getFullYear();
+
+    var day = d.getDay();
+    var dayarr = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+    day = dayarr[day];
+
+    var hour = d.getHours();
+    var min = d.getMinutes();
+    var sec = d.getSeconds();
+
+    document.getElementById("date").innerHTML = day + " " + date + " " + month + " " + year;
+    document.getElementById("time").innerHTML = hour + ":" + min + ":" + sec;
+}
 
 /***/ }),
 /* 234 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 235 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

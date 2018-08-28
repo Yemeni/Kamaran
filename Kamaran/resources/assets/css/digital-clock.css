@@ -1,0 +1,23 @@
+/* Digital Clock CSS for the Dashboard
+ */
+
+#date
+{
+    /*margin-top:70px;*/
+    color:silver;
+    /*font-size:40px;*/
+    border:2px dashed #2E9AFE;
+    padding:9px;
+    /*width:500px;*/
+    /*margin-left:250px;*/
+}
+#time
+{
+    /*margin-top:20px;*/
+    /*font-size:130px;*/
+    color:silver;
+    border:2px dashed #2E9AFE;
+    padding:9px;
+    /*width:700px;*/
+    /*margin-left:150px;*/
+}

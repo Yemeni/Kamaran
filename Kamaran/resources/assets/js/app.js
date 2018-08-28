@@ -11,6 +11,7 @@ require('datetimepicker');
 require('datatables');
 require('chart.js');
 // window.Vue = require('vue');
+require('./digital-clock');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

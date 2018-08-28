@@ -25,5 +25,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
         'public/css/app-scss.css',
         'public/css/app-less.css',
         'public/css/datatables.css',
+        'resources/assets/css/digital-clock.css',
         'resources/assets/css/custom.css',
     ], 'public/css/app.css');

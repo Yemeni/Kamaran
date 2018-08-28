@@ -101,9 +101,9 @@
             <!-- small box -->
             <div class="box">
                 <div class="inner">
-                    <p>Today is Tuesday,</p>
-                    <p>22 March 2019</p>
-                    <p>8:31 AM</p>
+                    <p align="center">Current Time</p>
+                    <p align="center" id="date"></p>
+                    <p align="center" id="time"></p>
                 </div>
 
             </div>
