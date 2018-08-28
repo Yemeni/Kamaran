@@ -51,7 +51,7 @@
     <link href="{{ asset('vendor/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- custom css edits -->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
+    {{--<link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">--}}
 
             <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
             <!-- Theme style -->
