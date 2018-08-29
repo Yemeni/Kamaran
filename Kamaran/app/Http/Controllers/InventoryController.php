@@ -64,8 +64,20 @@ class InventoryController extends Controller {
 
 		$inventories = $inventories->where('arrival_status', 1)->get();
 
-		$categories = Category::orderBy('name', 'asc')->get();
-		$items = Item::orderBy('name', 'asc')->get();
+
+		if(auth()->user()->withoutCategory()){
+            $categories = Category::orderBy('name', 'asc')->get();
+            $items = Item::orderBy('name', 'asc')->get();
+        }else{
+            $userCategoryId = auth()->user()->category_id;
+            $categories = Category::where('id', $userCategoryId)->orderBy('name', 'asc')->get();
+            $inventories = $inventories->where('category_id', $userCategoryId);
+            $items = Item::where('category_id', $userCategoryId)->orderBy('name', 'asc')->get();
+
+
+        }
+//		$categories = Category::orderBy('name', 'asc')->get();
+//		$items = Item::orderBy('name', 'asc')->get();
 
         $reportHeader = array();
 

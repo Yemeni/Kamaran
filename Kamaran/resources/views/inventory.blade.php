@@ -17,11 +17,16 @@
                     <form class="form-inline" action="{{ url('/inventory#trans') }}" autocomplete="off">
                         <div class="form-group">
                             <select name="category_id" class="js-example-basic-single-item form-control">
-                                <option selected disabled>Filter by category</option>
-                                <option value="all">All Categories</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                @endforeach
+                                @if(auth()->user()->withoutCategory())
+                                    <option selected disabled>Filter by category</option>
+                                    <option value="all">All Categories</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    @endforeach
+                                @else
+                                    <option  value="{{ auth()->user()->category_id }}" selected disabled  >{{ \App\Category::where('id', auth()->user()->category_id)->first()->name }} </option>
+                                @endif
+
                             </select>
                         </div>
 
