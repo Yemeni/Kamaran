@@ -194,7 +194,7 @@ return [
                 [
                     'text'    => 'Shipments',
                     'icon'    => 'ship',
-                    'can'  => 'admin||inventory',
+                    'can'  => 'admin||manager||employee',
                     'submenu' => [
                         [
                             'text' => 'Track Shipments', // manager
