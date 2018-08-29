@@ -166,7 +166,7 @@
 
     <div class="row">
         @if($latestOrders->count())
-            <div class="col-xs-8">
+            <div class="col-sm-12 col-md-8">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Latest Orders</h3>
@@ -206,7 +206,7 @@
             </div>
         @endif
         @if($latestInventories->count())
-            <div class="col-sm-4 col-md-4">
+            <div class="col-sm-12 col-md-4">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Latest Transactions</h3>
@@ -244,8 +244,38 @@
                                     <td>{{ $inventory->id }}</td>
                                     <td>{{ $inventory->item->name }}</td>
                                     <td>{{ $inventory->date->format('d-m-Y') }}</td>
-                                    <td>{{ $inventory->transaction_type }}</td>
+                                    <td>
+                                        @switch($inventory->transaction_type)
+                                        @case('voucher')
+                                        In Stock
+                                        @break
+
+                                        @case('initial_balance')
+                                        Initial Balance
+                                        @break
+
+                                        @case('surplus')
+                                        Surplus
+                                        @break
+
+                                        @case('consume')
+                                        Consume
+                                        @break
+
+                                        @case('shortage')
+                                        Shortage
+                                        @break
+
+                                        @case('normal_shortage')
+                                        Normal Shortage
+                                        @break
+
+                                        @default
+                                        Undefined
+                                        @endswitch
+                                    </td>
                                     <td>{{ $inventory->quantity }} {{ $inventory->item->unit }}</td>
+
                                 </tr>
                             @endforeach
                             </tbody>
