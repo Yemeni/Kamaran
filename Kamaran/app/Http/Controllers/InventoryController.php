@@ -169,7 +169,8 @@ class InventoryController extends Controller {
 			$item = Item::find($request->item_id);
 		}
 
-		$total = array();
+//		$total = array();
+        $total = 0;
 		$result = '';
 		$pos = ['voucher', 'initial_balance', 'surplus'];
 
