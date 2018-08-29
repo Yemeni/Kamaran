@@ -213,7 +213,7 @@ return [
                 [
                     'text'    => 'Inventory',
                     'icon'    => 'cubes',
-                    'can'  => 'admin||inventory',
+                    'can'  => 'admin||manager||employee||inventory',
                     'submenu' => [
                         [
                             'text' => 'Incoming Shipments',
@@ -231,7 +231,7 @@ return [
                             'text' => 'Inventory Reports', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                             'icon' => 'cubes',
                             'url'  => '/inventory',
-                            'can'  => 'admin||inventory'
+                            'can'  => 'admin||manager||employee||inventory'
                         ],
                     ]
                 ],

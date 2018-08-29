@@ -25,7 +25,7 @@ class InventoryController extends Controller {
 	 */
 	public function showInventoryReports()
 	{
-		Gate::authorize('admin||inventory');
+		Gate::authorize('admin||manager||employee||inventory');
 
 		$inventories = Inventory::query();
 
@@ -218,7 +218,7 @@ class InventoryController extends Controller {
 
 	public function print()
 	{
-		Gate::authorize('admin||inventory');
+		Gate::authorize('admin||manager||employee||inventory');
 
 
 		$pos = ['voucher', 'initial_balance', 'surplus'];
