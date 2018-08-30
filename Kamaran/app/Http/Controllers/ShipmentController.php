@@ -11,38 +11,40 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class ShipmentController extends Controller {
+class ShipmentController extends Controller
+{
 
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function showShipmentsStatus()
-	{
-		Gate::authorize('admin||manager||employee');
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showShipmentsStatus()
+    {
+        Gate::authorize('admin||manager||employee');
 
 
-		$onHold = Shipment::with(['user', 'order.item'])->where('shipment_status', 'on_hold')
-			->where('expected_date', '!=', null)->get();
-		$moving = Shipment::with(['user', 'order.item'])->where('shipment_status', 'moving')
-			->where('expected_date', '!=', null)->get();
-		$cancelled = Shipment::with(['user', 'order.item'])->where('shipment_status', 'cancelled')
-			->where('expected_date', '!=', null)->get();
-		$delayed = Shipment::with(['user', 'order.item'])->where('shipment_status', 'delayed')
-			->where('expected_date', '!=', null)->get();
-		$arrived = Shipment::with(['user', 'order.item'])->where('shipment_status', 'arrived')
-			->where('expected_date', '!=', null)->get();
+        $onHold = Shipment::with(['user', 'order.item'])->where('shipment_status', 'on_hold')
+            ->where('expected_date', '!=', null)->get();
+        $moving = Shipment::with(['user', 'order.item'])->where('shipment_status', 'moving')
+            ->where('expected_date', '!=', null)->get();
+        $cancelled = Shipment::with(['user', 'order.item'])->where('shipment_status', 'cancelled')
+            ->where('expected_date', '!=', null)->get();
+        $delayed = Shipment::with(['user', 'order.item'])->where('shipment_status', 'delayed')
+            ->where('expected_date', '!=', null)->get();
+        $arrived = Shipment::with(['user', 'order.item'])->where('shipment_status', 'arrived')
+            ->where('expected_date', '!=', null)->get();
 
-		return view('shipments_status', compact('onHold', 'moving', 'cancelled', 'delayed', 'arrived'));
-	}
+        return view('shipments_status', compact('onHold', 'moving', 'cancelled', 'delayed', 'arrived'));
+    }
 
-	public function showPendingShipments(){
+    public function showPendingShipments()
+    {
         Gate::authorize('admin||manager||employee');
 
         $pending = Shipment::with(['user', 'order.item'])->where('arrival_date', null)
@@ -50,192 +52,192 @@ class ShipmentController extends Controller {
         return view('track_shipments', compact('pending'));
     }
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function create()
-	{
-		//
-	}
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function store(Request $request)
-	{
-		//
-	}
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  \App\Shipment $shipment
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function show(Shipment $shipment)
-	{
-		//
-	}
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Shipment $shipment
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Shipment $shipment)
+    {
+        //
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  \App\Shipment $shipment
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit(Shipment $shipment)
-	{
-		//
-	}
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Shipment $shipment
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Shipment $shipment)
+    {
+        //
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  \App\Shipment            $shipment
-	 *
-	 * @return \Illuminate\Http\Response
-	 * @throws \Exception
-	 */
-	public function update(Request $request, Shipment $shipment)
-	{
-		$this->authorize('update', $shipment);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Shipment $shipment
+     *
+     * @return \Illuminate\Http\Response
+     * @throws \Exception
+     */
+    public function update(Request $request, Shipment $shipment)
+    {
+        $this->authorize('update', $shipment);
 
-		$request->validate([
-			'arrival_date'    => 'nullable|date',
-			'expected_date'   => 'required|date',
-			'quantity'        => 'nullable|numeric|max:' . ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()),
-			'shipment_status' => [
-				'required',
-				Rule::in(['on_hold', 'moving', 'cancelled', 'arrived', 'delayed'])
-			],
-			'invoice'         => 'required|numeric',
-		]);
+        $request->validate([
+            'arrival_date' => 'nullable|date',
+            'expected_date' => 'required|date',
+            'quantity' => 'nullable|numeric|max:' . ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()),
+            'shipment_status' => [
+                'required',
+                Rule::in(['on_hold', 'moving', 'cancelled', 'arrived', 'delayed'])
+            ],
+            'invoice' => 'required|numeric',
+        ]);
 
-		$relatedOrder = Order::find($shipment->order_id)->first();
+        $relatedOrder = Order::find($shipment->order_id)->first();
 
-		if ($relatedOrder->approval_date >= Carbon::createFromFormat('Y-m-d H:i', $request->expected_date)){
-			Alert::flash('The expected date for "'.$shipment->order->item->name.'" on pending exceeds the order approval date', 'warning');
+        if ($relatedOrder->approval_date >= Carbon::createFromFormat('Y-m-d H:i', $request->expected_date)) {
+            Alert::flash('The expected date for "' . $shipment->order->item->name . '" on pending exceeds the order approval date', 'warning');
 
-			return back();
-		}
+            return back();
+        }
 
-		if ($request->has('arrival_date') && $request->arrival_date != null){
-			if (Carbon::createFromFormat('Y-m-d H:i', $request->expected_date) > Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date)){
-				Alert::flash('The expected date for "'.$shipment->order->item->name.'" on pending exceeds the order arrival date', 'warning');
+        if ($request->has('arrival_date') && $request->arrival_date != null) {
+            if (Carbon::createFromFormat('Y-m-d H:i', $request->expected_date) > Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date)) {
+                Alert::flash('The expected date for "' . $shipment->order->item->name . '" on pending exceeds the order arrival date', 'warning');
 
-				return back();
-			}
-		}
+                return back();
+            }
+        }
 
-		if ($request->has('quantity'))
-		{
-			if ((int) $request->quantity < ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity()))
-			{
-				Shipment::create([
-					'order_id'        => $shipment->order->id,
-					'user_id'         => $shipment->user->id,
-					'category_id'     => $shipment->category_id,
-					'partial'         => 1,
-					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-					'arrival_date'    => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
-					'invoice'         => $request->invoice,
-					'quantity'        => $request->quantity,
-					'shipment_status' => $request->shipment_status,
-					'date'            => Carbon::now()->timestamp
-				]);
+        if ($request->has('quantity')) {
+            if ((int)$request->quantity < ($shipment->order->quantity - $shipment->order->shipmentTotalQuantity())) {
+                Shipment::create([
+                    'order_id' => $shipment->order->id,
+                    'user_id' => $shipment->user->id,
+                    'category_id' => $shipment->category_id,
+                    'partial' => 1,
+                    'expected_date' => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
+                    'arrival_date' => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
+                    'invoice' => $request->invoice,
+                    'quantity' => $request->quantity,
+                    'shipment_status' => $request->shipment_status,
+                    'date' => Carbon::now()->timestamp
+                ]);
 
-				$shipment->update([
-					'partial' => 1,
-				]);
-			} else
-			{
-				$shipment->update([
-					'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-					'arrival_date'    => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
-					'invoice'         => $request->invoice,
-					'quantity'        => $request->quantity,
-					'shipment_status' => $request->shipment_status,
-				]);
-			}
-		} else
-		{
-			$shipment->update([
-				'expected_date'   => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
-				'arrival_date'    => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
-				'invoice'         => $request->invoice,
-				'shipment_status' => $request->shipment_status,
-			]);
-		}
+                $shipment->update([
+                    'partial' => 1,
+                ]);
+            } else {
+                $shipment->update([
+                    'expected_date' => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
+                    'arrival_date' => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
+                    'invoice' => $request->invoice,
+                    'quantity' => $request->quantity,
+                    'shipment_status' => $request->shipment_status,
+                ]);
+            }
+        } else {
+            $shipment->update([
+                'expected_date' => Carbon::createFromFormat('Y-m-d H:i', $request->expected_date),
+                'arrival_date' => $request->arrival_date ? Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date) : null,
+                'invoice' => $request->invoice,
+                'shipment_status' => $request->shipment_status,
+            ]);
+        }
 
-		if ($request->shipment_status == 'arrived')
-		{
-			Inventory::create([
-				'category_id'      => $shipment->category_id,
-				'item_id'          => $shipment->order->item->id,
-				'shipment_id'      => $shipment->id,
-				'transaction_type' => 'on_hold',
-				'quantity'         => $shipment->quantity,
-				'arrival_status'   => 0,
-			]);
-		}
+        if ($request->shipment_status == 'arrived') {
+            Inventory::create([
+                'category_id' => $shipment->category_id,
+                'item_id' => $shipment->order->item->id,
+                'shipment_id' => $shipment->id,
+                'transaction_type' => 'on_hold',
+                'quantity' => $shipment->quantity,
+                'arrival_status' => 0,
+            ]);
+        }
 
-		Alert::flash('The shipment has been updated', 'success');
+        Alert::flash('The shipment has been updated', 'success');
 
-		return redirect('/shipments_status');
-	}
+        return redirect('/shipments_status');
+    }
 
-	/**
-	 * @param Shipment $shipment
-	 * @param          $status
-	 *
-	 * @return \Illuminate\Http\RedirectResponse
-	 * @throws \Exception
-	 */
-	public function changeStatus(Shipment $shipment, $status)
-	{
-		$this->authorize('update', $shipment);
+    /**
+     * @param Shipment $shipment
+     * @param          $status
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function changeStatus(Shipment $shipment, $status)
+    {
+        $this->authorize('update', $shipment);
 
 
-		if ($status == 'arrived')
-		{
-			Inventory::create([
-				'category_id'      => $shipment->category_id,
-				'item_id'          => $shipment->order->item->id,
-				'shipment_id'      => $shipment->id,
-				'transaction_type' => 'on_hold',
-				'quantity'         => $shipment->quantity,
-				'arrival_status'   => 0,
-			]);
-		}
+        if ($shipment->expected_date->timestamp > Carbon::now()->timestamp) {
+            Alert::flash('The expected date for "' . $shipment->order->item->name . '" on pending exceeds the order arrival date', 'warning');
 
-		$shipment->update([
-			'shipment_status' => $status,
-			'arrival_date'    => Carbon::now()->timestamp,
-		]);
+            return back();
+        }
 
-		Alert::flash('The shipment has been updated', 'success');
+        if ($status == 'arrived') {
+            Inventory::create([
+                'category_id' => $shipment->category_id,
+                'item_id' => $shipment->order->item->id,
+                'shipment_id' => $shipment->id,
+                'transaction_type' => 'on_hold',
+                'quantity' => $shipment->quantity,
+                'arrival_status' => 0,
+            ]);
+        }
 
-		return back();
-	}
+        $shipment->update([
+            'shipment_status' => $status,
+            'arrival_date' => Carbon::now()->timestamp,
+        ]);
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  \App\Shipment $shipment
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-	public function destroy(Shipment $shipment)
-	{
-		//
-	}
+        Alert::flash('The shipment has been updated', 'success');
+
+        return back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Shipment $shipment
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Shipment $shipment)
+    {
+        //
+    }
 }
