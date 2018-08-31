@@ -22,7 +22,7 @@ class InventoryBalanceController extends Controller
 
     public function index()
     {
-        Gate::authorize('admin||manager');
+        Gate::authorize('admin||inventory');
 
         $balance = $this->quantityCalculator();
         $percentage = $this->percentageCalculator(false);

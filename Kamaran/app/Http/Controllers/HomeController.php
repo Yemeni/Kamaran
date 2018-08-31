@@ -30,7 +30,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		Gate::authorize('admin||manager');
+		Gate::authorize('admin||inventory');
 
 		$ordersChart = $this->ordersChart();
 		$tobaccoChart = $this->tobaccoChart();

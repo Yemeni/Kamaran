@@ -16,7 +16,7 @@ class RedirectNonAdmin {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if (!in_array(auth()->user()->level, ['admin', 'manager']))
+		if (!in_array(auth()->user()->level, ['admin', 'inventory_employee']))
 		{
     		return redirect('/profile');
 		}

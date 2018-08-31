@@ -113,17 +113,19 @@ return [
 		[
 			'text'    => 'Dashboard', // manager
 			'icon'    => 'tachometer',
-			'can'     => 'admin||manager',
+			'can'     => 'admin||inventory',
 			'submenu' => [
 				[
 					'text' => 'Overview', // manager
 					'icon' => 'eye',
 					'url'  => '/',
+                    'can'  => 'admin||inventory'
 				],
                 [
                     'text' => 'Inventory Balance', // manager
                     'icon' => 'archive',
-                    'url'  => '/inventory_balance'
+                    'url'  => '/inventory_balance',
+                    'can' => 'admin||inventory'
                 ],
 			]
 
