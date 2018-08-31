@@ -238,37 +238,76 @@
                                 <td>{{ $order->approval_date->format('d-m-y') }}</td>
                                 <td>{{ $order->comment ?? '-' }}</td>
                                 <td>
-                                    @if($order->haveCancelledShipments())
-                                        <button type="button" class="btn btn-info btn-sm">Ship
-                                        </button>
-                                    @else
-                                        -
-                                    @endif
+                                    {{--@if($order->haveCancelledShipments())--}}
+                                        {{--<button type="button" class="btn btn-info btn-sm">Ship--}}
+                                        {{--</button>--}}
+                                    {{--@else--}}
+                                        {{-----}}
+                                    {{--@endif--}}
+
+                                    <a href="" class="btn btn-default"
+                                       data-toggle="modal"
+                                       data-target="#printModal{{ $order->id }}">
+                                        <i class="fa fa-fw fa-print"></i>
+                                        Print
+                                    </a>
                                 </td>
-                                {{--<td>Ahmed Ali</td>--}}
-                                {{--<td>11-7-2018</td>--}}
-                                {{--<td>CIF</td>--}}
-                                {{--<td>XYZ Limited</td>--}}
-                                {{--<td>Department of Raw Materials</td>--}}
-                                {{--<td>Tobacco type V</td>--}}
-                                {{--<td>100.0 KG</td>--}}
-                                {{--<td>50$</td>--}}
-                                {{--<td>They will give 5% discount the next time we order</td>--}}
-                                {{--<td>--}}
-                                {{--<a href="">--}}
-                                {{--<i class="fa fa-fw fa-check "></i>--}}
-                                {{--Approve--}}
-                                {{--</a>--}}
-                                {{--<a href="">--}}
-                                {{--<i class="fa fa-fw fa-times "></i>--}}
-                                {{--Cancel--}}
-                                {{--</a>--}}
-                                {{--<a href="">--}}
-                                {{--<i class="fa fa-fw fa-sticky-note "></i>--}}
-                                {{--Other--}}
-                                {{--</a>--}}
-                                {{--</td>--}}
                             </tr>
+                            <!-- Modal -->
+                            <div id="printModal{{ $order->id }}" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;
+                                            </button>
+                                            <h4 class="modal-title">Email Sender:</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form"
+                                                  action="{{ url('/print_order/'.$order->id.'/print') }}"
+                                                  method="post" autocomplete="off">
+                                                @csrf
+                                                @method('POST')
+
+                                                <div class="box-body">
+                                                    {{--<div class="form-group">--}}
+                                                        {{--<label for="">Manager Id:</label>--}}
+                                                        {{--<input type="number"--}}
+                                                               {{--name="managerId"--}}
+                                                               {{--value="1"--}}
+                                                               {{--class="form-control"--}}
+                                                               {{--id="">--}}
+                                                    {{--</div>--}}
+
+                                                    <div class="form-group">
+                                                        <label for="">Manager Name:</label>
+                                                        <select name="managerId" class="js-example-basic-single form-control">
+                                                            <option selected disabled> Select a Manager</option>
+                                                            @foreach($managers as $manager)
+                                                                <option value="{{ $manager->id }}" >{{ $manager->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+
+                                                    <!-- /.box-body -->
+
+                                                    <div class="box-footer">
+                                                        <button type="button"
+                                                                class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary pull-right">
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                         </tbody>
                     </table>
@@ -279,3 +318,14 @@
         </div>
     </div>
 @stop
+
+
+@section('js')
+
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2({dropdownAutoWidth : true});
+        })
+    </script>
+
+@append

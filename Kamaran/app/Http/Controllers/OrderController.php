@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Alerts\Alert;
 use App\Category;
+use App\Item;
 use App\Order;
 use App\Shipment;
 use App\Supplier;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -32,7 +34,9 @@ class OrderController extends Controller {
 		$approvedOrders = Order::where('order_status', 'approved')->get();
 		$cancelledOrders = Order::where('order_status', 'cancelled')->get();
 
-		return view('review_orders', compact('pendingOrders', 'approvedOrders', 'cancelledOrders'));
+		$managers = User::whereIn('level', ['admin', 'manager'])->get();
+
+		return view('review_orders', compact('pendingOrders', 'approvedOrders', 'cancelledOrders', 'managers'));
 	}
 
 	/**
@@ -144,6 +148,49 @@ class OrderController extends Controller {
 
 		return back();
 	}
+
+	public function redirectToReviewOrders(){
+//    return redirect()->route('/review_orders');
+//        echo url("/review_orders/");
+//         \URL::to("/review_orders/");
+        return redirect('/review_orders');
+
+//        return $this->index();
+}
+
+	public function print(Order $order){
+
+//        return redirect('/review_orders');
+//        return view('print_report', ['inventories' => session('filtered'), 'result' => $result, 'reportHeader' => $reportHeader]);
+//        $supplier = array();
+//        $query = Order::where('id', 2)->first();
+//        $supplierId = $query->id;
+//        var_dump($supplierId);
+//        $order = Order::where('id', 2)->first();
+        $order['comment'] = $order['comment'] ? $order['comment'] : 'N/a' ;
+
+        $supplier = Supplier::where('id', $order['supplier_id'])->first();
+
+        $item = Item::where('id', '2')->first();
+        $item['description'] = $item['description'] ? $item['description'] : 'N/a' ;
+        $item['specification'] = $item['specification'] ? $item['specification'] : 'N/a' ;
+
+        $headOfDepartment = User::where('level', 'manager')->where('category_id', $order['category_id'])->first();
+
+        if(\request()->has('managerId')){
+            $managerId = request('managerId');
+            $manager = User::where('id', $managerId)->first();
+        }else{
+            Alert::flash('Manager not selected', 'danger');
+            return redirect('/review_orders'); // this should not fucking happen
+        }
+
+
+//        $supplier['email'] = 1;
+        return view('print_order', compact('order' , 'supplier', 'item' , 'headOfDepartment', 'manager'));
+
+
+    }
 
 	/**
 	 * @param Order $order
