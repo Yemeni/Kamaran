@@ -27,19 +27,34 @@ class ShipmentController extends Controller {
 	{
 		Gate::authorize('admin||manager||employee');
 
-		$userCategoryId = auth()->user()->getCategoryId();
-		var_dump($userCategoryId);
+//		var_dump($userCategoryId);
 
-		$onHold = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'on_hold')
-			->where('expected_date', '!=', null)->get();
-		$moving = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'moving')
-			->where('expected_date', '!=', null)->get();
-		$cancelled = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'cancelled')
-			->where('expected_date', '!=', null)->get();
-		$delayed = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'delayed')
-			->where('expected_date', '!=', null)->get();
-		$arrived = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'arrived')
-			->where('expected_date', '!=', null)->get();
+		if(auth()->user()->isAdmin()){
+            $onHold = Shipment::with(['user', 'order.item'])->where('shipment_status', 'on_hold')
+                ->where('expected_date', '!=', null)->get();
+            $moving = Shipment::with(['user', 'order.item'])->where('shipment_status', 'moving')
+                ->where('expected_date', '!=', null)->get();
+            $cancelled = Shipment::with(['user', 'order.item'])->where('shipment_status', 'cancelled')
+                ->where('expected_date', '!=', null)->get();
+            $delayed = Shipment::with(['user', 'order.item'])->where('shipment_status', 'delayed')
+                ->where('expected_date', '!=', null)->get();
+            $arrived = Shipment::with(['user', 'order.item'])->where('shipment_status', 'arrived')
+                ->where('expected_date', '!=', null)->get();
+        }
+        else{
+            $userCategoryId = auth()->user()->getCategoryId();
+            $onHold = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'on_hold')
+                ->where('expected_date', '!=', null)->get();
+            $moving = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'moving')
+                ->where('expected_date', '!=', null)->get();
+            $cancelled = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'cancelled')
+                ->where('expected_date', '!=', null)->get();
+            $delayed = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'delayed')
+                ->where('expected_date', '!=', null)->get();
+            $arrived = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('shipment_status', 'arrived')
+                ->where('expected_date', '!=', null)->get();
+        }
+
 
 		return view('shipments_status', compact('onHold', 'moving', 'cancelled', 'delayed', 'arrived'));
 	}
@@ -47,9 +62,15 @@ class ShipmentController extends Controller {
 	public function showPendingShipments(){
         Gate::authorize('admin||manager||employee');
 
-        $userCategoryId = auth()->user()->getCategoryId();
-        $pending = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('arrival_date', null)
-            ->where('expected_date', null)->get();
+        if(auth()->user()->isAdmin()){
+            $pending = Shipment::with(['user', 'order.item'])->where('arrival_date', null)
+                ->where('expected_date', null)->get();
+        }else{
+            $userCategoryId = auth()->user()->getCategoryId();
+            $pending = Shipment::with(['user', 'order.item'])->where('category_id', $userCategoryId)->where('arrival_date', null)
+                ->where('expected_date', null)->get();
+        }
+
         return view('track_shipments', compact('pending'));
     }
 
