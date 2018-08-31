@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->belongsTo(Category::class);
     }
 
+    public function getCategoryId()
+    {
+        return $this->category_id;
+    }
+
 	public function isAdmin()
 	{
 		return $this->level == 'admin';
