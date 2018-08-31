@@ -113,7 +113,7 @@
                                 <!-- /.box-body -->
 
                                 <div class="box-footer">
-                                    <a href="{{ url('/review_orders') }}" class="btn btn-default">Cancel</a>
+                                    <a href="{{ auth()->user()->isAdmin() || auth()->user()->isManager() ? url('/review_orders') : url('/order_status') }}" class="btn btn-default">Cancel</a>
                                     <button type="submit" class="btn btn-primary pull-right">Update</button>
                                 </div>
                             </div>

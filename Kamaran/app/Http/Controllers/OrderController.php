@@ -40,6 +40,18 @@ class OrderController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
+
+	public function myOrders(){
+
+	    Gate::authorize('employee');
+
+        $employeeId = auth()->user()->id;
+        $reviewedOrders = Order::where('user_id', $employeeId)->whereIn('order_status' ,['cancelled', 'approved'])->get();
+        $pendingOrders = Order::where('user_id', $employeeId)->where('order_status' ,'pending')->get();
+
+	    return view('order_status', compact('reviewedOrders', 'pendingOrders'));
+    }
+
 	public function create()
 	{
 		Gate::authorize('admin||manager||employee');
@@ -207,7 +219,11 @@ class OrderController extends Controller {
 
 		Alert::flash('Order has been updated', 'success');
 
-		return redirect('/review_orders');
+		if(auth()->user()->isAdmin() || auth()->user()->isManager()){
+            return redirect('/review_orders');
+        }else{
+            return redirect('/order_status');
+        }
 	}
 
 	/**

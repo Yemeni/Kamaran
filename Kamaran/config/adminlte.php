@@ -189,6 +189,12 @@ return [
 							'url'  => '/review_orders',
 							'can'  => 'admin||manager'
 						],
+                        [
+                            'text' => 'Order Status', // manager
+                            'icon' => 'file',
+                            'url'  => '/order_status',
+                            'can'  => 'employee'
+                        ]
 					]
 				],
                 [

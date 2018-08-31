@@ -40,6 +40,7 @@ Route::put('/order/{order}', 'OrderController@update');
 Route::get('/order/{order}/edit', 'OrderController@edit');
 Route::get('/order/{order}/delete', 'OrderController@destroy');
 Route::get('/fill_order', 'OrderController@create');
+Route::get('/order_status', 'OrderController@myOrders');
 
 Route::get('/track_shipments', 'ShipmentController@showPendingShipments');
 Route::get('/shipments_status', 'ShipmentController@showShipmentsStatus');
