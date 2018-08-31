@@ -187,7 +187,7 @@ return [
 							'text' => 'Review Orders', // manager
 							'icon' => 'file',
 							'url'  => '/review_orders',
-							'can'  => 'admin||manager||employee'
+							'can'  => 'admin||manager'
 						],
 					]
 				],
