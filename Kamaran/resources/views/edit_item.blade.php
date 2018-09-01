@@ -69,7 +69,7 @@
                                         <option {{ $item->unit == 'Liter' ? 'selected' : '' }}>Liter</option>
                                         <option {{ $item->unit == 'Milliliter' ? 'selected' : '' }}>Milliliter
                                         </option>
-                                        <option {{ $item->unit == 'Barre' ? 'selected' : '' }}>Barre</option>
+                                        <option {{ $item->unit == 'Barrel' ? 'selected' : '' }}>Barrel</option>
                                         <option {{ $item->unit == 'Gallon' ? 'selected' : '' }}>Gallon</option>
                                         <option {{ $item->unit == 'Bottle' ? 'selected' : '' }}>Bottle</option>
                                         <option {{ $item->unit == 'Meter' ? 'selected' : '' }}>Meter</option>

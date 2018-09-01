@@ -62,7 +62,7 @@
                                         <option>Tonne</option>
                                         <option>Liter</option>
                                         <option>Milliliter</option>
-                                        <option>Barre</option>
+                                        <option>Barrel</option>
                                         <option>Gallon</option>
                                         <option>Bottle</option>
                                         <option>Meter</option>
