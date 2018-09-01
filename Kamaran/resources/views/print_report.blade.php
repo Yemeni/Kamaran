@@ -141,6 +141,7 @@
 @section('js')
     <script>
         $( document ).ready(function() {
+            $("footer").hide();
             setTimeout(
                 function()
                 {

@@ -38,7 +38,7 @@
                                 Date:
                             </td>
                             <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt;" colspan="5">
-                                2099 99 99
+                                {{ \Carbon\Carbon::now()->format('Y-m-d H:i') }}
                             </td>
                         </tr>
                         <tr>
@@ -52,8 +52,8 @@
                     </tbody>
                 </table>
                 <br/>
-                <p style="font-weight: 400; padding-left:5.4pt; text-align: center;" ><strong><u>Order Report</u></strong></p>
-                <p style="font-weight: 400; padding-left:5.4pt;"><strong>Dear Sir/Madam</strong>:</p>
+                <p style="font-weight: 400; padding-left:5.4pt; text-align: center;" ><strong><u>Purchase Order</u></strong></p>
+                <p style="font-weight: 400; padding-left:5.4pt;"><strong>Please supply us with the following item:</strong>:</p>
                 <p style="font-weight: 400; padding-left:5.4pt;">Your quotation is requested for the following&nbsp;item :</p>
                 <table style="width: 676px;">
                     <tbody>
@@ -99,22 +99,22 @@
                         <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="2">
                             <strong>Quantity</strong>
                         </td>
-                        <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="2">
+                        <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="1">
                             <strong>Unit Price</strong>
                         </td>
-                        <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="2">
+                        <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="3">
                             <strong>Total Price</strong>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="2">
-                            {{ $order['quantity'] }} {{ $item['unit'] }}
+                            {{ (string) number_format($order['quantity']) }} {{ $item['unit'] }}
                         </td>
-                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="2">
-                            {{ $order['cost'] }} $
+                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="1">
+                            {{ (string) number_format($order['cost']) }} $
                         </td>
-                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="2">
-                            {{ $order['cost']*$order['quantity'] }} $
+                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="3">
+                            {{ (string) number_format($order['cost']*$order['quantity']) }} $
                         </td>
                     </tr>
 
@@ -161,7 +161,13 @@
                     </tr>
                     <tr>
                         <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="6">
-                            For further information you may contact {{ $headOfDepartment['name'] }}
+                            For further information you may contact
+                            @if($headOfDepartment['gender'])
+                                Mr.
+                               @else
+                                Mrs.
+                               @endif
+                                {{ $headOfDepartment['name'] }}
                         </td>
                     </tr>
 
@@ -174,30 +180,18 @@
                         <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="1">
                             <strong>Email</strong>
                         </td>
-                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey;" colspan="1">
+                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey;" colspan="2">
                             {{ $headOfDepartment['email'] }}
                         </td>
                         <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="1">
                             <strong>Phone</strong>
                         </td>
-                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="1">
+                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="2">
                             +967-{{ $headOfDepartment['phone'] }}
                         </td>
-                        <td style="width: 217px; padding: 0in 5.4pt 0in 5.4pt; border: solid gray 1.5pt" colspan="1">
-                            <strong>Ext.</strong>
-                        </td>
-                        <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="1">
-                            WTF
-                        </td>
+
                     </tr>
 
-
-
-                    <tr>
-                        <td style="width: 638px;" colspan="6">
-                            <p><strong>We expect your reply within&nbsp;</strong><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>days from sending this letter.</strong></p>
-                        </td>
-                    </tr>
                     <tr>
                         <td style="width: 207px;">&nbsp;</td>
                         <td style="width: 10px;">&nbsp;</td>
@@ -263,6 +257,7 @@
 @section('js')
     <script>
         $( document ).ready(function() {
+            $("footer").hide();
             setTimeout(
                 function()
                 {
