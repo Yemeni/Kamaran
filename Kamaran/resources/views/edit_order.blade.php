@@ -85,16 +85,16 @@
                                     </select>
                                 </div>
 
-                                @if(auth()->user()->isAdmin())
-                                    <div class="form-group">
-                                        <label for="">Categories:</label>
-                                        <select name="category_id" class="js-example-basic-single form-control">
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{ $order->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                @endif
+                                {{--@if(auth()->user()->isAdmin())--}}
+                                    {{--<div class="form-group">--}}
+                                        {{--<label for="">Categories:</label>--}}
+                                        {{--<select name="category_id" class="js-example-basic-single form-control">--}}
+                                            {{--@foreach($categories as $category)--}}
+                                                {{--<option value="{{ $category->id }}" {{ $order->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>--}}
+                                            {{--@endforeach--}}
+                                        {{--</select>--}}
+                                    {{--</div>--}}
+                                {{--@endif--}}
 
                                 <div class="form-group">
                                     <label for="">Quantity:</label>
@@ -143,18 +143,35 @@
                 $('#total').html(total);
             });
 
-            $('.js-example-basic-single-item').select2();
-
             $(".form_datetime").datetimepicker();
 
             $('.js-example-basic-single').select2();
 
             $('select[name="supplier_id"]').on('change.select2', function (eve) {
-                $.get("/supplier/" + $(this).val() + "/items", function (data, status) {
-                    $('.js-example-basic-single-item').empty();
-                    $('.js-example-basic-single-item').select2({
-                        data: JSON.parse(data)
-                    });
+                var jsonData = [];
+                @foreach($suppliers as $supplier)
+                        @foreach($supplier->items as $item)
+
+                if( '{{ $supplier->id }}' ==  $(this).val()){
+                        @if( auth()->user()->isAdmin() ){
+                        jsonData.push( { 'id':'{{ $item->id }}', 'text':'{{ $item->name }}' } );
+                    }
+                        @else{
+                        if( '{{ $item->category_id }}' == '{{ auth()->user()->category_id }}'){
+                            jsonData.push( { 'id':'{{ $item->id }}', 'text':'{{ $item->name }}' } );
+                        }
+                    }
+                    @endif
+
+                }
+
+                        @endforeach
+                        @endforeach
+
+                var myJsonString = JSON.stringify(jsonData);
+                $('.js-example-basic-single-item').empty();
+                $('.js-example-basic-single-item').select2({
+                    data: JSON.parse(myJsonString)
                 });
             })
         })

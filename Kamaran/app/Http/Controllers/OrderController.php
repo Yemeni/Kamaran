@@ -98,7 +98,7 @@ class OrderController extends Controller {
 			'quantity'         => $request->quantity,
 			'cost'             => $request->cost,
 			'user_id'          => auth()->id(),
-			'category_id'      => auth()->user()->isAdmin() ? $request->category_id : auth()->user()->category_id
+			'category_id'      => Item::where('id',$request->item_id )->first()->category_id
 		]);
 
 		Alert::flash('New order has been added', 'success');
@@ -261,7 +261,7 @@ class OrderController extends Controller {
 			'quantity'         => $request->quantity,
 			'cost'             => $request->cost,
 			'user_id'          => auth()->id(),
-			'category_id'      => auth()->user()->isAdmin() ? $request->category_id : auth()->user()->category_id
+			'category_id'      => Item::where('id',$request->item_id )->first()->category_id
 		]);
 
 		Alert::flash('Order has been updated', 'success');
