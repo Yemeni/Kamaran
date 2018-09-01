@@ -24,6 +24,8 @@ function clock()
     var min = d.getMinutes();
     var sec = d.getSeconds();
 
-    document.getElementById("date").innerHTML=day+" "+date+" "+month+" "+year;
-    document.getElementById("time").innerHTML=hour+":"+min+":"+sec;
+    if($('#date').length && $('#time').length ){
+        document.getElementById("date").innerHTML=day+" "+date+" "+month+" "+year;
+        document.getElementById("time").innerHTML=hour+":"+min+":"+sec;
+    }
 }
