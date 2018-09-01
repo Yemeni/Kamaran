@@ -106,7 +106,7 @@
 
                                                         <div class="form-group">
                                                             <label for="">Status:</label>
-                                                            <select name="shipment_status" class="form-control shipment-select">
+                                                            <select name="shipment_status" class="form-control shipment-select js-example-basic-single">
                                                                 <option value="on_hold" {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }}>
                                                                     on Hold
                                                                 </option>
@@ -214,6 +214,11 @@
 
 @section('js')
     <script type="text/javascript">
-        $(".form_datetime").datetimepicker();
+        $(document).ready(function () {
+
+            $(".form_datetime").datetimepicker();
+            $('.js-example-basic-single').select2({ width: '100%' });
+
+        });
     </script>
 @append

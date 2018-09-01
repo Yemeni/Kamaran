@@ -49,7 +49,7 @@
 
                                 <div class="form-group">
                                     <label for="">Letter:</label>
-                                    <select name="letter_of_credit" class="form-control">
+                                    <select name="letter_of_credit" class="form-control js-example-basic-single">
                                         <option>cif</option>
                                         <option>cf</option>
                                         <option>fob</option>

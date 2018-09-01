@@ -49,7 +49,7 @@
 
                                 <div class="form-group">
                                     <label for="">Letter:</label>
-                                    <select name="letter_of_credit" class="form-control">
+                                    <select name="letter_of_credit" class="form-control js-example-basic-single">
                                         <option {{ $order->letter_of_credit == 'cif' ? 'selected' : '' }}>cif</option>
                                         <option {{ $order->letter_of_credit == 'cf' ? 'selected' : '' }}>cf</option>
                                         <option {{ $order->letter_of_credit == 'fob' ? 'selected' : '' }}>fob</option>
@@ -78,7 +78,7 @@
 
                                 <div class="form-group">
                                     <label for="">Item:</label>
-                                    <select name="item_id" class="js-example-basic-single-item form-control">
+                                    <select name="item_id" class="js-example-basic-single-item js-example-basic-single form-control">
                                         @foreach($suppliers->where('id', $order->supplier_id)->first()->items as $item)
                                             @if(auth()->user()->isAdmin())
                                             <option value="{{ $item->id }}" {{ $order->item_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>

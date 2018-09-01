@@ -169,7 +169,7 @@
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
-                                                        <select name="shipment_status" class="form-control shipment-select">
+                                                        <select name="shipment_status" class="form-control shipment-select js-example-basic-single">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
@@ -405,7 +405,7 @@
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
-                                                        <select name="shipment_status" class="form-control shipment-select">
+                                                        <select name="shipment_status" class="form-control shipment-select js-example-basic-single">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
@@ -695,7 +695,7 @@
 
                                                     <div class="form-group">
                                                         <label for="">Status:</label>
-                                                        <select name="shipment_status" class="form-control shipment-select">
+                                                        <select name="shipment_status" class="form-control shipment-select js-example-basic-single">
                                                             <option {{ $ship->shipment_status == 'on_hold' ? 'selected' : '' }} value="on_hold">
                                                                 on Hold
                                                             </option>
@@ -846,6 +846,7 @@
     <script type="text/javascript">
         $(".form_datetime").datetimepicker();
         $('.arrival-date').hide();
+        $('.js-example-basic-single').select2({ width: '100%' }); // TODO: wrap them in document ready
         $(document).ready(function () {
             $('.shipment-select').on('change', function (eve) {
                 switch ($(this).val()) {
