@@ -80,7 +80,11 @@
                                     <label for="">Item:</label>
                                     <select name="item_id" class="js-example-basic-single-item form-control">
                                         @foreach($suppliers->where('id', $order->supplier_id)->first()->items as $item)
+                                            @if(auth()->user()->isAdmin())
                                             <option value="{{ $item->id }}" {{ $order->item_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                            @elseif($item->category_id == auth()->user()->getCategoryId())
+                                                <option value="{{ $item->id }}" {{ $order->item_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
@@ -132,6 +136,10 @@
 
     <script>
         $(document).ready(function () {
+
+            var cost = $('input[name="cost"]').val();
+            var quantity = $('input[name="quantity"]').val();
+            $('#total').html(cost * quantity);
 
             $('.calc').change(function () {
                 var total = 1;
