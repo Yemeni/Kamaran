@@ -34,7 +34,7 @@ class OrderController extends Controller {
 		$approvedOrders = Order::where('order_status', 'approved')->get();
 		$cancelledOrders = Order::where('order_status', 'cancelled')->get();
 
-		$managers = User::whereIn('level', ['admin', 'manager'])->get();
+		$managers = User::where('level', 'admin')->get();
 
 		return view('review_orders', compact('pendingOrders', 'approvedOrders', 'cancelledOrders', 'managers'));
 	}
