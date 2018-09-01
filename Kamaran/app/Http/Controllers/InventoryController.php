@@ -234,7 +234,7 @@ class InventoryController extends Controller {
 
 
 		$pos = ['voucher', 'initial_balance', 'surplus'];
-
+        $itemsId = [];
 
 		foreach (session('filtered') as $inv)
 		{
@@ -242,17 +242,23 @@ class InventoryController extends Controller {
             if(!isset($total[$inv->item_id]['name'])){
                 $total[$inv->item_id]['name'] = Item::where('id', $inv->item_id)->first()->name;
                 $total[$inv->item_id]['unit'] = Item::where('id', $inv->item_id)->first()->unit;
+                array_push($itemsId, $inv->item_id);
             }
 
-
-            if (in_array($inv->transaction_type, $pos))
-			{
-				$total[$inv->item_id]['total'] += $inv->quantity;
-			} else
-			{
-				$total[$inv->item_id]['total'] -= $inv->quantity;
-			}
 		}
+
+		$InventoryToQuery = Inventory::whereIn('item_id', $itemsId)->get();
+        foreach($InventoryToQuery as $invToQuery){
+            if (in_array($invToQuery->transaction_type, $pos))
+            {
+                $total[$invToQuery->item_id]['total'] += $invToQuery->quantity;
+            } else
+            {
+                $total[$invToQuery->item_id]['total'] -= $invToQuery->quantity;
+            }
+
+        }
+
 
 //        foreach($questions as $key => $question){
 //            $questions[$key]['answers'] = $answers_model->get_answers_by_question_id($question['question_id']);
