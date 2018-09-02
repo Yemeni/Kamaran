@@ -183,19 +183,19 @@ class HomeController extends Controller {
 	{
 		if ($approved)
 		{
-			$orders = Order::select('id', 'created_at')->where('order_status', 'approved')
+			$orders = Order::select('id', 'approval_date')->where('order_status', 'approved')
 				->get()
 				->groupBy(function ($date) {
 					//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-					return Carbon::parse($date->created_at)->format('m'); // grouping by months
+					return Carbon::parse($date->approval_date)->format('m'); // grouping by months
 				});
 		} else
 		{
-			$orders = Order::select('id', 'created_at')
+			$orders = Order::select('id', 'date')
 				->get()
 				->groupBy(function ($date) {
 					//return Carbon::parse($date->created_at)->format('Y'); // grouping by years
-					return Carbon::parse($date->created_at)->format('m'); // grouping by months
+					return Carbon::parse($date->date)->format('m'); // grouping by months
 				});
 		}
 
