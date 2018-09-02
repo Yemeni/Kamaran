@@ -24,7 +24,9 @@
                             <th>Category</th>
                             <th>Item</th>
                             <th>Employee</th>
-                            <th>Date</th>
+                            <th>Order Approval Date</th>
+                            <th>Expected Arrival</th>
+                            <th>Arrived Date</th>
                             <th>Quantity</th>
                             <th>Action</th>
                         </tr>
@@ -36,8 +38,10 @@
                                 <td>{{ $inv->shipment->invoice }}</td>
                                 <td>{{ $inv->category->name }}</td>
                                 <td>{{ $inv->item->name }}</td>
-                                <td>{{ $inv->user->name ?? '-' }}</td>
-                                <td>{{ $inv->date ? $inv->date->format('Y-m-d') : '-' }}</td>
+                                <td>{{ $inv->shipment->user->name ?? '-' }}</td>
+                                <td>{{ $inv->shipment->order->approval_date ? $inv->shipment->order->approval_date->format('Y-m-d') : '-' }}</td>
+                                <td>{{ $inv->shipment->expected_date ? $inv->shipment->expected_date->format('Y-m-d') : '-' }}</td>
+                                <td>{{ $inv->shipment->arrival_date ? $inv->shipment->arrival_date->format('Y-m-d') : '-' }}</td>
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
                                 <td>
                                     <a href="{{ url('/inventory_incoming_shipments/'.$inv->id.'/approved') }}" class="btn btn-info btn-sm">
