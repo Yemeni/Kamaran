@@ -12,7 +12,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div align="center">
-                <h2>Supply Inventory Management System <small>Version 0.9.0</small><br/>
+                <h2>Supply Inventory Management System <small>Version 0.9.117</small><br/>
                     for<br/>
                     Kamaran Industry & Investment Co.
                 </h2>
@@ -22,9 +22,8 @@
                 <div class="col-md-6">
                     <p>
                         Developed by:
-
-
                     </p>
+                    <div class=""><img src="{{ asset('resources/LIU_Logo.png') }}" alt="" width="160px" height="136.8px"></div>
                     <ul>
                         <li>Yousef Al-Hadhrami</li>
                         <li>Rashad H. Al-Khmisy</li>
