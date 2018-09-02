@@ -3,16 +3,17 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-    <h1>Inventory</h1>
+    <h1>Inventory Balance</h1>
 
 @stop
 
 @section('content')
 
-    <p>You are logged in!</p>
+
 
     <div class="row">
         <div class="col-lg-4 col-md-12 col-xs-12">
+            <p class="text text-bold">Shipment Status</p>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">
                         <!-- small box -->
