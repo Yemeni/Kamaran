@@ -122,11 +122,7 @@
                         <sup style="font-size: 20px">Orders</sup> {{ \App\Order::where('order_status','approved')->count() }}
                         <sup style="font-size: 20px">Approved</sup></h3>
 
-                    <p>Total of {{ \App\Order::
-                    whereDate('date', '=', date('2018-08-24'))
-                    ->count() }} Orders made today ({{ \App\Order::where('order_status','approved')
-                    ->whereDate('date', '=', date('2018-08-24'))
-                    ->count() }} Approved)</p>
+                    <p>Total of {{ $todayOrdersCount }} Orders made today ({{ $todayApprovedOrdersCount }} Approved)</p>
                     <p><br/></p>
                     <div class="bg-gray">
                         {!! $ordersChart->render() !!}

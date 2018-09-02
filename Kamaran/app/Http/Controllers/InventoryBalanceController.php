@@ -105,8 +105,8 @@ class InventoryBalanceController extends Controller
         foreach($items as $item){
             $itemInventory = Item::where('id', $item)->first();
             // TODO: use system month instead of static number
-            $year = 2018;
-            $month = 8;
+            $year = date('Y');
+            $month = date('m');
             $data[$item]['consumptionLastMonth'] = $itemInventory->inventory()->where('transaction_type', 'consume')
                 ->whereYear('date', '=', date($year))
                 ->whereMonth('date', '=', date($month-1)) // exception when last month is January, it returns month 0

@@ -56,7 +56,10 @@ class HomeController extends Controller {
 		$latestOrders = Order::latest()->take(5)->get();
 		$latestInventories = Inventory::where('arrival_status', 1)->latest()->take(5)->get();
 
-		return view('overview', compact('tobaccoChart', 'consumedTobacco', 'orderedTobacco', 'ordersChart', 'tobacco', 'currentTobacco', 'tobaccoUnit', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
+		$todayOrdersCount = Order::whereDate('date', '=', date('Y-m-d'))->count();
+		$todayApprovedOrdersCount = Order::whereDate('date', '=', date('Y-m-d'))->where('order_status', 'approved')->count();
+
+		return view('overview', compact('todayOrdersCount', 'todayApprovedOrdersCount', 'tobaccoChart', 'consumedTobacco', 'orderedTobacco', 'ordersChart', 'tobacco', 'currentTobacco', 'tobaccoUnit', 'latestInventories', 'latestOrders', 'pendingOrders', 'pendingShipments', 'totalItems', 'totalSuppliers', 'onHoldInventories'));
 	}
 
 	private function tobaccoChart()
