@@ -173,7 +173,7 @@ class InventoryController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		Gate::authorize('inventory');
+		Gate::authorize('admin||inventory');
 
 		$item = '';
 		if ($request->item_id)
@@ -230,7 +230,7 @@ class InventoryController extends Controller {
 
 	public function print()
 	{
-		Gate::authorize('admin||manager||inventory');
+		Gate::authorize('admin||manager||employee||inventory');
 
 
 		$pos = ['voucher', 'initial_balance', 'surplus'];
@@ -298,7 +298,7 @@ class InventoryController extends Controller {
 	 */
 	public function approved(Inventory $inventory)
 	{
-		Gate::authorize('inventory');
+		Gate::authorize('admin||inventory');
 
 		$inventory->update([
 			'arrival_status'   => 1,
