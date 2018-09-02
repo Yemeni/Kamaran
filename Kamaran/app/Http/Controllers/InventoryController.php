@@ -25,7 +25,7 @@ class InventoryController extends Controller {
 	 */
 	public function showInventoryReports()
 	{
-		Gate::authorize('admin||manager||employee||inventory');
+		Gate::authorize('admin||manager||inventory');
 
 		$inventories = Inventory::query();
 
@@ -143,7 +143,7 @@ class InventoryController extends Controller {
 	}
     public function showIncomingShipments()
     {
-        Gate::authorize('admin||inventory');
+        Gate::authorize('inventory');
         $onHold = Inventory::where('arrival_status', 0)->get();
         return view('inventory_incoming_shipments', compact('onHold'));
     }
@@ -155,7 +155,7 @@ class InventoryController extends Controller {
 	 */
 	public function create()
 	{
-		Gate::authorize('admin||inventory');
+		Gate::authorize('inventory');
 
 		$items = Item::whereHas('inventory')->get();
 

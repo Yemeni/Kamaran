@@ -221,25 +221,25 @@ return [
                 [
                     'text'    => 'Inventory',
                     'icon'    => 'cubes',
-                    'can'  => 'admin||manager||employee||inventory',
+                    'can'  => 'admin||manager||inventory',
                     'submenu' => [
                         [
                             'text' => 'Incoming Shipments',
                             'icon' => 'cubes',
                             'url'  => '/inventory_incoming_shipments',
-                            'can'  => 'admin||inventory'
+                            'can'  => 'inventory'
                         ],
                         [
                             'text' => 'Make Transaction', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                             'icon' => 'cubes',
                             'url'  => '/inventory_transaction',
-                            'can'  => 'admin||inventory'
+                            'can'  => 'inventory'
                         ],
                         [
                             'text' => 'Inventory Reports', // manager(adds stuff) + employee (adds stuff) + inventory_employee
                             'icon' => 'cubes',
                             'url'  => '/inventory',
-                            'can'  => 'admin||manager||employee||inventory'
+                            'can'  => 'admin||manager||inventory'
                         ],
                     ]
                 ],
