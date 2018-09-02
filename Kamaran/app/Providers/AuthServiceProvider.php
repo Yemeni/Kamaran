@@ -45,9 +45,6 @@ class AuthServiceProvider extends ServiceProvider {
 		Gate::define('admin||manager||employee', function ($user) {
 			return $user->level == 'admin' || $user->level == 'employee' || $user->level == 'manager';
 		});
-        Gate::define('admin||manager||inventory', function ($user) {
-            return $user->level == 'admin' || $user->level == 'employee' || $user->level == 'inventory_employee';
-        });
 		Gate::define('admin', function ($user) {
 			return $user->level == 'admin';
 		});
