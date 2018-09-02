@@ -28,8 +28,13 @@ class InventoryBalanceController extends Controller
         $percentage = $this->percentageCalculator(false);
         $consumption = $this->consumptionCalculator();
         $items = Item::select('id', 'name','important')->get()->toArray();
-
-        return view('inventory_balance', compact('balance','percentage','items', 'consumption'));
+        $shipmentsCount['on_Hold'] = Shipment::where('shipment_status', 'on_hold')->where('invoice', '!=', null)->count();
+        $shipmentsCount['moving'] = Shipment::where('shipment_status', 'moving')->count();
+        $shipmentsCount['delayed'] = Shipment::where('shipment_status', 'delayed')->count();
+        $shipmentsCount['cancelled'] = Shipment::where('shipment_status', 'canceled')->count();
+        $shipmentsCount['arrived'] = Shipment::where('shipment_status', 'arrived')->count();
+        
+        return view('inventory_balance', compact('balance','percentage','items', 'consumption', 'shipmentsCount' ));
     }
 
     private function getItems(){

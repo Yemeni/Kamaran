@@ -12,65 +12,76 @@
     <p>You are logged in!</p>
 
     <div class="row">
-        <div class="col-lg-2 col-xs-2">
-                <!-- small box -->
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3>80</h3>
-
-                        <p>Shipping</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <div class="col-lg-4 col-md-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                        <!-- small box -->
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3>{{ $shipmentsCount['on_Hold'] }}</h3>
+                                <p>On Hold Shipments</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-help-circled"></i>
+                            </div>
+                        </div>
+                    <!-- ./col -->
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3>{{ $shipmentsCount['moving'] }}</h3>
+                                <p>Moving Shipments</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-fw fa-ship "></i>
+                            </div>
+                        </div>
                 </div>
-            <!-- ./col -->
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>53</h3>
-
-                        <p>Orderes</p>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>{{ $shipmentsCount['delayed'] }}</h3>
+                            <p>Delayed Shipments</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-clock"></i>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
+                    <!-- ./col -->
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>{{ $shipmentsCount['cancelled'] }}</h3>
+                            <p>Cancelled Shipments</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-close-circled"></i>
+                        </div>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-        </div>
-        <div class="col-lg-2 col-xs-2">
-            <!-- small box -->
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>80</h3>
-
-                    <p>Shipping</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <!-- ./col -->
-            <!-- small box -->
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h3>53</h3>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>{{ $shipmentsCount['arrived'] }}</h3>
+                            <p>Total Arrived Shipments</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-checkmark-circled"></i>
+                        </div>
+                    </div>
+                </div>
 
-                    <p>Orderes</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
-        <div class="col-lg-8 col-xs-6">
+        <div class="col-lg-8 col-xs-12">
 
             <div class="row">
-                <div class="col-lg-3 col-xs-4">
+                <div class="col-lg-3 col-xs-6">
                     <p class="text text-bold">Item Name</p>
                 </div>
 
