@@ -53,8 +53,7 @@
                 </table>
                 <br/>
                 <p style="font-weight: 400; padding-left:5.4pt; text-align: center;" ><strong><u>Purchase Order</u></strong></p>
-                <p style="font-weight: 400; padding-left:5.4pt;"><strong>Please supply us with the following item:</strong>:</p>
-                <p style="font-weight: 400; padding-left:5.4pt;">Your quotation is requested for the following&nbsp;item :</p>
+                <p style="font-weight: 400; padding-left:5.4pt;"><strong>Please supply us with the following item:</strong></p>
                 <table style="width: 676px;">
                     <tbody>
                     <tr style="border: 1px solid;">
@@ -108,13 +107,13 @@
                     </tr>
                     <tr>
                         <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="2">
-                            {{ (string) number_format($order['quantity']) }} {{ $item['unit'] }}
+                            {{ (string) number_format($order['quantity']), 2 }} {{ $item['unit'] }}
                         </td>
                         <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="1">
-                            {{ (string) number_format($order['cost']) }} $
+                            {{ (string) number_format($order['cost'], 2) }} $
                         </td>
                         <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="3">
-                            {{ (string) number_format($order['cost']*$order['quantity']) }} $
+                            {{ (string) number_format($order['cost']*$order['quantity']), 2 }} $
                         </td>
                     </tr>
 
@@ -235,6 +234,16 @@
             margin:0;
         }
 
+        @  @media print {
+            html, body {
+                border: 1px solid white;
+                height: 99%;
+                page-break-after: avoid;
+                page-break-before: avoid;
+            }
+        }
+
+
         /*p{*/
             /*font-family:"Calibri",sans-serif;*/
         /*}*/
@@ -257,7 +266,12 @@
 @section('js')
     <script>
         $( document ).ready(function() {
-            $("footer").hide();
+//            $("footer").hide();
+
+            $("footer").html("<div class='pull-right'>Printed by {{ auth()->user()->name }} || {{ \Carbon\Carbon::now()->format('Y-m-d H:i') }}</div>");
+            $( "footer" ).removeClass( "main-footer" );
+
+
             setTimeout(
                 function()
                 {
@@ -284,6 +298,7 @@
 
 
         $(document).ready(function(){$("table tbody th, table tbody td").wrapInner("<div></div>");});
+
 
     </script>
 @append

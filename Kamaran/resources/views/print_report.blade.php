@@ -37,18 +37,18 @@
                                 <th>Quantity</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <td>
-                                    @if(isset(Auth::user()->name))
-                                        <div>Printed by
-                                            <span>{{ auth()->user()->name }}</span>
-                                            on {{ \Carbon\Carbon::now()->format('Y-m-d H:i') }}
-                                        </div>
-                                    @endif
-                                </td>
-                            </tr>
-                        </tfoot>
+                        {{--<tfoot>--}}
+                            {{--<tr>--}}
+                                {{--<td colspan="7">--}}
+                                    {{--@if(isset(Auth::user()->name))--}}
+                                        {{--<div class="pull-right">Printed by--}}
+                                            {{--<span>{{ auth()->user()->name }}</span>--}}
+                                            {{--|| {{ \Carbon\Carbon::now()->format('Y-m-d H:i') }}--}}
+                                        {{--</div>--}}
+                                    {{--@endif--}}
+                                {{--</td>--}}
+                            {{--</tr>--}}
+                        {{--</tfoot>--}}
                         <tbody>
                         @foreach($inventories as $inv)
                             <tr>
@@ -90,13 +90,29 @@
                                 <td>{{ $inv->quantity }} {{ $inv->item->unit }}</td>
                             </tr>
                         @endforeach
+                        </tbody>
 
+                    </table>
+                    <div class="pagebreak"> </div>
+
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <th colspan="7">
+                                    <img src="{{ asset('resources/Report Page Header.jpg') }}">
+                                    <p>Report of: {{ $reportHeader['category'] }} - {{ $reportHeader['item'] }} - {{ $reportHeader['status'] }} Transactions {{ $reportHeader['fromDate'] }} {{ $reportHeader['toDate'] }}</p>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="4"><strong>Item Name</strong></td>
+                                <td colspan="3"><strong>Total in Inventory</strong></td>
+                            </tr>
                         @foreach($result as $res)
                             <tr>
                                 <td colspan="4">Current {{ $res['name'] }} in Inventory</td>
                                 <td colspan="3">{{ $res['total'] }} {{ $res['unit'] }}</td>
                             </tr>
-                        @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -113,6 +129,7 @@
 @section('css')
     <style>
 
+        .pagebreak { page-break-before: always; } /* page-break-after works, as well */
 
         @media print
         {
@@ -121,6 +138,16 @@
             td    { page-break-inside:avoid; page-break-after:auto }
             thead { display:table-header-group }
             tfoot { display:table-footer-group }
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            /*background-color: red;*/
+            /*color: white;*/
+            /*text-align: center;*/
         }
 
         /*@media screen {*/
@@ -141,7 +168,10 @@
 @section('js')
     <script>
         $( document ).ready(function() {
-            $("footer").hide();
+//            $("footer").hide();
+            $("footer").html("<div class='pull-right'>Printed by {{ auth()->user()->name }} || {{ \Carbon\Carbon::now()->format('Y-m-d H:i') }}</div>");
+            $( "footer" ).removeClass( "main-footer" );
+//            $( "footer" ).addClass( "sticky-footer" );
             setTimeout(
                 function()
                 {
