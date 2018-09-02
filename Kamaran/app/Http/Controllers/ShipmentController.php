@@ -146,7 +146,7 @@ class ShipmentController extends Controller {
 
 		$relatedOrder = Order::find($shipment->order_id)->first();
 
-		if ($relatedOrder->approval_date <= Carbon::createFromFormat('Y-m-d H:i', $request->expected_date)){
+		if ($relatedOrder->approval_date >= Carbon::createFromFormat('Y-m-d H:i', $request->expected_date)){
 			Alert::flash('The expected date for "'.$shipment->order->item->name.'" on pending exceeds the order approval date', 'warning');
 
 			return back();
