@@ -19,17 +19,20 @@
                     <p>Total Employees</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-person-add"></i>
+                    <i class="fa fa-fw fa-users"></i>
                 </div>
             </div>
         </div>
         <div class="col-lg-2 col-xs-6">
             <!-- small box -->
-            <div class="box">
+            <div class="small-box bg-purple">
                 <div class="inner">
-                    <p>Today is Tuesday,</p>
-                    <p>22 March 2019</p>
-                    <p>8:31 AM</p>
+                    <h3>{{ count($activeEmployees) }}</h3>
+
+                    <p>Active Employees</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
                 </div>
             </div>
         </div>

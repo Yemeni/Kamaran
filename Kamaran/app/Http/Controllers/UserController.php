@@ -103,11 +103,13 @@ class UserController extends Controller {
 		if (auth()->user()->hasCategoryEmployees())
 			$employees = auth()->user()->categoryEmployees();
 
-
 		if (auth()->user()->isAdmin())
 			$employees = User::all();
 
-		return view('manage_employees', compact('employees'));
+        $activeEmployees = $employees->where('status' , 'active');
+
+
+        return view('manage_employees', compact('employees', 'activeEmployees'));
 	}
 
 	/**
