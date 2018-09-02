@@ -31,7 +31,7 @@ class InventoryBalanceController extends Controller
         $shipmentsCount['on_Hold'] = Shipment::where('shipment_status', 'on_hold')->where('invoice', '!=', null)->count();
         $shipmentsCount['moving'] = Shipment::where('shipment_status', 'moving')->count();
         $shipmentsCount['delayed'] = Shipment::where('shipment_status', 'delayed')->count();
-        $shipmentsCount['cancelled'] = Shipment::where('shipment_status', 'canceled')->count();
+        $shipmentsCount['cancelled'] = Shipment::where('shipment_status', 'cancelled')->count();
         $shipmentsCount['arrived'] = Shipment::where('shipment_status', 'arrived')->count();
         
         return view('inventory_balance', compact('balance','percentage','items', 'consumption', 'shipmentsCount' ));
