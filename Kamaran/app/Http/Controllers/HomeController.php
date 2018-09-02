@@ -132,7 +132,7 @@ class HomeController extends Controller {
                 for ($index = 0; $index <= 11; $index++) {
                     // TODO: fetch year date from system time instead of 2018
                     // TODO: the query is heavy
-                    $totalConsumedArray[$index] = $tobacco->inventory()->where('transaction_type', 'consume')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index + 1))
+                    $totalConsumedArray[$index] = $tobacco->inventory()->where('transaction_type', 'consume')->whereYear('date', '=', date('Y'))->whereMonth('date', '=', date($index + 1))
                         ->get()->sum('quantity');
                 }
                 return $totalConsumedArray;
@@ -144,7 +144,7 @@ class HomeController extends Controller {
                     // TODO: fetch year date from system time instead of 2018
                     // TODO: the query is heavy
                     $totalOrdersArray[$index] =
-                        $tobacco->order()->where('order_status', 'approved')->whereYear('date', '=', date('2018'))->whereMonth('date', '=', date($index+1))
+                        $tobacco->order()->where('order_status', 'approved')->whereYear('date', '=', date('Y'))->whereMonth('date', '=', date($index+1))
                         ->get()->sum('quantity');
                 }
                 return $totalOrdersArray;
