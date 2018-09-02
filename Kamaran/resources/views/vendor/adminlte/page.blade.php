@@ -133,7 +133,7 @@
     <!-- ./wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <strong><a href="/about">Version 0.9.0</a></strong>
+            <strong><a href="/about">Version 0.9.117</a></strong>
         </div>
         <strong>Copyright © 2018 <a href="https://kamaran.com">Kamaran Industry & Investment Co.</a></strong> All rights
         reserved.
