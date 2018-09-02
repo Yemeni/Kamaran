@@ -144,7 +144,6 @@ class ShipmentController extends Controller {
 			'invoice'         => 'required|numeric',
 		]);
 
-		$relatedOrder = Order::find($shipment->order_id)->first();
 		$relatedOrder = Order::where('id', $shipment->order_id)->first();
 
 		if ($relatedOrder->approval_date >= Carbon::createFromFormat('Y-m-d H:i', $request->expected_date)){
