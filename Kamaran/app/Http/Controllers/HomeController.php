@@ -30,7 +30,10 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		Gate::authorize('admin||inventory');
+	    if(auth()->user()->level == 'inventory_employee'){
+	         return redirect('inventory_balance');
+        }
+		Gate::authorize('admin');
 
 		$ordersChart = $this->ordersChart();
 		$tobaccoChart = $this->tobaccoChart();

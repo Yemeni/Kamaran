@@ -119,7 +119,7 @@ return [
 					'text' => 'Overview', // manager
 					'icon' => 'eye',
 					'url'  => '/',
-                    'can'  => 'admin||inventory'
+                    'can'  => 'admin'
 				],
                 [
                     'text' => 'Inventory Balance', // manager
