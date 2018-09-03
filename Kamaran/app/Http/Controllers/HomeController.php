@@ -149,13 +149,6 @@ class HomeController extends Controller {
                     $totalOrdersArray[$index] =
                         $tobacco->order()->where('order_status', 'approved')->whereYear('date', '=', date('Y'))->whereMonth('date', '=', date($index+1))
                         ->get()->sum('quantity');
-
-                    $itemOrders = $tobacco
-                        ->order()->select('id')->get();
-                    $totalOrdersArray[$index] -=
-                        Shipment::whereIn('order_id', $itemOrders)->whereIn('shipment_status' ,['cancelled'])
-                            ->whereYear('date', '=', date('Y'))->whereMonth('date', '=', date($index+1))
-                            ->get()->sum('quantity');
                 }
                 return $totalOrdersArray;
 			}
