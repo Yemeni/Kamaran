@@ -161,7 +161,7 @@
                     <tr>
                         <td style="width: 421px; padding: 0in 5.4pt 0in 5.4pt; border: 1px solid grey" colspan="6">
                             For further information you may contact
-                            @if($headOfDepartment['gender'])
+                            @if($headOfDepartment['gender'] == 'male')
                                 Mr.
                                @else
                                 Mrs.

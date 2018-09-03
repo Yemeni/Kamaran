@@ -171,7 +171,7 @@ class OrderController extends Controller {
 
         $supplier = Supplier::where('id', $order['supplier_id'])->first();
 
-        $item = Item::where('id', '2')->first();
+        $item = Item::where('id', $order['item_id'])->first();
         $item['description'] = $item['description'] ? $item['description'] : 'N/a' ;
         $item['specification'] = $item['specification'] ? $item['specification'] : 'N/a' ;
 
