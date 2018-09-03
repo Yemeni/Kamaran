@@ -91,7 +91,7 @@
                 <div class="icon">
                     <i class="ion ion-android-exit"></i>
                 </div>
-                <a href="/inventory" class="small-box-footer">More info
+                <a href="/inventory_incoming_shipments" class="small-box-footer">More info
                     <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
