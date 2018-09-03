@@ -151,14 +151,7 @@ class ShipmentController extends Controller {
 
 			return back();
 		}
-
-		if ($request->has('arrival_date') && $request->arrival_date != null){
-			if (Carbon::createFromFormat('Y-m-d H:i', $request->expected_date) > Carbon::createFromFormat('Y-m-d H:i', $request->arrival_date)){
-				Alert::flash('The expected date for "'.$shipment->order->item->name.'" on pending exceeds the order arrival date', 'warning');
-
-				return back();
-			}
-		}
+        
 
 		if ($request->has('quantity'))
 		{
