@@ -1,6 +1,7 @@
 
 
 # Kamaran Management Information System
+Link to the full documentation: [Kamaran MIS.PDF](https://drive.google.com/file/d/1MG8k3N0GbIMjf-lxG0OJvCqOV82rK9C_/view?usp=sharing).
 
 ---
 # Introduction
@@ -33,3 +34,9 @@ Graduation Project built in Php with laravel framework
 
  - If you recieve Pdo mysql connect error, make sure you uncomment ```extension=php_pdo_mysql.dll``` in php.ini file  
 
+# Credits
+ - Yousef Al-Hadhrami https://twitter.com/YousefHadhrami
+ - Rashad Al-Khmisy https://twitter.com/ADMIRAL12
+ - Anwar Sharhan https://twitter.com/AnwarSharhan77
+
+ - Lebanese International University https://ye.liu.edu.lb/index/
