@@ -15,6 +15,13 @@ class DatabaseSeeder extends Seeder {
 		\App\Category::create([
 			'name' => 'Department of Raw Materials'
 		]);
+		
+		\App\Item::create([
+			'name' => 'Tobacco',
+			'category_id' => 1,
+			'unit' => 'KG',
+			'danger_level' => 'normal'
+		]);
 
 		\App\User::create([
 			'name'     => 'admin',
